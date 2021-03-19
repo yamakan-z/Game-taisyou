@@ -29,7 +29,12 @@ CSceneMain::~CSceneMain()
 //初期化メソッド
 void CSceneMain::InitScene()
 {
+	//グラフィック読み込み
+	Draw::LoadImageW(L"仮主人公.png", 0, TEX_SIZE_512);
 
+	//主人公オブジェクト作成
+	CObjHero* obj = new CObjHero();
+	Objs::InsertObj(obj, OBJ_HERO, 10);
 }
 
 //実行中メソッド
