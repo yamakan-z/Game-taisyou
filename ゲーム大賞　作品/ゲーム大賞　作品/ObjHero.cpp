@@ -12,7 +12,7 @@ using namespace GameL;
 //イニシャライズ
 void CObjHero::Init()
 {
-	 m_px=0.0f;//位置
+	 m_px=100.0f;//位置
 	 m_py=0.0f;
 	 m_vx=0.0f;//移動ベクトル
 	 m_vy=0.0f;
@@ -32,13 +32,13 @@ void CObjHero::Action()
 	//キーの入力方向
 	if (Input::GetVKey(VK_RIGHT) == true)
 	{
-		m_vx = +3.0f;
+		m_vx = +5.0f;
 		m_posture = 1.0f;
 	}
 
 	if (Input::GetVKey(VK_LEFT) == true)
 	{
-		m_vx = -3.0f;
+		m_vx = -5.0f;
 		m_posture = 0.0f;
 	}
 
