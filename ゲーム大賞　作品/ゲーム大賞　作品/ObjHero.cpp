@@ -17,29 +17,36 @@ void CObjHero::Init()
 	 m_vx=0.0f;//移動ベクトル
 	 m_vy=0.0f;
 	 m_posture = 1.0f;//右向き0.0f左向き1.0f
+
+	 //blockとの衝突状態確認
+	 m_hit_up = false;
+	 m_hit_down = false;
+	 m_hit_left = false;
+	 m_hit_right = false;
 }
 
 //アクション
 void CObjHero::Action()
 {
-	//移動ベクトルの破棄
-	m_vy=0.0f;
 
 	//キーの入力方向
 	if (Input::GetVKey(VK_RIGHT) == true)
 	{
-		m_vx = +1.0f;
+		m_vx = +3.0f;
 		m_posture = 1.0f;
 	}
 
 	if (Input::GetVKey(VK_LEFT) == true)
 	{
-		m_vx = -1.0f;
+		m_vx = -3.0f;
 		m_posture = 0.0f;
 	}
 
 	//摩擦
 	m_vx += -(m_vx * 0.098);
+
+	//自由落下運動
+	m_vy += 9.8 / (16.0f);
 
 	//位置の更新
 	m_px += m_vx;
