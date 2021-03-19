@@ -23,7 +23,6 @@ void CObjHero::Init()
 void CObjHero::Action()
 {
 	//移動ベクトルの破棄
-	m_vx=0.0f;
 	m_vy=0.0f;
 
 	//キーの入力方向
@@ -38,6 +37,9 @@ void CObjHero::Action()
 		m_vx = -1.0f;
 		m_posture = 0.0f;
 	}
+
+	//摩擦
+	m_vx += -(m_vx * 0.098);
 
 	//位置の更新
 	m_px += m_vx;
