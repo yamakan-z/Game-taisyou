@@ -8,6 +8,7 @@ enum OBJ_NAME
 	//OBJ_○○と表記
 	OBJ_HERO,
 	OBJ_BLOCK,
+	OBJ_LADDER,
 };
 //------------------------------------------------
 
@@ -35,6 +36,7 @@ enum HIT_ELEMENTS
 struct UserData
 {
 	int mSeveData;	//サンプルセーブデータ
+	bool up_flag = false;  //はしごがある時、上に上がるフラグ
 	
 };
 //------------------------------------------------
@@ -53,6 +55,7 @@ struct UserData
 //ゲームシーンオブジェクトヘッダ------------------
 #include"ObjHero.h"
 #include"ObjBlock.h"
+#include"ObjLadder.h"
 //------------------------------------------------
 
 //ゲームシーンクラスヘッダ------------------------
