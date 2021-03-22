@@ -69,6 +69,9 @@
     <ClCompile Include="item.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="ObjLadder.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
     <ClCompile Include="turuhasi.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
@@ -132,6 +135,9 @@
       <Filter>ソース ファイル</Filter>
     </ClInclude>
     <ClInclude Include="ObjBlock.h">
+      <Filter>ソース ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjLadder.h">
       <Filter>ソース ファイル</Filter>
     </ClInclude>
     <ClInclude Include="item.h">

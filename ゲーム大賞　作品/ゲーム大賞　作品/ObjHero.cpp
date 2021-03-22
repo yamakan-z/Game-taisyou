@@ -5,6 +5,7 @@
 
 #include"GameHead.h"
 #include"ObjHero.h"
+#include "GameL/UserData.h"
 
 //使用するネームスペース
 using namespace GameL;
@@ -23,6 +24,11 @@ void CObjHero::Init()
 	 m_hit_down = false;
 	 m_hit_left = false;
 	 m_hit_right = false;
+
+	 //踏んでいるブロックの種類を確認
+	 m_block_type = 0;
+
+	 
 }
 
 //アクション
@@ -46,6 +52,11 @@ void CObjHero::Action()
 	{
 		m_vx = -5.0f;
 		m_posture = 0.0f;
+	}
+
+	if (((UserData*)Save::GetData())->up_flag == true&&Input::GetVKey('X') == true)
+	{
+		m_vy = -10.0f;
 	}
 
 	//摩擦

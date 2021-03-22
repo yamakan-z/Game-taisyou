@@ -14,6 +14,7 @@ enum OBJ_NAME
 	OBJ_TITLE,
 	
 	OBJ_GAME_OVER,
+	OBJ_LADDER,
 };
 //------------------------------------------------
 
@@ -41,6 +42,7 @@ enum HIT_ELEMENTS
 struct UserData
 {
 	int mSeveData;	//サンプルセーブデータ
+	bool up_flag = false;  //はしごがある時、上に上がるフラグ
 	
 };
 //------------------------------------------------
@@ -62,6 +64,7 @@ struct UserData
 
 #include"ObjTitle.h"
 #include"ObjGameOver.h"
+#include"ObjLadder.h"
 //------------------------------------------------
 
 //ゲームシーンクラスヘッダ------------------------
