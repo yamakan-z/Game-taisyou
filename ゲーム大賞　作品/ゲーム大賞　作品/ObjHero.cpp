@@ -28,11 +28,6 @@ void CObjHero::Init()
 	 //踏んでいるブロックの種類を確認
 	 m_block_type = 0;
 
-	 //はしごのキーフラグ
-	 up_key_flag = false;
-	 right_flag = true;
-	 left_flag = true;
-
 }
 
 //アクション
@@ -46,13 +41,13 @@ void CObjHero::Action()
 	}
 
 	//キーの入力方向
-	if (Input::GetVKey(VK_RIGHT) == true&& right_flag == true)
+	if (Input::GetVKey(VK_RIGHT) == true&& ((UserData*)Save::GetData())->move_flag == true)
 	{
 		m_vx = +5.0f;
 		m_posture = 1.0f;
 	}
 
-	if (Input::GetVKey(VK_LEFT) == true&& left_flag == true)
+	if (Input::GetVKey(VK_LEFT) == true&& ((UserData*)Save::GetData())->move_flag == true)
 	{
 		m_vx = -5.0f;
 		m_posture = 0.0f;
@@ -64,18 +59,11 @@ void CObjHero::Action()
 		if (m_hit_down==true)
 		{
 			//上移動時は左右移動を受け付けない
-			right_flag = false;
-			left_flag = false;
+			((UserData*)Save::GetData())->move_flag = false;
 			m_vy = -15.0f;
-		}
-		if (m_hit_down == false)
-		{
-			right_flag = true;
-			left_flag = true;
 		}
 		
 	}
-
 	
 	
 

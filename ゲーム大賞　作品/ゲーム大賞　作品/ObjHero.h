@@ -39,11 +39,6 @@ private:
 	float m_vy;
 	float m_posture;//姿勢
 
-	
-	bool up_key_flag;//はしごのキーフラグ
-	bool right_flag;//右のキーフラグ
-	bool left_flag;//左のキーフラグ
-
 	//blockとの衝突状態確認用
 	bool m_hit_up;
 	bool m_hit_down;
