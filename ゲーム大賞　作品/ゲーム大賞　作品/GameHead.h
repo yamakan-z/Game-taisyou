@@ -38,6 +38,7 @@ struct UserData
 	int mSeveData;	//サンプルセーブデータ
 	bool up_flag = false;  //はしごがある時、上に上がるフラグ
 	bool move_flag = true; //上移動時、左右移動を制限するフラグ
+	bool ins_flag = false; //設置フラグ（板）
 	
 };
 //------------------------------------------------

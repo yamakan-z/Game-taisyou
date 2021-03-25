@@ -59,6 +59,11 @@ void CObjHero::Action()
 		
 	}
 	
+	//Ý’u
+	if (Input::GetVKey('X') == true)
+	{
+		((UserData*)Save::GetData())->ins_flag = true;
+	}
 	
 
 	//–€ŽC
