@@ -34,6 +34,9 @@ void CSceneMain::InitScene()
 	Draw::LoadImageW(L"ブロック.png", 1, TEX_SIZE_512);
 	Draw::LoadImageW(L"背景.png", 2, TEX_SIZE_512);
 	Draw::LoadImageW(L"Ladder.png", 3, TEX_SIZE_512);
+	Draw::LoadImageW(L"板.png", 4, TEX_SIZE_512);
+	
+
 
 
 	//主人公オブジェクト作成
