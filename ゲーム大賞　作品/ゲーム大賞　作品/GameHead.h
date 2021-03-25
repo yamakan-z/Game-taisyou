@@ -8,6 +8,7 @@ enum OBJ_NAME
 	//OBJ_○○と表記
 	OBJ_HERO,
 	OBJ_BLOCK,
+	OBJ_GAME_OVER,
 };
 //------------------------------------------------
 
@@ -53,13 +54,16 @@ struct UserData
 //ゲームシーンオブジェクトヘッダ------------------
 #include"ObjHero.h"
 #include"ObjBlock.h"
+#include"ObjGameOver.h"
 //------------------------------------------------
 
 //ゲームシーンクラスヘッダ------------------------
 #include"SceneMain.h"
+#include"SceneGameOver.h"
 //-----------------------------------------------
 
 //シーンスタートクラス---------------------------
 //ゲーム開始時のシーンクラス登録
-#define SET_GAME_START  CSceneMain
+//#define SET_GAME_START  CSceneMain
+#define SET_GAME_START  CSceneGameOver
 //-----------------------------------------------
