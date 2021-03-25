@@ -34,10 +34,10 @@ void CObjGameOver::Action()
 //ÉhÉçÅ[
 void CObjGameOver::Draw()
 {
-	float c[4] = { 1.0f,1.0f,1.0f,1.0f};
+	float c[4] = { 0.5f,0.0f,0.0f,1.0f};
 
-	Font::StrDraw(L"YOU LOST",0,0,32,c);
-	Font::StrDraw(L"GAMEOVER",0,40,32,c);
-	Font::StrDraw(L"NEXT_CHALLENGE:ENTER_KEY",0,80,32,c);
+	Font::StrDraw(L"YOU LOST",350, 250, 32, c);
+	Font::StrDraw(L"GAMEOVER",350, 290, 32, c);
+	Font::StrDraw(L"NEXT_CHALLENGE:ENTER_KEY",225,340,32,c);
 
 }

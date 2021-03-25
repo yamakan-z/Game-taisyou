@@ -36,7 +36,8 @@ void CObjTitle::Action()
 void CObjTitle::Draw()
 {
 	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
-	Font::StrDraw(L"タイトル", 230, 250, 32, c);
+	float r[4] = { 1.0f,0.0f,1.0f,1.0f };
+	Font::StrDraw(L"桜スクールシミュレーター", 225, 250, 32, r);
 
-	Font::StrDraw(L"GameStart:PushEnterKey", 200, 400, 32, c);
+	Font::StrDraw(L"GameStart:PushEnterKey", 240, 400, 32, c);
 }
