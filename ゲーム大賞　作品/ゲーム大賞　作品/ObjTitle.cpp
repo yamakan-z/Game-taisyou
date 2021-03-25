@@ -35,8 +35,9 @@ void CObjTitle::Action()
 //ドロー
 void CObjTitle::Draw()
 {
-	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
-	Font::StrDraw(L"タイトル", 230, 250, 32, c);
+	float c[4] = { 1.0f,-1.0f,-1.0f,1.0f };
+	float r[4] = { 1.0f,1.0f,1.0f,1.0f };
+	Font::StrDraw(L"魔法少女育成計画", 250, 220, 32, c);
 
-	Font::StrDraw(L"GameStart:PushEnterKey", 200, 400, 32, c);
+	Font::StrDraw(L"GameStart:PushEnterKey", 210, 400, 32, r);
 }
