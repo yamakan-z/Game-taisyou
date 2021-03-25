@@ -48,9 +48,10 @@ void CObjHero::Action()
 		m_posture = 0.0f;
 	}
 
-	if (((UserData*)Save::GetData())->up_flag == true&&Input::GetVKey('X') == true)
+	//‚Í‚µ‚²‚ª‚ ‚éó‘Ô‚¾‚Æã‚ÖˆÚ“®
+	if (((UserData*)Save::GetData())->up_flag == true&&Input::GetVKey(VK_UP) == true)
 	{
-		m_vy = -10.0f;
+		m_vy = -15.0f;
 	}
 
 	//–€ŽC
