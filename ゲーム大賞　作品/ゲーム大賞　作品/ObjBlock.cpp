@@ -215,6 +215,7 @@ void CObjBlock::Action()
 						hero->SetY(y - 64.0f);//ブロックの位置-主人公の幅
 						hero->SetBT(m_map[i][j]);//ブロックの要素(type)を主人公に渡す
 						hero->SetVY(0.0f);
+						((UserData*)Save::GetData())->move_flag = true;//足場に移動したら、左右移動制限を解除
 					}
 					
 					
