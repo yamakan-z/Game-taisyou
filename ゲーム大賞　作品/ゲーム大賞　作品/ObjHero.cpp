@@ -14,7 +14,7 @@ using namespace GameL;
 void CObjHero::Init()
 {
 	 m_px=100.0f;//位置
-	 m_py=0.0f;
+	 m_py=510.0f;
 	 m_vx=0.0f;//移動ベクトル
 	 m_vy=0.0f;
 	 m_posture = 1.0f;//右向き0.0f左向き1.0f
@@ -28,7 +28,11 @@ void CObjHero::Init()
 	 //踏んでいるブロックの種類を確認
 	 m_block_type = 0;
 
-	 
+	 //はしごのキーフラグ
+	 up_key_flag = false;
+	 right_flag = true;
+	 left_flag = true;
+
 }
 
 //アクション
@@ -36,13 +40,13 @@ void CObjHero::Action()
 {
 
 	//キーの入力方向
-	if (Input::GetVKey(VK_RIGHT) == true)
+	if (Input::GetVKey(VK_RIGHT) == true&& right_flag == true)
 	{
 		m_vx = +5.0f;
 		m_posture = 1.0f;
 	}
 
-	if (Input::GetVKey(VK_LEFT) == true)
+	if (Input::GetVKey(VK_LEFT) == true&& left_flag == true)
 	{
 		m_vx = -5.0f;
 		m_posture = 0.0f;
@@ -51,8 +55,23 @@ void CObjHero::Action()
 	//はしごがある状態だと上へ移動
 	if (((UserData*)Save::GetData())->up_flag == true&&Input::GetVKey(VK_UP) == true)
 	{
-		m_vy = -15.0f;
+		if (m_hit_down==true)
+		{
+			//上移動時は左右移動を受け付けない
+			right_flag = false;
+			left_flag = false;
+			m_vy = -15.0f;
+		}
+		if (m_hit_down == false)
+		{
+			right_flag = true;
+			left_flag = true;
+		}
+		
 	}
+
+	
+	
 
 	//摩擦
 	m_vx += -(m_vx * 0.098);
