@@ -193,23 +193,8 @@ void CObjBlock::Draw()
 				Draw::Draw(1, &src, &dst, c, 0.0f);
 			}
 			
-			if (m_map[i][j] == 2)
-			{
-				//Ø‚èæ‚èˆÊ’u‚Ìİ’è
-				src.m_top = 90.0f;
-				src.m_left =140.0f;
-				src.m_right =655.0f;
-				src.m_bottom =285.0f;
-
-				//•\¦ˆÊ’u‚Ìİ’è
-				dst.m_top =i* 64.0f;
-				dst.m_left =j*64.0f;
-				dst.m_right =dst.m_left+ 64.0;
-				dst.m_bottom =dst.m_top+ 64.0;
-
-				//•`‰æ
-				Draw::Draw(3, &src, &dst, c, 0.0f);
-			}
+			
+			
 		}
 	}
 }
