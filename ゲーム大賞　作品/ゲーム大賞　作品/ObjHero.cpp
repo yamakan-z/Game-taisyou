@@ -65,12 +65,17 @@ void CObjHero::Action()
 		
 	}
 	
-	//設置
+	//設置(板）
 	if (Input::GetVKey('X') == true&& ((UserData*)Save::GetData())->ins_place==true)
 	{
 		((UserData*)Save::GetData())->ins_flag = true;
 	}
 	
+	//設置(はしご）
+	if (Input::GetVKey('A') == true)
+	{
+		((UserData*)Save::GetData())->ins_ladder = true;
+	}
 
 	//摩擦
 	m_vx += -(m_vx * 0.098);
