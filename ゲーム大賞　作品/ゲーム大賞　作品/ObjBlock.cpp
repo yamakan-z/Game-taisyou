@@ -306,9 +306,25 @@ void CObjBlock::Action()
 					((UserData*)Save::GetData())->up_flag = false;
 				}
 
-				if (((UserData*)Save::GetData())->ins_flag == true)
+
+				//板設置場所にプレイヤーがいると板が設置できる
+				if (hero->GetBT() == 7)
 				{
-					m_map[i][j] = 5 ;
+					((UserData*)Save::GetData())->ins_place = true;
+
+				}
+				else
+				{
+					((UserData*)Save::GetData())->ins_place = false;
+				}
+
+				if (((UserData*)Save::GetData())->ins_flag == true&& hero->GetBT() == 7)//設置場所一つ前のブロックに反応
+				{
+
+					if (m_map[i][j] == 8)//8番：板設置用の穴
+					{
+						m_map[i][j] = 5;//板設置
+					}
 				}
 			}
 		}
@@ -367,7 +383,7 @@ void CObjBlock::Draw()
 				Draw::Draw(1, &src, &dst, c, 0.0f);
 			}
 
-			//はしご
+			//はしご(表示のみ）
 			if (m_map[i][j] == 2)
 			{
 
@@ -388,7 +404,7 @@ void CObjBlock::Draw()
 				Draw::Draw(3, &src, &dst, c, 0.0f);
 			}
 
-			//はしご用のブロック
+			//はしご用のブロック（ここで上る判定をつける）
 			if (m_map[i][j] == 3)
 			{
 				//描画カラー情報
