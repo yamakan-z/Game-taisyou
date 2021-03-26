@@ -41,7 +41,8 @@ struct UserData
 	bool ins_flag = false; //設置フラグ（板）
 	bool ins_place = false;//設置場所管理(板）
 	bool ins_ladder = false;//はしご設置
-	bool ladder_flag = false;//はしごの有無
+	bool ladder_flag = false;//はしごの設置場所を判定
+	bool ladder = false;//はしごの有無
 	
 };
 //------------------------------------------------
