@@ -66,7 +66,7 @@ void CObjHero::Action()
 	}
 	
 	//İ’u
-	if (Input::GetVKey('X') == true)
+	if (Input::GetVKey('X') == true&& ((UserData*)Save::GetData())->ins_place==true)
 	{
 		((UserData*)Save::GetData())->ins_flag = true;
 	}
