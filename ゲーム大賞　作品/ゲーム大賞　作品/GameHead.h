@@ -49,6 +49,8 @@ struct UserData
 	bool ins_ladder = false;//‚Í‚µ‚²İ’u
 	bool ladder_flag = false;//‚Í‚µ‚²‚Ìİ’uêŠ‚ğ”»’è
 	bool ladder = false;//‚Í‚µ‚²‚Ì—L–³
+	bool break_flag = false;//áŠQ•¨”j‰óƒtƒ‰ƒO
+	bool break_point = false;//áŠQ•¨”j‰ó”»’è
 	
 };
 //------------------------------------------------

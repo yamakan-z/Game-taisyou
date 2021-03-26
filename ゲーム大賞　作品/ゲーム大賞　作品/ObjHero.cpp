@@ -77,6 +77,12 @@ void CObjHero::Action()
 		((UserData*)Save::GetData())->ins_ladder = true;
 	}
 
+	//áŠQ•¨”j‰ó
+	if (Input::GetVKey('W') == true&& ((UserData*)Save::GetData())->break_point==true)
+	{
+		((UserData*)Save::GetData())->break_flag = true;
+	}
+
 	//–€ŽC
 	m_vx += -(m_vx * 0.098);
 
