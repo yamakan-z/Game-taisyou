@@ -72,7 +72,7 @@ void CObjHero::Action()
 	}
 	
 	//İ’u(‚Í‚µ‚²j
-	if (Input::GetVKey('A') == true)
+	if (Input::GetVKey('A') == true&&((UserData*)Save::GetData())->ladder_flag==true)
 	{
 		((UserData*)Save::GetData())->ins_ladder = true;
 	}
