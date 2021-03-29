@@ -49,7 +49,7 @@ void CSceneMain::InitScene()
 
 	//ladderオブジェクト作成
 	CObjLadder* objl = new CObjLadder();
-	Objs::InsertObj(objl, OBJ_LADDER, 8);
+	Objs::InsertObj(objl, OBJ_LADDER, 10);
 }
 
 //実行中メソッド
