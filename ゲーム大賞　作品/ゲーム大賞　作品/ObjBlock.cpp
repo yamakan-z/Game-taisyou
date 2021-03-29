@@ -988,7 +988,7 @@ void CObjBlock::Draw()
 				Draw::Draw(1, &src, &dst, c2, 0.0f);
 			}
 
-			//è·äQï®
+			//î¬îªíË
 			if (m_map[i][j] == 7)
 			{
 
