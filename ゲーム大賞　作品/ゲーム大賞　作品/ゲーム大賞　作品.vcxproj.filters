@@ -140,9 +140,6 @@
     <ClInclude Include="ObjBlock.h">
       <Filter>ソース ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="ObjLadder.h">
-      <Filter>ソース ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="item.h">
       <Filter>ソース ファイル</Filter>
     </ClInclude>
