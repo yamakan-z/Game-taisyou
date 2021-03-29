@@ -75,6 +75,9 @@
     <ClCompile Include="turuhasi.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="ObjLadder.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
     <ClCompile Include="SceneTitle.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
@@ -160,5 +163,8 @@
     <None Include="SceneGameOver.h">
       <Filter>ソース ファイル\GameOver</Filter>
     </None>
+    <ClInclude Include="ObjLadder.h">
+      <Filter>ソース ファイル</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

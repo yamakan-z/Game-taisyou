@@ -15,6 +15,7 @@ enum OBJ_NAME
 	
 	OBJ_GAME_OVER,
 	OBJ_LADDER,
+	OBJ_LADDER,
 };
 //------------------------------------------------
 
@@ -69,6 +70,7 @@ struct UserData
 //ゲームシーンオブジェクトヘッダ------------------
 #include"ObjHero.h"
 #include"ObjBlock.h"
+#include"ObjLadder.h"
 
 #include"ObjTitle.h"
 #include"ObjGameOver.h"
