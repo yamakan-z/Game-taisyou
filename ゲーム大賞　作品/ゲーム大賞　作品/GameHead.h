@@ -10,12 +10,10 @@ enum OBJ_NAME
 	OBJ_BLOCK,
 	OBJ_ITEM,
 	OBJ_TURUHASI,
-
 	OBJ_TITLE,
-	
 	OBJ_GAME_OVER,
 	OBJ_LADDER,
-	OBJ_LADDER,
+	
 };
 //------------------------------------------------
 
@@ -74,7 +72,7 @@ struct UserData
 
 #include"ObjTitle.h"
 #include"ObjGameOver.h"
-#include"ObjLadder.h"
+
 //------------------------------------------------
 
 //ゲームシーンクラスヘッダ------------------------
