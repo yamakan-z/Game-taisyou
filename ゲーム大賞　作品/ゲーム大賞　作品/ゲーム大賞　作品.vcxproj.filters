@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="ソース ファイル\GameOver">
+      <UniqueIdentifier>{f835a7d5-d87d-4f0e-8576-31c7da3450c9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameL\Audio.cpp">
@@ -62,6 +65,24 @@
     </ClCompile>
     <ClCompile Include="ObjBlock.cpp">
       <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="item.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="turuhasi.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneTitle.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjTitle.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneGameOver.cpp">
+      <Filter>ソース ファイル\GameOver</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjGameOver.cpp">
+      <Filter>ソース ファイル\GameOver</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -113,5 +134,25 @@
     <ClInclude Include="ObjBlock.h">
       <Filter>ソース ファイル</Filter>
     </ClInclude>
+    <ClInclude Include="item.h">
+      <Filter>ソース ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="turuhasi.h">
+      <Filter>ソース ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneTitle.h">
+      <Filter>ソース ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjTitle.h">
+      <Filter>ソース ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjGameOver.h">
+      <Filter>ソース ファイル\GameOver</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="SceneGameOver.h">
+      <Filter>ソース ファイル\GameOver</Filter>
+    </None>
   </ItemGroup>
 </Project>
