@@ -20,11 +20,7 @@ void CObjGameOver::Action()
 	//エンターキーを押してシーン：ゲームTitleに移行する
 	if (Input::GetVKey(VK_RETURN) == true)
 	{
-		//if (m_key_flag == true)
-		//{
-		//	Scene::SetScene(new CSceneTitle());
-		//}
-
+		
 	}
 	else
 	{
