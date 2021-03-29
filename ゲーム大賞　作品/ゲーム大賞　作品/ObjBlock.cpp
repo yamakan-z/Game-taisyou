@@ -65,17 +65,12 @@ void CObjBlock::Action()
 	for (int i = 0; i < 10; i++)
 	{
 		for (int j = 0; j < 100; j++)
-		{
-			for (int o = 0; o < 100; o++)
-			{
-
-			
+		{	
 				if (m_map[i][j] > 0)
 				{
 					//要素番号を座標に変更
 					float x = j * 64.0f;
 					float y = i * 64.0f;
-					float z = o * 64.0f;
 
 					//主人公とブロックの当たり判定
 					if ((hx + (-m_scroll) + 64.0f > x) && (hx + (-m_scroll) < x + 64.0f) && (hy + 64.0f > y) && (hy < y + 64.0f))
@@ -128,7 +123,6 @@ void CObjBlock::Action()
 
 					}
 				}
-			}
 		}
 	}
 }
@@ -165,8 +159,6 @@ void CObjBlock::Draw()
 	{
 		for(int j=0;j<100;j++)
 		{
-			for (int o = 0; o < 100; o++)
-			{
 				if (m_map[i][j] > 0)
 				{
 					//表示位置の設定
@@ -178,7 +170,6 @@ void CObjBlock::Draw()
 					//描画
 					Draw::Draw(1, &src, &dst, c, 0.0f);
 				}
-			}
 		}
 	}
 }
