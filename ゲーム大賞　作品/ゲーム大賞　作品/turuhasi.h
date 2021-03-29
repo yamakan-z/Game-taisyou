@@ -6,7 +6,6 @@ using namespace GameL;
 
 class CObjturuhasi :public CObj
 {
-public:
 	CObjturuhasi(float x, float y);
 	~CObjturuhasi() {};
 	void Init();

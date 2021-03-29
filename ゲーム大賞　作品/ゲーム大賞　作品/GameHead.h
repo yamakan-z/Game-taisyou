@@ -8,6 +8,8 @@ enum OBJ_NAME
 	//OBJ_››‚Æ•\‹L
 	OBJ_HERO,
 	OBJ_BLOCK,
+	OBJ_ITEM,
+	OBJ_TURUHASI,
 
 	OBJ_TITLE,
 };
