@@ -825,7 +825,7 @@ void CObjBlock::Action()
 	
 
 
-}
+
 //ÉhÉçÅ[
 void CObjBlock::Draw()
 {
