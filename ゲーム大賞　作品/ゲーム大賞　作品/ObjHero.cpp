@@ -28,6 +28,12 @@ void CObjHero::Init()
 //アクション
 void CObjHero::Action()
 {
+	//落下によるゲームオーバー
+	if (m_py > 1000.0f)
+	{
+		//場外に出たらリスタート
+		Scene::SetScene(new CSceneGameOver());
+	}
 
 	//キーの入力方向
 	if (Input::GetVKey(VK_RIGHT) == true)
