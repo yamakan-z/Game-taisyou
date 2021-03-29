@@ -4,7 +4,7 @@
 //使用するネームスペース
 using namespace GameL;
 
-//オブジェクト：はしご
+//オブジェクト：ブロック＆背景
 class CObjLadder :public CObj
 {
 public:
@@ -18,7 +18,7 @@ public:
 	float GetScroll() { return m_scroll; }
 
 private:
-	int m_mapL[10][100];//マップ情報はしご用（仮）
+	int m_mapL[10][100];//マップ情報（仮）
 
 	float m_scroll;//左右スクロール用
 

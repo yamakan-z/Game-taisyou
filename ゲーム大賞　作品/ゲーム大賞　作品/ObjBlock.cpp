@@ -25,10 +25,10 @@ void CObjBlock::Init()
 		{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
 		{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
 		{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-		{1,0,4,4,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4,4,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-		{1,0,0,2,2,0,0,6,0,0,0,0,0,0,0,0,0,0,0,0,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-		{1,0,0,2,2,0,0,6,0,0,0,0,0,0,0,0,0,0,0,0,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-		{1,1,1,3,3,1,10,1,10,5,5,1,1,1,7,8,8,7,1,1,3,3,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+		{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4,4,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+		{1,0,0,0,0,0,0,6,0,0,0,0,0,0,0,0,0,0,0,0,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+		{1,0,0,0,0,0,0,6,0,0,0,0,0,0,0,0,0,0,0,0,9,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+		{1,1,1,0,0,1,10,1,10,5,5,1,1,1,7,8,8,7,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
 	};
 	//マップデータをコピー
 	memcpy(m_map, block_data, sizeof(int) * (10 * 100));
@@ -72,8 +72,8 @@ void CObjBlock::Action()
 	{
 		for (int j = 0; j < 100; j++)
 		{
-			
-			
+
+
 			if (m_map[i][j] > 0)
 			{
 				//要素番号を座標に変更
@@ -81,26 +81,26 @@ void CObjBlock::Action()
 				float y = i * 64.0;
 
 				//主人公とブロックの当たり判定
-				if (m_map[i][j] == 1&&(hx +(-m_scroll)+ 64.0f > x) && (hx+(-m_scroll) < x + 64.0f) && (hy + 64.0f > y) && (hy < y + 64.0f))
+				if (m_map[i][j] == 1 && (hx + (-m_scroll) + 64.0f > x) && (hx + (-m_scroll) < x + 64.0f) && (hy + 64.0f > y) && (hy < y + 64.0f))
 				{
 					//上下左右判定
 
 						//vectorの作成
-						float vx = (hx + (-m_scroll)) - x;
-						float vy = hy - y;
-						
+					float vx = (hx + (-m_scroll)) - x;
+					float vy = hy - y;
 
-						//長さを求める
-						float len = sqrt(vx * vx + vy * vy);
 
-						//角度を求める
-						float r = atan2(vy, vx);
-						r = r * 180.0f / 3.14f;
+					//長さを求める
+					float len = sqrt(vx * vx + vy * vy);
 
-						if (r <= 0.0f)
-							r = abs(r);
-						else
-							r = 360.0f - abs(r);
+					//角度を求める
+					float r = atan2(vy, vx);
+					r = r * 180.0f / 3.14f;
+
+					if (r <= 0.0f)
+						r = abs(r);
+					else
+						r = 360.0f - abs(r);
 
 					//lenがある一定の長さのより短い場合判定に入る
 					if (len < 88.0f)
@@ -134,103 +134,103 @@ void CObjBlock::Action()
 						}
 
 					}
-					
+
 				}
 
-				//主人公とブロックの当たり判定(はしご）
-				if (m_map[i][j] == 3 && (hx + (-m_scroll) + 64.0f > x) && (hx + (-m_scroll) < x + 64.0f) && (hy + 64.0f > y) && (hy < y + 64.0f))
-				{
-					//上下左右判定
+				////主人公とブロックの当たり判定(はしご）
+				//if (m_map[i][j] == 3 && (hx + (-m_scroll) + 64.0f > x) && (hx + (-m_scroll) < x + 64.0f) && (hy + 64.0f > y) && (hy < y + 64.0f))
+				//{
+				//	//上下左右判定
 
-					//vectorの作成
-					float vx = (hx + (-m_scroll)) - x;
-					float vy = hy - y;
+				//	//vectorの作成
+				//	float vx = (hx + (-m_scroll)) - x;
+				//	float vy = hy - y;
 
-					//長さを求める
-					float len = sqrt(vx * vx + vy * vy);
+				//	//長さを求める
+				//	float len = sqrt(vx * vx + vy * vy);
 
-					//角度を求める
-					float r = atan2(vy, vx);
-					r = r * 180.0f / 3.14f;
+				//	//角度を求める
+				//	float r = atan2(vy, vx);
+				//	r = r * 180.0f / 3.14f;
 
-					if (r <= 0.0f)
-						r = abs(r);
-					else
-						r = 360.0f - abs(r);
+				//	if (r <= 0.0f)
+				//		r = abs(r);
+				//	else
+				//		r = 360.0f - abs(r);
 
-					//角度で上下左右を判定
-					if ((r < 45 && r>0) || r > 315)
-					{
-						//右
-						hero->SetRight(true);//主人公の左の部分が衝突している
-						hero->SetX(x + 64.0f + (m_scroll));//ブロックの位置+主人公の幅
-						hero->SetVY(-hero->GetVX() * 0.1f);//-VX*反発係数
-					}
-					if (r > 45 && r < 135)
-					{
-						//上
-						hero->SetDown(true);//主人公の下の部分が衝突している
-						hero->SetY(y - 64.0f);//ブロックの位置-主人公の幅
-						hero->SetBT(m_map[i][j]);//ブロックの要素(type)を主人公に渡す
-						hero->SetVY(0.0f);
-					}
-					if (r > 135 && r < 225)
-					{
-						//左
-						hero->SetLeft(true);//主人公の右の部分が衝突している
-						hero->SetX(x - 64.0f + (m_scroll));//ブロックの位置-主人公の幅
-						hero->SetVX(-hero->GetVX() * 0.1f);
-					}
-					if (r > 225 && r < 315)
-					{
-						//下
-						hero->SetUp(true);//主人公の上の部分が衝突している
-						hero->SetY(y + 64.0f);//ブロックの位置+主人公の幅
-						if (hero->GetVY() < 0)
-						{
-							hero->SetVY(0.0f);
-						}
-					}
-					
-				}
+				//	//角度で上下左右を判定
+				//	if ((r < 45 && r>0) || r > 315)
+				//	{
+				//		//右
+				//		hero->SetRight(true);//主人公の左の部分が衝突している
+				//		hero->SetX(x + 64.0f + (m_scroll));//ブロックの位置+主人公の幅
+				//		hero->SetVY(-hero->GetVX() * 0.1f);//-VX*反発係数
+				//	}
+				//	if (r > 45 && r < 135)
+				//	{
+				//		//上
+				//		hero->SetDown(true);//主人公の下の部分が衝突している
+				//		hero->SetY(y - 64.0f);//ブロックの位置-主人公の幅
+				//		hero->SetBT(m_map[i][j]);//ブロックの要素(type)を主人公に渡す
+				//		hero->SetVY(0.0f);
+				//	}
+				//	if (r > 135 && r < 225)
+				//	{
+				//		//左
+				//		hero->SetLeft(true);//主人公の右の部分が衝突している
+				//		hero->SetX(x - 64.0f + (m_scroll));//ブロックの位置-主人公の幅
+				//		hero->SetVX(-hero->GetVX() * 0.1f);
+				//	}
+				//	if (r > 225 && r < 315)
+				//	{
+				//		//下
+				//		hero->SetUp(true);//主人公の上の部分が衝突している
+				//		hero->SetY(y + 64.0f);//ブロックの位置+主人公の幅
+				//		if (hero->GetVY() < 0)
+				//		{
+				//			hero->SetVY(0.0f);
+				//		}
+				//	}
 
-				//主人公と足場（上）の当たり判定
-				if (m_map[i][j] == 4 && (hx + (-m_scroll) + 64.0f > x) && (hx + (-m_scroll) < x + 64.0f) && (hy + 64.0f > y) && (hy < y + 64.0f))
-				{
-					//上下左右判定
+				//}
 
-					//vectorの作成
-					float vx = (hx + (-m_scroll)) - x;
-					float vy = hy - y;
+				////主人公と足場（上）の当たり判定
+				//if (m_map[i][j] == 4 && (hx + (-m_scroll) + 64.0f > x) && (hx + (-m_scroll) < x + 64.0f) && (hy + 64.0f > y) && (hy < y + 64.0f))
+				//{
+				//	//上下左右判定
 
-					//長さを求める
-					float len = sqrt(vx * vx + vy * vy);
+				//	//vectorの作成
+				//	float vx = (hx + (-m_scroll)) - x;
+				//	float vy = hy - y;
 
-					//角度を求める
-					float r = atan2(vy, vx);
-					r = r * 180.0f / 3.14f;
+				//	//長さを求める
+				//	float len = sqrt(vx * vx + vy * vy);
 
-					if (r <= 0.0f)
-						r = abs(r);
-					else
-						r = 360.0f - abs(r);
+				//	//角度を求める
+				//	float r = atan2(vy, vx);
+				//	r = r * 180.0f / 3.14f;
 
-					//角度で上下左右を判定
-					
-					if (r > 45 && r < 135)
-					{
-						//上
-						hero->SetDown(true);//主人公の下の部分が衝突している
-						hero->SetY(y - 64.0f);//ブロックの位置-主人公の幅
-						hero->SetBT(m_map[i][j]);//ブロックの要素(type)を主人公に渡す
-						hero->SetVY(0.0f);
-						((UserData*)Save::GetData())->move_flag = true;//足場に移動したら、左右移動制限を解除
-					}
-					
-					
-				}
+				//	if (r <= 0.0f)
+				//		r = abs(r);
+				//	else
+				//		r = 360.0f - abs(r);
 
-				
+				//	//角度で上下左右を判定
+
+				//	if (r > 45 && r < 135)
+				//	{
+				//		//上
+				//		hero->SetDown(true);//主人公の下の部分が衝突している
+				//		hero->SetY(y - 64.0f);//ブロックの位置-主人公の幅
+				//		hero->SetBT(m_map[i][j]);//ブロックの要素(type)を主人公に渡す
+				//		hero->SetVY(0.0f);
+				//		((UserData*)Save::GetData())->move_flag = true;//足場に移動したら、左右移動制限を解除
+				//	}
+
+
+				//}
+
+
 
 				//板の当たり判定
 				if (m_map[i][j] == 5 && (hx + (-m_scroll) + 64.0f > x) && (hx + (-m_scroll) < x + 64.0f) && (hy + 64.0f > y) && (hy < y + 64.0f))
@@ -411,311 +411,34 @@ void CObjBlock::Action()
 						}
 
 					}
-					
-				}
-
-				//主人公とブロックの当たり判定(はしご）
-				if (m_map[i][j] == 3 && (hx + (-m_scroll) + 64.0f > x) && (hx + (-m_scroll) < x + 64.0f) && (hy + 64.0f > y) && (hy < y + 64.0f))
-				{
-					//上下左右判定
-
-					//vectorの作成
-					float vx = (hx + (-m_scroll)) - x;
-					float vy = hy - y;
-
-					//長さを求める
-					float len = sqrt(vx * vx + vy * vy);
-
-					//角度を求める
-					float r = atan2(vy, vx);
-					r = r * 180.0f / 3.14f;
-
-					if (r <= 0.0f)
-						r = abs(r);
-					else
-						r = 360.0f - abs(r);
-
-					//角度で上下左右を判定
-					if ((r < 45 && r>0) || r > 315)
-					{
-						//右
-						hero->SetRight(true);//主人公の左の部分が衝突している
-						hero->SetX(x + 64.0f + (m_scroll));//ブロックの位置+主人公の幅
-						hero->SetVY(-hero->GetVX() * 0.1f);//-VX*反発係数
-					}
-					if (r > 45 && r < 135)
-					{
-						//上
-						hero->SetDown(true);//主人公の下の部分が衝突している
-						hero->SetY(y - 64.0f);//ブロックの位置-主人公の幅
-						hero->SetBT(m_map[i][j]);//ブロックの要素(type)を主人公に渡す
-						hero->SetVY(0.0f);
-					}
-					if (r > 135 && r < 225)
-					{
-						//左
-						hero->SetLeft(true);//主人公の右の部分が衝突している
-						hero->SetX(x - 64.0f + (m_scroll));//ブロックの位置-主人公の幅
-						hero->SetVX(-hero->GetVX() * 0.1f);
-					}
-					if (r > 225 && r < 315)
-					{
-						//下
-						hero->SetUp(true);//主人公の上の部分が衝突している
-						hero->SetY(y + 64.0f);//ブロックの位置+主人公の幅
-						if (hero->GetVY() < 0)
-						{
-							hero->SetVY(0.0f);
-						}
-					}
-					
-				}
-
-				//主人公と足場（上）の当たり判定
-				if (m_map[i][j] == 4 && (hx + (-m_scroll) + 64.0f > x) && (hx + (-m_scroll) < x + 64.0f) && (hy + 64.0f > y) && (hy < y + 64.0f))
-				{
-					//上下左右判定
-
-					//vectorの作成
-					float vx = (hx + (-m_scroll)) - x;
-					float vy = hy - y;
-
-					//長さを求める
-					float len = sqrt(vx * vx + vy * vy);
-
-					//角度を求める
-					float r = atan2(vy, vx);
-					r = r * 180.0f / 3.14f;
-
-					if (r <= 0.0f)
-						r = abs(r);
-					else
-						r = 360.0f - abs(r);
-
-					//角度で上下左右を判定
-					
-					if (r > 45 && r < 135)
-					{
-						//上
-						hero->SetDown(true);//主人公の下の部分が衝突している
-						hero->SetY(y - 64.0f);//ブロックの位置-主人公の幅
-						hero->SetBT(m_map[i][j]);//ブロックの要素(type)を主人公に渡す
-						hero->SetVY(0.0f);
-						((UserData*)Save::GetData())->move_flag = true;//足場に移動したら、左右移動制限を解除
-					}
-					
-					
-				}
-
-				
-
-				//板の当たり判定
-				if (m_map[i][j] == 5 && (hx + (-m_scroll) + 64.0f > x) && (hx + (-m_scroll) < x + 64.0f) && (hy + 64.0f > y) && (hy < y + 64.0f))
-				{
-					//上下左右判定
-
-					//vectorの作成
-					float vx = (hx + (-m_scroll)) - x;
-					float vy = hy - y;
-
-					//長さを求める
-					float len = sqrt(vx * vx + vy * vy);
-
-					//角度を求める
-					float r = atan2(vy, vx);
-					r = r * 180.0f / 3.14f;
-
-					if (r <= 0.0f)
-						r = abs(r);
-					else
-						r = 360.0f - abs(r);
-
-					//角度で上下左右を判定
-
-					if (r > 45 && r < 135)
-					{
-						//上
-						hero->SetDown(true);//主人公の下の部分が衝突している
-						hero->SetY(y - 64.0f);//ブロックの位置-主人公の幅
-						hero->SetBT(m_map[i][j]);//ブロックの要素(type)を主人公に渡す
-						hero->SetVY(0.0f);
-					}
-
 
 				}
 
-				//障害物
-				if (m_map[i][j] == 6 && (hx + (-m_scroll) + 64.0f > x) && (hx + (-m_scroll) < x + 64.0f) && (hy + 64.0f > y) && (hy < y + 64.0f))
-				{
-					//上下左右判定
 
-					//vectorの作成
-					float vx = (hx + (-m_scroll)) - x;
-					float vy = hy - y;
+				////はしごがあると上へ行く
+				//if (hero->GetBT() == 3)
+				//{
+				//	((UserData*)Save::GetData())->ladder_flag = true;//ここではしごの設置場所を判定
 
-					//長さを求める
-					float len = sqrt(vx * vx + vy * vy);
+				//	if (((UserData*)Save::GetData())->ladder == true)
+				//	{
+				//		((UserData*)Save::GetData())->up_flag = true;//はしごがある時のみ上移動
+				//	}
+				//}
+				//else if (hero->GetBT() != 3)
+				//{
+				//	((UserData*)Save::GetData())->up_flag = false;
+				//	((UserData*)Save::GetData())->ladder_flag = false;
+				//}
 
-					//角度を求める
-					float r = atan2(vy, vx);
-					r = r * 180.0f / 3.14f;
-
-					if (r <= 0.0f)
-						r = abs(r);
-					else
-						r = 360.0f - abs(r);
-
-					//lenがある一定の長さのより短い場合判定に入る
-					if (len < 88.0f)
-					{
-						//角度で上下左右を判定
-						if ((r < 45 && r>0) || r > 315)
-						{
-							//右
-							hero->SetRight(true);//主人公の左の部分が衝突している
-							hero->SetX(x + 64.0f + (m_scroll));//ブロックの位置+主人公の幅
-							hero->SetVY(-hero->GetVX() * 0.1f);//-VX*反発係数
-						}
-						if (r > 45 && r < 135)
-						{
-							//上
-							hero->SetDown(true);//主人公の下の部分が衝突している
-							hero->SetY(y - 64.0f);//ブロックの位置-主人公の幅
-							hero->SetBT(m_map[i][j]);//ブロックの要素(type)を主人公に渡す
-							hero->SetVY(0.0f);
-						}
-						if (r > 135 && r < 225)
-						{
-							//左
-							hero->SetLeft(true);//主人公の右の部分が衝突している
-							hero->SetX(x - 64.0f + (m_scroll));//ブロックの位置-主人公の幅
-							hero->SetVX(-hero->GetVX() * 0.1f);
-						}
-						if (r > 225 && r < 315)
-						{
-							//下
-						}
-
-					}
-
-				}
-
-				//設置ブロック（板）の当たり判定
-				if (m_map[i][j] == 7 && (hx + (-m_scroll) + 64.0f > x) && (hx + (-m_scroll) < x + 64.0f) && (hy + 64.0f > y) && (hy < y + 64.0f))
-				{
-					//上下左右判定
-
-					//vectorの作成
-					float vx = (hx + (-m_scroll)) - x;
-					float vy = hy - y;
-
-					//長さを求める
-					float len = sqrt(vx * vx + vy * vy);
-
-					//角度を求める
-					float r = atan2(vy, vx);
-					r = r * 180.0f / 3.14f;
-
-					if (r <= 0.0f)
-						r = abs(r);
-					else
-						r = 360.0f - abs(r);
-
-					//角度で上下左右を判定
-
-					if (r > 45 && r < 135)
-					{
-						//上
-						hero->SetDown(true);//主人公の下の部分が衝突している
-						hero->SetY(y - 64.0f);//ブロックの位置-主人公の幅
-						hero->SetBT(m_map[i][j]);//ブロックの要素(type)を主人公に渡す
-						hero->SetVY(0.0f);
-					}
-
-
-				}
-
-				//障害物判定ブロック
-				if (m_map[i][j] == 10 && (hx + (-m_scroll) + 64.0f > x) && (hx + (-m_scroll) < x + 64.0f) && (hy + 64.0f > y) && (hy < y + 64.0f))
-				{
-					//上下左右判定
-
-					//vectorの作成
-					float vx = (hx + (-m_scroll)) - x;
-					float vy = hy - y;
-
-					//長さを求める
-					float len = sqrt(vx * vx + vy * vy);
-
-					//角度を求める
-					float r = atan2(vy, vx);
-					r = r * 180.0f / 3.14f;
-
-					if (r <= 0.0f)
-						r = abs(r);
-					else
-						r = 360.0f - abs(r);
-
-					//角度で上下左右を判定
-					if ((r < 45 && r>0) || r > 315)
-					{
-						//右
-						hero->SetRight(true);//主人公の左の部分が衝突している
-						hero->SetX(x + 64.0f + (m_scroll));//ブロックの位置+主人公の幅
-						hero->SetVY(-hero->GetVX() * 0.1f);//-VX*反発係数
-					}
-					if (r > 45 && r < 135)
-					{
-						//上
-						hero->SetDown(true);//主人公の下の部分が衝突している
-						hero->SetY(y - 64.0f);//ブロックの位置-主人公の幅
-						hero->SetBT(m_map[i][j]);//ブロックの要素(type)を主人公に渡す
-						hero->SetVY(0.0f);
-					}
-					if (r > 135 && r < 225)
-					{
-						//左
-						hero->SetLeft(true);//主人公の右の部分が衝突している
-						hero->SetX(x - 64.0f + (m_scroll));//ブロックの位置-主人公の幅
-						hero->SetVX(-hero->GetVX() * 0.1f);
-					}
-					if (r > 225 && r < 315)
-					{
-						//下
-						hero->SetUp(true);//主人公の上の部分が衝突している
-						hero->SetY(y + 64.0f);//ブロックの位置+主人公の幅
-						if (hero->GetVY() < 0)
-						{
-							hero->SetVY(0.0f);
-						}
-					}
-
-				}
-
-				//はしごがあると上へ行く
-				if (hero->GetBT() == 3)
-				{
-					((UserData*)Save::GetData())->ladder_flag = true;//ここではしごの設置場所を判定
-
-					if (((UserData*)Save::GetData())->ladder == true)
-					{
-						((UserData*)Save::GetData())->up_flag = true;//はしごがある時のみ上移動
-					}
-				}
-				else if (hero->GetBT() != 3)
-				{
-					((UserData*)Save::GetData())->up_flag = false;
-					((UserData*)Save::GetData())->ladder_flag = false;
-				}
-
-				if (((UserData*)Save::GetData())->ins_ladder == true)
-				{
-					if (m_map[i][j] == 9)//9番：はしご設置用の空間
-					{
-						m_map[i][j] = 2;//はしご設置
-						((UserData*)Save::GetData())->ladder = true;//上移動の許可
-					}
-				}
+				//if (((UserData*)Save::GetData())->ins_ladder == true)
+				//{
+				//	if (m_map[i][j] == 9)//9番：はしご設置用の空間
+				//	{
+				//		m_map[i][j] = 2;//はしご設置
+				//		((UserData*)Save::GetData())->ladder = true;//上移動の許可
+				//	}
+				//}
 
 
 				//板設置場所にプレイヤーがいると板が設置できる
@@ -729,67 +452,7 @@ void CObjBlock::Action()
 					((UserData*)Save::GetData())->ins_place = false;
 				}
 
-				if (((UserData*)Save::GetData())->ins_flag == true&& hero->GetBT() == 7)//設置場所一つ前のブロックに反応
-				{
-
-					if (m_map[i][j] == 8)//8番：板設置用の穴
-					{
-						m_map[i][j] = 5;//板設置
-					}
-				}
-
-
-				//障害物の両隣のブロックにプレイヤーがいると障害物を破壊
-				if (hero->GetBT() == 10)
-				{
-					((UserData*)Save::GetData())->break_point = true;
-
-				}
-				else
-				{
-					((UserData*)Save::GetData())->break_point = false;
-				}
-
-				}
-
-				//はしごがあると上へ行く
-				if (hero->GetBT() == 3)
-				{
-					((UserData*)Save::GetData())->ladder_flag = true;//ここではしごの設置場所を判定
-
-					if (((UserData*)Save::GetData())->ladder == true)
-					{
-						((UserData*)Save::GetData())->up_flag = true;//はしごがある時のみ上移動
-					}
-				}
-				else if (hero->GetBT() != 3)
-				{
-					((UserData*)Save::GetData())->up_flag = false;
-					((UserData*)Save::GetData())->ladder_flag = false;
-				}
-
-				if (((UserData*)Save::GetData())->ins_ladder == true)
-				{
-					if (m_map[i][j] == 9)//9番：はしご設置用の空間
-					{
-						m_map[i][j] = 2;//はしご設置
-						((UserData*)Save::GetData())->ladder = true;//上移動の許可
-					}
-				}
-
-
-				//板設置場所にプレイヤーがいると板が設置できる
-				if (hero->GetBT() == 7)
-				{
-					((UserData*)Save::GetData())->ins_place = true;
-
-				}
-				else
-				{
-					((UserData*)Save::GetData())->ins_place = false;
-				}
-
-				if (((UserData*)Save::GetData())->ins_flag == true&& hero->GetBT() == 7)//設置場所一つ前のブロックに反応
+				if (((UserData*)Save::GetData())->ins_flag == true && hero->GetBT() == 7)//設置場所一つ前のブロックに反応
 				{
 
 					if (m_map[i][j] == 8)//8番：板設置用の穴
@@ -817,10 +480,20 @@ void CObjBlock::Action()
 					{
 						m_map[i][j] = 0;//障害物破壊
 					}
+
 				}
+
+
+
+				
+
 			}
+
+			
+
 		}
 	}
+}	
 
 	
 
