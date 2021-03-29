@@ -40,7 +40,7 @@ void CObjHero::Action()
 	{
 		m_vx = +3.0f;
 		m_posture = 1.0f;
-		m_ani_time += 1;
+		m_ani_time += 1;                 //「m_ani_time += 1;」描画切り替え　
 	}
 
 	else if (Input::GetVKey(VK_LEFT) == true)
@@ -55,8 +55,8 @@ void CObjHero::Action()
 		m_ani_time = 0;
 	}
 	
-	//主人公アニメ
-	if (m_ani_time >25)
+	////主人公アニメ////
+	if (m_ani_time >15)//描画切り替え速度
 	{
 		m_ani_time = 0;
 		m_ani_frame += 1;
@@ -90,7 +90,7 @@ void CObjHero::Draw()
 
 	int AniData[4]
 	{
-		1,2,3,0,
+		1,2,3,0,//描画順序
 	};
 
 	RECT_F src; //描画元切り取り位置
