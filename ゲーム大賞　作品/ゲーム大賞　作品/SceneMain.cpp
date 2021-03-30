@@ -55,6 +55,10 @@ void CSceneMain::InitScene()
 	CObjBoard* objbo = new CObjBoard();
 	Objs::InsertObj(objbo, OBJ_BOARD, 10);
 
+	//rockオブジェクト作成
+	CObjRock* objr = new CObjRock();
+	Objs::InsertObj(objr, OBJ_BOARD, 10);
+
 }
 
 //実行中メソッド
