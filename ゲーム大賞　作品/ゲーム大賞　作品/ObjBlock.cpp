@@ -6,7 +6,6 @@
 
 #include"GameHead.h"
 #include"ObjBlock.h"
-#include"turuhasi.h"
 
 //使用するネームスペース
 using namespace GameL;

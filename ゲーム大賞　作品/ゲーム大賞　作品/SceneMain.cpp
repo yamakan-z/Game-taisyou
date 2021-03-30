@@ -42,6 +42,10 @@ void CSceneMain::InitScene()
 	//blockオブジェクト作成
 	CObjBlock* objb = new CObjBlock();
 	Objs::InsertObj(objb, OBJ_BLOCK, 9);
+
+	//turuhasiオブジェクト作成
+	CObjTuruhasi* objb = new CObjTuruhasi();
+	Objs::InsertObj(objb, OBJ_TURUHASI, 9);
 }
 
 //実行中メソッド
