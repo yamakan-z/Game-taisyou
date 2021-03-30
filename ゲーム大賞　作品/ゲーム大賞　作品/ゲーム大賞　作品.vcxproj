@@ -157,10 +157,10 @@
     <ClCompile Include="ObjHero.cpp" />
     <ClCompile Include="ObjLadder.cpp" />
 
-    <ClCompile Include="ObjLadder.cpp">
+    
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="ObjLadder.cpp" />
+    
     <ClCompile Include="ObjTitle.cpp" />
     <ClCompile Include="SceneGameOver.cpp" />
     <ClCompile Include="SceneMain.cpp" />
@@ -189,12 +189,11 @@
     <ClInclude Include="ObjBlock.h" />
     <ClInclude Include="ObjGameOver.h" />
     <ClInclude Include="ObjHero.h" />
-    <ClInclude Include="ObjLadder.h" />
     
-    <ClInclude Include="ObjLadder.h">
+    
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
     </ClInclude>
-    <ClInclude Include="ObjLadder.h" />
+    
     <ClInclude Include="ObjTitle.h" />
     <ClInclude Include="SceneMain.h" />
     <ClInclude Include="item.h">
