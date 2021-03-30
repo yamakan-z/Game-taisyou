@@ -157,6 +157,7 @@
     <ClCompile Include="ObjBoard.cpp" />
     <ClCompile Include="ObjGameOver.cpp" />
     <ClCompile Include="ObjHero.cpp" />
+    <ClCompile Include="ObjInventory.cpp" />
     <ClCompile Include="ObjLadder.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
     </ClCompile>
@@ -191,6 +192,7 @@
     <ClInclude Include="ObjBoard.h" />
     <ClInclude Include="ObjGameOver.h" />
     <ClInclude Include="ObjHero.h" />
+    <ClInclude Include="ObjInventory.h" />
     <ClInclude Include="ObjLadder.h" />
     <ClInclude Include="ObjRock.h" />
     <ClInclude Include="ObjTitle.h" />

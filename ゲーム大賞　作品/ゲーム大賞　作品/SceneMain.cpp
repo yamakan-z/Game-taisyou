@@ -36,8 +36,8 @@ void CSceneMain::InitScene()
 	Draw::LoadImageW(L"Ladder.png", 3, TEX_SIZE_512);
 	Draw::LoadImageW(L"板.png", 4, TEX_SIZE_512);
 	Draw::LoadImageW(L"はしごアイテム.png", 5, TEX_SIZE_512);
+	Draw::LoadImageW(L"インベントリ.png", 6, TEX_SIZE_512);
 	
-	//
 
 
 	//主人公オブジェクト作成
@@ -60,9 +60,13 @@ void CSceneMain::InitScene()
 	CObjRock* objr = new CObjRock();
 	Objs::InsertObj(objr, OBJ_BOARD, 10);
 
-	//rockオブジェクト作成
+	//はしごアイテム作成
 	CLadderItem* objli = new CLadderItem();
 	Objs::InsertObj(objli, OBJ_LADDER_ITEM, 10);
+
+	//インベントリ作成
+	CObjInventory* objin = new CObjInventory();
+	Objs::InsertObj(objin, OBJ_INVENTORY, 10);
 
 }
 

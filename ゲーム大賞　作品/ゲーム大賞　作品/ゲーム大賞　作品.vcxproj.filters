@@ -31,6 +31,9 @@
     <Filter Include="ソース ファイル\シーンメイン">
       <UniqueIdentifier>{eaac5bc8-3c66-4fc5-b356-8fcefd619f90}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\インベントリ">
+      <UniqueIdentifier>{f62cc9f5-f0c9-45b6-914e-6d137bc7445d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameL\Audio.cpp">
@@ -78,9 +81,6 @@
     <ClCompile Include="turuhasi.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="ObjLadder.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="SceneGameOver.cpp">
       <Filter>ソース ファイル\GameOver</Filter>
     </ClCompile>
@@ -113,6 +113,12 @@
     </ClCompile>
     <ClCompile Include="LadderItem.cpp">
       <Filter>ソース ファイル\アイテム処理</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjLadder.cpp">
+      <Filter>ソース ファイル\アイテム処理</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjInventory.cpp">
+      <Filter>ソース ファイル\インベントリ</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -190,6 +196,9 @@
     </ClInclude>
     <ClInclude Include="LadderItem.h">
       <Filter>ソース ファイル\アイテム処理</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjInventory.h">
+      <Filter>ソース ファイル\インベントリ</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -21,6 +21,7 @@ void CLadderItem::Init()
 
 	//“–‚½‚è”»’è—pHitBox‚ğì¬
 	Hits::SetHitBox(this, m_px, m_py, 64, 64, ELEMENT_ITEM, OBJ_LADDER_ITEM, 1);
+
 }
 
 
