@@ -15,6 +15,7 @@ enum OBJ_NAME
 	OBJ_LADDER,
 	OBJ_BOARD,
 	OBJ_ROCK,
+	OBJ_LADDER_ITEM,
 };
 //------------------------------------------------
 
@@ -51,7 +52,9 @@ struct UserData
 	bool ladder = false;//はしごの有無
 	bool break_flag = false;//障害物破壊フラグ
 	bool break_point = false;//障害物破壊判定
-	
+	float item = 0;  //アイテム所持数
+	float ladder_item = 0;//はしごアイテム所持フラグ
+
 };
 //------------------------------------------------
 
@@ -72,6 +75,8 @@ struct UserData
 #include"ObjLadder.h"
 #include"ObjBoard.h"
 #include"ObjRock.h"
+#include"LadderItem.h"
+
 
 #include"ObjTitle.h"
 #include"ObjGameOver.h"

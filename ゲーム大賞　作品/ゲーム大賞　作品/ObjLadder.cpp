@@ -7,6 +7,7 @@
 #include"GameHead.h"
 #include"ObjLadder.h"
 #include "GameL/UserData.h"
+#include "GameL\HitBoxManager.h"
 
 //使用するネームスペース
 using namespace GameL;
@@ -32,6 +33,8 @@ void CObjLadder::Init()
 	};
 	//マップデータをコピー
 	memcpy(m_mapL, ladder_data, sizeof(int) * (10 * 100));
+
+	
 }
 
 //アクション
@@ -69,6 +72,8 @@ void CObjLadder::Action()
 	//踏んでいるブロックの種類の初期化
 	hero->SetBT(0);
 
+
+	
 
 	//m_mapの全要素にアクセス
 	for (int i = 0; i < 10; i++)
@@ -192,12 +197,13 @@ void CObjLadder::Action()
 					((UserData*)Save::GetData())->ladder_flag = false;
 				}
 
-				if (((UserData*)Save::GetData())->ins_ladder == true)
+				if (((UserData*)Save::GetData())->ins_ladder == true&&((UserData*)Save::GetData())->ladder_item>0)
 				{
 					if (m_mapL[i][j] == 1)//9番：はしご設置用の空間
 					{
 						m_mapL[i][j] = 10;//はしご設置
 						((UserData*)Save::GetData())->ladder = true;//上移動の許可
+						//((UserData*)Save::GetData())->ladder_item -= 1;
 					}
 				}
 			}
@@ -291,6 +297,31 @@ void CObjLadder::Draw()
 
 				//描画
 				Draw::Draw(1, &src, &dst, c2, 0.0f);
+			}
+
+			//はしごアイテム
+			//40番台　はしご（アイテム）
+			if (m_mapL[i][j] == 40)
+			{
+
+				//描画カラー情報
+				float c2[4] = { 1.0f,1.0f,1.0f,1.0f };
+
+				//切り取り位置の設定
+				src.m_top = 0.0f;
+				src.m_left = 0.0f;
+				src.m_right = 184.0f;
+				src.m_bottom = 184.0f;
+
+
+				//表示位置の設定
+				dst.m_top = i * 64.0f;
+				dst.m_left = j * 64.0f + block->GetScroll();
+				dst.m_right = dst.m_left + 64.0;
+				dst.m_bottom = dst.m_top + 64.0;
+
+				//描画
+				Draw::Draw(5, &src, &dst, c2, 0.0f);
 			}
 		}
 	}

@@ -35,6 +35,7 @@ void CSceneMain::InitScene()
 	Draw::LoadImageW(L"背景.png", 2, TEX_SIZE_512);
 	Draw::LoadImageW(L"Ladder.png", 3, TEX_SIZE_512);
 	Draw::LoadImageW(L"板.png", 4, TEX_SIZE_512);
+	Draw::LoadImageW(L"はしごアイテム.png", 5, TEX_SIZE_512);
 	
 
 
@@ -58,6 +59,10 @@ void CSceneMain::InitScene()
 	//rockオブジェクト作成
 	CObjRock* objr = new CObjRock();
 	Objs::InsertObj(objr, OBJ_BOARD, 10);
+
+	//rockオブジェクト作成
+	CLadderItem* objli = new CLadderItem();
+	Objs::InsertObj(objli, OBJ_LADDER_ITEM, 10);
 
 }
 

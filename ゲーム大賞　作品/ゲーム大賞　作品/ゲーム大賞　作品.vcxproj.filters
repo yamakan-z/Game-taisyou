@@ -111,6 +111,9 @@
     <ClCompile Include="ObjRock.cpp">
       <Filter>ソース ファイル\アイテム処理</Filter>
     </ClCompile>
+    <ClCompile Include="LadderItem.cpp">
+      <Filter>ソース ファイル\アイテム処理</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameL\Audio.h">
@@ -183,6 +186,9 @@
       <Filter>ソース ファイル\アイテム処理</Filter>
     </ClInclude>
     <ClInclude Include="ObjRock.h">
+      <Filter>ソース ファイル\アイテム処理</Filter>
+    </ClInclude>
+    <ClInclude Include="LadderItem.h">
       <Filter>ソース ファイル\アイテム処理</Filter>
     </ClInclude>
   </ItemGroup>

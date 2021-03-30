@@ -6,6 +6,7 @@
 #include"GameHead.h"
 #include"ObjHero.h"
 #include "GameL/UserData.h"
+#include "GameL\HitBoxManager.h"
 
 //使用するネームスペース
 using namespace GameL;
@@ -27,6 +28,9 @@ void CObjHero::Init()
 
 	 //踏んでいるブロックの種類を確認
 	 m_block_type = 0;
+
+	 //当たり判定用HitBoxを作成
+	 Hits::SetHitBox(this, m_px, m_py, 64, 64, ELEMENT_PLAYER, OBJ_HERO, 1);
 
 }
 
@@ -92,6 +96,10 @@ void CObjHero::Action()
 	//位置の更新
 	m_px += m_vx;
 	m_py += m_vy;
+
+	//HitBoxの位置の変更
+	CHitBox* hit = Hits::GetHitBox(this);
+	hit->SetPos(m_px, m_py);
 
 }
 
