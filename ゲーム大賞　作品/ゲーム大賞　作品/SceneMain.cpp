@@ -50,6 +50,11 @@ void CSceneMain::InitScene()
 	//ladderオブジェクト作成
 	CObjLadder* objl = new CObjLadder();
 	Objs::InsertObj(objl, OBJ_LADDER, 10);
+
+	//boardオブジェクト作成
+	CObjBoard* objbo = new CObjBoard();
+	Objs::InsertObj(objbo, OBJ_BOARD, 10);
+
 }
 
 //実行中メソッド
