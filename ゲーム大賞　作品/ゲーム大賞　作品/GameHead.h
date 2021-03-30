@@ -13,6 +13,7 @@ enum OBJ_NAME
 	OBJ_TITLE,
 	OBJ_GAME_OVER,
 	OBJ_LADDER,
+	OBJ_BOARD,
 	
 };
 //------------------------------------------------
@@ -69,6 +70,7 @@ struct UserData
 #include"ObjHero.h"
 #include"ObjBlock.h"
 #include"ObjLadder.h"
+#include"ObjBoard.h"
 
 #include"ObjTitle.h"
 #include"ObjGameOver.h"
