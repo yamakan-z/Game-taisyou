@@ -217,9 +217,13 @@ void CObjLadder::Action()
 						m_mapL[i][j] = 10;//‚Í‚µ‚²İ’u
 						
 						((UserData*)Save::GetData())->ladder = true;//ãˆÚ“®‚Ì‹–‰Â
-						((UserData*)Save::GetData())->ladder_item -= 1;
+						
 						((UserData*)Save::GetData())->item -= 1;
 
+					}
+					else if (((UserData*)Save::GetData())->item <= 0)
+					{
+						((UserData*)Save::GetData())->ladder_item -= 1;
 					}
 				}
 			}
