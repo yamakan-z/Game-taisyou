@@ -220,7 +220,8 @@ void CObjLadder::Draw()
 	src.m_right = 184.0f;
 	src.m_bottom = 184.0f;
 
-
+	//ブロック情報を持ってくる
+	CObjBlock* block = (CObjBlock*)Objs::GetObj(OBJ_BLOCK);
 
 	for (int i = 0; i < 10; i++)
 	{
@@ -230,9 +231,7 @@ void CObjLadder::Draw()
 			//10番台　はしご
 			if (m_mapL[i][j] == 10)
 			{
-				//ブロック情報を持ってくる
-				CObjBlock* block = (CObjBlock*)Objs::GetObj(OBJ_BLOCK);
-
+				
 				//表示位置の設定
 				dst.m_top = i * 64.0f;
 				dst.m_left = j * 64.0f + block->GetScroll();
@@ -249,9 +248,6 @@ void CObjLadder::Draw()
 			//20番台　はしご（判定）
 			if (m_mapL[i][j] == 20)
 			{
-
-				//ブロック情報を持ってくる
-				CObjBlock* block = (CObjBlock*)Objs::GetObj(OBJ_BLOCK);
 
 				//描画カラー情報
 				float c2[4] = { 0.0f,1.0f,1.0f,1.0f };
@@ -277,10 +273,6 @@ void CObjLadder::Draw()
 			//30番台　足場（上）
 			if (m_mapL[i][j] == 30)
 			{
-
-				//ブロック情報を持ってくる
-				CObjBlock* block = (CObjBlock*)Objs::GetObj(OBJ_BLOCK);
-
 				//描画カラー情報
 				float c2[4] = { 1.0f,0.0f,1.0f,1.0f };
 
