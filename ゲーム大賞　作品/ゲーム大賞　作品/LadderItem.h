@@ -5,11 +5,11 @@
 using namespace GameL;
 
 //オブジェクト：ブロック＆背景
-class CObjLadder :public CObj
+class CLadderItem :public CObj
 {
 public:
-	CObjLadder() {};
-	~CObjLadder() {};
+	CLadderItem() {};
+	~CLadderItem() {};
 	void Init();//イニシャライズ
 	void Action();//アクション
 	void Draw();//ドロー
@@ -18,8 +18,11 @@ public:
 	float GetScroll() { return m_scroll; }
 
 private:
-	int m_mapL[10][100];//マップ情報（はしご）
+	int m_mapR[10][100];//マップ情報（板）
 
 	float m_scroll;//左右スクロール用
+
+	float m_px;//位置
+	float m_py;
 
 };
