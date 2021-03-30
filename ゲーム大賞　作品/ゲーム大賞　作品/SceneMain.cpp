@@ -37,7 +37,7 @@ void CSceneMain::InitScene()
 	Draw::LoadImageW(L"板.png", 4, TEX_SIZE_512);
 	Draw::LoadImageW(L"はしごアイテム.png", 5, TEX_SIZE_512);
 	
-
+	//
 
 
 	//主人公オブジェクト作成
