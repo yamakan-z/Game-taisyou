@@ -17,7 +17,6 @@ enum OBJ_NAME
 	OBJ_BOARD,
 	OBJ_ROCK,
 	OBJ_LADDER_ITEM,
-	OBJ_BOARD_ITEM,
 };
 //------------------------------------------------
 
@@ -56,7 +55,7 @@ struct UserData
 	bool break_point = false;//障害物破壊判定
 	float item = 0;  //アイテム所持数
 	float ladder_item = 0;//はしごアイテム所持フラグ
-	float board_item = 0;//板アイテム所持フラグ
+
 };
 //------------------------------------------------
 
@@ -78,7 +77,6 @@ struct UserData
 #include"ObjBoard.h"
 #include"ObjRock.h"
 #include"LadderItem.h"
-#include"BoardItem.h"
 
 
 #include"ObjTitle.h"
