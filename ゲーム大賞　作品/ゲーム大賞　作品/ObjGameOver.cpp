@@ -1,3 +1,9 @@
+//STLデバック機能をOFFにする
+#define _SECURE_SCL (0)
+#define _HAS_ITERATOR_DEBUGGING (0)
+
+
+
 //使用するヘッダーファイル
 #include"GameL\DrawFont.h"
 #include"GameL\WinInputs.h"

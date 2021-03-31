@@ -76,6 +76,10 @@ void CSceneMain::InitScene()
 	CObjPick* objp = new CObjPick();
 	Objs::InsertObj(objp, OBJ_PICK, 10);
 
+	//boardオブジェクト作成
+	CBoardItem* objbi = new CBoardItem();
+	Objs::InsertObj(objbi, OBJ_BOARD_ITEM, 10);
+
 }
 
 //実行中メソッド

@@ -22,6 +22,7 @@ enum OBJ_NAME
 	OBJ_LADDER_ITEM2,
 	//つるはし
 	OBJ_PICK,
+	OBJ_BOARD_ITEM,
 };
 //------------------------------------------------
 
@@ -62,6 +63,8 @@ struct UserData
 	float item = 0;  //アイテム所持数
 	float ladder_item = 0;//はしごアイテム所持フラグ
 	float pick_item = 0;//つるはし所持数
+	float board_item = 0;//板アイテム所持フラグ
+
 };
 //------------------------------------------------
 
@@ -82,6 +85,10 @@ struct UserData
 #include"ObjLadder.h"
 #include"ObjBoard.h"
 #include"ObjRock.h"
+#include"LadderItem.h"
+#include"BoardItem.h"
+
+
 #include"ObjInventory.h"
 #include"ObjTitle.h"
 #include"ObjGameClear.h"
