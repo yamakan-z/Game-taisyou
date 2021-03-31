@@ -10,13 +10,8 @@ enum OBJ_NAME
 	OBJ_BLOCK,
 	OBJ_ITEM,
 	OBJ_TURUHASI,
+
 	OBJ_TITLE,
-	OBJ_GAME_OVER,
-	OBJ_LADDER,
-	OBJ_BOARD,
-	OBJ_ROCK,
-	OBJ_LADDER_ITEM,
-	OBJ_BOARD_ITEM,
 };
 //------------------------------------------------
 
@@ -44,18 +39,7 @@ enum HIT_ELEMENTS
 struct UserData
 {
 	int mSeveData;	//サンプルセーブデータ
-	bool up_flag = false;  //はしごがある時、上に上がるフラグ
-	bool move_flag = true; //上移動時、左右移動を制限するフラグ
-	bool ins_flag = false; //設置フラグ（板）
-	bool ins_place = false;//設置場所管理(板）
-	bool ins_ladder = false;//はしご設置
-	bool ladder_flag = false;//はしごの設置場所を判定
-	bool ladder = false;//はしごの有無
-	bool break_flag = false;//障害物破壊フラグ
-	bool break_point = false;//障害物破壊判定
-	float item = 0;  //アイテム所持数
-	float ladder_item = 0;//はしごアイテム所持フラグ
-	float board_item = 0;//板アイテム所持フラグ
+	
 };
 //------------------------------------------------
 
@@ -73,25 +57,17 @@ struct UserData
 //ゲームシーンオブジェクトヘッダ------------------
 #include"ObjHero.h"
 #include"ObjBlock.h"
-#include"ObjLadder.h"
-#include"ObjBoard.h"
-#include"ObjRock.h"
-#include"LadderItem.h"
-#include"BoardItem.h"
-
+#include"ObjTuruhasi.h"
 
 #include"ObjTitle.h"
-#include"ObjGameOver.h"
-
 //------------------------------------------------
 
 //ゲームシーンクラスヘッダ------------------------
 #include"SceneMain.h"
 #include"SceneTitle.h"
-#include"SceneGameOver.h"
 //-----------------------------------------------
 
 //シーンスタートクラス---------------------------
 //ゲーム開始時のシーンクラス登録
-#define SET_GAME_START  CSceneMain
+#define SET_GAME_START  CSceneTitle
 //-----------------------------------------------
