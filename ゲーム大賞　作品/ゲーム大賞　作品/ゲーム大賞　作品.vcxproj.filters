@@ -40,6 +40,9 @@
     <Filter Include="ソース ファイル\アイテム処理\はしご">
       <UniqueIdentifier>{52b766e4-e95f-4be2-a58b-19fe8526dca3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\アイテム処理\板">
+      <UniqueIdentifier>{b9e391c3-6dbf-4eb7-8eea-50d305fb826e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameL\Audio.cpp">
@@ -108,9 +111,6 @@
     <ClCompile Include="SceneTitle.cpp">
       <Filter>ソース ファイル\タイトル</Filter>
     </ClCompile>
-    <ClCompile Include="ObjBoard.cpp">
-      <Filter>ソース ファイル\アイテム処理</Filter>
-    </ClCompile>
     <ClCompile Include="ObjRock.cpp">
       <Filter>ソース ファイル\アイテム処理</Filter>
     </ClCompile>
@@ -137,6 +137,12 @@
     </ClCompile>
     <ClCompile Include="SceneGameClear.cpp">
       <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="BoardItem.cpp">
+      <Filter>ソース ファイル\アイテム処理\板</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjBoard.cpp">
+      <Filter>ソース ファイル\アイテム処理\板</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -203,9 +209,6 @@
     <ClInclude Include="SceneTitle.h">
       <Filter>ソース ファイル\タイトル</Filter>
     </ClInclude>
-    <ClInclude Include="ObjBoard.h">
-      <Filter>ソース ファイル\アイテム処理</Filter>
-    </ClInclude>
     <ClInclude Include="ObjRock.h">
       <Filter>ソース ファイル\アイテム処理</Filter>
     </ClInclude>
@@ -229,6 +232,15 @@
     </ClInclude>
     <ClInclude Include="SceneGameClear.h">
       <Filter>ソース ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneGameOver.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="BoardItem.h">
+      <Filter>ソース ファイル\アイテム処理\板</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjBoard.h">
+      <Filter>ソース ファイル\アイテム処理\板</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

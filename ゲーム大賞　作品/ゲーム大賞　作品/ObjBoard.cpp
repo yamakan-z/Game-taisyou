@@ -171,6 +171,12 @@ void CObjBoard::Action()
 					if (m_mapB[i][j] == 1)//8番：板設置用の穴
 					{
 						m_mapB[i][j] = 10;//板設置
+
+						((UserData*)Save::GetData())->item -= 1;
+					}
+					else if (((UserData*)Save::GetData())->item <= 0)
+					{
+						((UserData*)Save::GetData())->board_item -= 1;
 					}
 				}
 			}

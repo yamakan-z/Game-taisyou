@@ -93,12 +93,13 @@ struct UserData
 #include"ObjTitle.h"
 #include"ObjGameClear.h"
 #include"ObjGameOver.h"
+//つるはし
+#include"ObjPick.h"
 
 //はしごアイテム
 #include"LadderItem.h"
 #include"LadderItem2.h"
-//つるはし
-#include"ObjPick.h"
+
 //------------------------------------------------
 
 //ゲームシーンクラスヘッダ------------------------

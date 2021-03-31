@@ -184,6 +184,7 @@ void CObjBlock::Action()
 							hero->SetY(y - 64.0f);//ブロックの位置-主人公の幅
 							hero->SetBT(m_map[i][j]);//ブロックの要素(type)を主人公に渡す
 							hero->SetVY(0.0f);
+
 							//場外に出たらリスタート
 							Scene::SetScene(new CSceneGameClear());
 						}
@@ -412,6 +413,9 @@ void CObjBlock::Draw()
 
 			if (m_map[i][j] == 2)
 			{
+				//描画カラー情報
+				float c[4] = { 1.0f,0.0f,1.0f,1.0f };
+
 				//切り取り位置の設定
 				src.m_top = 0.0f;
 				src.m_left = 0.0f;
@@ -427,10 +431,6 @@ void CObjBlock::Draw()
 
 				//描画
 				Draw::Draw(1, &src, &dst, c, 0.0f);
-
-
-				//描画カラー情報
-				float c[4] = { 0.0f,1.0f,1.0f,1.0f };
 			}
 			
 
