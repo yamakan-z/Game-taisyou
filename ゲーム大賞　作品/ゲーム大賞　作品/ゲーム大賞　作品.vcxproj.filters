@@ -34,6 +34,12 @@
     <Filter Include="ソース ファイル\インベントリ">
       <UniqueIdentifier>{f62cc9f5-f0c9-45b6-914e-6d137bc7445d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\アイテム処理\つるはし">
+      <UniqueIdentifier>{d442ab21-053c-493d-87a0-bd871f91e569}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\アイテム処理\はしご">
+      <UniqueIdentifier>{52b766e4-e95f-4be2-a58b-19fe8526dca3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameL\Audio.cpp">
@@ -87,9 +93,6 @@
     <ClCompile Include="ObjGameOver.cpp">
       <Filter>ソース ファイル\GameOver</Filter>
     </ClCompile>
-    <ClCompile Include="ObjLadder.cpp">
-      <Filter>ソース ファイル\アイテム処理</Filter>
-    </ClCompile>
     <ClCompile Include="ObjHero.cpp">
       <Filter>ソース ファイル\主人公処理</Filter>
     </ClCompile>
@@ -111,9 +114,6 @@
     <ClCompile Include="ObjRock.cpp">
       <Filter>ソース ファイル\アイテム処理</Filter>
     </ClCompile>
-    <ClCompile Include="LadderItem.cpp">
-      <Filter>ソース ファイル\アイテム処理</Filter>
-    </ClCompile>
     <ClCompile Include="ObjLadder.cpp">
       <Filter>ソース ファイル\アイテム処理</Filter>
     </ClCompile>
@@ -121,7 +121,13 @@
       <Filter>ソース ファイル\インベントリ</Filter>
     </ClCompile>
     <ClCompile Include="ObjPick.cpp">
-      <Filter>ソース ファイル\アイテム処理</Filter>
+      <Filter>ソース ファイル\アイテム処理\つるはし</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjLadder.cpp">
+      <Filter>ソース ファイル\アイテム処理\はしご</Filter>
+    </ClCompile>
+    <ClCompile Include="LadderItem.cpp">
+      <Filter>ソース ファイル\アイテム処理\はしご</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -173,9 +179,6 @@
     <ClInclude Include="ObjGameOver.h">
       <Filter>ソース ファイル\GameOver</Filter>
     </ClInclude>
-    <ClInclude Include="ObjLadder.h">
-      <Filter>ソース ファイル\アイテム処理</Filter>
-    </ClInclude>
     <ClInclude Include="ObjHero.h">
       <Filter>ソース ファイル\主人公処理</Filter>
     </ClInclude>
@@ -197,14 +200,17 @@
     <ClInclude Include="ObjRock.h">
       <Filter>ソース ファイル\アイテム処理</Filter>
     </ClInclude>
-    <ClInclude Include="LadderItem.h">
-      <Filter>ソース ファイル\アイテム処理</Filter>
-    </ClInclude>
     <ClInclude Include="ObjInventory.h">
       <Filter>ソース ファイル\インベントリ</Filter>
     </ClInclude>
     <ClInclude Include="ObjPick.h">
-      <Filter>ソース ファイル\アイテム処理</Filter>
+      <Filter>ソース ファイル\アイテム処理\つるはし</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjLadder.h">
+      <Filter>ソース ファイル\アイテム処理\はしご</Filter>
+    </ClInclude>
+    <ClInclude Include="LadderItem.h">
+      <Filter>ソース ファイル\アイテム処理\はしご</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
