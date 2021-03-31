@@ -42,7 +42,7 @@ void CBoardItem::Action()
 		Hits::DeleteHitBox(this);	//100‰~‚ªŠ—L‚·‚éHitBox‚ğíœ‚·‚é
 
 		((UserData*)Save::GetData())->item += 1;
-		((UserData*)Save::GetData())->ladder_item += 1;
+		((UserData*)Save::GetData())->board_item += 1;
 	}
 }
 
