@@ -194,6 +194,7 @@
     <ClInclude Include="ObjLadder.h" />
     <ClInclude Include="ObjRock.h" />
     <ClInclude Include="ObjTitle.h" />
+    <ClInclude Include="SceneGameOver.h" />
     <ClInclude Include="SceneMain.h" />
     <ClInclude Include="item.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>

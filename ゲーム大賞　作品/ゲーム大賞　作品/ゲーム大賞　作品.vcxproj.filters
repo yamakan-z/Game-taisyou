@@ -75,16 +75,7 @@
     <ClCompile Include="item.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="turuhasi.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="ObjLadder.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="SceneGameOver.cpp">
-      <Filter>ソース ファイル\GameOver</Filter>
-    </ClCompile>
-    <ClCompile Include="ObjGameOver.cpp">
       <Filter>ソース ファイル\GameOver</Filter>
     </ClCompile>
     <ClCompile Include="ObjLadder.cpp">
@@ -96,23 +87,26 @@
     <ClCompile Include="ObjBlock.cpp">
       <Filter>ソース ファイル\ブロック処理</Filter>
     </ClCompile>
-    <ClCompile Include="ObjTitle.cpp">
-      <Filter>ソース ファイル\タイトル</Filter>
-    </ClCompile>
     <ClCompile Include="SceneMain.cpp">
       <Filter>ソース ファイル\シーンメイン</Filter>
     </ClCompile>
-    <ClCompile Include="SceneTitle.cpp">
-      <Filter>ソース ファイル\タイトル</Filter>
-    </ClCompile>
     <ClCompile Include="ObjBoard.cpp">
+      <Filter>ソース ファイル\アイテム処理</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjLadder.cpp">
       <Filter>ソース ファイル\アイテム処理</Filter>
     </ClCompile>
     <ClCompile Include="ObjRock.cpp">
       <Filter>ソース ファイル\アイテム処理</Filter>
     </ClCompile>
-    <ClCompile Include="LadderItem.cpp">
-      <Filter>ソース ファイル\アイテム処理</Filter>
+    <ClCompile Include="ObjGameOver.cpp">
+      <Filter>ソース ファイル\GameOver</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjTitle.cpp">
+      <Filter>ソース ファイル\タイトル</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneTitle.cpp">
+      <Filter>ソース ファイル\タイトル</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -158,43 +152,35 @@
     <ClInclude Include="item.h">
       <Filter>ソース ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="turuhasi.h">
-      <Filter>ソース ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="ObjGameOver.h">
-      <Filter>ソース ファイル\GameOver</Filter>
-    </ClInclude>
-    <ClInclude Include="ObjLadder.h">
-      <Filter>ソース ファイル\アイテム処理</Filter>
-    </ClInclude>
     <ClInclude Include="ObjHero.h">
       <Filter>ソース ファイル\主人公処理</Filter>
     </ClInclude>
     <ClInclude Include="ObjBlock.h">
       <Filter>ソース ファイル\ブロック処理</Filter>
     </ClInclude>
-    <ClInclude Include="ObjTitle.h">
-      <Filter>ソース ファイル\タイトル</Filter>
-    </ClInclude>
     <ClInclude Include="SceneMain.h">
       <Filter>ソース ファイル\シーンメイン</Filter>
     </ClInclude>
-    <ClInclude Include="SceneTitle.h">
-      <Filter>ソース ファイル\タイトル</Filter>
-    </ClInclude>
     <ClInclude Include="ObjBoard.h">
+      <Filter>ソース ファイル\アイテム処理</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjLadder.h">
       <Filter>ソース ファイル\アイテム処理</Filter>
     </ClInclude>
     <ClInclude Include="ObjRock.h">
       <Filter>ソース ファイル\アイテム処理</Filter>
     </ClInclude>
-    <ClInclude Include="LadderItem.h">
-      <Filter>ソース ファイル\アイテム処理</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="SceneGameOver.h">
+    <ClInclude Include="SceneGameOver.h">
       <Filter>ソース ファイル\GameOver</Filter>
-    </None>
+    </ClInclude>
+    <ClInclude Include="ObjGameOver.h">
+      <Filter>ソース ファイル\GameOver</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjTitle.h">
+      <Filter>ソース ファイル\タイトル</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneTitle.h">
+      <Filter>ソース ファイル\タイトル</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
