@@ -5,11 +5,11 @@
 using namespace GameL;
 
 //オブジェクト：ブロック＆背景
-class CObjBlock :public CObj
+class CObjPick :public CObj
 {
 public:
-	CObjBlock() {};
-	~CObjBlock() {};
+	CObjPick() {};
+	~CObjPick() {};
 	void Init();//イニシャライズ
 	void Action();//アクション
 	void Draw();//ドロー
@@ -18,11 +18,10 @@ public:
 	float GetScroll() { return m_scroll; }
 
 private:
-	int m_map[10][100];//マップ情報（仮）
+	int m_mapP[10][100];//マップ情報（仮）
 
 	float m_scroll;//左右スクロール用
 
 	float m_px;//位置
 	float m_py;
-	
 };

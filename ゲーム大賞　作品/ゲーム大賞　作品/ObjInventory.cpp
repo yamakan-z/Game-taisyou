@@ -63,7 +63,10 @@ void CObjInventory::Draw()
 	//描画
 	Draw::Draw(6, &src, &dst, c, 0.0f);
 
-	if (((UserData*)Save::GetData())->item == 1 && ((UserData*)Save::GetData())->ladder_item ==1)
+
+	//インベントリのアイテムアイコンの表示
+
+	if (((UserData*)Save::GetData())->item >= 0 && ((UserData*)Save::GetData())->ladder_item >=1)
 	{
 		//切り取り位置の設定
 		src.m_top = 0.0f;
@@ -80,4 +83,60 @@ void CObjInventory::Draw()
 		//描画
 		Draw::Draw(5, &src, &dst, c, 0.0f);
 	}
+
+	else if (((UserData*)Save::GetData())->item >= 0 && ((UserData*)Save::GetData())->pick_item >= 1)
+	{
+		//切り取り位置の設定
+		src.m_top = 0.0f;
+		src.m_left = 0.0f;
+		src.m_right = 184.0f;
+		src.m_bottom = 184.0f;
+
+		//表示位置の設定
+		dst.m_top = 50.0f;
+		dst.m_left = 510.0f;
+		dst.m_right = dst.m_left + 64.0;
+		dst.m_bottom = dst.m_top + 64.0;
+
+		//描画
+		Draw::Draw(7, &src, &dst, c, 0.0f);
+	}
+
+	if (((UserData*)Save::GetData())->item > 1 && ((UserData*)Save::GetData())->ladder_item > 1)
+	{
+		//切り取り位置の設定
+		src.m_top = 0.0f;
+		src.m_left = 0.0f;
+		src.m_right = 184.0f;
+		src.m_bottom = 184.0f;
+
+		//表示位置の設定
+		dst.m_top = 50.0f;
+		dst.m_left = 590.0f;
+		dst.m_right = dst.m_left + 64.0;
+		dst.m_bottom = dst.m_top + 64.0;
+
+		//描画
+		Draw::Draw(5, &src, &dst, c, 0.0f);
+	}
+
+	else if (((UserData*)Save::GetData())->item > 1 && ((UserData*)Save::GetData())->pick_item >= 1)
+	{
+		//切り取り位置の設定
+		src.m_top = 0.0f;
+		src.m_left = 0.0f;
+		src.m_right = 184.0f;
+		src.m_bottom = 184.0f;
+
+		//表示位置の設定
+		dst.m_top = 50.0f;
+		dst.m_left = 590.0f;
+		dst.m_right = dst.m_left + 64.0;
+		dst.m_bottom = dst.m_top + 64.0;
+
+		//描画
+		Draw::Draw(7, &src, &dst, c, 0.0f);
+	}
+
+
 }

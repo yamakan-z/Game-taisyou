@@ -120,6 +120,9 @@
     <ClCompile Include="ObjInventory.cpp">
       <Filter>ソース ファイル\インベントリ</Filter>
     </ClCompile>
+    <ClCompile Include="ObjPick.cpp">
+      <Filter>ソース ファイル\アイテム処理</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameL\Audio.h">
@@ -199,6 +202,9 @@
     </ClInclude>
     <ClInclude Include="ObjInventory.h">
       <Filter>ソース ファイル\インベントリ</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjPick.h">
+      <Filter>ソース ファイル\アイテム処理</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

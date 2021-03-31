@@ -17,6 +17,7 @@ enum OBJ_NAME
 	OBJ_ROCK,
 	OBJ_LADDER_ITEM,
 	OBJ_INVENTORY,
+	OBJ_PICK,
 };
 //------------------------------------------------
 
@@ -36,6 +37,7 @@ enum HIT_ELEMENTS
 	ELEMENT_BLUE,
 	ELEMENT_BLACK,
 	ELEMENT_WHITE,
+	ELEMENT_PICK,
 };
 //------------------------------------------------
 
@@ -55,7 +57,7 @@ struct UserData
 	bool break_point = false;//障害物破壊判定
 	float item = 0;  //アイテム所持数
 	float ladder_item = 0;//はしごアイテム所持フラグ
-
+	float pick_item = 0;//つるはし所持数
 };
 //------------------------------------------------
 
@@ -78,6 +80,7 @@ struct UserData
 #include"ObjRock.h"
 #include"LadderItem.h"
 #include"ObjInventory.h"
+#include"ObjPick.h"
 
 #include"ObjTitle.h"
 #include"ObjGameOver.h"

@@ -37,6 +37,7 @@ void CSceneMain::InitScene()
 	Draw::LoadImageW(L"板.png", 4, TEX_SIZE_512);
 	Draw::LoadImageW(L"はしごアイテム.png", 5, TEX_SIZE_512);
 	Draw::LoadImageW(L"インベントリ.png", 6, TEX_SIZE_512);
+	Draw::LoadImageW(L"つるはし.png", 7, TEX_SIZE_512);
 	
 
 
@@ -67,6 +68,10 @@ void CSceneMain::InitScene()
 	//インベントリ作成
 	CObjInventory* objin = new CObjInventory();
 	Objs::InsertObj(objin, OBJ_INVENTORY, 10);
+
+	//インベントリ作成
+	CObjPick* objp = new CObjPick();
+	Objs::InsertObj(objp, OBJ_PICK, 10);
 
 }
 

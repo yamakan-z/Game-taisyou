@@ -249,12 +249,15 @@ void CObjLadder::Draw()
 	//ブロック情報を持ってくる
 	CObjBlock* block = (CObjBlock*)Objs::GetObj(OBJ_BLOCK);
 
+	//10～19番　はしご
+	//20～29番　はしご判定ブロック
+	//30～39番　足場ブロック（上）
+
 	for (int i = 0; i < 10; i++)
 	{
 		for (int j = 0; j < 100; j++)
 		{
 			//はしご（描画のみ）
-			//10番台　はしご
 			if (m_mapL[i][j] == 10)
 			{
 				
@@ -271,7 +274,6 @@ void CObjLadder::Draw()
 			}
 
 			//はしご用のブロック（ここで上る判定をつける）
-			//20番台　はしご（判定）
 			if (m_mapL[i][j] == 20)
 			{
 
@@ -296,7 +298,6 @@ void CObjLadder::Draw()
 			}
 
 			//上の足場ブロック
-			//30番台　足場（上）
 			if (m_mapL[i][j] == 30)
 			{
 				//描画カラー情報
@@ -319,30 +320,6 @@ void CObjLadder::Draw()
 				Draw::Draw(1, &src, &dst, c2, 0.0f);
 			}
 
-			//はしごアイテム
-			//40番台　はしご（アイテム）
-			if (m_mapL[i][j] == 40)
-			{
-
-				//描画カラー情報
-				float c2[4] = { 1.0f,1.0f,1.0f,1.0f };
-
-				//切り取り位置の設定
-				src.m_top = 0.0f;
-				src.m_left = 0.0f;
-				src.m_right = 184.0f;
-				src.m_bottom = 184.0f;
-
-
-				//表示位置の設定
-				dst.m_top = i * 64.0f;
-				dst.m_left = j * 64.0f + block->GetScroll();
-				dst.m_right = dst.m_left + 64.0;
-				dst.m_bottom = dst.m_top + 64.0;
-
-				//描画
-				Draw::Draw(5, &src, &dst, c2, 0.0f);
-			}
 		}
 	}
 }
