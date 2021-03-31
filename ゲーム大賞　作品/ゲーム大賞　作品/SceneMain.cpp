@@ -61,15 +61,18 @@ void CSceneMain::InitScene()
 	CObjRock* objr = new CObjRock();
 	Objs::InsertObj(objr, OBJ_BOARD, 10);
 
-	//はしごアイテム作成
-	CLadderItem* objli = new CLadderItem();
-	Objs::InsertObj(objli, OBJ_LADDER_ITEM, 10);
-
 	//インベントリ作成
 	CObjInventory* objin = new CObjInventory();
 	Objs::InsertObj(objin, OBJ_INVENTORY, 10);
 
-	//インベントリ作成
+	//はしごアイテム作成
+	CLadderItem* objli = new CLadderItem();
+	Objs::InsertObj(objli, OBJ_LADDER_ITEM, 10);
+
+	CLadderItem2* objli2 = new CLadderItem2();
+	Objs::InsertObj(objli2, OBJ_LADDER_ITEM2, 10);
+
+	//つるはし作成
 	CObjPick* objp = new CObjPick();
 	Objs::InsertObj(objp, OBJ_PICK, 10);
 

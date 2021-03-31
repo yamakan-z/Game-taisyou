@@ -15,8 +15,11 @@ enum OBJ_NAME
 	OBJ_LADDER,
 	OBJ_BOARD,
 	OBJ_ROCK,
-	OBJ_LADDER_ITEM,
 	OBJ_INVENTORY,
+	//はしごアイテム
+	OBJ_LADDER_ITEM,
+	OBJ_LADDER_ITEM2,
+	//つるはし
 	OBJ_PICK,
 };
 //------------------------------------------------
@@ -78,13 +81,15 @@ struct UserData
 #include"ObjLadder.h"
 #include"ObjBoard.h"
 #include"ObjRock.h"
-#include"LadderItem.h"
 #include"ObjInventory.h"
-#include"ObjPick.h"
-
 #include"ObjTitle.h"
 #include"ObjGameOver.h"
 
+//はしごアイテム
+#include"LadderItem.h"
+#include"LadderItem2.h"
+//つるはし
+#include"ObjPick.h"
 //------------------------------------------------
 
 //ゲームシーンクラスヘッダ------------------------

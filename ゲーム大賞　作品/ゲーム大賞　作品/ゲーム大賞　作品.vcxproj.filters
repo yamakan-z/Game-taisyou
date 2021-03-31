@@ -114,9 +114,6 @@
     <ClCompile Include="ObjRock.cpp">
       <Filter>ソース ファイル\アイテム処理</Filter>
     </ClCompile>
-    <ClCompile Include="ObjLadder.cpp">
-      <Filter>ソース ファイル\アイテム処理</Filter>
-    </ClCompile>
     <ClCompile Include="ObjInventory.cpp">
       <Filter>ソース ファイル\インベントリ</Filter>
     </ClCompile>
@@ -127,6 +124,12 @@
       <Filter>ソース ファイル\アイテム処理\はしご</Filter>
     </ClCompile>
     <ClCompile Include="LadderItem.cpp">
+      <Filter>ソース ファイル\アイテム処理\はしご</Filter>
+    </ClCompile>
+    <ClCompile Include="LadderItem2.cpp">
+      <Filter>ソース ファイル\アイテム処理\はしご</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjLadder.cpp">
       <Filter>ソース ファイル\アイテム処理\はしご</Filter>
     </ClCompile>
   </ItemGroup>
@@ -210,6 +213,9 @@
       <Filter>ソース ファイル\アイテム処理\はしご</Filter>
     </ClInclude>
     <ClInclude Include="LadderItem.h">
+      <Filter>ソース ファイル\アイテム処理\はしご</Filter>
+    </ClInclude>
+    <ClInclude Include="LadderItem2.h">
       <Filter>ソース ファイル\アイテム処理\はしご</Filter>
     </ClInclude>
   </ItemGroup>

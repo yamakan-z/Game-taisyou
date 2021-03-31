@@ -153,6 +153,7 @@
     <ClCompile Include="GameL\UserData.cpp" />
     <ClCompile Include="GameL\WinInputs.cpp" />
     <ClCompile Include="LadderItem.cpp" />
+    <ClCompile Include="LadderItem2.cpp" />
     <ClCompile Include="ObjBlock.cpp" />
     <ClCompile Include="ObjBoard.cpp" />
     <ClCompile Include="ObjGameOver.cpp" />
@@ -188,6 +189,7 @@
     <ClInclude Include="GameL\UserData.h" />
     <ClInclude Include="GameL\WinInputs.h" />
     <ClInclude Include="LadderItem.h" />
+    <ClInclude Include="LadderItem2.h" />
     <ClInclude Include="main.h" />
     <ClInclude Include="ObjBlock.h" />
     <ClInclude Include="ObjBoard.h" />
