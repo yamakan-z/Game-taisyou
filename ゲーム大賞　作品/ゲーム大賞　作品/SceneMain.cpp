@@ -64,6 +64,10 @@ void CSceneMain::InitScene()
 	CLadderItem* objli = new CLadderItem();
 	Objs::InsertObj(objli, OBJ_LADDER_ITEM, 10);
 
+	//boardオブジェクト作成
+	CBoardItem* objbi = new CBoardItem();
+	Objs::InsertObj(objbi, OBJ_BOARD_ITEM, 10);
+
 }
 
 //実行中メソッド

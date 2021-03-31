@@ -165,7 +165,7 @@ void CObjBoard::Action()
 					((UserData*)Save::GetData())->ins_place = false;
 				}
 
-				if (((UserData*)Save::GetData())->ins_flag == true && hero->GetBT() == 20)//設置場所一つ前のブロックに反応
+				if (((UserData*)Save::GetData())->ins_flag == true && hero->GetBT() == 20 &&((UserData*)Save::GetData())->board_item > 0)//設置場所一つ前のブロックに反応
 				{
 
 					if (m_mapB[i][j] == 1)//8番：板設置用の穴
