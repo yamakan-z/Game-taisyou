@@ -74,6 +74,7 @@ void CObjBlock::Action()
 	//2版　ゴール
 	//10～19番　障害物
 	//20～29番　障害物判定ブロック
+	//90～99番　障害物破壊後の値
 	for (int i = 0; i < 10; i++)
 	{
 		for (int j = 0; j < 100; j++)
@@ -185,7 +186,19 @@ void CObjBlock::Action()
 							hero->SetBT(m_map[i][j]);//ブロックの要素(type)を主人公に渡す
 							hero->SetVY(0.0f);
 
-							//場外に出たらリスタート
+							//フラグを破棄
+							((UserData*)Save::GetData())->ladder_item = 0;
+							((UserData*)Save::GetData())->item = 0;
+							((UserData*)Save::GetData())->pick_item = 0;
+							((UserData*)Save::GetData())->ins_flag = false;
+							if (m_map[i][j] == 90)
+							{
+								m_map[i][j] = 10;//障害物復活
+
+							}
+
+
+							//ブロックに触れたらシーン移動
 							Scene::SetScene(new CSceneGameClear());
 						}
 						if (r > 135 && r < 225)
@@ -335,7 +348,7 @@ void CObjBlock::Action()
 
 					if (m_map[i][j] == 10)
 					{
-						m_map[i][j] = 0;//障害物破壊
+						m_map[i][j] = 90;//障害物破壊
 
 						((UserData*)Save::GetData())->item -= 1;
 					}
