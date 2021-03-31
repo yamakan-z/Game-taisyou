@@ -11,6 +11,7 @@ enum OBJ_NAME
 	OBJ_ITEM,
 	OBJ_TURUHASI,
 	OBJ_TITLE,
+	OBJ_GAME_CLEAR,
 	OBJ_GAME_OVER,
 	OBJ_LADDER,
 	OBJ_BOARD,
@@ -83,6 +84,7 @@ struct UserData
 #include"ObjRock.h"
 #include"ObjInventory.h"
 #include"ObjTitle.h"
+#include"ObjGameClear.h"
 #include"ObjGameOver.h"
 
 //はしごアイテム
@@ -96,6 +98,7 @@ struct UserData
 #include"SceneMain.h"
 #include"SceneTitle.h"
 #include"SceneGameOver.h"
+#include"SceneGameClear.h"
 //-----------------------------------------------
 
 //シーンスタートクラス---------------------------
