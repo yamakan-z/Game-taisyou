@@ -17,7 +17,7 @@ void CObjPick::Init()
 {
 	float m_scroll;//左右スクロール用
 
-	m_px = 900.0f;//位置
+	m_px = 200.0f;//位置
 	m_py = 520.0f;
 
 	//当たり判定用HitBoxを作成
@@ -28,6 +28,11 @@ void CObjPick::Init()
 //アクション
 void CObjPick::Action()
 {
+
+	if (((UserData*)Save::GetData())->pick_item < 0)//はしごアイテムが0を下回る時、0にする
+	{
+		((UserData*)Save::GetData())->pick_item = 0;
+	}
 
 	//ブロック情報を持ってくる
 	CObjBlock* block = (CObjBlock*)Objs::GetObj(OBJ_BLOCK);

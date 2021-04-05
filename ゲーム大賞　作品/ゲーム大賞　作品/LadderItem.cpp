@@ -16,7 +16,7 @@ void CLadderItem::Init()
 {
 	float m_scroll;//左右スクロール用
 
-	m_px = 250.0f;//位置
+	m_px = 350.0f;//位置
 	m_py = 520.0f;
 
 	//当たり判定用HitBoxを作成

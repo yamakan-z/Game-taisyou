@@ -5,7 +5,7 @@
 //GameLで使用するヘッダー
 #include "GameL\SceneObjManager.h"
 #include"GameL\DrawTexture.h"
-
+#include "GameL/UserData.h"
 
 //使用するネームスペース
 using namespace GameL;
@@ -40,6 +40,14 @@ void CSceneMain::InitScene()
 	Draw::LoadImageW(L"つるはし.png", 7, TEX_SIZE_512);
 	
 
+	if (((UserData*)Save::GetData())->item < 0)//アイテムが0を下回る時、0にする
+	{
+		((UserData*)Save::GetData())->item = 0;
+	}
+
+
+
+	
 
 	//主人公オブジェクト作成
 	CObjHero* obj = new CObjHero();

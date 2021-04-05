@@ -145,7 +145,7 @@ void CObjBlock::Action()
 				}
 
 
-				//主人公とブロックの当たり判定
+				//主人公とブロックの当たり判定(ゴール）
 				if (m_map[i][j] == 2 && (hx + (-m_scroll) + 64.0f > x) && (hx + (-m_scroll) < x + 64.0f) && (hy + 64.0f > y) && (hy < y + 64.0f))
 				{
 					//上下左右判定
@@ -191,6 +191,7 @@ void CObjBlock::Action()
 							((UserData*)Save::GetData())->item = 0;
 							((UserData*)Save::GetData())->pick_item = 0;
 							((UserData*)Save::GetData())->ins_flag = false;
+							((UserData*)Save::GetData())->break_flag = false;
 							if (m_map[i][j] == 90)
 							{
 								m_map[i][j] = 10;//障害物復活
@@ -351,11 +352,12 @@ void CObjBlock::Action()
 						m_map[i][j] = 90;//障害物破壊
 
 						((UserData*)Save::GetData())->item -= 1;
-					}
-					else if (((UserData*)Save::GetData())->item <= 0)
-					{
 						((UserData*)Save::GetData())->pick_item -= 1;
 					}
+					/*else if (((UserData*)Save::GetData())->item <= 0)
+					{
+						((UserData*)Save::GetData())->pick_item -= 1;
+					}*/
 				}
 
 
