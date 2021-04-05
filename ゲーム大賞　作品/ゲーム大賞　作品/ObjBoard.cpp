@@ -60,6 +60,13 @@ void CObjBoard::Action()
 		m_scroll -= hero->GetVX();//主人公が本来動くべき分の値をm_scrollに加える
 	}
 
+
+	if (((UserData*)Save::GetData())->item <= 0)//アイテムが0を下回る時、0にする
+	{
+		((UserData*)Save::GetData())->item = 0;
+	}
+
+
 	//主人公の衝突状態確認フラグの初期化
 	hero->SetUp(false);
 	hero->SetDown(false);
@@ -171,12 +178,11 @@ void CObjBoard::Action()
 					if (m_mapB[i][j] == 1)//板設置用の穴
 					{
 						m_mapB[i][j] = 10;//板設置
-
-						((UserData*)Save::GetData())->item -= 1;
 						((UserData*)Save::GetData())->ins_done =true;
 					}
 					else if (((UserData*)Save::GetData())->ins_done == true)
 					{
+						((UserData*)Save::GetData())->item -= 1;
 						((UserData*)Save::GetData())->board_item -= 1;
 						((UserData*)Save::GetData())->ins_done = false;
 					}

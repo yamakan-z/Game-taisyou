@@ -46,6 +46,11 @@ void CObjLadder::Action()
 	float hx = hero->GetX();
 	float hy = hero->GetY();
 
+	if (((UserData*)Save::GetData())->item <= 0)//アイテムが0を下回る時、0にする
+	{
+		((UserData*)Save::GetData())->item = 0;
+	}
+
 	if (((UserData*)Save::GetData())->ladder_item < 0)//はしごアイテムが0を下回る時、0にする
 	{
 		((UserData*)Save::GetData())->ladder_item = 0;
@@ -276,12 +281,12 @@ void CObjLadder::Action()
 						
 						((UserData*)Save::GetData())->ladder = true;//上移動の許可
 						
-						((UserData*)Save::GetData())->item -= 1;
 						((UserData*)Save::GetData())->ins_ladder_done = true;
 
 					}
 					else if (((UserData*)Save::GetData())->ins_ladder_done == true)
 					{
+						((UserData*)Save::GetData())->item -= 1;
 						((UserData*)Save::GetData())->ladder_item -= 1;
 						((UserData*)Save::GetData())->ins_ladder_done = false;
 					}

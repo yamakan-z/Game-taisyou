@@ -43,7 +43,7 @@ void CObjInventory::Draw()
 
 	//スコアの表示
 	wchar_t str[256];
-	swprintf_s(str, L"アイテム数:%p", ((UserData*)Save::GetData())->item);
+	swprintf_s(str, L"アイテム数:%f", ((UserData*)Save::GetData())->item);
 	Font::StrDraw(str, 10, 10, 20, c);
 
 
@@ -67,7 +67,7 @@ void CObjInventory::Draw()
 	//インベントリのアイテムアイコンの表示
 
 	//一つ目
-	if (((UserData*)Save::GetData())->item > 1)
+	if (((UserData*)Save::GetData())->item >= 1)
 	{
 		if (((UserData*)Save::GetData())->ladder_item > 1)
 		{

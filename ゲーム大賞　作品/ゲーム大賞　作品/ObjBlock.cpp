@@ -43,7 +43,10 @@ void CObjBlock::Action()
 	float hx = hero->GetX();
 	float hy = hero->GetY();
 
-
+	if (((UserData*)Save::GetData())->item <= 0)//アイテムが0を下回る時、0にする
+	{
+		((UserData*)Save::GetData())->item = 0;
+	}
 
 
 	//後方スクロールライン
@@ -344,6 +347,8 @@ void CObjBlock::Action()
 					((UserData*)Save::GetData())->break_point = false;
 				}
 
+				
+
 				if (((UserData*)Save::GetData())->break_flag == true)//障害物の一つ前のブロックに反応
 				{
 
@@ -351,13 +356,15 @@ void CObjBlock::Action()
 					{
 						m_map[i][j] = 90;//障害物破壊
 
+						((UserData*)Save::GetData())->break_done = true;
+						
+					}
+					else if (((UserData*)Save::GetData())->break_done == true)
+					{
 						((UserData*)Save::GetData())->item -= 1;
 						((UserData*)Save::GetData())->pick_item -= 1;
+						((UserData*)Save::GetData())->break_done = false;
 					}
-					/*else if (((UserData*)Save::GetData())->item <= 0)
-					{
-						((UserData*)Save::GetData())->pick_item -= 1;
-					}*/
 				}
 
 

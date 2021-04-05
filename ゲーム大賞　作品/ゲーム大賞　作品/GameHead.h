@@ -58,7 +58,7 @@ struct UserData
 	bool ins_flag = false; //設置フラグ（板）
 	bool ins_place = false;//設置場所管理(板）
 	float board_item = 0;//板アイテム所持フラグ
-	bool ins_done = false;//板設置終了フラグ（今のところは、これがないと板が全部表示されない）
+	bool ins_done = false;//板設置終了フラグ（今のところは、これがないと一つのアイテムが2つ使用されるため）
 	//はしご関係フラグ
 	bool ins_ladder = false;//はしご設置
 	bool ladder_flag = false;//はしごの設置場所を判定
@@ -69,6 +69,7 @@ struct UserData
 	bool break_flag = false;//障害物破壊フラグ
 	bool break_point = false;//障害物破壊判定
 	float pick_item = 0;//つるはし所持数
+	bool break_done = false;//板設置終了フラグ（今のところは、これがないと一つのアイテムが2つ使用されるため）
 
 
 };
