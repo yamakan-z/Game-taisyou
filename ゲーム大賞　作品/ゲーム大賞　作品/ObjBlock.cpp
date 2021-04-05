@@ -189,12 +189,6 @@ void CObjBlock::Action()
 							hero->SetBT(m_map[i][j]);//ブロックの要素(type)を主人公に渡す
 							hero->SetVY(0.0f);
 
-							//フラグを破棄
-							((UserData*)Save::GetData())->ladder_item = 0;
-							((UserData*)Save::GetData())->item = 0;
-							((UserData*)Save::GetData())->pick_item = 0;
-							((UserData*)Save::GetData())->ins_flag = false;
-							((UserData*)Save::GetData())->break_flag = false;
 							if (m_map[i][j] == 90)
 							{
 								m_map[i][j] = 10;//障害物復活
