@@ -11,6 +11,7 @@
 
 #include"GameHead.h"
 #include"ObjGameOver.h"
+#include "GameL/UserData.h"
 
 //使用するネームスペース
 using namespace GameL;
@@ -19,6 +20,13 @@ using namespace GameL;
 void CObjGameOver::Init()
 {
 	m_key_flag = false;//キーフラグ
+
+	//フラグを破棄
+	((UserData*)Save::GetData())->ladder_item = 0;
+	((UserData*)Save::GetData())->item = 0;
+	((UserData*)Save::GetData())->pick_item = 0;
+	((UserData*)Save::GetData())->ins_flag = false;
+	((UserData*)Save::GetData())->break_flag = false;
 }
 //アクション
 void CObjGameOver::Action()
