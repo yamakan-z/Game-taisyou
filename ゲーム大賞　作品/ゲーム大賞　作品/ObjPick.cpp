@@ -50,6 +50,7 @@ void CObjPick::Action()
 		((UserData*)Save::GetData())->item += 1;
 		((UserData*)Save::GetData())->pick_item += 1;
 	}
+
 }
 
 //ƒhƒ[

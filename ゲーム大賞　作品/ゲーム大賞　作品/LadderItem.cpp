@@ -45,6 +45,8 @@ void CLadderItem::Action()
 		((UserData*)Save::GetData())->item += 1;
 		((UserData*)Save::GetData())->ladder_item += 1;
 	}
+
+	
 }
 
 //ƒhƒ[

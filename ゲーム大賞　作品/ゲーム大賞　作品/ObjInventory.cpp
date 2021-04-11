@@ -19,13 +19,18 @@ void CObjInventory::Init()
 
 	m_px = 500.0f;//位置
 	m_py = -50.0f;
+	
+	
 }
 
 
 //アクション
 void CObjInventory::Action()
 {
-
+	if (((UserData*)Save::GetData())->item == 1)
+	{
+		
+	}
 }
 
 //ドロー
