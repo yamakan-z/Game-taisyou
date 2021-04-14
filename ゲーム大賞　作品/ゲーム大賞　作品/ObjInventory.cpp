@@ -74,7 +74,7 @@ void CObjInventory::Draw()
 	//一つ目
 	if (((UserData*)Save::GetData())->item >= 1)
 	{
-		if (((UserData*)Save::GetData())->ladder_item > 1)
+		if (((UserData*)Save::GetData())->I_ladder == true)
 		{
 			//切り取り位置の設定
 			src.m_top = 0.0f;
@@ -92,7 +92,7 @@ void CObjInventory::Draw()
 			Draw::Draw(5, &src, &dst, c, 0.0f);
 		}
 		
-		else if (((UserData*)Save::GetData())->pick_item >= 1)
+		else if (((UserData*)Save::GetData())->I_pick == true)
 		{
 			//切り取り位置の設定
 			src.m_top = 0.0f;
@@ -110,7 +110,7 @@ void CObjInventory::Draw()
 			Draw::Draw(7, &src, &dst, c, 0.0f);
 		}
 
-		else if (((UserData*)Save::GetData())->board_item >= 1)
+		else if (((UserData*)Save::GetData())->I_board == true)
 		{
 			//切り取り位置の設定
 			src.m_top = 0.0f;
@@ -133,7 +133,7 @@ void CObjInventory::Draw()
 	//二つ目
 	if (((UserData*)Save::GetData())->item >= 2 )
 	{
-		if (((UserData*)Save::GetData())->ladder_item >= 1)
+		if (((UserData*)Save::GetData())->I_ladder1 == true)
 		{
 			//切り取り位置の設定
 			src.m_top = 0.0f;
@@ -151,7 +151,7 @@ void CObjInventory::Draw()
 			Draw::Draw(5, &src, &dst, c, 0.0f);
 		}
 
-		else if (((UserData*)Save::GetData())->pick_item >= 1)
+		else if (((UserData*)Save::GetData())->I_pick1 == true)
 		{
 			//切り取り位置の設定
 			src.m_top = 0.0f;
@@ -169,7 +169,7 @@ void CObjInventory::Draw()
 			Draw::Draw(7, &src, &dst, c, 0.0f);
 		}
 
-		else if (((UserData*)Save::GetData())->board_item >= 1)
+		else if (((UserData*)Save::GetData())->I_board1 == true)
 		{
 			//切り取り位置の設定
 			src.m_top = 0.0f;
@@ -193,7 +193,7 @@ void CObjInventory::Draw()
 	//三つ目
 	if (((UserData*)Save::GetData())->item >= 3)
 	{
-		if (((UserData*)Save::GetData())->ladder_item +1)
+		if (((UserData*)Save::GetData())->I_ladder2 == true)
 		{
 			//切り取り位置の設定
 			src.m_top = 0.0f;
@@ -203,7 +203,7 @@ void CObjInventory::Draw()
 
 			//表示位置の設定
 			dst.m_top = 50.0f;
-			dst.m_left = 680.0f;
+			dst.m_left = 670.0f;
 			dst.m_right = dst.m_left + 64.0;
 			dst.m_bottom = dst.m_top + 64.0;
 
@@ -211,7 +211,7 @@ void CObjInventory::Draw()
 			Draw::Draw(5, &src, &dst, c, 0.0f);
 		}
 
-		else if (((UserData*)Save::GetData())->pick_item +1)
+		else if (((UserData*)Save::GetData())->I_pick2 == true)
 		{
 			//切り取り位置の設定
 			src.m_top = 0.0f;
@@ -221,7 +221,7 @@ void CObjInventory::Draw()
 
 			//表示位置の設定
 			dst.m_top = 50.0f;
-			dst.m_left = 680.0f;
+			dst.m_left = 670.0f;
 			dst.m_right = dst.m_left + 64.0;
 			dst.m_bottom = dst.m_top + 64.0;
 
@@ -229,7 +229,7 @@ void CObjInventory::Draw()
 			Draw::Draw(7, &src, &dst, c, 0.0f);
 		}
 
-		else if (((UserData*)Save::GetData())->board_item + 1)
+		else if (((UserData*)Save::GetData())->I_board2 == true)
 		{
 			//切り取り位置の設定
 			src.m_top = 0.0f;
@@ -239,7 +239,7 @@ void CObjInventory::Draw()
 
 			//表示位置の設定
 			dst.m_top = 50.0f;
-			dst.m_left = 680.0f;
+			dst.m_left = 670.0f;
 			dst.m_right = dst.m_left + 64.0;
 			dst.m_bottom = dst.m_top + 64.0;
 

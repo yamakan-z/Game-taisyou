@@ -16,7 +16,10 @@ void CBoardItem::Init()
 {
 	float m_scroll;//左右スクロール用
 
-	m_px = 270.0f;//位置
+	//m_px = 270.0f;//位置
+	//m_py = 520.0f;
+
+	m_px = 200.0f;//位置
 	m_py = 520.0f;
 
 	//当たり判定用HitBoxを作成
@@ -48,6 +51,21 @@ void CBoardItem::Action()
 
 		((UserData*)Save::GetData())->item += 1;
 		((UserData*)Save::GetData())->board_item += 1;
+
+		if (((UserData*)Save::GetData())->item == 1)
+		{
+			((UserData*)Save::GetData())->I_board = true;
+		}
+
+		else if (((UserData*)Save::GetData())->item == 2)
+		{
+			((UserData*)Save::GetData())->I_board1 = true;
+		}
+
+		else if (((UserData*)Save::GetData())->item == 3)
+		{
+			((UserData*)Save::GetData())->I_board2 = true;
+		}
 	}
 }
 

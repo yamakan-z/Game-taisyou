@@ -17,7 +17,10 @@ void CObjPick::Init()
 {
 	float m_scroll;//左右スクロール用
 
-	m_px = 200.0f;//位置
+	//m_px = 200.0f;//位置
+	//m_py = 520.0f;
+
+	m_px = 350.0f;//位置
 	m_py = 520.0f;
 
 	//当たり判定用HitBoxを作成
@@ -49,6 +52,21 @@ void CObjPick::Action()
 
 		((UserData*)Save::GetData())->item += 1;
 		((UserData*)Save::GetData())->pick_item += 1;
+
+		if (((UserData*)Save::GetData())->item == 1)
+		{
+			((UserData*)Save::GetData())->I_pick = true;
+		}
+
+		else if (((UserData*)Save::GetData())->item == 2)
+		{
+			((UserData*)Save::GetData())->I_pick1 = true;
+		}
+
+		else if (((UserData*)Save::GetData())->item == 3)
+		{
+			((UserData*)Save::GetData())->I_pick2 = true;
+		}
 	}
 
 }
