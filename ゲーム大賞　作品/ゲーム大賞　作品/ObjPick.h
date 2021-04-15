@@ -5,11 +5,11 @@
 using namespace GameL;
 
 //オブジェクト：ブロック＆背景
-class CLadderItem :public CObj
+class CObjPick :public CObj
 {
 public:
-	CLadderItem() {};
-	~CLadderItem() {};
+	CObjPick() {};
+	~CObjPick() {};
 	void Init();//イニシャライズ
 	void Action();//アクション
 	void Draw();//ドロー
@@ -18,7 +18,7 @@ public:
 	float GetScroll() { return m_scroll; }
 
 private:
-	int m_mapR[10][100];//マップ情報（板）
+	int m_mapP[10][100];//マップ情報（仮）
 
 	float m_scroll;//左右スクロール用
 

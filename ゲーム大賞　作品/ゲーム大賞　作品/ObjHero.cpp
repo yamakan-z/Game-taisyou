@@ -40,6 +40,10 @@ void CObjHero::Action()
 	//落下によるゲームオーバー
 	if (m_py > 1000.0f)
 	{
+		/*((UserData*)Save::GetData())->ladder_item = 0;
+		((UserData*)Save::GetData())->item = 0;
+		((UserData*)Save::GetData())->pick_item = 0;
+		((UserData*)Save::GetData())->board_item = 0;*/
 		//場外に出たらリスタート
 		Scene::SetScene(new CSceneGameOver());
 	}

@@ -11,11 +11,18 @@ enum OBJ_NAME
 	OBJ_ITEM,
 	OBJ_TURUHASI,
 	OBJ_TITLE,
+	OBJ_GAME_CLEAR,
 	OBJ_GAME_OVER,
 	OBJ_LADDER,
 	OBJ_BOARD,
 	OBJ_ROCK,
+	OBJ_INVENTORY,
+	//はしごアイテム
 	OBJ_LADDER_ITEM,
+	OBJ_LADDER_ITEM2,
+	//つるはし
+	OBJ_PICK,
+	OBJ_BOARD_ITEM,
 };
 //------------------------------------------------
 
@@ -35,6 +42,7 @@ enum HIT_ELEMENTS
 	ELEMENT_BLUE,
 	ELEMENT_BLACK,
 	ELEMENT_WHITE,
+	ELEMENT_PICK,
 };
 //------------------------------------------------
 
@@ -45,16 +53,39 @@ struct UserData
 	int mSeveData;	//サンプルセーブデータ
 	bool up_flag = false;  //はしごがある時、上に上がるフラグ
 	bool move_flag = true; //上移動時、左右移動を制限するフラグ
+	float item = 0;  //アイテム所持数
+
+	//板関係フラグ
 	bool ins_flag = false; //設置フラグ（板）
 	bool ins_place = false;//設置場所管理(板）
+	float board_item = 0;//板アイテム所持フラグ
+	bool ins_done = false;//板設置終了フラグ（今のところは、これがないと一つのアイテムが2つ使用されるため）
+
+	//はしご関係フラグ
 	bool ins_ladder = false;//はしご設置
 	bool ladder_flag = false;//はしごの設置場所を判定
 	bool ladder = false;//はしごの有無
+	float ladder_item = 0;//はしごアイテム所持フラグ
+	bool ins_ladder_done = false;//はしご設置終了フラグ（今のところは、これがないとはしごが全部表示されない）
+
+	//障害物関係フラグ
 	bool break_flag = false;//障害物破壊フラグ
 	bool break_point = false;//障害物破壊判定
-	float item = 0;  //アイテム所持数
-	float ladder_item = 0;//はしごアイテム所持フラグ
+	float pick_item = 0;//つるはし所持数
+	bool break_done = false;//板設置終了フラグ（今のところは、これがないと一つのアイテムが2つ使用されるため）
 
+	//インベントリ関係
+	bool I_ladder = false;//1つ目の取ったアイテムがはしごの時インベントリに表示
+	bool I_board = false;//1つ目の取ったアイテムが板の時インベントリに表示
+	bool I_pick = false;//1つ目の取ったアイテムがつるはしの時インベントリに表示
+
+	bool I_ladder1 = false;//2つ目の取ったアイテムがはしごの時インベントリに表示
+	bool I_board1 = false;//2つ目の取ったアイテムが板の時インベントリに表示
+	bool I_pick1 = false;//2つ目の取ったアイテムがつるはしの時インベントリに表示
+
+	bool I_ladder2 = false;//3つ目の取ったアイテムがはしごの時インベントリに表示
+	bool I_board2 = false;//3つ目の取ったアイテムが板の時インベントリに表示
+	bool I_pick2 = false;//3つ目の取ったアイテムがつるはしの時インベントリに表示
 };
 //------------------------------------------------
 
@@ -76,10 +107,19 @@ struct UserData
 #include"ObjBoard.h"
 #include"ObjRock.h"
 #include"LadderItem.h"
+#include"BoardItem.h"
 
 
+#include"ObjInventory.h"
 #include"ObjTitle.h"
+#include"ObjGameClear.h"
 #include"ObjGameOver.h"
+//つるはし
+#include"ObjPick.h"
+
+//はしごアイテム
+#include"LadderItem.h"
+#include"LadderItem2.h"
 
 //------------------------------------------------
 
@@ -87,9 +127,10 @@ struct UserData
 #include"SceneMain.h"
 #include"SceneTitle.h"
 #include"SceneGameOver.h"
+#include"SceneGameClear.h"
 //-----------------------------------------------
 
 //シーンスタートクラス---------------------------
 //ゲーム開始時のシーンクラス登録
-#define SET_GAME_START  CSceneMain
+#define SET_GAME_START  CSceneTitle
 //-----------------------------------------------

@@ -2,9 +2,10 @@
 #include"GameL\DrawTexture.h"
 #include"GameL\WinInputs.h"
 #include"GameL\SceneManager.h"
+#include"GameL\SceneObjManager.h"
 
 #include"GameHead.h"
-#include"LadderItem.h"
+#include"ObjPick.h"
 #include "GameL/UserData.h"
 #include "GameL\HitBoxManager.h"
 
@@ -12,32 +13,36 @@
 using namespace GameL;
 
 // イニシャライズ
-void CLadderItem::Init()
+void CObjPick::Init()
 {
 	float m_scroll;//左右スクロール用
 
-	//m_px = 350.0f;//位置
+	//m_px = 200.0f;//位置
 	//m_py = 520.0f;
 
-	m_px = 270.0f;//位置
+	m_px = 350.0f;//位置
 	m_py = 520.0f;
 
 	//当たり判定用HitBoxを作成
-	Hits::SetHitBox(this, m_px, m_py, 64, 64, ELEMENT_ITEM, OBJ_LADDER_ITEM, 1);
+	Hits::SetHitBox(this, m_px, m_py, 64, 64, ELEMENT_ITEM, OBJ_PICK, 1);
 
 }
 
-
 //アクション
-void CLadderItem::Action()
+void CObjPick::Action()
 {
+
+	if (((UserData*)Save::GetData())->pick_item < 0)//はしごアイテムが0を下回る時、0にする
+	{
+		((UserData*)Save::GetData())->pick_item = 0;
+	}
 
 	//ブロック情報を持ってくる
 	CObjBlock* block = (CObjBlock*)Objs::GetObj(OBJ_BLOCK);
 
 	//HitBoxの位置の変更
 	CHitBox* hit = Hits::GetHitBox(this);
-	hit->SetPos(m_px+ block->GetScroll(), m_py);
+	hit->SetPos(m_px + block->GetScroll(), m_py);
 
 	//主人公オブジェクトと接触したら100円を削除
 	if (hit->CheckElementHit(ELEMENT_PLAYER) == true)
@@ -46,29 +51,28 @@ void CLadderItem::Action()
 		Hits::DeleteHitBox(this);	//100円が所有するHitBoxを削除する
 
 		((UserData*)Save::GetData())->item += 1;
-		((UserData*)Save::GetData())->ladder_item += 1;
+		((UserData*)Save::GetData())->pick_item += 1;
 
 		if (((UserData*)Save::GetData())->item == 1)
 		{
-			((UserData*)Save::GetData())->I_ladder = true;
+			((UserData*)Save::GetData())->I_pick = true;
 		}
 
 		else if (((UserData*)Save::GetData())->item == 2)
 		{
-			((UserData*)Save::GetData())->I_ladder1 = true;
+			((UserData*)Save::GetData())->I_pick1 = true;
 		}
 
 		else if (((UserData*)Save::GetData())->item == 3)
 		{
-			((UserData*)Save::GetData())->I_ladder2 = true;
+			((UserData*)Save::GetData())->I_pick2 = true;
 		}
 	}
 
-	
 }
 
 //ドロー
-void CLadderItem::Draw()
+void CObjPick::Draw()
 {
 	//描画カラー情報
 	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
@@ -92,5 +96,5 @@ void CLadderItem::Draw()
 	dst.m_bottom = dst.m_top + 64.0;
 
 	//描画
-	Draw::Draw(5, &src, &dst, c, 0.0f);
+	Draw::Draw(7, &src, &dst, c, 0.0f);
 }

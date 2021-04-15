@@ -1,27 +1,20 @@
-//STLデバック機能をOFFにする
-#define _SECURE_SCL (0)
-#define _HAS_ITERATOR_DEBUGGING (0)
-
-
-
 //使用するヘッダーファイル
 #include"GameL\DrawFont.h"
 #include"GameL\WinInputs.h"
 #include"GameL\SceneObjManager.h"
 
 #include"GameHead.h"
-#include"ObjGameOver.h"
+#include"ObjGameClear.h"
 #include "GameL/UserData.h"
 
 //使用するネームスペース
 using namespace GameL;
 
 //イニシャライズ
-void CObjGameOver::Init()
+void CObjGameClear::Init()
 {
 	m_key_flag = false;//キーフラグ
-
-	//アイテム関係のフラグを破棄
+	//フラグを破棄
 	((UserData*)Save::GetData())->ladder_item = 0;
 	((UserData*)Save::GetData())->item = 0;
 	((UserData*)Save::GetData())->pick_item = 0;
@@ -39,7 +32,7 @@ void CObjGameOver::Init()
 	((UserData*)Save::GetData())->I_pick2 = false;
 }
 //アクション
-void CObjGameOver::Action()
+void CObjGameClear::Action()
 {
 	//エンターキーを押してシーン：ゲームTitleに移行する
 	if (Input::GetVKey(VK_RETURN) == true)
@@ -55,13 +48,9 @@ void CObjGameOver::Action()
 	}
 }
 //ドロー
-void CObjGameOver::Draw()
+void CObjGameClear::Draw()
 {
 	float r[4] = { 0.5f,0.0f,0.0f,1.0f };
-	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
 
-	Font::StrDraw(L"YOU LOST", 350, 250, 32, r);
-	Font::StrDraw(L"GAMEOVER", 350, 290, 32, r);
-	Font::StrDraw(L"NEXT_CHALLENGE:ENTER_KEY", 225, 340, 32, c);
-
+	Font::StrDraw(L"GAME CLEAR", 350, 250, 32, r);
 }
