@@ -5,7 +5,7 @@
 //GameLで使用するヘッダー
 #include "GameL\SceneObjManager.h"
 #include"GameL\DrawTexture.h"
-
+#include "GameL/UserData.h"
 
 //使用するネームスペース
 using namespace GameL;
@@ -36,9 +36,18 @@ void CSceneMain::InitScene()
 	Draw::LoadImageW(L"Ladder.png", 3, TEX_SIZE_512);
 	Draw::LoadImageW(L"板.png", 4, TEX_SIZE_512);
 	Draw::LoadImageW(L"はしごアイテム.png", 5, TEX_SIZE_512);
+	Draw::LoadImageW(L"インベントリ.png", 6, TEX_SIZE_512);
+	Draw::LoadImageW(L"つるはし.png", 7, TEX_SIZE_512);
 	
-	//
 
+	if (((UserData*)Save::GetData())->item <= 0)//アイテムが0を下回る時、0にする
+	{
+		((UserData*)Save::GetData())->item = 0;
+	}
+
+
+
+	
 
 	//主人公オブジェクト作成
 	CObjHero* obj = new CObjHero();
@@ -60,9 +69,24 @@ void CSceneMain::InitScene()
 	CObjRock* objr = new CObjRock();
 	Objs::InsertObj(objr, OBJ_BOARD, 10);
 
-	//rockオブジェクト作成
+	//インベントリ作成
+	CObjInventory* objin = new CObjInventory();
+	Objs::InsertObj(objin, OBJ_INVENTORY, 10);
+
+	//はしごアイテム作成
 	CLadderItem* objli = new CLadderItem();
 	Objs::InsertObj(objli, OBJ_LADDER_ITEM, 10);
+
+	CLadderItem2* objli2 = new CLadderItem2();
+	Objs::InsertObj(objli2, OBJ_LADDER_ITEM2, 10);
+
+	//つるはし作成
+	CObjPick* objp = new CObjPick();
+	Objs::InsertObj(objp, OBJ_PICK, 10);
+
+	//boardオブジェクト作成
+	CBoardItem* objbi = new CBoardItem();
+	Objs::InsertObj(objbi, OBJ_BOARD_ITEM, 10);
 
 }
 

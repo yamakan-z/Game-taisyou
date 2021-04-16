@@ -5,11 +5,11 @@
 using namespace GameL;
 
 //オブジェクト：ブロック＆背景
-class CLadderItem :public CObj
+class CLadderItem2 :public CObj
 {
 public:
-	CLadderItem() {};
-	~CLadderItem() {};
+	CLadderItem2() {};
+	~CLadderItem2() {};
 	void Init();//イニシャライズ
 	void Action();//アクション
 	void Draw();//ドロー

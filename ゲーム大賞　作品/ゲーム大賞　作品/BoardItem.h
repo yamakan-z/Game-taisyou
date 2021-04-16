@@ -5,11 +5,11 @@
 using namespace GameL;
 
 //オブジェクト：ブロック＆背景
-class CLadderItem :public CObj
+class CBoardItem :public CObj
 {
 public:
-	CLadderItem() {};
-	~CLadderItem() {};
+	CBoardItem() {};
+	~CBoardItem() {};
 	void Init();//イニシャライズ
 	void Action();//アクション
 	void Draw();//ドロー
@@ -24,4 +24,5 @@ private:
 
 	float m_px;//位置
 	float m_py;
+
 };
