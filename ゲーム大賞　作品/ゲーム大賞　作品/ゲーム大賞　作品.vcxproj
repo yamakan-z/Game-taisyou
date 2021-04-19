@@ -205,7 +205,9 @@
     <ClInclude Include="ObjPick.h" />
     <ClInclude Include="ObjRock.h" />
     <ClInclude Include="ObjTitle.h" />
-    <ClInclude Include="SceneGameOver.h" />
+    <ClInclude Include="SceneGameOver.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClInclude>
     <ClInclude Include="SceneGameClear.h" />
     <ClInclude Include="SceneMain.h" />
     <ClInclude Include="item.h">

@@ -20,11 +20,15 @@ void CObjHero::Init()
 	 m_vy=0.0f;
 	 m_posture = 1.0f;//右向き0.0f左向き1.0f
 
+	 m_ani_frame = 1;//静止フレームを初期にする
+	 m_ani_time = 0;
+
 	 //blockとの衝突状態確認
 	 m_hit_up = false;
 	 m_hit_down = false;
 	 m_hit_left = false;
 	 m_hit_right = false;
+	 float m_ani_max_time = 4;//アニメーション間隔幅
 
 	 //踏んでいるブロックの種類を確認
 	 m_block_type = 0;
@@ -53,13 +57,33 @@ void CObjHero::Action()
 	{
 		m_vx = +5.0f;
 		m_posture = 1.0f;
+		m_ani_time += 1;                 //「m_ani_time += 1;」描画切り替え　
 	}
 
-	if (Input::GetVKey(VK_LEFT) == true&& ((UserData*)Save::GetData())->move_flag == true)
+	else if (Input::GetVKey(VK_LEFT) == true&& ((UserData*)Save::GetData())->move_flag == true)
 	{
 		m_vx = -5.0f;
 		m_posture = 0.0f;
+		m_ani_time += 1;
 	}
+	else
+	{
+		m_ani_frame = 1;//キー入力がない場合静止フレームにする
+		m_ani_time = 0;
+	}
+
+	////主人公アニメ////
+	if (m_ani_time > 15)//描画切り替え速度
+	{
+		m_ani_time = 0;
+		m_ani_frame += 1;
+	}
+
+	if (m_ani_frame == 4)
+	{
+		m_ani_frame = 0;
+	}
+
 
 	//はしごがある状態だと上へ移動
 	if (((UserData*)Save::GetData())->up_flag == true&&Input::GetVKey(VK_UP) == true)
@@ -113,14 +137,19 @@ void CObjHero::Draw()
 	//描画カラー情報
 	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
 
+	int AniData[4]
+	{
+		1,2,3,0,//描画順序
+	};
+
 	RECT_F src; //描画元切り取り位置
 	RECT_F dst; //描画先表示位置
 
 	//切り取り位置の設定
 	src.m_top = 0.0f;
-	src.m_left = 0.0f;
-	src.m_right = 256.0f;
-	src.m_bottom = 256.0f;
+	src.m_left = 0.0f+AniData[m_ani_frame] * 64;
+	src.m_right =64.0f+AniData[m_ani_frame] * 64;
+	src.m_bottom = 64.0f;
 
 	//表示位置の設定
 	dst.m_top = 0.0f+m_py;
