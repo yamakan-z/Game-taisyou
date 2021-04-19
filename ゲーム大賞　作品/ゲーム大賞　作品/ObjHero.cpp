@@ -2,6 +2,7 @@
 #include"GameL\DrawTexture.h"
 #include"GameL\WinInputs.h"
 #include"GameL\SceneManager.h"
+#include"GameL\Audio.h"
 
 #include"GameHead.h"
 #include"ObjHero.h"
@@ -32,6 +33,7 @@ void CObjHero::Init()
 	 //当たり判定用HitBoxを作成
 	 Hits::SetHitBox(this, m_px, m_py, 64, 64, ELEMENT_PLAYER, OBJ_HERO, 1);
 
+	 m_f = false;
 }
 
 //アクション
@@ -51,8 +53,9 @@ void CObjHero::Action()
 	//キーの入力方向
 	if (Input::GetVKey(VK_RIGHT) == true&& ((UserData*)Save::GetData())->move_flag == true)
 	{
-		m_vx = +5.0f;
-		m_posture = 1.0f;
+	
+			m_vx = +5.0f;
+			m_posture = 1.0f;
 	}
 
 	if (Input::GetVKey(VK_LEFT) == true&& ((UserData*)Save::GetData())->move_flag == true)
@@ -76,19 +79,49 @@ void CObjHero::Action()
 	//設置(板）
 	if (Input::GetVKey('X') == true&& ((UserData*)Save::GetData())->ins_place==true)
 	{
-		((UserData*)Save::GetData())->ins_flag = true;
+		if (m_f == true)
+		{
+			Audio::Start(1);
+			((UserData*)Save::GetData())->ins_flag = true;
+			m_f = false;
+		}
 	}
+	else
+	{
+		m_f = true;
+	}
+	
 	
 	//設置(はしご）
 	if (Input::GetVKey('A') == true&&((UserData*)Save::GetData())->ladder_flag==true)
 	{
-		((UserData*)Save::GetData())->ins_ladder = true;
+		if (m_f == true)
+		{
+			Audio::Start(1);
+			((UserData*)Save::GetData())->ins_ladder = true;
+			m_f = false;
+		}
 	}
+	else
+	{
+		m_f = true;
+	}
+	
+	
 
 	//障害物破壊
 	if (Input::GetVKey('W') == true&& ((UserData*)Save::GetData())->break_point==true)
 	{
-		((UserData*)Save::GetData())->break_flag = true;
+		if (m_f == true)
+		{
+			Audio::Start(3);
+			((UserData*)Save::GetData())->break_flag = true;
+			m_f = false;
+		}
+	}
+	else
+	{
+		m_f = true;
 	}
 
 	//摩擦

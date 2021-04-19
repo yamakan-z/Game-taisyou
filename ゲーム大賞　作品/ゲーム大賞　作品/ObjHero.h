@@ -48,4 +48,5 @@ private:
 	//踏んでいるブロックの種類を確認
 	int m_block_type;
 
+	bool m_f;
 };
