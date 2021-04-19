@@ -578,7 +578,7 @@ void CObjBlock::Action()
 
 						((UserData*)Save::GetData())->ladder = true;//ãˆÚ“®‚Ì‹–‰Â
 
-						((UserData*)Save::GetData())->ins_ladder_done = true;
+						//((UserData*)Save::GetData())->ins_ladder_done = true;
 
 					}
 					else if (((UserData*)Save::GetData())->ins_ladder_done == true)

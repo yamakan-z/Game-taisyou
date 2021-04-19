@@ -64,12 +64,12 @@ void CObjHero::Action()
 	//‚Í‚µ‚²‚ª‚ ‚éó‘Ô‚¾‚Æã‚ÖˆÚ“®
 	if (((UserData*)Save::GetData())->up_flag == true&&Input::GetVKey(VK_UP) == true)
 	{
-		if (m_hit_down==true)
-		{
+		/*if (m_hit_down==true)
+		{*/
 			//ãˆÚ“®Žž‚Í¶‰EˆÚ“®‚ðŽó‚¯•t‚¯‚È‚¢
 			((UserData*)Save::GetData())->move_flag = false;
 			m_vy = -15.0f;
-		}
+		/*}*/
 		
 	}
 	
