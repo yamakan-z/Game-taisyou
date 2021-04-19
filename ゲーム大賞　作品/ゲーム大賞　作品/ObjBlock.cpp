@@ -581,15 +581,15 @@ void CObjBlock::Action()
 						((UserData*)Save::GetData())->ins_ladder_done = true;
 
 					}
-					else if (((UserData*)Save::GetData())->ins_ladder_done == true)
-					{
-						((UserData*)Save::GetData())->item -= 1;
-						((UserData*)Save::GetData())->ladder_item -= 1;
-						((UserData*)Save::GetData())->ins_ladder_done = false;
-					}
+					
 		
 				}
-
+				else if (((UserData*)Save::GetData())->ins_ladder_done == true)
+				{
+					((UserData*)Save::GetData())->item -= 1;
+					((UserData*)Save::GetData())->ladder_item -= 1;
+					((UserData*)Save::GetData())->ins_ladder_done = false;
+				}
 
 				//板設置場所にプレイヤーがいると板が設置できる
 				if (hero->GetBT() == 70)
