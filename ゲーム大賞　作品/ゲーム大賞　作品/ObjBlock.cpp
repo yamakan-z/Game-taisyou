@@ -516,6 +516,13 @@ void CObjBlock::Action()
 
 				}
 
+				if (m_map[i][j] == 3)
+				{
+					//はしごアイテム作成
+					CLadderItem* objli = new CLadderItem();
+					Objs::InsertObj(objli, OBJ_LADDER_ITEM, 10);
+				}
+
 
 				//障害物の両隣のブロックにプレイヤーがいると障害物を破壊
 				if (hero->GetBT() == 20 && ((UserData*)Save::GetData())->pick_item > 0)
