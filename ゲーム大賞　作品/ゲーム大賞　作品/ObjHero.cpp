@@ -88,12 +88,12 @@ void CObjHero::Action()
 	//はしごがある状態だと上へ移動
 	if (((UserData*)Save::GetData())->up_flag == true&&Input::GetVKey(VK_UP) == true)
 	{
-		if (m_hit_down==true)
-		{
+		/*if (m_hit_down==true)
+		{*/
 			//上移動時は左右移動を受け付けない
 			((UserData*)Save::GetData())->move_flag = false;
 			m_vy = -15.0f;
-		}
+		/*}*/
 		
 	}
 	
@@ -106,7 +106,7 @@ void CObjHero::Action()
 	//設置(はしご）
 	if (Input::GetVKey('A') == true&&((UserData*)Save::GetData())->ladder_flag==true)
 	{
-		((UserData*)Save::GetData())->ins_ladder = true;
+		((UserData*)Save::GetData())->ins_ladder = true;//はしご設置のフラグ
 	}
 
 	//障害物破壊
