@@ -31,9 +31,9 @@ CSceneMain::~CSceneMain()
 void CSceneMain::InitScene()
 {
 	//グラフィック読み込み
-	Draw::LoadImageW(L"仮主人公.png", 0, TEX_SIZE_512);
+	Draw::LoadImageW(L"Hero_ani.png", 0, TEX_SIZE_512);
 	Draw::LoadImageW(L"ブロック.png", 1, TEX_SIZE_512);
-	Draw::LoadImageW(L"背景.png", 2, TEX_SIZE_512);
+	Draw::LoadImageW(L"背景2.png", 2, TEX_SIZE_1024);
 	Draw::LoadImageW(L"Ladder.png", 3, TEX_SIZE_512);
 	Draw::LoadImageW(L"板.png", 4, TEX_SIZE_512);
 	Draw::LoadImageW(L"はしごアイテム.png", 5, TEX_SIZE_512);
@@ -45,6 +45,10 @@ void CSceneMain::InitScene()
 	{
 		((UserData*)Save::GetData())->item = 0;
 	}
+
+
+
+	////オブジェクト作成////
 
 
 
