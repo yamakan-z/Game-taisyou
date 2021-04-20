@@ -37,7 +37,7 @@ void CObjHero::Init()
 	 //当たり判定用HitBoxを作成
 	 Hits::SetHitBox(this, m_px, m_py, 64, 64, ELEMENT_PLAYER, OBJ_HERO, 1);
 
-	// m_f = false;
+	 m_f = false;
 }
 
 //アクション
