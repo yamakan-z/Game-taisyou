@@ -89,6 +89,17 @@ void CSceneMain::InitScene()
 	CBoardItem* objbi = new CBoardItem();
 	Objs::InsertObj(objbi, OBJ_BOARD_ITEM, 10);
 
+	//音楽情報の読み込み
+	Audio::LoadAudio(0, L"GameMain(仮).wav", SOUND_TYPE::BACK_MUSIC);
+	Audio::LoadAudio(1, L"アイテム設置音.wav", SOUND_TYPE::EFFECT);
+	Audio::LoadAudio(3, L"ブロックを破壊する音.wav", SOUND_TYPE::EFFECT);
+
+	//ボリュームを1.0に戻す
+	float v = Audio::VolumeMaster(0.0);
+	v = Audio::VolumeMaster((1.0 - v));
+
+	//音楽スタート
+	Audio::Start(0);
 }
 
 //実行中メソッド
