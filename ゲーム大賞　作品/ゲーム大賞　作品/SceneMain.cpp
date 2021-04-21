@@ -74,8 +74,8 @@ void CSceneMain::InitScene()
 	Objs::InsertObj(objin, OBJ_INVENTORY, 10);
 
 	//ÇÕÇµÇ≤ÉAÉCÉeÉÄçÏê¨
-	CLadderItem* objli = new CLadderItem();
-	Objs::InsertObj(objli, OBJ_LADDER_ITEM, 10);
+//	CLadderItem* objli = new CLadderItem();
+//	Objs::InsertObj(objli, OBJ_LADDER_ITEM, 10);
 
 	CLadderItem2* objli2 = new CLadderItem2();
 	Objs::InsertObj(objli2, OBJ_LADDER_ITEM2, 10);

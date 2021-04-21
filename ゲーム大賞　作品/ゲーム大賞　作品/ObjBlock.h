@@ -14,6 +14,7 @@ public:
 	void Action();//アクション
 	void Draw();//ドロー
 
+	void Item_Spawn(float p_x, float p_y);
 	void SetScroll(float s) { m_scroll = s; }
 	float GetScroll() { return m_scroll; }
 
