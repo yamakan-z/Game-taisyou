@@ -14,6 +14,11 @@ public:
 	void Action();//アクション
 	void Draw();//ドロー
 
+	void posset(float x, float y) {
+		m_px = x;//マップ情報を受け取る
+		m_py = y;
+	}
+
 	void SetScroll(float s) { m_scroll = s; }
 	float GetScroll() { return m_scroll; }
 
