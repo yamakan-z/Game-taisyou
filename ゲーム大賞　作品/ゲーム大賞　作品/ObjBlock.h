@@ -14,7 +14,9 @@ public:
 	void Action();//アクション
 	void Draw();//ドロー
 
-	void Item_Spawn(float p_x, float p_y);
+	void Item_Spawn();//マップの情報を参照してアイテム生成場所を決定する
+
+
 	void SetScroll(float s) { m_scroll = s; }
 	float GetScroll() { return m_scroll; }
 

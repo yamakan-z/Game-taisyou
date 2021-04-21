@@ -16,12 +16,6 @@ void CLadderItem::Init()
 {
 	float m_scroll;//左右スクロール用
 
-	//m_px = 350.0f;//位置
-	//m_py = 520.0f;
-
-	//m_px = 270.0f;//位置
-	//m_py = 520.0f;
-
 	//当たり判定用HitBoxを作成
 	Hits::SetHitBox(this, m_px, m_py, 64, 64, ELEMENT_ITEM, OBJ_LADDER_ITEM, 1);
 
@@ -45,6 +39,7 @@ void CLadderItem::Action()
 	{
 		this->SetStatus(false);		//自身に削除命令を出す。
 		Hits::DeleteHitBox(this);	//100円が所有するHitBoxを削除する
+		
 
 		((UserData*)Save::GetData())->item += 1;
 		((UserData*)Save::GetData())->ladder_item += 1;

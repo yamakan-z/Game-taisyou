@@ -80,13 +80,13 @@ void CSceneMain::InitScene()
 	CLadderItem2* objli2 = new CLadderItem2();
 	Objs::InsertObj(objli2, OBJ_LADDER_ITEM2, 10);
 
-	//つるはし作成
-	CObjPick* objp = new CObjPick();
-	Objs::InsertObj(objp, OBJ_PICK, 10);
+	////つるはし作成
+	//CObjPick* objp = new CObjPick();
+	//Objs::InsertObj(objp, OBJ_PICK, 10);
 
-	//boardオブジェクト作成
-	CBoardItem* objbi = new CBoardItem();
-	Objs::InsertObj(objbi, OBJ_BOARD_ITEM, 10);
+	////boardアイテムオブジェクト作成
+	//CBoardItem* objbi = new CBoardItem();
+	//Objs::InsertObj(objbi, OBJ_BOARD_ITEM, 10);
 
 }
 
