@@ -19,9 +19,10 @@ enum OBJ_NAME
 	OBJ_INVENTORY,
 	//はしごアイテム
 	OBJ_LADDER_ITEM,
-	OBJ_LADDER_ITEM2,
+
 	//つるはし
 	OBJ_PICK,
+
 	OBJ_BOARD_ITEM,
 };
 //------------------------------------------------
@@ -119,7 +120,6 @@ struct UserData
 
 //はしごアイテム
 #include"LadderItem.h"
-#include"LadderItem2.h"
 
 //------------------------------------------------
 
