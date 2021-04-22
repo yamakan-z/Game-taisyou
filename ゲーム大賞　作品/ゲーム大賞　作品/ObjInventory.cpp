@@ -51,6 +51,14 @@ void CObjInventory::Draw()
 	swprintf_s(str, L"アイテム数:%f", ((UserData*)Save::GetData())->item);
 	Font::StrDraw(str, 10, 10, 20, c);
 
+	swprintf_s(str, L"はしごアイテム数:%f", ((UserData*)Save::GetData())->ladder_item);
+	Font::StrDraw(str, 10, 30, 20, c);
+
+	swprintf_s(str, L"板アイテム数:%f", ((UserData*)Save::GetData())->board_item);
+	Font::StrDraw(str, 10, 50, 20, c);
+
+	swprintf_s(str, L"つるはし:%f", ((UserData*)Save::GetData())->pick_item);
+	Font::StrDraw(str, 10, 70, 20, c);
 
 	//切り取り位置の設定
 	src.m_top = 0.0f;
