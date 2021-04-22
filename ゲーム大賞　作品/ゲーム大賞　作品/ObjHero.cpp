@@ -101,6 +101,16 @@ void CObjHero::Action()
 	if (Input::GetVKey('X') == true&& ((UserData*)Save::GetData())->ins_place==true)
 	{
 		((UserData*)Save::GetData())->ins_flag = true;
+
+
+		//設置後、板アイテム＆アイテム総数-1
+	    if (((UserData*)Save::GetData())->ins_done == true)
+	    {
+		   ((UserData*)Save::GetData())->item -= 1;
+		   ((UserData*)Save::GetData())->board_item -= 1;
+		   ((UserData*)Save::GetData())->ins_done = false;
+	    }
+
 	}
 	
 	//設置(はしご）
