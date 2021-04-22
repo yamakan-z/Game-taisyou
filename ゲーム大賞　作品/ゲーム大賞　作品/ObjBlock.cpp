@@ -657,12 +657,12 @@ void CObjBlock::Action()
 						m_map[i][j] = 60;//�ݒu
 						((UserData*)Save::GetData())->ins_done = true;
 					}
-					else if (((UserData*)Save::GetData())->ins_done == true)
+					/*else if (((UserData*)Save::GetData())->ins_done == true)
 					{
 						((UserData*)Save::GetData())->item -= 1;
 						((UserData*)Save::GetData())->board_item -= 1;
 						((UserData*)Save::GetData())->ins_done = false;
-					}
+					}*/
 				}
 
 
