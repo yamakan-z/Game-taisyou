@@ -12,10 +12,14 @@
 //使用するネームスペース
 using namespace GameL;
 
+
 //イニシャライズ
 void CObjBlock::Init()
 {
 	m_scroll = 0.0f;
+
+	m_px = GetScroll();//位置
+    m_py = GetScroll();
 
 	//マップ情報
 	int block_data[10][100] =
@@ -28,13 +32,58 @@ void CObjBlock::Init()
 		{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
 		{1,0,0,0,40,40,40,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
 		{1,0,0,0,0,80,0,0,0,0,0,0,0,0,0,0,0,10,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-		{1,0,0,0,0,80,0,0,0,0,0,0,0,0,0,0,0,10,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
-		{1,1,1,1,30,30,1,1,1,1,70,100,100,70,1,1,20,1,20,1,1,1,1,1,1,1,1,1,2,1,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
+		{1,0,0,5,4,80,5,3,3,3,0,4,0,0,0,0,0,10,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
+		{1,1,1,1,1,30,1,1,1,1,70,100,100,70,1,1,20,1,20,1,1,1,1,1,1,1,1,1,2,1,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
 	};
 	//マップデータをコピー
 	memcpy(m_map, block_data, sizeof(int) * (10 * 100));
 
+
+	//アイテム生成
+	for (int i = 0; i < 10; i++)
+	{
+		for (int j = 0; j < 100; j++)
+		{
+
+			if (m_map[i][j] == 3)
+			{
+				//はしごアイテム作成
+               CLadderItem* objli = new CLadderItem();
+			   objli->posset(j*64,i*64);
+
+	           Objs::InsertObj(objli, OBJ_LADDER_ITEM, 10);
+			}
+
+			if (m_map[i][j] == 4)
+			{
+				//boardオブジェクト作成
+				CBoardItem* objbi = new CBoardItem();
+				objbi->posset(j * 64, i * 64);
+
+				Objs::InsertObj(objbi, OBJ_BOARD_ITEM, 10);
+			}
+
+			if (m_map[i][j] == 5)
+			{
+				//つるはし作成
+				CObjPick* objp = new CObjPick();
+				objp->posset(j * 64, i * 64);
+
+				Objs::InsertObj(objp, OBJ_PICK, 10);
+			}
+		}
+	}
+
+
 }
+
+void CObjBlock::Item_Spawn()
+{
+
+	
+}
+
+
 //アクション
 void CObjBlock::Action()
 {
@@ -438,7 +487,7 @@ void CObjBlock::Action()
 						hero->SetBT(m_map[i][j]);//ブロックの要素(type)を主人公に渡す
 						hero->SetVY(0.0f);
 						((UserData*)Save::GetData())->move_flag = true;//足場に移動したら、左右移動制限を解除
-						((UserData*)Save::GetData())->ladder = false;
+						//((UserData*)Save::GetData())->ladder = false;
 						((UserData*)Save::GetData())->ins_ladder = false;
 					}
 
@@ -516,6 +565,8 @@ void CObjBlock::Action()
 
 				}
 
+				
+
 
 				//障害物の両隣のブロックにプレイヤーがいると障害物を破壊
 				if (hero->GetBT() == 20 && ((UserData*)Save::GetData())->pick_item > 0)
@@ -540,12 +591,12 @@ void CObjBlock::Action()
 						((UserData*)Save::GetData())->break_done = true;
 						
 					}
-					else if (((UserData*)Save::GetData())->break_done == true)
+					/*else if (((UserData*)Save::GetData())->break_done == true)
 					{
 						((UserData*)Save::GetData())->item -= 1;
 						((UserData*)Save::GetData())->pick_item -= 1;
 						((UserData*)Save::GetData())->break_done = false;
-					}
+					}*/
 				}
 
 
@@ -578,18 +629,14 @@ void CObjBlock::Action()
 
 						((UserData*)Save::GetData())->ladder = true;//上移動の許可
 
-						((UserData*)Save::GetData())->ins_ladder_done = true;
+						((UserData*)Save::GetData())->ins_ladder_done = true;//はしごアイテムを1つ消費させるため
 
 					}
 					
 		
 				}
-				else if (((UserData*)Save::GetData())->ins_ladder_done == true)
-				{
-					((UserData*)Save::GetData())->item -= 1;
-					((UserData*)Save::GetData())->ladder_item -= 1;
-					((UserData*)Save::GetData())->ins_ladder_done = false;
-				}
+				
+
 
 				//板設置場所にプレイヤーがいると板が設置できる
 				if (hero->GetBT() == 70)
@@ -625,7 +672,6 @@ void CObjBlock::Action()
 	}
 }	
 
-	
 
 
 
@@ -837,7 +883,7 @@ void CObjBlock::Draw()
 
 				//表示位置の設定
 				dst.m_top = i * 64.0f;
-				dst.m_left = j * 64.0f + +m_scroll;
+				dst.m_left = j * 64.0f + m_scroll;
 				dst.m_right = dst.m_left + 64.0;
 				dst.m_bottom = dst.m_top + 10.0;
 
@@ -868,6 +914,7 @@ void CObjBlock::Draw()
 				//描画
 				Draw::Draw(1, &src, &dst, c2, 0.0f);
 			}
+
 		}
 	}
 }
