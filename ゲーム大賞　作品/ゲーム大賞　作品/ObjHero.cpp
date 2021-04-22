@@ -117,6 +117,14 @@ void CObjHero::Action()
 		Audio::Start(1);
 
 		((UserData*)Save::GetData())->ins_ladder = true;//はしご設置のフラグ
+
+		//設置後、はしごアイテム＆アイテム総数-1
+	    if (((UserData*)Save::GetData())->ins_ladder_done == true)
+	     {
+		     ((UserData*)Save::GetData())->item -= 1;
+		     ((UserData*)Save::GetData())->ladder_item -= 1;
+		     ((UserData*)Save::GetData())->ins_ladder_done = false;
+	     }
 	}
 
 	//障害物破壊
@@ -126,6 +134,14 @@ void CObjHero::Action()
 		Audio::Start(2);
 
 		((UserData*)Save::GetData())->break_flag = true;
+
+		//設置後、はしごアイテム＆アイテム総数-1
+       if (((UserData*)Save::GetData())->break_done == true)
+	      {
+		     ((UserData*)Save::GetData())->item -= 1;
+		     ((UserData*)Save::GetData())->pick_item -= 1;
+		     ((UserData*)Save::GetData())->break_done = false;
+	      }
 	}
 
 	//摩擦

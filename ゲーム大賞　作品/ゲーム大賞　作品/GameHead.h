@@ -19,9 +19,10 @@ enum OBJ_NAME
 	OBJ_INVENTORY,
 	//はしごアイテム
 	OBJ_LADDER_ITEM,
-	OBJ_LADDER_ITEM2,
+
 	//つるはし
 	OBJ_PICK,
+
 	OBJ_BOARD_ITEM,
 };
 //------------------------------------------------
@@ -51,6 +52,8 @@ enum HIT_ELEMENTS
 struct UserData
 {
 	int mSeveData;	//サンプルセーブデータ
+
+	//主人公関係のフラグ
 	bool up_flag = false;  //はしごがある時、上に上がるフラグ
 	bool move_flag = true; //上移動時、左右移動を制限するフラグ
 	float item = 0;  //アイテム所持数
@@ -119,7 +122,6 @@ struct UserData
 
 //はしごアイテム
 #include"LadderItem.h"
-#include"LadderItem2.h"
 
 //------------------------------------------------
 

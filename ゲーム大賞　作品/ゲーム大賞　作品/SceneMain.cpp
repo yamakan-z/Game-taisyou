@@ -90,9 +90,6 @@ void CSceneMain::InitScene()
 //	CLadderItem* objli = new CLadderItem();
 //	Objs::InsertObj(objli, OBJ_LADDER_ITEM, 10);
 
-	CLadderItem2* objli2 = new CLadderItem2();
-	Objs::InsertObj(objli2, OBJ_LADDER_ITEM2, 10);
-
 	////Ç¬ÇÈÇÕÇµçÏê¨
 	//CObjPick* objp = new CObjPick();
 	//Objs::InsertObj(objp, OBJ_PICK, 10);
