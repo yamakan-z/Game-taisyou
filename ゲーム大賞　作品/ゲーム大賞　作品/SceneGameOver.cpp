@@ -39,7 +39,13 @@ void CSceneGameOver::InitScene()
 	//ゲームオーバーオブジェクト作成
 	CObjGameOver* obj = new CObjGameOver();
 	Objs::InsertObj(obj, OBJ_GAME_OVER, 10);
+	
+	//画像読み込み
+	Draw::LoadImageW(L"ゲームオーバー.png", 1, TEX_SIZE_1024);
 
+	//オブジェクト作成
+	CObjgameOverBackground* back = new CObjgameOverBackground();
+	Objs::InsertObj(back, OBJ_GAME_OVER_BACKGROUND, 1);
 
 	//音楽情報の読み込み
 	Audio::LoadAudio(0, L"GameOver(仮).wav", SOUND_TYPE::BACK_MUSIC);
