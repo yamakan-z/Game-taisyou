@@ -32,7 +32,7 @@ void CObjGameOver::Init()
 	((UserData*)Save::GetData())->ins_flag = false;
 	((UserData*)Save::GetData())->break_flag = false;
 	((UserData*)Save::GetData())->ins_ladder = false;
-	
+	((UserData*)Save::GetData())->ladder = false;
 
 	//インベントリ関係のフラグ破棄
 	((UserData*)Save::GetData())->I_board1 = false;
