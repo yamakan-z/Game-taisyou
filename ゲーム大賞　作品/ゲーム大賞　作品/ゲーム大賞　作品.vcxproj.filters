@@ -147,6 +147,9 @@
     <ClCompile Include="SceneGameClear.cpp">
       <Filter>ソース ファイル\GameClear</Filter>
     </ClCompile>
+    <ClCompile Include="ObjTitleBackground.cpp">
+      <Filter>ソース ファイル\タイトル</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameL\Audio.h">
@@ -244,6 +247,9 @@
     </ClInclude>
     <ClInclude Include="SceneGameClear.h">
       <Filter>ソース ファイル\GameClear</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjTitleBackground.h">
+      <Filter>ソース ファイル\タイトル</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

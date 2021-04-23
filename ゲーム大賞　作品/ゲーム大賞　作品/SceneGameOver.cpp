@@ -5,6 +5,8 @@
 //GameLで使用するヘッダー
 #include "GameL\SceneObjManager.h"
 #include"GameL\DrawFont.h"
+
+#include"GameL\DrawTexture.h"
 #include"GameL\Audio.h"
 
 //使用するネームスペース
@@ -37,6 +39,7 @@ void CSceneGameOver::InitScene()
 	//ゲームオーバーオブジェクト作成
 	CObjGameOver* obj = new CObjGameOver();
 	Objs::InsertObj(obj, OBJ_GAME_OVER, 10);
+
 
 	//音楽情報の読み込み
 	Audio::LoadAudio(0, L"GameOver(仮).wav", SOUND_TYPE::BACK_MUSIC);

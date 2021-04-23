@@ -17,6 +17,8 @@ enum OBJ_NAME
 	OBJ_BOARD,
 	OBJ_ROCK,
 	OBJ_INVENTORY,
+	OBJ_TITLE_BACKGROUND,
+
 	//‚Í‚µ‚²ƒAƒCƒeƒ€
 	OBJ_LADDER_ITEM,
 	OBJ_LADDER_ITEM2,
@@ -108,7 +110,7 @@ struct UserData
 #include"ObjRock.h"
 #include"LadderItem.h"
 #include"BoardItem.h"
-
+#include"ObjTitleBackground.h"
 
 #include"ObjInventory.h"
 #include"ObjTitle.h"

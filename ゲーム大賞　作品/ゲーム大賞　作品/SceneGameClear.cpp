@@ -7,6 +7,7 @@
 #include"GameL\DrawFont.h"
 #include"GameL\Audio.h"
 
+#include"GameL\DrawTexture.h"
 //使用するネームスペース
 using namespace GameL;
 
@@ -35,6 +36,7 @@ void CSceneGameClear::InitScene()
 	//ゲームクリアオブジェクト作成
 	CObjGameClear* obj = new CObjGameClear();
 	Objs::InsertObj(obj, OBJ_GAME_CLEAR, 10);
+
 
 	//音楽情報の読み込み
 	Audio::LoadAudio(0, L"GameClear(仮).wav", SOUND_TYPE::BACK_MUSIC);
