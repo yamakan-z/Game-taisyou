@@ -61,6 +61,22 @@ void CObjHero::Action()
 		m_posture = 0.0f;
 	}
 
+
+	//設置(はしご）
+	if (Input::GetVKey('A') == true && ((UserData*)Save::GetData())->ladder_flag == true)
+	{
+		((UserData*)Save::GetData())->ins_ladder = true;//はしご設置のフラグ
+
+		//設置後、はしごアイテム＆アイテム総数-1
+		if (((UserData*)Save::GetData())->ins_ladder_done == true)
+		{
+			((UserData*)Save::GetData())->item -= 1;
+			((UserData*)Save::GetData())->ladder_item -= 1;
+			((UserData*)Save::GetData())->ins_ladder_done = false;
+		}
+	}
+
+
 	//はしごがある状態だと上へ移動
 	if (((UserData*)Save::GetData())->up_flag == true&&Input::GetVKey(VK_UP) == true)
 	{
@@ -89,20 +105,7 @@ void CObjHero::Action()
 
 	}
 	
-	//設置(はしご）
-	if (Input::GetVKey('A') == true&&((UserData*)Save::GetData())->ladder_flag==true)
-	{
-		((UserData*)Save::GetData())->ins_ladder = true;//はしご設置のフラグ
-
-		//設置後、はしごアイテム＆アイテム総数-1
-	    if (((UserData*)Save::GetData())->ins_ladder_done == true)
-	     {
-		     ((UserData*)Save::GetData())->item -= 1;
-		     ((UserData*)Save::GetData())->ladder_item -= 1;
-		     ((UserData*)Save::GetData())->ins_ladder_done = false;
-	     }
-	}
-
+	
 	//障害物破壊
 	if (Input::GetVKey('W') == true&& ((UserData*)Save::GetData())->break_point==true)
 	{
