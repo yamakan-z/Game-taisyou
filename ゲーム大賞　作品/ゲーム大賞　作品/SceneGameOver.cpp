@@ -39,7 +39,7 @@ void CSceneGameOver::InitScene()
 	Objs::InsertObj(obj, OBJ_GAME_OVER, 10);
 	
 	//画像読み込み
-	Draw::LoadImageW(L"ゲームオーバー2.png", 10, TEX_SIZE_1024);
+	Draw::LoadImageW(L"ゲームオーバー1.png", 10, TEX_SIZE_1024);
 
 	//オブジェクト作成
 	CObjgameOverBackground* back = new CObjgameOverBackground();
