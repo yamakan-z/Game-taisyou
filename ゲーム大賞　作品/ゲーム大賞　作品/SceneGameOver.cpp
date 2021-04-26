@@ -32,8 +32,6 @@ CSceneGameOver::~CSceneGameOver()
 void CSceneGameOver::InitScene()
 {
 	//出力させる文字のグラフィックを作成
-	Font::SetStrTex(L"YOU LOST");
-	Font::SetStrTex(L"GAME　OVER");
 	Font::SetStrTex(L"NEXT_CHALLENGE:ENTER_KEY");
 
 	//ゲームオーバーオブジェクト作成
@@ -41,11 +39,11 @@ void CSceneGameOver::InitScene()
 	Objs::InsertObj(obj, OBJ_GAME_OVER, 10);
 	
 	//画像読み込み
-	Draw::LoadImageW(L"ゲームオーバー.png", 1, TEX_SIZE_1024);
+	Draw::LoadImageW(L"ゲームオーバー2.png", 10, TEX_SIZE_1024);
 
 	//オブジェクト作成
 	CObjgameOverBackground* back = new CObjgameOverBackground();
-	Objs::InsertObj(back, OBJ_GAME_OVER_BACKGROUND, 1);
+	Objs::InsertObj(back, OBJ_GAME_OVER_BACKGROUND, 10);
 
 	//音楽情報の読み込み
 	Audio::LoadAudio(0, L"GameOver(仮).wav", SOUND_TYPE::BACK_MUSIC);
