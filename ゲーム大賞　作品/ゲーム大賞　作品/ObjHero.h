@@ -24,11 +24,14 @@ public:
 	void SetY(float y) { m_py = y; }
 	void SetVY(float vy) { m_vy = vy; }
 	void SetVX(float vx) { m_vx = vx; }
+	int GetBT() { return m_block_type; }
 
 	void SetUp(bool b) { m_hit_up = b; }
 	void SetDown(bool b) { m_hit_down = b; }
 	void SetLeft(bool b) { m_hit_left = b; }
 	void SetRight(bool b) { m_hit_right = b; }
+	void SetBT(int t) { m_block_type = t; }
+
 private:
 	float m_px;//位置
 	float m_py;
@@ -48,4 +51,8 @@ private:
 	bool m_hit_down;
 	bool m_hit_left;
 	bool m_hit_right;
+
+	//踏んでいるブロックの種類を確認
+	int m_block_type;
+
 };

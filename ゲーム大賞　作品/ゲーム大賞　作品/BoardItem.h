@@ -5,27 +5,29 @@
 using namespace GameL;
 
 //オブジェクト：ブロック＆背景
-class CObjBlock :public CObj
+class CBoardItem :public CObj
 {
 public:
-	CObjBlock() {};
-	~CObjBlock() {};
+	CBoardItem() {};
+	~CBoardItem() {};
 	void Init();//イニシャライズ
 	void Action();//アクション
 	void Draw();//ドロー
 
-	void Item_Spawn();//マップの情報を参照してアイテム生成場所を決定する
-
-
 	void SetScroll(float s) { m_scroll = s; }
 	float GetScroll() { return m_scroll; }
 
+	void posset(float x, float y) {
+		m_px = x;//マップ情報を受け取る
+		m_py = y;
+	}
+
 private:
-	int m_map[10][100];//マップ情報（仮）
+	int m_mapR[10][100];//マップ情報（板）
 
 	float m_scroll;//左右スクロール用
 
 	float m_px;//位置
 	float m_py;
-	
+
 };
