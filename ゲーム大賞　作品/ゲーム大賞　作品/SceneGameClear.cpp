@@ -31,7 +31,7 @@ CSceneGameClear::~CSceneGameClear()
 void CSceneGameClear::InitScene()
 {
 	//出力させる文字のグラフィックを作成
-	Font::SetStrTex(L"Game Clear");
+	Font::SetStrTex(L"Return_to_title:ENTER_KEY");
 
 	//ゲームクリアオブジェクト作成
 	CObjGameClear* obj = new CObjGameClear();
