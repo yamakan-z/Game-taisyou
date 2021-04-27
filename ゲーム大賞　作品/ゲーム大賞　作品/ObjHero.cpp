@@ -101,18 +101,44 @@ void CObjHero::Action()
 	if (Input::GetVKey('X') == true&& ((UserData*)Save::GetData())->ins_place==true)
 	{
 		((UserData*)Save::GetData())->ins_flag = true;
+
+
+		//設置後、板アイテム＆アイテム総数-1
+	    if (((UserData*)Save::GetData())->ins_done == true)
+	    {
+		   ((UserData*)Save::GetData())->item -= 1;
+		   ((UserData*)Save::GetData())->board_item -= 1;
+		   ((UserData*)Save::GetData())->ins_done = false;
+	    }
+
 	}
 	
 	//設置(はしご）
 	if (Input::GetVKey('A') == true&&((UserData*)Save::GetData())->ladder_flag==true)
 	{
 		((UserData*)Save::GetData())->ins_ladder = true;//はしご設置のフラグ
+
+		//設置後、はしごアイテム＆アイテム総数-1
+	    if (((UserData*)Save::GetData())->ins_ladder_done == true)
+	     {
+		     ((UserData*)Save::GetData())->item -= 1;
+		     ((UserData*)Save::GetData())->ladder_item -= 1;
+		     ((UserData*)Save::GetData())->ins_ladder_done = false;
+	     }
 	}
 
 	//障害物破壊
 	if (Input::GetVKey('W') == true&& ((UserData*)Save::GetData())->break_point==true)
 	{
 		((UserData*)Save::GetData())->break_flag = true;
+
+		//設置後、はしごアイテム＆アイテム総数-1
+       if (((UserData*)Save::GetData())->break_done == true)
+	      {
+		     ((UserData*)Save::GetData())->item -= 1;
+		     ((UserData*)Save::GetData())->pick_item -= 1;
+		     ((UserData*)Save::GetData())->break_done = false;
+	      }
 	}
 
 	//摩擦

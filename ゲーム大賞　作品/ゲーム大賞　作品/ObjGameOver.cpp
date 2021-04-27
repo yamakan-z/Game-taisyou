@@ -21,13 +21,17 @@ void CObjGameOver::Init()
 {
 	m_key_flag = false;//キーフラグ
 
-	//アイテム関係のフラグを破棄
-	((UserData*)Save::GetData())->ins_ladder = false;
-	((UserData*)Save::GetData())->ladder_item = 0;
+	//フラグを破棄
+	//アイテム関係フラグ破棄
 	((UserData*)Save::GetData())->item = 0;
+	((UserData*)Save::GetData())->ladder_item = 0;
 	((UserData*)Save::GetData())->pick_item = 0;
+	((UserData*)Save::GetData())->board_item = 0;
+
+	//ギミック関係フラグ破棄
 	((UserData*)Save::GetData())->ins_flag = false;
 	((UserData*)Save::GetData())->break_flag = false;
+	((UserData*)Save::GetData())->ins_ladder = false;
 	
 
 	//インベントリ関係のフラグ破棄

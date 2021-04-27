@@ -20,8 +20,8 @@ void CObjPick::Init()
 	//m_px = 200.0f;//位置
 	//m_py = 520.0f;
 
-	m_px = 350.0f;//位置
-	m_py = 520.0f;
+	//m_px = 350.0f;//位置
+	//m_py = 520.0f;
 
 	//当たり判定用HitBoxを作成
 	Hits::SetHitBox(this, m_px, m_py, 64, 64, ELEMENT_ITEM, OBJ_PICK, 1);
