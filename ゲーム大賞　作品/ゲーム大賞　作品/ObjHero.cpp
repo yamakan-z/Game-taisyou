@@ -51,13 +51,13 @@ void CObjHero::Action()
 	//キーの入力方向
 	if (Input::GetVKey(VK_RIGHT) == true&& ((UserData*)Save::GetData())->move_flag == true)
 	{
-		m_vx = +3.0f;
+		m_vx = +5.0f;
 		m_posture = 1.0f;
 	}
 
 	if (Input::GetVKey(VK_LEFT) == true&& ((UserData*)Save::GetData())->move_flag == true)
 	{
-		m_vx = -3.0f;
+		m_vx = -5.0f;
 		m_posture = 0.0f;
 	}
 
@@ -118,6 +118,19 @@ void CObjHero::Action()
 		     ((UserData*)Save::GetData())->pick_item -= 1;
 		     ((UserData*)Save::GetData())->break_done = false;
 	      }
+	}
+
+
+
+	//アイテムの変換
+	if (((UserData*)Save::GetData())->item > 0)
+	{
+		//変換　つるはし→板
+		if (Input::GetVKey('1') == true && ((UserData*)Save::GetData())->pick_item > 0)
+		{
+			((UserData*)Save::GetData())->pick_item -= 1;
+			((UserData*)Save::GetData())->board_item += 1;
+		}
 	}
 
 	//摩擦
