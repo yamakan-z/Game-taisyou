@@ -19,8 +19,8 @@ void CObjInventory::Init()
 
 	m_px = 500.0f;//位置
 	m_py = -50.0f;
-	
-	
+
+
 }
 
 
@@ -29,7 +29,7 @@ void CObjInventory::Action()
 {
 	if (((UserData*)Save::GetData())->item == 1)
 	{
-		
+
 	}
 }
 
@@ -44,21 +44,33 @@ void CObjInventory::Draw()
 
 	//ブロック情報を持ってくる
 	CObjBlock* block = (CObjBlock*)Objs::GetObj(OBJ_BLOCK);
-
+	CObjHero* hero = (CObjHero*)Objs::GetObj(OBJ_HERO);
 
 	//スコアの表示
 	wchar_t str[256];
-	swprintf_s(str, L"アイテム数:%f", ((UserData*)Save::GetData())->item);
+	swprintf_s(str, L"アイテム数:%.0f", ((UserData*)Save::GetData())->item);
 	Font::StrDraw(str, 10, 10, 20, c);
 
-	swprintf_s(str, L"はしごアイテム数:%f", ((UserData*)Save::GetData())->ladder_item);
+	swprintf_s(str, L"はしごアイテム数:%.0f", ((UserData*)Save::GetData())->ladder_item);
 	Font::StrDraw(str, 10, 30, 20, c);
 
-	swprintf_s(str, L"板アイテム数:%f", ((UserData*)Save::GetData())->board_item);
+	swprintf_s(str, L"板アイテム数:%.0f", ((UserData*)Save::GetData())->board_item);
 	Font::StrDraw(str, 10, 50, 20, c);
 
-	swprintf_s(str, L"つるはし:%f", ((UserData*)Save::GetData())->pick_item);
+	swprintf_s(str, L"つるはし:%.0f", ((UserData*)Save::GetData())->pick_item);
 	Font::StrDraw(str, 10, 70, 20, c);
+
+	if (((UserData*)Save::GetData())->break_point == true){
+		swprintf_s(str, L"breakpoint");
+		Font::StrDraw(str, 10, 90, 20, c);
+	}
+	swprintf_s(str, L"X=%.0f,Y=%.0f", (hero->GetX()-block->GetScroll())/64,hero->GetY()/64);
+	Font::StrDraw(str, 10, 120, 20, c);
+
+	if (((UserData*)Save::GetData())->break_flag == true) {
+		swprintf_s(str, L"breakflag");
+		Font::StrDraw(str, 10, 150, 20, c);
+	}
 
 	//切り取り位置の設定
 	src.m_top = 0.0f;
