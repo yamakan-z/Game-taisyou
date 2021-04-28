@@ -73,7 +73,7 @@ void CObjHero::Action()
 
 	else if (Input::GetVKey(VK_LEFT) == true&& ((UserData*)Save::GetData())->move_flag == true)
 	{
-		m_vx = -5.0f;
+		m_vx = -3.0f;
 		m_posture = 0.0f;
 		m_ani_time += 1;
 	}
@@ -96,6 +96,10 @@ void CObjHero::Action()
 			((UserData*)Save::GetData())->ladder_item -= 1;
 			((UserData*)Save::GetData())->ins_ladder_done = false;
 		}
+	}
+	else
+	{
+		((UserData*)Save::GetData())->ins_ladder = false;
 	}
 
 
@@ -130,6 +134,10 @@ void CObjHero::Action()
 		   ((UserData*)Save::GetData())->ins_done = false;
 	    }
 
+	}
+	else
+	{
+		((UserData*)Save::GetData())->ins_flag = false;
 	}
 	
 	//設置(はしご）
@@ -166,18 +174,23 @@ void CObjHero::Action()
 		     ((UserData*)Save::GetData())->break_done = false;
 	      }
 	}
+	else
+	{
+		((UserData*)Save::GetData())->break_flag = false;
+	}
 
 
 
 	//アイテムの変換
 	//現在の変換　つるはし→板→はしご→つるはし...
-	if (((UserData*)Save::GetData())->item > 0)
+	if (((UserData*)Save::GetData())->item > 0&& ((UserData*)Save::GetData())->conversion_num > 0)
 	{
 		//変換　つるはし→板
 		if (Input::GetVKey('1') == true && ((UserData*)Save::GetData())->pick_item > 0&& conversionB == true)
 		{
 			((UserData*)Save::GetData())->pick_item -= 1;
 			((UserData*)Save::GetData())->board_item += 1;
+			((UserData*)Save::GetData())->conversion_num -= 1;
 			conversionB = false;
 		}
 		else if(Input::GetVKey('1')==false&& conversionB == false)
@@ -190,6 +203,7 @@ void CObjHero::Action()
 		{
 			((UserData*)Save::GetData())->board_item -= 1;
 			((UserData*)Save::GetData())->ladder_item += 1;
+			((UserData*)Save::GetData())->conversion_num -= 1;
 			conversionL = false;
 		}
 		else if (Input::GetVKey('2') == false && conversionL == false)
@@ -202,6 +216,7 @@ void CObjHero::Action()
 		{
 			((UserData*)Save::GetData())->ladder_item -= 1;
 			((UserData*)Save::GetData())->pick_item += 1;
+			((UserData*)Save::GetData())->conversion_num -= 1;
 			conversionP = false;
 		}
 		else if (Input::GetVKey('3') == false && conversionP == false)

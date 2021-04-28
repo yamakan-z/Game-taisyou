@@ -38,7 +38,8 @@ void CObjInventory::Draw()
 {
 	//描画カラー情報
 	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
-	float i[4] = { 1.0f,0.0f,0.0f,1.0f };
+	float d[4] = { 1.0f,0.0f,1.0f,1.0f };
+
 	RECT_F src;//描画元切り取り位置
 	RECT_F dst;//描画先表示位置
 
@@ -49,27 +50,27 @@ void CObjInventory::Draw()
 	//スコアの表示
 	wchar_t str[256];
 	swprintf_s(str, L"アイテム数:%.0f", ((UserData*)Save::GetData())->item);
-	Font::StrDraw(str, 10, 10, 20, c);
+	Font::StrDraw(str, 10, 10, 20, d);
 
 	swprintf_s(str, L"はしごアイテム数:%.0f", ((UserData*)Save::GetData())->ladder_item);
-	Font::StrDraw(str, 10, 30, 20, c);
+	Font::StrDraw(str, 10, 30, 20, d);
 
 	swprintf_s(str, L"板アイテム数:%.0f", ((UserData*)Save::GetData())->board_item);
-	Font::StrDraw(str, 10, 50, 20, c);
+	Font::StrDraw(str, 10, 50, 20, d);
 
 	swprintf_s(str, L"つるはし:%.0f", ((UserData*)Save::GetData())->pick_item);
-	Font::StrDraw(str, 10, 70, 20, c);
+	Font::StrDraw(str, 10, 70, 20, d);
 
 	if (((UserData*)Save::GetData())->break_point == true){
 		swprintf_s(str, L"breakpoint");
-		Font::StrDraw(str, 10, 90, 20, c);
+		Font::StrDraw(str, 10, 230, 20, c);
 	}
 	swprintf_s(str, L"X=%.0f,Y=%.0f", (hero->GetX()-block->GetScroll())/64,hero->GetY()/64);
 	Font::StrDraw(str, 10, 120, 20, c);
 
 	if (((UserData*)Save::GetData())->break_flag == true) {
 		swprintf_s(str, L"breakflag");
-		Font::StrDraw(str, 10, 150, 20, c);
+		Font::StrDraw(str, 10, 250, 20, c);
 	}
 
 	swprintf_s(str, L"1キー　変換・つるはし→板");
@@ -80,6 +81,9 @@ void CObjInventory::Draw()
 
 	swprintf_s(str, L"3キー　変換・はしご→つるはし");
 	Font::StrDraw(str, 10, 210, 20, c);
+
+	swprintf_s(str, L"残り変換回数:%d", ((UserData*)Save::GetData())->conversion_num);
+	Font::StrDraw(str, 10, 90, 20, d);
 
 	//切り取り位置の設定
 	src.m_top = 0.0f;

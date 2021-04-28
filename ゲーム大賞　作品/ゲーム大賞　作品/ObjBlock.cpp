@@ -647,16 +647,29 @@ void CObjBlock::Action()
 
 				
 
-				if (((UserData*)Save::GetData())->break_flag == true)//áŠQ•¨‚Ìˆê‚Â‘O‚ÌƒuƒƒbƒN‚É”½‰ž
+				if (((UserData*)Save::GetData())->break_flag == true)//áŠQ•¨‚Ìˆê‚Â‘O‚ÌƒuƒƒbƒN(áŠQ•¨”»’èƒuƒƒbƒNj‚É”½‰ž
 				{
 
-					if (m_map[int(hy/64)][int(hx/64)] == 10)//áŠQ•¨
+					if (m_map[i][j] == 10)//áŠQ•¨
 					{
 						if ((hx+ (-m_scroll) + 64.0f > x) && (hx + (-m_scroll) < x + 64.0f) && (hy + 64.0f > y) && (hy < y + 64.0f))
 						{
-							m_map[int(hy / 64)][int(hx / 64)+1] = 97;//áŠQ•¨”j‰ó
+							for (int f = 0;; f++)
+							{
+								if (m_map[i - f][j] == 10)
+								{
+									m_map[i - f][j] = 98;//áŠQ•¨”j‰ó
+								}
+								else
+								{
+									((UserData*)Save::GetData())->break_done = true;
 
-							((UserData*)Save::GetData())->break_done = true;
+									break;
+								}
+							}
+							
+
+							
 						}
 						
 					}
