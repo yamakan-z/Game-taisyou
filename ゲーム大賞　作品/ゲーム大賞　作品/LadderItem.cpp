@@ -2,6 +2,7 @@
 #include"GameL\DrawTexture.h"
 #include"GameL\WinInputs.h"
 #include"GameL\SceneManager.h"
+#include"GameL\Audio.h"
 
 #include"GameHead.h"
 #include"LadderItem.h"
@@ -32,16 +33,17 @@ void CLadderItem::Action()
 
 	//HitBoxの位置の変更
 	CHitBox* hit = Hits::GetHitBox(this);
-	hit->SetPos(m_px+ block->GetScroll(), m_py);
+	hit->SetPos(m_px + block->GetScroll(), m_py);
 
 	//主人公オブジェクトと接触したらはしごを削除
 	if (hit->CheckElementHit(ELEMENT_PLAYER) == true)
 	{
-		this->SetStatus(false);		//自身に削除命令を出す。
-		Hits::DeleteHitBox(this);	//はしごが所有するHitBoxを削除する
-		
-	
 
+		this->SetStatus(false);		//自身に削除命令を出す。
+		Hits::DeleteHitBox(this);	//100円が所有するHitBoxを削除する
+	
+		//アイテム取得
+		Audio::Start(4);
 
 		((UserData*)Save::GetData())->item += 1;
 		((UserData*)Save::GetData())->ladder_item += 1;

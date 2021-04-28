@@ -2,6 +2,7 @@
 #include"GameL\DrawTexture.h"
 #include"GameL\WinInputs.h"
 #include"GameL\SceneManager.h"
+#include"GameL\Audio.h"
 
 #include"GameHead.h"
 #include"ObjHero.h"
@@ -36,6 +37,11 @@ void CObjHero::Init()
 	 //当たり判定用HitBoxを作成
 	 Hits::SetHitBox(this, m_px, m_py, 64, 64, ELEMENT_PLAYER, OBJ_HERO, 1);
 
+	 //アイテムを一つだけ変換させるフラグ
+	 conversionL = true;
+	 conversionB = true;
+	 conversionP = true;
+
 }
 
 
@@ -57,6 +63,9 @@ void CObjHero::Action()
 	//キーの入力方向
 	if (Input::GetVKey(VK_RIGHT) == true&& ((UserData*)Save::GetData())->move_flag == true)
 	{
+		//主人公の移動音を鳴らす
+		Audio::Start(3);
+
 		m_vx = +5.0f;
 		m_posture = 1.0f;
 		m_ani_time += 1;                 //「m_ani_time += 1;」描画切り替え　
@@ -74,16 +83,19 @@ void CObjHero::Action()
 		m_ani_time = 0;
 	}
 
-	////主人公アニメ////
-	if (m_ani_time > 15)//描画切り替え速度
-	{
-		m_ani_time = 0;
-		m_ani_frame += 1;
-	}
 
-	if (m_ani_frame == 4)
+	//設置(はしご）
+	if (Input::GetVKey('A') == true && ((UserData*)Save::GetData())->ladder_flag == true)
 	{
-		m_ani_frame = 0;
+		((UserData*)Save::GetData())->ins_ladder = true;//はしご設置のフラグ
+
+		//設置後、はしごアイテム＆アイテム総数-1
+		if (((UserData*)Save::GetData())->ins_ladder_done == true)
+		{
+			((UserData*)Save::GetData())->item -= 1;
+			((UserData*)Save::GetData())->ladder_item -= 1;
+			((UserData*)Save::GetData())->ins_ladder_done = false;
+		}
 	}
 
 
@@ -102,12 +114,17 @@ void CObjHero::Action()
 	//設置(板）
 	if (Input::GetVKey('X') == true&& ((UserData*)Save::GetData())->ins_place==true)
 	{
+		
+
 		((UserData*)Save::GetData())->ins_flag = true;
 
 
 		//設置後、板アイテム＆アイテム総数-1
 	    if (((UserData*)Save::GetData())->ins_done == true)
 	    {
+			//アイテムの設置音を鳴らす
+			Audio::Start(1);
+
 		   ((UserData*)Save::GetData())->item -= 1;
 		   ((UserData*)Save::GetData())->board_item -= 1;
 		   ((UserData*)Save::GetData())->ins_done = false;
@@ -123,6 +140,9 @@ void CObjHero::Action()
 		//設置後、はしごアイテム＆アイテム総数-1
 	    if (((UserData*)Save::GetData())->ins_ladder_done == true)
 	     {
+			//アイテムの設置音を鳴らす
+			Audio::Start(1);
+
 		     ((UserData*)Save::GetData())->item -= 1;
 		     ((UserData*)Save::GetData())->ladder_item -= 1;
 		     ((UserData*)Save::GetData())->ins_ladder_done = false;
@@ -132,15 +152,64 @@ void CObjHero::Action()
 	//障害物破壊
 	if (Input::GetVKey('W') == true&& ((UserData*)Save::GetData())->break_point==true)
 	{
+
 		((UserData*)Save::GetData())->break_flag = true;
 
 		//設置後、はしごアイテム＆アイテム総数-1
        if (((UserData*)Save::GetData())->break_done == true)
 	      {
+		   //ブロック破壊音を鳴らす
+		   Audio::Start(2);
+
 		     ((UserData*)Save::GetData())->item -= 1;
 		     ((UserData*)Save::GetData())->pick_item -= 1;
 		     ((UserData*)Save::GetData())->break_done = false;
 	      }
+	}
+
+
+
+	//アイテムの変換
+	//現在の変換　つるはし→板→はしご→つるはし...
+	if (((UserData*)Save::GetData())->item > 0)
+	{
+		//変換　つるはし→板
+		if (Input::GetVKey('1') == true && ((UserData*)Save::GetData())->pick_item > 0&& conversionB == true)
+		{
+			((UserData*)Save::GetData())->pick_item -= 1;
+			((UserData*)Save::GetData())->board_item += 1;
+			conversionB = false;
+		}
+		else if(Input::GetVKey('1')==false&& conversionB == false)
+		{
+			conversionB = true;
+		}
+
+		//変換　板→はしご
+		if (Input::GetVKey('2') == true && ((UserData*)Save::GetData())->board_item > 0 && conversionL == true)
+		{
+			((UserData*)Save::GetData())->board_item -= 1;
+			((UserData*)Save::GetData())->ladder_item += 1;
+			conversionL = false;
+		}
+		else if (Input::GetVKey('2') == false && conversionL == false)
+		{
+			conversionL = true;
+		}
+
+		//変換　はしご→つるはし
+		if (Input::GetVKey('3') == true && ((UserData*)Save::GetData())->ladder_item > 0 && conversionP == true)
+		{
+			((UserData*)Save::GetData())->ladder_item -= 1;
+			((UserData*)Save::GetData())->pick_item += 1;
+			conversionP = false;
+		}
+		else if (Input::GetVKey('3') == false && conversionP == false)
+		{
+			conversionP = true;
+		}
+
+
 	}
 
 	//摩擦

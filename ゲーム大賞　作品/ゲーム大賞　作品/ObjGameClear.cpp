@@ -26,6 +26,7 @@ void CObjGameClear::Init()
 	((UserData*)Save::GetData())->ins_flag = false;
 	((UserData*)Save::GetData())->break_flag = false;
 	((UserData*)Save::GetData())->ins_ladder = false;
+	((UserData*)Save::GetData())->ladder = false;
 
 	//インベントリ関係のフラグ破棄
 	((UserData*)Save::GetData())->I_board1 = false;
@@ -56,7 +57,7 @@ void CObjGameClear::Action()
 //ドロー
 void CObjGameClear::Draw()
 {
-	float r[4] = { 0.5f,0.0f,0.0f,1.0f };
+	float c[4] = { 0.0f,0.0f,1.0f,1.0f };
 
-	Font::StrDraw(L"GAME CLEAR", 350, 250, 32, r);
+	Font::StrDraw(L"Return_to_title:ENTER_KEY", 225, 340, 32, c);
 }

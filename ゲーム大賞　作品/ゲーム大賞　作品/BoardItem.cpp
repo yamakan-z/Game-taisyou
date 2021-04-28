@@ -2,6 +2,7 @@
 #include"GameL\DrawTexture.h"
 #include"GameL\WinInputs.h"
 #include"GameL\SceneManager.h"
+#include"GameL\Audio.h"
 
 #include"GameHead.h"
 #include"BoardItem.h"
@@ -48,6 +49,9 @@ void CBoardItem::Action()
 	{
 		this->SetStatus(false);		//自身に削除命令を出す。
 		Hits::DeleteHitBox(this);	//100円が所有するHitBoxを削除する
+
+		//アイテム取得
+		Audio::Start(4);
 
 		((UserData*)Save::GetData())->item += 1;
 		((UserData*)Save::GetData())->board_item += 1;

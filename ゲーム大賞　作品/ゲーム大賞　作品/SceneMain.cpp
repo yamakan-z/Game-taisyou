@@ -6,6 +6,7 @@
 #include "GameL\SceneObjManager.h"
 #include"GameL\DrawTexture.h"
 #include "GameL/UserData.h"
+#include"GameL\Audio.h"
 
 //使用するネームスペース
 using namespace GameL;
@@ -46,6 +47,20 @@ void CSceneMain::InitScene()
 	Draw::LoadImageW(L"4.png", 12, TEX_SIZE_512);
 	Draw::LoadImageW(L"5.png", 13, TEX_SIZE_512);
 
+	
+	//音楽読み込み
+	Audio::LoadAudio(0, L"GameMain(仮).wav", BACK_MUSIC);
+
+	Audio::LoadAudio(1, L"アイテム設置音.wav", EFFECT);
+	Audio::LoadAudio(2, L"ブロックを破壊する音.wav", EFFECT);
+	Audio::LoadAudio(3, L"主人公の移動音.wav",EFFECT);
+	Audio::LoadAudio(4, L"SEItemGet.wav", EFFECT);
+
+	//ボリュームを1.5増やす
+	float v = Audio::VolumeMaster(1.5);
+
+	//音楽スタート
+	Audio::Start(0);
 
 	if (((UserData*)Save::GetData())->item <= 0)//アイテムが0を下回る時、0にする
 	{
@@ -92,6 +107,17 @@ void CSceneMain::InitScene()
 	//CBoardItem* objbi = new CBoardItem();
 	//Objs::InsertObj(objbi, OBJ_BOARD_ITEM, 10);
 
+	//音楽情報の読み込み
+	Audio::LoadAudio(0, L"GameMain(仮).wav", SOUND_TYPE::BACK_MUSIC);
+	Audio::LoadAudio(1, L"アイテム設置音.wav", SOUND_TYPE::EFFECT);
+	Audio::LoadAudio(3, L"ブロックを破壊する音.wav", SOUND_TYPE::EFFECT);
+
+	//ボリュームを1.0に戻す
+    v = Audio::VolumeMaster(0.0);
+	v = Audio::VolumeMaster((1.0 - v));
+
+	//音楽スタート
+	Audio::Start(0);
 }
 
 //実行中メソッド

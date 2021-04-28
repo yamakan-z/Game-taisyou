@@ -32,7 +32,7 @@ void CObjGameOver::Init()
 	((UserData*)Save::GetData())->ins_flag = false;
 	((UserData*)Save::GetData())->break_flag = false;
 	((UserData*)Save::GetData())->ins_ladder = false;
-	
+	((UserData*)Save::GetData())->ladder = false;
 
 	//インベントリ関係のフラグ破棄
 	((UserData*)Save::GetData())->I_board1 = false;
@@ -63,11 +63,8 @@ void CObjGameOver::Action()
 //ドロー
 void CObjGameOver::Draw()
 {
-	float r[4] = { 0.5f,0.0f,0.0f,1.0f };
 	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
 
-	Font::StrDraw(L"YOU LOST", 350, 250, 32, r);
-	Font::StrDraw(L"GAMEOVER", 350, 290, 32, r);
 	Font::StrDraw(L"NEXT_CHALLENGE:ENTER_KEY", 225, 340, 32, c);
 
 }
