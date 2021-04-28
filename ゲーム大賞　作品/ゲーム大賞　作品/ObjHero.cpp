@@ -80,6 +80,10 @@ void CObjHero::Action()
 			((UserData*)Save::GetData())->ins_ladder_done = false;
 		}
 	}
+	else
+	{
+		((UserData*)Save::GetData())->ins_ladder = false;
+	}
 
 
 	//‚Í‚µ‚²‚ª‚ ‚éó‘Ô‚¾‚Æã‚ÖˆÚ“®
@@ -108,6 +112,10 @@ void CObjHero::Action()
 		   ((UserData*)Save::GetData())->ins_done = false;
 	    }
 
+	}
+	else
+	{
+		((UserData*)Save::GetData())->ins_flag = false;
 	}
 	
 	
