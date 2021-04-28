@@ -872,13 +872,13 @@ void CObjBlock::Draw()
 			if (m_map[i][j] == 60)
 			{
 
-				float c2[4] = { 1.0f,0.0f,0.0f,1.0f };
+				float c2[4] = { 1.0f,1.0f,1.0f,1.0f };
 
 				//Ø‚èæ‚èˆÊ’u‚Ìİ’è
 				src.m_top = 0.0f;
 				src.m_left = 0.0f;
-				src.m_right = 184.0f;
-				src.m_bottom = 184.0f;
+				src.m_right = 64.0f;
+				src.m_bottom = 64.0f;
 
 
 				//•\¦ˆÊ’u‚Ìİ’è
@@ -888,7 +888,7 @@ void CObjBlock::Draw()
 				dst.m_bottom = dst.m_top + 10.0;
 
 				//•`‰æ
-				Draw::Draw(1, &src, &dst, c2, 0.0f);
+				Draw::Draw(4, &src, &dst, c2, 0.0f);
 			}
 
 			//”Â”»’è

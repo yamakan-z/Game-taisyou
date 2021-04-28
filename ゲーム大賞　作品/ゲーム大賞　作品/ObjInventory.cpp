@@ -123,8 +123,8 @@ void CObjInventory::Draw()
 			//切り取り位置の設定
 			src.m_top = 0.0f;
 			src.m_left = 0.0f;
-			src.m_right = 184.0f;
-			src.m_bottom = 184.0f;
+			src.m_right = 64.0f;
+			src.m_bottom = 64.0f;
 
 			//表示位置の設定
 			dst.m_top = 50.0f;
@@ -182,8 +182,8 @@ void CObjInventory::Draw()
 			//切り取り位置の設定
 			src.m_top = 0.0f;
 			src.m_left = 0.0f;
-			src.m_right = 184.0f;
-			src.m_bottom = 184.0f;
+			src.m_right = 64.0f;
+			src.m_bottom = 64.0f;
 
 			//表示位置の設定
 			dst.m_top = 50.0f;
@@ -242,8 +242,8 @@ void CObjInventory::Draw()
 			//切り取り位置の設定
 			src.m_top = 0.0f;
 			src.m_left = 0.0f;
-			src.m_right = 184.0f;
-			src.m_bottom = 184.0f;
+			src.m_right = 64.0f;
+			src.m_bottom = 64.0f;
 
 			//表示位置の設定
 			dst.m_top = 50.0f;
