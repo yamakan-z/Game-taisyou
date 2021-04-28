@@ -47,8 +47,8 @@ void CSceneMain::InitScene()
 	Draw::LoadImageW(L"4.png", 12, TEX_SIZE_512);
 	Draw::LoadImageW(L"5.png", 13, TEX_SIZE_512);
 
-	Draw::LoadImageW(L"ポール.png", 8, TEX_SIZE_1024);
-	Draw::LoadImageW(L"旗.png", 9, TEX_SIZE_1024);
+	Draw::LoadImageW(L"ポール.png", 14, TEX_SIZE_1024);
+	Draw::LoadImageW(L"旗.png", 15, TEX_SIZE_1024);
 	
 	//音楽読み込み
 	Audio::LoadAudio(0, L"GameMain(仮).wav", BACK_MUSIC);
