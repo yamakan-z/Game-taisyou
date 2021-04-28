@@ -55,6 +55,7 @@ void CObjPick::Action()
 		Audio::Start(4);
 
 		((UserData*)Save::GetData())->item += 1;
+		((UserData*)Save::GetData())->pick_item += 1;
 		
 
 		if (((UserData*)Save::GetData())->item == 1)
