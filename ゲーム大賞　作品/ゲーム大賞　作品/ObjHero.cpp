@@ -56,13 +56,13 @@ void CObjHero::Action()
 	//ƒL[‚Ì“ü—Í•ûŒü
 	if (Input::GetVKey(VK_RIGHT) == true&& ((UserData*)Save::GetData())->move_flag == true)
 	{
-		m_vx = +5.0f;
+		m_vx = +3.0f;
 		m_posture = 1.0f;
 	}
 
 	if (Input::GetVKey(VK_LEFT) == true&& ((UserData*)Save::GetData())->move_flag == true)
 	{
-		m_vx = -5.0f;
+		m_vx = -3.0f;
 		m_posture = 0.0f;
 	}
 
@@ -123,6 +123,10 @@ void CObjHero::Action()
 		     ((UserData*)Save::GetData())->pick_item -= 1;
 		     ((UserData*)Save::GetData())->break_done = false;
 	      }
+	}
+	else
+	{
+		((UserData*)Save::GetData())->break_flag = false;
 	}
 
 
