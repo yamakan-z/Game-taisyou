@@ -48,4 +48,9 @@ private:
 	//踏んでいるブロックの種類を確認
 	int m_block_type;
 
+	//アイテムを一つだけ変換させるフラグ
+	bool conversionL;//はしご用
+	bool conversionB;//板用
+	bool conversionP;//つるはし用
+
 };
