@@ -33,6 +33,16 @@ void CSceneGameClear::InitScene()
 	//出力させる文字のグラフィックを作成
 	Font::SetStrTex(L"Return_to_title:ENTER_KEY");
 
+	//音楽情報の読み込み
+	Audio::LoadAudio(0, L"GameClear(仮).wav", BACK_MUSIC);
+
+	//ボリュームを1.0に戻す
+	float v = Audio::VolumeMaster(0);
+	v = Audio::VolumeMaster(1.0 - v);
+
+	//音楽スタート
+	Audio::Start(0);
+
 	//ゲームクリアオブジェクト作成
 	CObjGameClear* obj = new CObjGameClear();
 	Objs::InsertObj(obj, OBJ_GAME_CLEAR, 10);

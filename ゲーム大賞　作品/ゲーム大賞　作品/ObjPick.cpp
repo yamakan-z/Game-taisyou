@@ -3,6 +3,7 @@
 #include"GameL\WinInputs.h"
 #include"GameL\SceneManager.h"
 #include"GameL\SceneObjManager.h"
+#include"GameL\Audio.h"
 
 #include"GameHead.h"
 #include"ObjPick.h"
@@ -49,6 +50,9 @@ void CObjPick::Action()
 	{
 		this->SetStatus(false);		//自身に削除命令を出す。
 		Hits::DeleteHitBox(this);	//100円が所有するHitBoxを削除する
+
+		//アイテム取得
+		Audio::Start(4);
 
 		((UserData*)Save::GetData())->item += 1;
 		((UserData*)Save::GetData())->pick_item += 1;

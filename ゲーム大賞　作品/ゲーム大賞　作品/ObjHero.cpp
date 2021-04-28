@@ -2,6 +2,7 @@
 #include"GameL\DrawTexture.h"
 #include"GameL\WinInputs.h"
 #include"GameL\SceneManager.h"
+#include"GameL\Audio.h"
 
 #include"GameHead.h"
 #include"ObjHero.h"
@@ -55,6 +56,9 @@ void CObjHero::Action()
 	//キーの入力方向
 	if (Input::GetVKey(VK_RIGHT) == true&& ((UserData*)Save::GetData())->move_flag == true)
 	{
+		//主人公の移動音を鳴らす
+		Audio::Start(3);
+
 		m_vx = +5.0f;
 		m_posture = 1.0f;
 		m_ani_time += 1;                 //「m_ani_time += 1;」描画切り替え　
@@ -100,6 +104,9 @@ void CObjHero::Action()
 	//設置(板）
 	if (Input::GetVKey('X') == true&& ((UserData*)Save::GetData())->ins_place==true)
 	{
+		//アイテムの設置音を鳴らす
+		Audio::Start(1);
+
 		((UserData*)Save::GetData())->ins_flag = true;
 
 
@@ -116,6 +123,9 @@ void CObjHero::Action()
 	//設置(はしご）
 	if (Input::GetVKey('A') == true&&((UserData*)Save::GetData())->ladder_flag==true)
 	{
+		//アイテムの設置音を鳴らす
+		Audio::Start(1);
+
 		((UserData*)Save::GetData())->ins_ladder = true;//はしご設置のフラグ
 
 		//設置後、はしごアイテム＆アイテム総数-1
@@ -130,6 +140,9 @@ void CObjHero::Action()
 	//障害物破壊
 	if (Input::GetVKey('W') == true&& ((UserData*)Save::GetData())->break_point==true)
 	{
+		//ブロック破壊音を鳴らす
+		Audio::Start(2);
+
 		((UserData*)Save::GetData())->break_flag = true;
 
 		//設置後、はしごアイテム＆アイテム総数-1
