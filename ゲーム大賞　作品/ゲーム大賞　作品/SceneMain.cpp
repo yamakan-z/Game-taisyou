@@ -105,7 +105,7 @@ void CSceneMain::InitScene()
 	Audio::LoadAudio(3, L"ブロックを破壊する音.wav", SOUND_TYPE::EFFECT);
 
 	//ボリュームを1.0に戻す
-	float v = Audio::VolumeMaster(0.0);
+    v = Audio::VolumeMaster(0.0);
 	v = Audio::VolumeMaster((1.0 - v));
 
 	//音楽スタート

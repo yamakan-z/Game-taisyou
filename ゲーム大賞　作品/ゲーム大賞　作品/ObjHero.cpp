@@ -104,8 +104,7 @@ void CObjHero::Action()
 	//設置(板）
 	if (Input::GetVKey('X') == true&& ((UserData*)Save::GetData())->ins_place==true)
 	{
-		//アイテムの設置音を鳴らす
-		Audio::Start(1);
+		
 
 		((UserData*)Save::GetData())->ins_flag = true;
 
@@ -113,6 +112,9 @@ void CObjHero::Action()
 		//設置後、板アイテム＆アイテム総数-1
 	    if (((UserData*)Save::GetData())->ins_done == true)
 	    {
+			//アイテムの設置音を鳴らす
+			Audio::Start(1);
+
 		   ((UserData*)Save::GetData())->item -= 1;
 		   ((UserData*)Save::GetData())->board_item -= 1;
 		   ((UserData*)Save::GetData())->ins_done = false;
@@ -123,14 +125,14 @@ void CObjHero::Action()
 	//設置(はしご）
 	if (Input::GetVKey('A') == true&&((UserData*)Save::GetData())->ladder_flag==true)
 	{
-		//アイテムの設置音を鳴らす
-		Audio::Start(1);
-
 		((UserData*)Save::GetData())->ins_ladder = true;//はしご設置のフラグ
 
 		//設置後、はしごアイテム＆アイテム総数-1
 	    if (((UserData*)Save::GetData())->ins_ladder_done == true)
 	     {
+			//アイテムの設置音を鳴らす
+			Audio::Start(1);
+
 		     ((UserData*)Save::GetData())->item -= 1;
 		     ((UserData*)Save::GetData())->ladder_item -= 1;
 		     ((UserData*)Save::GetData())->ins_ladder_done = false;
@@ -140,14 +142,15 @@ void CObjHero::Action()
 	//障害物破壊
 	if (Input::GetVKey('W') == true&& ((UserData*)Save::GetData())->break_point==true)
 	{
-		//ブロック破壊音を鳴らす
-		Audio::Start(2);
 
 		((UserData*)Save::GetData())->break_flag = true;
 
 		//設置後、はしごアイテム＆アイテム総数-1
        if (((UserData*)Save::GetData())->break_done == true)
 	      {
+		   //ブロック破壊音を鳴らす
+		   Audio::Start(2);
+
 		     ((UserData*)Save::GetData())->item -= 1;
 		     ((UserData*)Save::GetData())->pick_item -= 1;
 		     ((UserData*)Save::GetData())->break_done = false;
