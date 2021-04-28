@@ -34,11 +34,18 @@ void CSceneMain::InitScene()
 	Draw::LoadImageW(L"ブロック.png", 1, TEX_SIZE_512);
 	Draw::LoadImageW(L"背景2.png", 2, TEX_SIZE_1024);
 	Draw::LoadImageW(L"Ladder.png", 3, TEX_SIZE_512);
-	Draw::LoadImageW(L"板.png", 4, TEX_SIZE_512);
+	Draw::LoadImageW(L"鉄板インベントリ.png", 4, TEX_SIZE_512);
 	Draw::LoadImageW(L"はしごアイテム.png", 5, TEX_SIZE_512);
-	Draw::LoadImageW(L"インベントリ.png", 6, TEX_SIZE_512);
+	Draw::LoadImageW(L"インベントリｍ２.png", 6, TEX_SIZE_512);
 	Draw::LoadImageW(L"つるはし.png", 7, TEX_SIZE_512);
-	
+	//アイテム数番号
+	Draw::LoadImageW(L"0.png", 8, TEX_SIZE_512);
+	Draw::LoadImageW(L"1.png", 9, TEX_SIZE_512);
+	Draw::LoadImageW(L"2.png", 10, TEX_SIZE_512);
+	Draw::LoadImageW(L"3.png", 11, TEX_SIZE_512);
+	Draw::LoadImageW(L"4.png", 12, TEX_SIZE_512);
+	Draw::LoadImageW(L"5.png", 13, TEX_SIZE_512);
+
 
 	if (((UserData*)Save::GetData())->item <= 0)//アイテムが0を下回る時、0にする
 	{
