@@ -37,8 +37,16 @@ void CSceneMain::InitScene()
 	Draw::LoadImageW(L"Ladder.png", 3, TEX_SIZE_512);
 	Draw::LoadImageW(L"鉄板.png", 4, TEX_SIZE_512);
 	Draw::LoadImageW(L"はしごアイテム.png", 5, TEX_SIZE_512);
-	Draw::LoadImageW(L"インベントリ.png", 6, TEX_SIZE_512);
+	Draw::LoadImageW(L"インベントリｍ２.png", 6, TEX_SIZE_512);
 	Draw::LoadImageW(L"つるはし.png", 7, TEX_SIZE_512);
+	//アイテム数番号
+	Draw::LoadImageW(L"0.png", 8, TEX_SIZE_512);
+	Draw::LoadImageW(L"1.png", 9, TEX_SIZE_512);
+	Draw::LoadImageW(L"2.png", 10, TEX_SIZE_512);
+	Draw::LoadImageW(L"3.png", 11, TEX_SIZE_512);
+	Draw::LoadImageW(L"4.png", 12, TEX_SIZE_512);
+	Draw::LoadImageW(L"5.png", 13, TEX_SIZE_512);
+
 	
 	//音楽読み込み
 	Audio::LoadAudio(0, L"GameMain(仮).wav", BACK_MUSIC);

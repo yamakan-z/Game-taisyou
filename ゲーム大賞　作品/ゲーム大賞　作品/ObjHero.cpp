@@ -44,6 +44,8 @@ void CObjHero::Init()
 
 }
 
+
+
 //アクション
 void CObjHero::Action()
 {
@@ -229,6 +231,7 @@ void CObjHero::Action()
 //ドロー
 void CObjHero::Draw()
 {
+
 	//描画カラー情報
 	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
 
@@ -247,9 +250,9 @@ void CObjHero::Draw()
 	src.m_bottom = 64.0f;
 
 	//表示位置の設定
-	dst.m_top = 0.0f+m_py;
-	dst.m_left =( 64.0f*m_posture)+m_px;
-	dst.m_right = (64.0-64.0f*m_posture)+m_px;
+	dst.m_top    = 0.0f + m_py;
+	dst.m_left   =( 64.0f*m_posture)+m_px;
+	dst.m_right  = (64-64.0f*m_posture)+m_px;
 	dst.m_bottom = 64.0f+m_py;
 
 	//描画

@@ -35,7 +35,7 @@ void CLadderItem::Action()
 	CHitBox* hit = Hits::GetHitBox(this);
 	hit->SetPos(m_px + block->GetScroll(), m_py);
 
-	//主人公オブジェクトと接触したら100円を削除
+	//主人公オブジェクトと接触したらはしごを削除
 	if (hit->CheckElementHit(ELEMENT_PLAYER) == true)
 	{
 
@@ -94,3 +94,5 @@ void CLadderItem::Draw()
 	//描画
 	Draw::Draw(5, &src, &dst, c, 0.0f);
 }
+
+	
