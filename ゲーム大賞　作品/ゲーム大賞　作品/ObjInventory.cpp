@@ -72,6 +72,15 @@ void CObjInventory::Draw()
 		Font::StrDraw(str, 10, 150, 20, c);
 	}
 
+	swprintf_s(str, L"1キー　変換・つるはし→板");
+	Font::StrDraw(str, 10, 170, 20, c);
+
+	swprintf_s(str, L"2キー　変換・板→はしご");
+	Font::StrDraw(str, 10, 190, 20, c);
+
+	swprintf_s(str, L"3キー　変換・はしご→つるはし");
+	Font::StrDraw(str, 10, 210, 20, c);
+
 	//切り取り位置の設定
 	src.m_top = 0.0f;
 	src.m_left = 0.0f;
