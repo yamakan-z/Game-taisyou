@@ -35,10 +35,12 @@ void CSceneMain::InitScene()
 	Draw::LoadImageW(L"ブロック.png", 1, TEX_SIZE_512);
 	Draw::LoadImageW(L"背景2.png", 2, TEX_SIZE_1024);
 	Draw::LoadImageW(L"Ladder.png", 3, TEX_SIZE_512);
-	Draw::LoadImageW(L"板.png", 4, TEX_SIZE_512);
+	Draw::LoadImageW(L"鉄板.png", 4, TEX_SIZE_512);
 	Draw::LoadImageW(L"はしごアイテム.png", 5, TEX_SIZE_512);
 	Draw::LoadImageW(L"インベントリ.png", 6, TEX_SIZE_512);
 	Draw::LoadImageW(L"つるはし.png", 7, TEX_SIZE_512);
+	Draw::LoadImageW(L"ポール.png", 8, TEX_SIZE_1024);
+	Draw::LoadImageW(L"旗.png", 9, TEX_SIZE_1024);
 	
 	//音楽読み込み
 	Audio::LoadAudio(0, L"GameMain(仮).wav", BACK_MUSIC);
