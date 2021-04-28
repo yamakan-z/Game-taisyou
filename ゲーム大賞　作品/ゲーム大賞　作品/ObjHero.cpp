@@ -141,13 +141,14 @@ void CObjHero::Action()
 
 	//アイテムの変換
 	//現在の変換　つるはし→板→はしご→つるはし...
-	if (((UserData*)Save::GetData())->item > 0)
+	if (((UserData*)Save::GetData())->item > 0&& ((UserData*)Save::GetData())->conversion_num > 0)
 	{
 		//変換　つるはし→板
 		if (Input::GetVKey('1') == true && ((UserData*)Save::GetData())->pick_item > 0&& conversionB == true)
 		{
 			((UserData*)Save::GetData())->pick_item -= 1;
 			((UserData*)Save::GetData())->board_item += 1;
+			((UserData*)Save::GetData())->conversion_num -= 1;
 			conversionB = false;
 		}
 		else if(Input::GetVKey('1')==false&& conversionB == false)
@@ -160,6 +161,7 @@ void CObjHero::Action()
 		{
 			((UserData*)Save::GetData())->board_item -= 1;
 			((UserData*)Save::GetData())->ladder_item += 1;
+			((UserData*)Save::GetData())->conversion_num -= 1;
 			conversionL = false;
 		}
 		else if (Input::GetVKey('2') == false && conversionL == false)
@@ -172,6 +174,7 @@ void CObjHero::Action()
 		{
 			((UserData*)Save::GetData())->ladder_item -= 1;
 			((UserData*)Save::GetData())->pick_item += 1;
+			((UserData*)Save::GetData())->conversion_num -= 1;
 			conversionP = false;
 		}
 		else if (Input::GetVKey('3') == false && conversionP == false)

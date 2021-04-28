@@ -63,14 +63,14 @@ void CObjInventory::Draw()
 
 	if (((UserData*)Save::GetData())->break_point == true){
 		swprintf_s(str, L"breakpoint");
-		Font::StrDraw(str, 10, 90, 20, c);
+		Font::StrDraw(str, 10, 230, 20, c);
 	}
 	swprintf_s(str, L"X=%.0f,Y=%.0f", (hero->GetX()-block->GetScroll())/64,hero->GetY()/64);
 	Font::StrDraw(str, 10, 120, 20, c);
 
 	if (((UserData*)Save::GetData())->break_flag == true) {
 		swprintf_s(str, L"breakflag");
-		Font::StrDraw(str, 10, 150, 20, c);
+		Font::StrDraw(str, 10, 250, 20, c);
 	}
 
 	swprintf_s(str, L"1キー　変換・つるはし→板");
@@ -81,6 +81,9 @@ void CObjInventory::Draw()
 
 	swprintf_s(str, L"3キー　変換・はしご→つるはし");
 	Font::StrDraw(str, 10, 210, 20, c);
+
+	swprintf_s(str, L"残り変換回数:%d", ((UserData*)Save::GetData())->conversion_num);
+	Font::StrDraw(str, 10, 90, 20, d);
 
 	//切り取り位置の設定
 	src.m_top = 0.0f;

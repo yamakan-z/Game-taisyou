@@ -43,6 +43,9 @@ void CObjGameOver::Init()
 
 	((UserData*)Save::GetData())->I_pick1 = false;
 	((UserData*)Save::GetData())->I_pick2 = false;
+
+	//変換回数を初期値に戻す
+	((UserData*)Save::GetData())->conversion_num = 5;
 }
 //アクション
 void CObjGameOver::Action()
