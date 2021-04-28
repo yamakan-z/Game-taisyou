@@ -38,6 +38,7 @@ void CObjInventory::Draw()
 {
 	//描画カラー情報
 	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
+	float d[4] = { 1.0f,0.0f,1.0f,1.0f };
 
 	RECT_F src;//描画元切り取り位置
 	RECT_F dst;//描画先表示位置
@@ -49,16 +50,16 @@ void CObjInventory::Draw()
 	//スコアの表示
 	wchar_t str[256];
 	swprintf_s(str, L"アイテム数:%.0f", ((UserData*)Save::GetData())->item);
-	Font::StrDraw(str, 10, 10, 20, c);
+	Font::StrDraw(str, 10, 10, 20, d);
 
 	swprintf_s(str, L"はしごアイテム数:%.0f", ((UserData*)Save::GetData())->ladder_item);
-	Font::StrDraw(str, 10, 30, 20, c);
+	Font::StrDraw(str, 10, 30, 20, d);
 
 	swprintf_s(str, L"板アイテム数:%.0f", ((UserData*)Save::GetData())->board_item);
-	Font::StrDraw(str, 10, 50, 20, c);
+	Font::StrDraw(str, 10, 50, 20, d);
 
 	swprintf_s(str, L"つるはし:%.0f", ((UserData*)Save::GetData())->pick_item);
-	Font::StrDraw(str, 10, 70, 20, c);
+	Font::StrDraw(str, 10, 70, 20, d);
 
 	if (((UserData*)Save::GetData())->break_point == true){
 		swprintf_s(str, L"breakpoint");
