@@ -46,6 +46,7 @@ void CSceneMain::InitScene()
 	Audio::LoadAudio(1, L"アイテム設置音.wav", EFFECT);
 	Audio::LoadAudio(2, L"ブロックを破壊する音.wav", EFFECT);
 	Audio::LoadAudio(3, L"主人公の移動音.wav",EFFECT);
+	Audio::LoadAudio(4, L"SEItemGet.wav", EFFECT);
 
 	//ボリュームを1.5増やす
 	float v = Audio::VolumeMaster(1.5);
