@@ -3,6 +3,7 @@
 #include"GameL\WinInputs.h"
 #include"GameL\SceneManager.h"
 #include"GameL\SceneObjManager.h"
+#include"GameL\Audio.h"
 
 #include"GameHead.h"
 #include"ObjPick.h"
@@ -44,14 +45,18 @@ void CObjPick::Action()
 	CHitBox* hit = Hits::GetHitBox(this);
 	hit->SetPos(m_px + block->GetScroll(), m_py);
 
-	//主人公オブジェクトと接触したら100円を削除
+	//主人公オブジェクトと接触したらつるはしを削除
 	if (hit->CheckElementHit(ELEMENT_PLAYER) == true)
 	{
 		this->SetStatus(false);		//自身に削除命令を出す。
-		Hits::DeleteHitBox(this);	//100円が所有するHitBoxを削除する
+		Hits::DeleteHitBox(this);	//つるはしが所有するHitBoxを削除する
+
+		//アイテム取得
+		Audio::Start(4);
 
 		((UserData*)Save::GetData())->item += 1;
 		((UserData*)Save::GetData())->pick_item += 1;
+		
 
 		if (((UserData*)Save::GetData())->item == 1)
 		{

@@ -157,7 +157,9 @@
     <ClCompile Include="ObjBlock.cpp" />
     <ClCompile Include="ObjBoard.cpp" />
     <ClCompile Include="ObjGameClear.cpp" />
+    <ClCompile Include="ObjgameClearBackground.cpp" />
     <ClCompile Include="ObjGameOver.cpp" />
+    <ClCompile Include="ObjgameOverBackground.cpp" />
     <ClCompile Include="ObjHero.cpp" />
     <ClCompile Include="ObjInventory.cpp" />
     <ClCompile Include="ObjLadder.cpp">
@@ -166,6 +168,7 @@
     <ClCompile Include="ObjPick.cpp" />
     <ClCompile Include="ObjRock.cpp" />
     <ClCompile Include="ObjTitle.cpp" />
+    <ClCompile Include="ObjTitleBackground.cpp" />
     <ClCompile Include="SceneGameClear.cpp" />
     <ClCompile Include="SceneGameOver.cpp" />
     <ClCompile Include="SceneMain.cpp" />
@@ -196,7 +199,9 @@
     <ClInclude Include="ObjBlock.h" />
     <ClInclude Include="ObjBoard.h" />
     <ClInclude Include="ObjGameClear.h" />
+    <ClInclude Include="ObjgameClearBackground.h" />
     <ClInclude Include="ObjGameOver.h" />
+    <ClInclude Include="ObjgameOverBackground.h" />
     <ClInclude Include="ObjHero.h" />
     <ClInclude Include="ObjInventory.h" />
     <ClInclude Include="ObjLadder.h">
@@ -205,7 +210,10 @@
     <ClInclude Include="ObjPick.h" />
     <ClInclude Include="ObjRock.h" />
     <ClInclude Include="ObjTitle.h" />
-    <ClInclude Include="SceneGameOver.h" />
+    <ClInclude Include="ObjTitleBackground.h" />
+    <ClInclude Include="SceneGameOver.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClInclude>
     <ClInclude Include="SceneGameClear.h" />
     <ClInclude Include="SceneMain.h" />
     <ClInclude Include="item.h">

@@ -2,6 +2,7 @@
 #include"GameL\DrawTexture.h"
 #include"GameL\WinInputs.h"
 #include"GameL\SceneManager.h"
+#include"GameL\Audio.h"
 
 #include"GameHead.h"
 #include"ObjHero.h"
@@ -20,11 +21,15 @@ void CObjHero::Init()
 	 m_vy=0.0f;
 	 m_posture = 1.0f;//右向き0.0f左向き1.0f
 
+	 m_ani_frame = 1;//静止フレームを初期にする
+	 m_ani_time = 0;
+
 	 //blockとの衝突状態確認
 	 m_hit_up = false;
 	 m_hit_down = false;
 	 m_hit_left = false;
 	 m_hit_right = false;
+	 float m_ani_max_time = 4;//アニメーション間隔幅
 
 	 //踏んでいるブロックの種類を確認
 	 m_block_type = 0;
@@ -38,6 +43,8 @@ void CObjHero::Init()
 	 conversionP = true;
 
 }
+
+
 
 //アクション
 void CObjHero::Action()
@@ -56,14 +63,24 @@ void CObjHero::Action()
 	//キーの入力方向
 	if (Input::GetVKey(VK_RIGHT) == true&& ((UserData*)Save::GetData())->move_flag == true)
 	{
+		//主人公の移動音を鳴らす
+		Audio::Start(3);
+
 		m_vx = +5.0f;
 		m_posture = 1.0f;
+		m_ani_time += 1;                 //「m_ani_time += 1;」描画切り替え　
 	}
 
-	if (Input::GetVKey(VK_LEFT) == true&& ((UserData*)Save::GetData())->move_flag == true)
+	else if (Input::GetVKey(VK_LEFT) == true&& ((UserData*)Save::GetData())->move_flag == true)
 	{
 		m_vx = -5.0f;
 		m_posture = 0.0f;
+		m_ani_time += 1;
+	}
+	else
+	{
+		m_ani_frame = 1;//キー入力がない場合静止フレームにする
+		m_ani_time = 0;
 	}
 
 
@@ -101,12 +118,17 @@ void CObjHero::Action()
 	//設置(板）
 	if (Input::GetVKey('X') == true&& ((UserData*)Save::GetData())->ins_place==true)
 	{
+		
+
 		((UserData*)Save::GetData())->ins_flag = true;
 
 
 		//設置後、板アイテム＆アイテム総数-1
 	    if (((UserData*)Save::GetData())->ins_done == true)
 	    {
+			//アイテムの設置音を鳴らす
+			Audio::Start(1);
+
 		   ((UserData*)Save::GetData())->item -= 1;
 		   ((UserData*)Save::GetData())->board_item -= 1;
 		   ((UserData*)Save::GetData())->ins_done = false;
@@ -118,15 +140,35 @@ void CObjHero::Action()
 		((UserData*)Save::GetData())->ins_flag = false;
 	}
 	
-	
+	//設置(はしご）
+	if (Input::GetVKey('A') == true&&((UserData*)Save::GetData())->ladder_flag==true)
+	{
+		((UserData*)Save::GetData())->ins_ladder = true;//はしご設置のフラグ
+
+		//設置後、はしごアイテム＆アイテム総数-1
+	    if (((UserData*)Save::GetData())->ins_ladder_done == true)
+	     {
+			//アイテムの設置音を鳴らす
+			Audio::Start(1);
+
+		     ((UserData*)Save::GetData())->item -= 1;
+		     ((UserData*)Save::GetData())->ladder_item -= 1;
+		     ((UserData*)Save::GetData())->ins_ladder_done = false;
+	     }
+	}
+
 	//障害物破壊
 	if (Input::GetVKey('W') == true&& ((UserData*)Save::GetData())->break_point==true)
 	{
+
 		((UserData*)Save::GetData())->break_flag = true;
 
 		//設置後、はしごアイテム＆アイテム総数-1
        if (((UserData*)Save::GetData())->break_done == true)
 	      {
+		   //ブロック破壊音を鳴らす
+		   Audio::Start(2);
+
 		     ((UserData*)Save::GetData())->item -= 1;
 		     ((UserData*)Save::GetData())->pick_item -= 1;
 		     ((UserData*)Save::GetData())->break_done = false;
@@ -204,22 +246,28 @@ void CObjHero::Action()
 //ドロー
 void CObjHero::Draw()
 {
+
 	//描画カラー情報
 	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
+
+	int AniData[4]
+	{
+		1,2,3,0,//描画順序
+	};
 
 	RECT_F src; //描画元切り取り位置
 	RECT_F dst; //描画先表示位置
 
 	//切り取り位置の設定
 	src.m_top = 0.0f;
-	src.m_left = 0.0f;
-	src.m_right = 256.0f;
-	src.m_bottom = 256.0f;
+	src.m_left = 0.0f+AniData[m_ani_frame] * 64;
+	src.m_right =64.0f+AniData[m_ani_frame] * 64;
+	src.m_bottom = 64.0f;
 
 	//表示位置の設定
-	dst.m_top = 0.0f+m_py;
-	dst.m_left =( 64.0f*m_posture)+m_px;
-	dst.m_right = (64.0-64.0f*m_posture)+m_px;
+	dst.m_top    = 0.0f + m_py;
+	dst.m_left   =( 64.0f*m_posture)+m_px;
+	dst.m_right  = (64-64.0f*m_posture)+m_px;
 	dst.m_bottom = 64.0f+m_py;
 
 	//描画

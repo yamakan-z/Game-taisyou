@@ -2,6 +2,7 @@
 #include"GameL\DrawTexture.h"
 #include"GameL\WinInputs.h"
 #include"GameL\SceneManager.h"
+#include"GameL\Audio.h"
 
 #include"GameHead.h"
 #include"BoardItem.h"
@@ -49,6 +50,9 @@ void CBoardItem::Action()
 		this->SetStatus(false);		//自身に削除命令を出す。
 		Hits::DeleteHitBox(this);	//100円が所有するHitBoxを削除する
 
+		//アイテム取得
+		Audio::Start(4);
+
 		((UserData*)Save::GetData())->item += 1;
 		((UserData*)Save::GetData())->board_item += 1;
 
@@ -84,8 +88,8 @@ void CBoardItem::Draw()
 	//切り取り位置の設定
 	src.m_top = 0.0f;
 	src.m_left = 0.0f;
-	src.m_right = 184.0f;
-	src.m_bottom = 184.0f;
+	src.m_right = 64.0f;
+	src.m_bottom = 64.0f;
 
 	//表示位置の設定
 	dst.m_top = m_py;

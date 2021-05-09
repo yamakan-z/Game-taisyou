@@ -60,7 +60,7 @@ void CObjGameClear::Action()
 //ÉhÉçÅ[
 void CObjGameClear::Draw()
 {
-	float r[4] = { 0.5f,0.0f,0.0f,1.0f };
+	float c[4] = { 0.0f,0.0f,1.0f,1.0f };
 
-	Font::StrDraw(L"GAME CLEAR", 350, 250, 32, r);
+	Font::StrDraw(L"Return_to_title:ENTER_KEY", 225, 340, 32, c);
 }

@@ -18,4 +18,5 @@ private:
 	float m_vx;
 	float m_vy;
 	int m_hp;
+	int hirumatest;
 };
