@@ -96,8 +96,17 @@ void CObjHero::Action()
 			//アイテムの設置音を鳴らす
 			Audio::Start(1);
 
-			((UserData*)Save::GetData())->item -= 1;
-			((UserData*)Save::GetData())->ladder_item -= 1;
+			//アイテム使用時、変換済みアイテムを優先して使用する
+			if (((UserData*)Save::GetData())->converted_ladder >= 1)
+			{
+				((UserData*)Save::GetData())->item -= 1;
+				((UserData*)Save::GetData())->converted_ladder -= 1;
+			}
+			else
+			{
+				((UserData*)Save::GetData())->item -= 1;
+				((UserData*)Save::GetData())->ladder_item -= 1;
+			}
 			((UserData*)Save::GetData())->ins_ladder_done = false;
 		}
 	}
@@ -133,8 +142,18 @@ void CObjHero::Action()
 			//アイテムの設置音を鳴らす
 			Audio::Start(1);
 
-		   ((UserData*)Save::GetData())->item -= 1;
-		   ((UserData*)Save::GetData())->board_item -= 1;
+			//アイテム使用時、変換済みアイテムを優先して使用する
+			if (((UserData*)Save::GetData())->converted_board >= 1)
+			{
+				((UserData*)Save::GetData())->item -= 1;
+				((UserData*)Save::GetData())->converted_board -= 1;
+			}
+			else
+			{
+				((UserData*)Save::GetData())->item -= 1;
+				((UserData*)Save::GetData())->board_item -= 1;
+			}
+		   
 		   ((UserData*)Save::GetData())->ins_done = false;
 	    }
 
@@ -157,8 +176,17 @@ void CObjHero::Action()
 		   //ブロック破壊音を鳴らす
 		   Audio::Start(2);
 
-		     ((UserData*)Save::GetData())->item -= 1;
-		     ((UserData*)Save::GetData())->pick_item -= 1;
+		   //アイテム使用時、変換済みアイテムを優先して使用する
+		   if (((UserData*)Save::GetData())->converted_pick >=1 )
+		   {
+			   ((UserData*)Save::GetData())->converted_pick -= 1;
+			   ((UserData*)Save::GetData())->item -= 1;
+		   }
+		   else
+		   {
+			   ((UserData*)Save::GetData())->item -= 1;
+			   ((UserData*)Save::GetData())->pick_item -= 1;
+		   }
 		     ((UserData*)Save::GetData())->break_done = false;
 	      }
 	}
@@ -177,7 +205,8 @@ void CObjHero::Action()
 		if (Input::GetVKey(VK_F1) == true && ((UserData*)Save::GetData())->pick_item > 0&& conversionB == true)
 		{
 			((UserData*)Save::GetData())->pick_item -= 1;
-			((UserData*)Save::GetData())->board_item += 1;
+			//((UserData*)Save::GetData())->board_item += 1;
+			((UserData*)Save::GetData())->converted_board += 1;
 			((UserData*)Save::GetData())->conversion_num -= 1;
 			conversionB = false;
 		}
@@ -190,7 +219,8 @@ void CObjHero::Action()
 		if (Input::GetVKey(VK_F2) == true && ((UserData*)Save::GetData())->board_item > 0 && conversionL == true)
 		{
 			((UserData*)Save::GetData())->board_item -= 1;
-			((UserData*)Save::GetData())->ladder_item += 1;
+			//((UserData*)Save::GetData())->ladder_item += 1;
+			((UserData*)Save::GetData())->converted_ladder += 1;
 			((UserData*)Save::GetData())->conversion_num -= 1;
 			conversionL = false;
 		}
@@ -203,7 +233,8 @@ void CObjHero::Action()
 		if (Input::GetVKey(VK_F3) == true && ((UserData*)Save::GetData())->ladder_item > 0 && conversionP == true)
 		{
 			((UserData*)Save::GetData())->ladder_item -= 1;
-			((UserData*)Save::GetData())->pick_item += 1;
+			//((UserData*)Save::GetData())->pick_item += 1;
+			((UserData*)Save::GetData())->converted_pick += 1;
 			((UserData*)Save::GetData())->conversion_num -= 1;
 			conversionP = false;
 		}
@@ -260,4 +291,25 @@ void CObjHero::Draw()
 
 	//描画
 	Draw::Draw(0, &src, &dst, c, 0.0f);
+
+	//説明画面（仮）
+	//if (Input::GetVKey('W') == true)
+	//{
+	//	//切り取り位置の設定
+	//	src.m_top = 0.0f;
+	//	src.m_left = 0.0f;
+	//	src.m_right = 64.0f;
+	//	src.m_bottom = 64.0f;
+
+
+	//	//表示位置の設定
+	//	dst.m_top = 200.0;
+	//	dst.m_left = 400.0;
+	//	dst.m_right = dst.m_right = dst.m_left + 80.0;
+	//	dst.m_bottom = dst.m_top + 80.0;
+
+	//	//描画
+	//	Draw::Draw(16, &src, &dst, c, 0.0f);
+
+	//}
 }

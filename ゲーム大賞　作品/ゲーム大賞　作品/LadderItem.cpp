@@ -48,20 +48,6 @@ void CLadderItem::Action()
 		((UserData*)Save::GetData())->item += 1;
 		((UserData*)Save::GetData())->ladder_item += 1;
 
-		if (((UserData*)Save::GetData())->item == 1)
-		{
-			((UserData*)Save::GetData())->I_ladder = true;
-		}
-
-		else if (((UserData*)Save::GetData())->item == 2)
-		{
-			((UserData*)Save::GetData())->I_ladder1 = true;
-		}
-
-		else if (((UserData*)Save::GetData())->item == 3)
-		{
-			((UserData*)Save::GetData())->I_ladder2 = true;
-		}
 	}
 
 	

@@ -84,18 +84,28 @@ struct UserData
 	float ladder_item = 0;//はしごアイテム所持数
 	float pick_item = 0;//つるはし所持数
 
+	//変換済アイテム
+	float converted_board = 0;//変換済み板アイテム
+	float converted_ladder = 0;//変換済みはしごアイテム
+	float converted_pick = 0;//変換済みつるはしアイテム
+
+	//劣化アイテム
+	float bad_board = 0;//劣化板アイテム
+	float bad_ladder = 0;//劣化はしごアイテム
+	float bad_pick = 0;//劣化つるはしアイテム
+
 	//インベントリ関係
-	bool I_ladder = false;//1つ目の取ったアイテムがはしごの時インベントリに表示
-	bool I_board = false;//1つ目の取ったアイテムが板の時インベントリに表示
-	bool I_pick = false;//1つ目の取ったアイテムがつるはしの時インベントリに表示
+	//bool I_ladder = false;//1つ目の取ったアイテムがはしごの時インベントリに表示
+	//bool I_board = false;//1つ目の取ったアイテムが板の時インベントリに表示
+	//bool I_pick = false;//1つ目の取ったアイテムがつるはしの時インベントリに表示
 
-	bool I_ladder1 = false;//2つ目の取ったアイテムがはしごの時インベントリに表示
-	bool I_board1 = false;//2つ目の取ったアイテムが板の時インベントリに表示
-	bool I_pick1 = false;//2つ目の取ったアイテムがつるはしの時インベントリに表示
+	//bool I_ladder1 = false;//2つ目の取ったアイテムがはしごの時インベントリに表示
+	//bool I_board1 = false;//2つ目の取ったアイテムが板の時インベントリに表示
+	//bool I_pick1 = false;//2つ目の取ったアイテムがつるはしの時インベントリに表示
 
-	bool I_ladder2 = false;//3つ目の取ったアイテムがはしごの時インベントリに表示
-	bool I_board2 = false;//3つ目の取ったアイテムが板の時インベントリに表示
-	bool I_pick2 = false;//3つ目の取ったアイテムがつるはしの時インベントリに表示
+	//bool I_ladder2 = false;//3つ目の取ったアイテムがはしごの時インベントリに表示
+	//bool I_board2 = false;//3つ目の取ったアイテムが板の時インベントリに表示
+	//bool I_pick2 = false;//3つ目の取ったアイテムがつるはしの時インベントリに表示
 
 	//のこり変換回数
 	int conversion_num = 5;

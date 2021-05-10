@@ -57,21 +57,6 @@ void CObjPick::Action()
 		((UserData*)Save::GetData())->item += 1;
 		((UserData*)Save::GetData())->pick_item += 1;
 		
-
-		if (((UserData*)Save::GetData())->item == 1)
-		{
-			((UserData*)Save::GetData())->I_pick = true;
-		}
-
-		else if (((UserData*)Save::GetData())->item == 2)
-		{
-			((UserData*)Save::GetData())->I_pick1 = true;
-		}
-
-		else if (((UserData*)Save::GetData())->item == 3)
-		{
-			((UserData*)Save::GetData())->I_pick2 = true;
-		}
 	}
 
 }

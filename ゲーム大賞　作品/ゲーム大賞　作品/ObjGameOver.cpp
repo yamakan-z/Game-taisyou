@@ -28,22 +28,23 @@ void CObjGameOver::Init()
 	((UserData*)Save::GetData())->pick_item = 0;
 	((UserData*)Save::GetData())->board_item = 0;
 
+	//変換済アイテム
+	((UserData*)Save::GetData())->converted_board = 0;//変換済み板アイテム
+	((UserData*)Save::GetData())->converted_ladder = 0;//変換済みはしごアイテム
+	((UserData*)Save::GetData())->converted_pick = 0;//変換済みつるはしアイテム
+
+	//劣化アイテム
+	((UserData*)Save::GetData())->bad_board = 0;//劣化板アイテム
+	((UserData*)Save::GetData())->bad_ladder = 0;//劣化はしごアイテム
+	((UserData*)Save::GetData())->bad_pick = 0;//劣化つるはしアイテム
+
 	//ギミック関係フラグ破棄
 	((UserData*)Save::GetData())->ins_flag = false;
 	((UserData*)Save::GetData())->break_flag = false;
 	((UserData*)Save::GetData())->ins_ladder = false;
 	((UserData*)Save::GetData())->ladder = false;
 
-	//インベントリ関係のフラグ破棄
-	((UserData*)Save::GetData())->I_board1 = false;
-	((UserData*)Save::GetData())->I_board2 = false;
-
-	((UserData*)Save::GetData())->I_ladder1 = false;
-	((UserData*)Save::GetData())->I_ladder2 = false;
-
-	((UserData*)Save::GetData())->I_pick1 = false;
-	((UserData*)Save::GetData())->I_pick2 = false;
-
+	
 	//変換回数を初期値に戻す
 	((UserData*)Save::GetData())->conversion_num = 5;
 }
