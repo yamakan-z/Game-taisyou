@@ -100,6 +100,7 @@ void CObjHero::Action()
 			if (((UserData*)Save::GetData())->converted_ladder >= 1)
 			{
 				((UserData*)Save::GetData())->item -= 1;
+				((UserData*)Save::GetData())->converted_item -= 1;
 				((UserData*)Save::GetData())->converted_ladder -= 1;
 			}
 			else
@@ -123,9 +124,21 @@ void CObjHero::Action()
 		{*/
 			//上移動時は左右移動を受け付けない
 			((UserData*)Save::GetData())->move_flag = false;
-			m_vy = -15.0f;
+			m_vy = -20.0f;
 		/*}*/
 		
+	}
+
+	//はしごがある状態だと上へ移動（劣化はしご用）
+	if (((UserData*)Save::GetData())->low_up_flag == true && Input::GetVKey(VK_UP) == true)
+	{
+		/*if (m_hit_down==true)
+		{*/
+		//上移動時は左右移動を受け付けない
+		((UserData*)Save::GetData())->move_flag = false;
+		m_vy = -15.0f;
+		/*}*/
+
 	}
 	
 	//設置(板）
@@ -146,6 +159,7 @@ void CObjHero::Action()
 			if (((UserData*)Save::GetData())->converted_board >= 1)
 			{
 				((UserData*)Save::GetData())->item -= 1;
+				((UserData*)Save::GetData())->converted_item -= 1;
 				((UserData*)Save::GetData())->converted_board -= 1;
 			}
 			else
@@ -180,6 +194,7 @@ void CObjHero::Action()
 		   if (((UserData*)Save::GetData())->converted_pick >=1 )
 		   {
 			   ((UserData*)Save::GetData())->converted_pick -= 1;
+			   ((UserData*)Save::GetData())->converted_item -= 1;
 			   ((UserData*)Save::GetData())->item -= 1;
 		   }
 		   else
@@ -201,49 +216,115 @@ void CObjHero::Action()
 	//現在の変換　つるはし→板→はしご→つるはし...
 	if (((UserData*)Save::GetData())->item > 0&& ((UserData*)Save::GetData())->conversion_num > 0)
 	{
-		//変換　つるはし→板
-		if (Input::GetVKey(VK_F1) == true && ((UserData*)Save::GetData())->pick_item > 0&& conversionB == true)
+		//変換済みアイテム→劣化アイテムの変換
+		//変換済みアイテムを優先して変換させる
+		if (((UserData*)Save::GetData())->converted_item > 0)
 		{
-			((UserData*)Save::GetData())->pick_item -= 1;
-			//((UserData*)Save::GetData())->board_item += 1;
-			((UserData*)Save::GetData())->converted_board += 1;
-			((UserData*)Save::GetData())->conversion_num -= 1;
-			conversionB = false;
-		}
-		else if(Input::GetVKey(VK_F1)==false&& conversionB == false)
-		{
-			conversionB = true;
+			//変換　変換済みつるはし→劣化板
+			if (Input::GetVKey(VK_F1) == true && ((UserData*)Save::GetData())->converted_pick > 0 && conversionB == true)
+			{
+
+				((UserData*)Save::GetData())->converted_pick -= 1;
+				((UserData*)Save::GetData())->bad_board += 1;
+				
+				((UserData*)Save::GetData())->converted_item -= 1;
+
+				((UserData*)Save::GetData())->conversion_num -= 1;
+				conversionB = false;
+			}
+			else if (Input::GetVKey(VK_F1) == false && conversionB == false)
+			{
+				conversionB = true;
+			}
+
+			//変換　変換済み板→劣化はしご
+			if (Input::GetVKey(VK_F2) == true && ((UserData*)Save::GetData())->converted_board > 0 && conversionL == true)
+			{
+				((UserData*)Save::GetData())->converted_board -= 1;
+				((UserData*)Save::GetData())->bad_ladder += 1;
+
+				((UserData*)Save::GetData())->converted_item -= 1;
+
+				((UserData*)Save::GetData())->conversion_num -= 1;
+				conversionL = false;
+			}
+			else if (Input::GetVKey(VK_F2) == false && conversionL == false)
+			{
+				conversionL = true;
+			}
+
+			//変換　変換済みはしご→劣化つるはし
+			if (Input::GetVKey(VK_F3) == true && ((UserData*)Save::GetData())->converted_ladder > 0 && conversionP == true)
+			{
+				((UserData*)Save::GetData())->converted_ladder -= 1;
+				((UserData*)Save::GetData())->bad_pick += 1;
+
+				((UserData*)Save::GetData())->converted_item -= 1;
+
+
+				((UserData*)Save::GetData())->conversion_num -= 1;
+				conversionP = false;
+			}
+			else if (Input::GetVKey(VK_F3) == false && conversionP == false)
+			{
+				conversionP = true;
+			}
 		}
 
-		//変換　板→はしご
-		if (Input::GetVKey(VK_F2) == true && ((UserData*)Save::GetData())->board_item > 0 && conversionL == true)
+		//未変換アイテム→変換済みアイテム
+		else
 		{
-			((UserData*)Save::GetData())->board_item -= 1;
-			//((UserData*)Save::GetData())->ladder_item += 1;
-			((UserData*)Save::GetData())->converted_ladder += 1;
-			((UserData*)Save::GetData())->conversion_num -= 1;
-			conversionL = false;
-		}
-		else if (Input::GetVKey(VK_F2) == false && conversionL == false)
-		{
-			conversionL = true;
-		}
+			//変換　つるはし→変換済み板
+			if (Input::GetVKey(VK_F1) == true && ((UserData*)Save::GetData())->pick_item > 0 && conversionB == true)
+			{
 
-		//変換　はしご→つるはし
-		if (Input::GetVKey(VK_F3) == true && ((UserData*)Save::GetData())->ladder_item > 0 && conversionP == true)
-		{
-			((UserData*)Save::GetData())->ladder_item -= 1;
-			//((UserData*)Save::GetData())->pick_item += 1;
-			((UserData*)Save::GetData())->converted_pick += 1;
-			((UserData*)Save::GetData())->conversion_num -= 1;
-			conversionP = false;
-		}
-		else if (Input::GetVKey(VK_F3) == false && conversionP == false)
-		{
-			conversionP = true;
-		}
+				((UserData*)Save::GetData())->pick_item -= 1;
+				((UserData*)Save::GetData())->converted_board += 1;
+				//((UserData*)Save::GetData())->board_item += 1;
+				((UserData*)Save::GetData())->converted_item += 1;
 
 
+				((UserData*)Save::GetData())->conversion_num -= 1;
+				conversionB = false;
+			}
+			else if (Input::GetVKey(VK_F1) == false && conversionB == false)
+			{
+				conversionB = true;
+			}
+
+			//変換　板→変換済みはしご
+			if (Input::GetVKey(VK_F2) == true && ((UserData*)Save::GetData())->board_item > 0 && conversionL == true)
+			{
+				((UserData*)Save::GetData())->board_item -= 1;
+				//((UserData*)Save::GetData())->ladder_item += 1;
+				((UserData*)Save::GetData())->converted_ladder += 1;
+
+				((UserData*)Save::GetData())->converted_item += 1;
+				((UserData*)Save::GetData())->conversion_num -= 1;
+				conversionL = false;
+			}
+			else if (Input::GetVKey(VK_F2) == false && conversionL == false)
+			{
+				conversionL = true;
+			}
+
+			//変換　はしご→変換済みつるはし
+			if (Input::GetVKey(VK_F3) == true && ((UserData*)Save::GetData())->ladder_item > 0 && conversionP == true)
+			{
+				((UserData*)Save::GetData())->ladder_item -= 1;
+				//((UserData*)Save::GetData())->pick_item += 1;
+				((UserData*)Save::GetData())->converted_pick += 1;
+
+				((UserData*)Save::GetData())->converted_item += 1;
+				((UserData*)Save::GetData())->conversion_num -= 1;
+				conversionP = false;
+			}
+			else if (Input::GetVKey(VK_F3) == false && conversionP == false)
+			{
+				conversionP = true;
+			}
+		}
+		
 	}
 
 	//摩擦

@@ -94,6 +94,18 @@ void CObjInventory::Draw()
 	swprintf_s(str, L"変換済みつるはし:%.0f", ((UserData*)Save::GetData())->converted_pick);
 	Font::StrDraw(str, 10, 310, 20, d);
 
+	swprintf_s(str, L"劣化はしごアイテム数:%.0f", ((UserData*)Save::GetData())->bad_ladder);
+	Font::StrDraw(str, 10, 340, 20, d);
+
+	swprintf_s(str, L"劣化板アイテム数:%.0f", ((UserData*)Save::GetData())->bad_board);
+	Font::StrDraw(str, 10, 360, 20, d);
+
+	swprintf_s(str, L"劣化つるはし:%.0f", ((UserData*)Save::GetData())->bad_pick);
+	Font::StrDraw(str, 10, 380, 20, d);
+
+	swprintf_s(str, L"変換済みアイテム数:%.0f", ((UserData*)Save::GetData())->converted_item);
+	Font::StrDraw(str, 10, 420, 20, d);
+
 
 	//インベントリ
 	

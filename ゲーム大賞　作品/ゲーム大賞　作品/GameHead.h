@@ -59,6 +59,7 @@ struct UserData
 
 	//主人公関係のフラグ
 	bool up_flag = false;  //はしごがある時、上に上がるフラグ
+	bool low_up_flag = false;//はしごがある時、上に上がるフラグ（劣化アイテム用）
 	bool move_flag = true; //上移動時、左右移動を制限するフラグ
 	
 
@@ -85,6 +86,7 @@ struct UserData
 	float pick_item = 0;//つるはし所持数
 
 	//変換済アイテム
+	float converted_item = 0;//変換済みアイテムの総数
 	float converted_board = 0;//変換済み板アイテム
 	float converted_ladder = 0;//変換済みはしごアイテム
 	float converted_pick = 0;//変換済みつるはしアイテム
