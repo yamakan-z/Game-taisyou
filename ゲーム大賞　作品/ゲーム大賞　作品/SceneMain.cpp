@@ -41,6 +41,9 @@ void CSceneMain::InitScene()
 	Draw::LoadImageW(L"‚Â‚é‚Í‚µ.png", 7, TEX_SIZE_512);
 	Draw::LoadImageW(L"ƒ|[ƒ‹.png", 8, TEX_SIZE_1024);
 	Draw::LoadImageW(L"Šø.png", 9, TEX_SIZE_1024);
+	Draw::LoadImageW(L"‹ó”’—“(—Î)", 10, TEX_SIZE_512);
+	Draw::LoadImageW(L"‹ó”’—“(‰©)", 11, TEX_SIZE_512);
+	Draw::LoadImageW(L"‹ó”’—“(Ô)", 12, TEX_SIZE_512);
 	
 	//‰¹Šy“Ç‚İ‚İ
 	Audio::LoadAudio(0, L"GameMain(‰¼).wav", BACK_MUSIC);

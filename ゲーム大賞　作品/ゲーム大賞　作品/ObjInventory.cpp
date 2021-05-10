@@ -73,6 +73,28 @@ void CObjInventory::Draw()
 	dst.m_right = dst.m_left + 256.0;
 	dst.m_bottom = dst.m_top + 256.0;
 
+	//アイテム空白欄(緑)
+	if (((UserData*)Save::GetData())->item >= 1)
+	{
+		if (((UserData*)Save::GetData())->I_ladder == true)
+		{
+			//切り取り位置の設定
+			src.m_top = 0.0f;
+			src.m_left = 0.0f;
+			src.m_right = 184.0f;
+			src.m_bottom = 184.0f;
+
+			//表示位置の設定
+			dst.m_top = 50.0f;
+			dst.m_left = 450.0f;
+			dst.m_right = dst.m_left + 64.0;
+			dst.m_bottom = dst.m_top + 64.0;
+
+			//描画
+			Draw::Draw(10, &src, &dst, c, 0.0f);
+		}
+	}
+
 	//描画
 	Draw::Draw(6, &src, &dst, c, 0.0f);
 
