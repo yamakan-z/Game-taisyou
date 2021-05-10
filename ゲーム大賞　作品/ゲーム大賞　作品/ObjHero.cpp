@@ -132,7 +132,7 @@ void CObjHero::Action()
 	
 	//設置(はしご）
 	if (Input::GetVKey('A') == true&&((UserData*)Save::GetData())->ladder_flag==true)
-	{
+	{	
 		((UserData*)Save::GetData())->ins_ladder = true;//はしご設置のフラグ
 
 		//設置後、はしごアイテム＆アイテム総数-1
