@@ -118,7 +118,6 @@ struct UserData
 #include"ObjBlock.h"
 #include"ObjLadder.h"
 #include"ObjBoard.h"
-#include"ObjRock.h"
 #include"LadderItem.h"
 #include"BoardItem.h"
 #include"ObjTitleBackground.h"

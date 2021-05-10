@@ -94,10 +94,6 @@ void CSceneMain::InitScene()
 	CObjBoard* objbo = new CObjBoard();
 	Objs::InsertObj(objbo, OBJ_BOARD, 10);
 
-	//rockオブジェクト作成
-	CObjRock* objr = new CObjRock();
-	Objs::InsertObj(objr, OBJ_BOARD, 10);
-
 	//インベントリ作成
 	CObjInventory* objin = new CObjInventory();
 	Objs::InsertObj(objin, OBJ_INVENTORY, 10);

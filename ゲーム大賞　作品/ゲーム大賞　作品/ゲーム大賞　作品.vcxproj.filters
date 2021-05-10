@@ -114,9 +114,6 @@
     <ClCompile Include="SceneTitle.cpp">
       <Filter>ソース ファイル\タイトル</Filter>
     </ClCompile>
-    <ClCompile Include="ObjRock.cpp">
-      <Filter>ソース ファイル\アイテム処理</Filter>
-    </ClCompile>
     <ClCompile Include="ObjInventory.cpp">
       <Filter>ソース ファイル\インベントリ</Filter>
     </ClCompile>
@@ -217,9 +214,6 @@
     </ClInclude>
     <ClInclude Include="SceneTitle.h">
       <Filter>ソース ファイル\タイトル</Filter>
-    </ClInclude>
-    <ClInclude Include="ObjRock.h">
-      <Filter>ソース ファイル\アイテム処理</Filter>
     </ClInclude>
     <ClInclude Include="ObjInventory.h">
       <Filter>ソース ファイル\インベントリ</Filter>

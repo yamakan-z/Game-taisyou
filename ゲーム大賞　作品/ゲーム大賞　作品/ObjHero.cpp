@@ -64,7 +64,7 @@ void CObjHero::Action()
 	if (Input::GetVKey(VK_RIGHT) == true&& ((UserData*)Save::GetData())->move_flag == true)
 	{
 		//主人公の移動音を鳴らす
-		Audio::Start(3);
+		//Audio::Start(3);
 
 		m_vx = +5.0f;
 		m_posture = 1.0f;
@@ -92,6 +92,10 @@ void CObjHero::Action()
 		//設置後、はしごアイテム＆アイテム総数-1
 		if (((UserData*)Save::GetData())->ins_ladder_done == true)
 		{
+
+			//アイテムの設置音を鳴らす
+			Audio::Start(1);
+
 			((UserData*)Save::GetData())->item -= 1;
 			((UserData*)Save::GetData())->ladder_item -= 1;
 			((UserData*)Save::GetData())->ins_ladder_done = false;
@@ -116,7 +120,7 @@ void CObjHero::Action()
 	}
 	
 	//設置(板）
-	if (Input::GetVKey('X') == true&& ((UserData*)Save::GetData())->ins_place==true)
+	if (Input::GetVKey('S') == true&& ((UserData*)Save::GetData())->ins_place==true)
 	{
 		
 
@@ -140,25 +144,9 @@ void CObjHero::Action()
 		((UserData*)Save::GetData())->ins_flag = false;
 	}
 	
-	//設置(はしご）
-	if (Input::GetVKey('A') == true&&((UserData*)Save::GetData())->ladder_flag==true)
-	{
-		((UserData*)Save::GetData())->ins_ladder = true;//はしご設置のフラグ
-
-		//設置後、はしごアイテム＆アイテム総数-1
-	    if (((UserData*)Save::GetData())->ins_ladder_done == true)
-	     {
-			//アイテムの設置音を鳴らす
-			Audio::Start(1);
-
-		     ((UserData*)Save::GetData())->item -= 1;
-		     ((UserData*)Save::GetData())->ladder_item -= 1;
-		     ((UserData*)Save::GetData())->ins_ladder_done = false;
-	     }
-	}
-
+	
 	//障害物破壊
-	if (Input::GetVKey('W') == true&& ((UserData*)Save::GetData())->break_point==true)
+	if (Input::GetVKey('D') == true&& ((UserData*)Save::GetData())->break_point==true)
 	{
 
 		((UserData*)Save::GetData())->break_flag = true;
@@ -186,40 +174,40 @@ void CObjHero::Action()
 	if (((UserData*)Save::GetData())->item > 0&& ((UserData*)Save::GetData())->conversion_num > 0)
 	{
 		//変換　つるはし→板
-		if (Input::GetVKey('1') == true && ((UserData*)Save::GetData())->pick_item > 0&& conversionB == true)
+		if (Input::GetVKey(VK_F1) == true && ((UserData*)Save::GetData())->pick_item > 0&& conversionB == true)
 		{
 			((UserData*)Save::GetData())->pick_item -= 1;
 			((UserData*)Save::GetData())->board_item += 1;
 			((UserData*)Save::GetData())->conversion_num -= 1;
 			conversionB = false;
 		}
-		else if(Input::GetVKey('1')==false&& conversionB == false)
+		else if(Input::GetVKey(VK_F1)==false&& conversionB == false)
 		{
 			conversionB = true;
 		}
 
 		//変換　板→はしご
-		if (Input::GetVKey('2') == true && ((UserData*)Save::GetData())->board_item > 0 && conversionL == true)
+		if (Input::GetVKey(VK_F2) == true && ((UserData*)Save::GetData())->board_item > 0 && conversionL == true)
 		{
 			((UserData*)Save::GetData())->board_item -= 1;
 			((UserData*)Save::GetData())->ladder_item += 1;
 			((UserData*)Save::GetData())->conversion_num -= 1;
 			conversionL = false;
 		}
-		else if (Input::GetVKey('2') == false && conversionL == false)
+		else if (Input::GetVKey(VK_F2) == false && conversionL == false)
 		{
 			conversionL = true;
 		}
 
 		//変換　はしご→つるはし
-		if (Input::GetVKey('3') == true && ((UserData*)Save::GetData())->ladder_item > 0 && conversionP == true)
+		if (Input::GetVKey(VK_F3) == true && ((UserData*)Save::GetData())->ladder_item > 0 && conversionP == true)
 		{
 			((UserData*)Save::GetData())->ladder_item -= 1;
 			((UserData*)Save::GetData())->pick_item += 1;
 			((UserData*)Save::GetData())->conversion_num -= 1;
 			conversionP = false;
 		}
-		else if (Input::GetVKey('3') == false && conversionP == false)
+		else if (Input::GetVKey(VK_F3) == false && conversionP == false)
 		{
 			conversionP = true;
 		}
