@@ -64,12 +64,6 @@ void CObjHero::Action()
 	if (Input::GetVKey(VK_RIGHT) == true&& ((UserData*)Save::GetData())->move_flag == true)
 	{
 
-		//ƒ{ƒŠƒ…[ƒ€‚ğ1.0‚É–ß‚·
-		 Audio::VolumeMaster(0.0);
-		 Audio::VolumeMaster((0.0));
-
-		//ålŒö‚ÌˆÚ“®‰¹‚ğ–Â‚ç‚·
-		Audio::Start(3);
 
 		m_vx = +5.0f;
 		m_posture = 1.0f;
