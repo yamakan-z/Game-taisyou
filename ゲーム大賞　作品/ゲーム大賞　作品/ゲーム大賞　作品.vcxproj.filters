@@ -144,6 +144,15 @@
     <ClCompile Include="SceneGameClear.cpp">
       <Filter>ソース ファイル\GameClear</Filter>
     </ClCompile>
+    <ClCompile Include="ObjTitleBackground.cpp">
+      <Filter>ソース ファイル\タイトル</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjgameOverBackground.cpp">
+      <Filter>ソース ファイル\GameOver</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjgameClearBackground.cpp">
+      <Filter>ソース ファイル\GameClear</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameL\Audio.h">
@@ -237,6 +246,15 @@
       <Filter>ソース ファイル\GameClear</Filter>
     </ClInclude>
     <ClInclude Include="SceneGameClear.h">
+      <Filter>ソース ファイル\GameClear</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjTitleBackground.h">
+      <Filter>ソース ファイル\タイトル</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjgameOverBackground.h">
+      <Filter>ソース ファイル\GameOver</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjgameClearBackground.h">
       <Filter>ソース ファイル\GameClear</Filter>
     </ClInclude>
   </ItemGroup>

@@ -17,6 +17,10 @@ enum OBJ_NAME
 	OBJ_BOARD,
 	OBJ_ROCK,
 	OBJ_INVENTORY,
+	OBJ_TITLE_BACKGROUND,
+	OBJ_GAME_OVER_BACKGROUND,
+	OBJ_GAME_CLEAR_BACKGROUND,
+
 	//はしごアイテム
 	OBJ_LADDER_ITEM,
 
@@ -89,6 +93,9 @@ struct UserData
 	bool I_ladder2 = false;//3つ目の取ったアイテムがはしごの時インベントリに表示
 	bool I_board2 = false;//3つ目の取ったアイテムが板の時インベントリに表示
 	bool I_pick2 = false;//3つ目の取ったアイテムがつるはしの時インベントリに表示
+
+	//のこり変換回数
+	int conversion_num = 5;
 };
 //------------------------------------------------
 
@@ -111,7 +118,9 @@ struct UserData
 #include"ObjRock.h"
 #include"LadderItem.h"
 #include"BoardItem.h"
-
+#include"ObjTitleBackground.h"
+#include"ObjgameOverBackground.h"
+#include"ObjgameClearBackground.h"
 
 #include"ObjInventory.h"
 #include"ObjTitle.h"

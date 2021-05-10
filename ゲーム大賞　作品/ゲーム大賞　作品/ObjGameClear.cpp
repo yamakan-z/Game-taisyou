@@ -26,6 +26,7 @@ void CObjGameClear::Init()
 	((UserData*)Save::GetData())->ins_flag = false;
 	((UserData*)Save::GetData())->break_flag = false;
 	((UserData*)Save::GetData())->ins_ladder = false;
+	((UserData*)Save::GetData())->ladder = false;
 
 	//インベントリ関係のフラグ破棄
 	((UserData*)Save::GetData())->I_board1 = false;
@@ -36,6 +37,9 @@ void CObjGameClear::Init()
 
 	((UserData*)Save::GetData())->I_pick1 = false;
 	((UserData*)Save::GetData())->I_pick2 = false;
+
+	//変換回数を初期値に戻す
+	((UserData*)Save::GetData())->conversion_num = 5;
 }
 //アクション
 void CObjGameClear::Action()
@@ -56,7 +60,7 @@ void CObjGameClear::Action()
 //ドロー
 void CObjGameClear::Draw()
 {
-	float r[4] = { 0.5f,0.0f,0.0f,1.0f };
+	float c[4] = { 0.0f,0.0f,1.0f,1.0f };
 
-	Font::StrDraw(L"GAME CLEAR", 350, 250, 32, r);
+	Font::StrDraw(L"Return_to_title:ENTER_KEY", 225, 340, 32, c);
 }

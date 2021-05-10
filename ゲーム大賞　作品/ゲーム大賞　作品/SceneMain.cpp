@@ -37,13 +37,19 @@ void CSceneMain::InitScene()
 	Draw::LoadImageW(L"Ladder.png", 3, TEX_SIZE_512);
 	Draw::LoadImageW(L"鉄板.png", 4, TEX_SIZE_512);
 	Draw::LoadImageW(L"はしごアイテム.png", 5, TEX_SIZE_512);
-	Draw::LoadImageW(L"インベントリ.png", 6, TEX_SIZE_512);
+	Draw::LoadImageW(L"インベントリｍ２.png", 6, TEX_SIZE_512);
 	Draw::LoadImageW(L"つるはし.png", 7, TEX_SIZE_512);
-	Draw::LoadImageW(L"ポール.png", 8, TEX_SIZE_1024);
-	Draw::LoadImageW(L"旗.png", 9, TEX_SIZE_1024);
-	Draw::LoadImageW(L"空白欄(緑)", 10, TEX_SIZE_512);
-	Draw::LoadImageW(L"空白欄(黄)", 11, TEX_SIZE_512);
-	Draw::LoadImageW(L"空白欄(赤)", 12, TEX_SIZE_512);
+	//アイテム数番号
+	Draw::LoadImageW(L"0.png", 8, TEX_SIZE_512);
+	Draw::LoadImageW(L"1.png", 9, TEX_SIZE_512);
+	Draw::LoadImageW(L"2.png", 10, TEX_SIZE_512);
+	Draw::LoadImageW(L"3.png", 11, TEX_SIZE_512);
+	Draw::LoadImageW(L"4.png", 12, TEX_SIZE_512);
+	Draw::LoadImageW(L"5.png", 13, TEX_SIZE_512);
+
+	Draw::LoadImageW(L"ポール.png", 14, TEX_SIZE_1024);
+	Draw::LoadImageW(L"旗.png", 15, TEX_SIZE_1024);
+	Draw::LoadImageW(L"空白欄.png", 16, TEX_SIZE_1024);
 	
 	//音楽読み込み
 	Audio::LoadAudio(0, L"GameMain(仮).wav", BACK_MUSIC);
@@ -104,6 +110,17 @@ void CSceneMain::InitScene()
 	//CBoardItem* objbi = new CBoardItem();
 	//Objs::InsertObj(objbi, OBJ_BOARD_ITEM, 10);
 
+	//音楽情報の読み込み
+	Audio::LoadAudio(0, L"GameMain(仮).wav", SOUND_TYPE::BACK_MUSIC);
+	Audio::LoadAudio(1, L"アイテム設置音.wav", SOUND_TYPE::EFFECT);
+	Audio::LoadAudio(3, L"ブロックを破壊する音.wav", SOUND_TYPE::EFFECT);
+
+	//ボリュームを1.0に戻す
+    v = Audio::VolumeMaster(0.0);
+	v = Audio::VolumeMaster((0.1 - v));
+
+	//音楽スタート
+	Audio::Start(0);
 }
 
 //実行中メソッド
