@@ -223,8 +223,8 @@ void CObjBoard::Draw()
 				//Ø‚èæ‚èˆÊ’u‚Ìİ’è
 				src.m_top = 0.0f;
 				src.m_left = 0.0f;
-				src.m_right = 184.0f;
-				src.m_bottom = 184.0f;
+				src.m_right = 64.0f;
+				src.m_bottom = 64.0f;
 
 
 				//•\¦ˆÊ’u‚Ìİ’è

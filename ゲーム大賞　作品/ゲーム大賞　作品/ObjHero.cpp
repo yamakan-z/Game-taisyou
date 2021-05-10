@@ -44,6 +44,8 @@ void CObjHero::Init()
 
 }
 
+
+
 //アクション
 void CObjHero::Action()
 {
@@ -100,6 +102,10 @@ void CObjHero::Action()
 			((UserData*)Save::GetData())->ins_ladder_done = false;
 		}
 	}
+	else
+	{
+		((UserData*)Save::GetData())->ins_ladder = false;
+	}
 
 
 	//はしごがある状態だと上へ移動
@@ -133,6 +139,10 @@ void CObjHero::Action()
 		   ((UserData*)Save::GetData())->ins_done = false;
 	    }
 
+	}
+	else
+	{
+		((UserData*)Save::GetData())->ins_flag = false;
 	}
 	
 	//設置(はしご）
@@ -169,18 +179,23 @@ void CObjHero::Action()
 		     ((UserData*)Save::GetData())->break_done = false;
 	      }
 	}
+	else
+	{
+		((UserData*)Save::GetData())->break_flag = false;
+	}
 
 
 
 	//アイテムの変換
 	//現在の変換　つるはし→板→はしご→つるはし...
-	if (((UserData*)Save::GetData())->item > 0)
+	if (((UserData*)Save::GetData())->item > 0&& ((UserData*)Save::GetData())->conversion_num > 0)
 	{
 		//変換　つるはし→板
 		if (Input::GetVKey('1') == true && ((UserData*)Save::GetData())->pick_item > 0&& conversionB == true)
 		{
 			((UserData*)Save::GetData())->pick_item -= 1;
 			((UserData*)Save::GetData())->board_item += 1;
+			((UserData*)Save::GetData())->conversion_num -= 1;
 			conversionB = false;
 		}
 		else if(Input::GetVKey('1')==false&& conversionB == false)
@@ -193,6 +208,7 @@ void CObjHero::Action()
 		{
 			((UserData*)Save::GetData())->board_item -= 1;
 			((UserData*)Save::GetData())->ladder_item += 1;
+			((UserData*)Save::GetData())->conversion_num -= 1;
 			conversionL = false;
 		}
 		else if (Input::GetVKey('2') == false && conversionL == false)
@@ -205,6 +221,7 @@ void CObjHero::Action()
 		{
 			((UserData*)Save::GetData())->ladder_item -= 1;
 			((UserData*)Save::GetData())->pick_item += 1;
+			((UserData*)Save::GetData())->conversion_num -= 1;
 			conversionP = false;
 		}
 		else if (Input::GetVKey('3') == false && conversionP == false)
@@ -234,6 +251,7 @@ void CObjHero::Action()
 //ドロー
 void CObjHero::Draw()
 {
+
 	//描画カラー情報
 	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
 
@@ -252,9 +270,9 @@ void CObjHero::Draw()
 	src.m_bottom = 64.0f;
 
 	//表示位置の設定
-	dst.m_top = 0.0f+m_py;
-	dst.m_left =( 64.0f*m_posture)+m_px;
-	dst.m_right = (64.0-64.0f*m_posture)+m_px;
+	dst.m_top    = 0.0f + m_py;
+	dst.m_left   =( 64.0f*m_posture)+m_px;
+	dst.m_right  = (64-64.0f*m_posture)+m_px;
 	dst.m_bottom = 64.0f+m_py;
 
 	//描画
