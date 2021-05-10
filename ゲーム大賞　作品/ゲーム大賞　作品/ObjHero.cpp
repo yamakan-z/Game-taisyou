@@ -61,6 +61,11 @@ void CObjHero::Action()
 	//キーの入力方向
 	if (Input::GetVKey(VK_RIGHT) == true&& ((UserData*)Save::GetData())->move_flag == true)
 	{
+
+		//ボリュームを1.0に戻す
+		 Audio::VolumeMaster(0.0);
+		 Audio::VolumeMaster((0.0));
+
 		//主人公の移動音を鳴らす
 		Audio::Start(3);
 
