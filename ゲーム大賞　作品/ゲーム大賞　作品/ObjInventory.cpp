@@ -101,48 +101,92 @@ void CObjInventory::Draw()
 	dst.m_right = dst.m_left + 300.0;
 	dst.m_bottom = dst.m_top + 200.0;
 
-	//アイテム空白欄(緑)
-	if (((UserData*)Save::GetData())->item >= 1)
-	{
-		if (((UserData*)Save::GetData())->I_ladder == true)
+	//描画
+	Draw::Draw(6, &src, &dst, c, 0.0f);
+
+	//空白欄(緑)
+	
+		if (((UserData*)Save::GetData())->conversion_num ==5 || ((UserData*)Save::GetData())->conversion_num==4 || ((UserData*)Save::GetData())->conversion_num==3)
 		{
 			//切り取り位置の設定
 			src.m_top = 0.0f;
 			src.m_left = 0.0f;
-			src.m_right = 184.0f;
-			src.m_bottom = 184.0f;
+			src.m_right = 64.0f;
+			src.m_bottom = 64.0f;
+
 
 			//表示位置の設定
-			dst.m_top = 50.0f;
-			dst.m_left = 450.0f;
-			dst.m_right = dst.m_left + 64.0;
-			dst.m_bottom = dst.m_top + 64.0;
+			dst.m_top = 10.0;
+			dst.m_left = 400.0;
+			dst.m_right = dst.m_right = dst.m_left + 80.0;
+			dst.m_bottom = dst.m_top + 80.0;
 
 			//描画
-			Draw::Draw(10, &src, &dst, c, 0.0f);
+			Draw::Draw(17, &src, &dst, c, 0.0f);
 		}
-	}
 
-	//描画
-	Draw::Draw(6, &src, &dst, c, 0.0f);
+
+		//空白欄(黄)
+
+		if (((UserData*)Save::GetData())->conversion_num == 2 || ((UserData*)Save::GetData())->conversion_num == 1)
+		{
+			//切り取り位置の設定
+			src.m_top = 0.0f;
+			src.m_left = 0.0f;
+			src.m_right = 64.0f;
+			src.m_bottom = 64.0f;
+
+
+			//表示位置の設定
+			dst.m_top = 10.0;
+			dst.m_left = 400.0;
+			dst.m_right = dst.m_right = dst.m_left + 80.0;
+			dst.m_bottom = dst.m_top + 80.0;
+
+			//描画
+			Draw::Draw(18, &src, &dst, c, 0.0f);
+		}
+
+
+		//空白欄(赤)
+
+		if (((UserData*)Save::GetData())->conversion_num == 0)
+		{
+			//切り取り位置の設定
+			src.m_top = 0.0f;
+			src.m_left = 0.0f;
+			src.m_right = 64.0f;
+			src.m_bottom = 64.0f;
+
+
+			//表示位置の設定
+			dst.m_top = 10.0;
+			dst.m_left = 400.0;
+			dst.m_right = dst.m_right = dst.m_left + 80.0;
+			dst.m_bottom = dst.m_top + 80.0;
+
+			//描画
+			Draw::Draw(19, &src, &dst, c, 0.0f);
+		}
+	
 
 
 	//残り変換回数
-	//切り取り位置の設定
-	src.m_top = 0.0f;
-	src.m_left = 0.0f;
-	src.m_right = 64.0f;
-	src.m_bottom = 64.0f;
+	////切り取り位置の設定
+	//src.m_top = 0.0f;
+	//src.m_left = 0.0f;
+	//src.m_right = 64.0f;
+	//src.m_bottom = 64.0f;
 
 
-	//表示位置の設定
-	dst.m_top = 10.0;
-	dst.m_left =400.0;
-	dst.m_right =dst.m_right = dst.m_left + 80.0;
-	dst.m_bottom = dst.m_top + 80.0;
+	////表示位置の設定
+	//dst.m_top = 10.0;
+	//dst.m_left =400.0;
+	//dst.m_right =dst.m_right = dst.m_left + 80.0;
+	//dst.m_bottom = dst.m_top + 80.0;
 
-	//描画
-	Draw::Draw(16, &src, &dst, c, 0.0f);
+	////描画
+	//Draw::Draw(16, &src, &dst, c, 0.0f);
 
 
 	////アイテム数////
