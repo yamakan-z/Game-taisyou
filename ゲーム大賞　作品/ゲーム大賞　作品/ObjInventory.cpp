@@ -106,6 +106,12 @@ void CObjInventory::Draw()
 	swprintf_s(str, L"変換済みアイテム数:%.0f", ((UserData*)Save::GetData())->converted_item);
 	Font::StrDraw(str, 10, 420, 20, d);
 
+	if (((UserData*)Save::GetData())->bad_ladder_put == true)
+	{
+		swprintf_s(str, L"true");
+		Font::StrDraw(str, 10, 450, 20, c);
+	}
+
 
 	//インベントリ
 	

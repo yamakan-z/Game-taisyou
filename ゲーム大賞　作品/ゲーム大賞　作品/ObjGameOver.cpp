@@ -39,10 +39,19 @@ void CObjGameOver::Init()
 	((UserData*)Save::GetData())->bad_pick = 0;//劣化つるはしアイテム
 
 	//ギミック関係フラグ破棄
+	//板関係のフラグ破棄
 	((UserData*)Save::GetData())->ins_flag = false;
+	//障害物関係のフラグ破棄
 	((UserData*)Save::GetData())->break_flag = false;
+	//はしご関係のフラグ破棄
 	((UserData*)Save::GetData())->ins_ladder = false;
 	((UserData*)Save::GetData())->ladder = false;
+
+
+	//劣化ギミック関係のフラグ破棄
+	//はしご関係のフラグ破棄
+	((UserData*)Save::GetData())->ins_bad_ladder = false;
+	((UserData*)Save::GetData())->bad_ladder_put = false;
 
 	
 	//変換回数を初期値に戻す

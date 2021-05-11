@@ -74,6 +74,12 @@ struct UserData
 	bool ladder = false;//はしごの有無
 	bool ins_ladder_done = false;//はしご設置終了フラグ（今のところは、これがないとはしごが全部表示されない）
 
+	//はしご関係フラグ（劣化）
+	bool bad_ladder_flag = false;//劣化はしごの設置場所を判定
+	bool ins_bad_ladder = false;//劣化はしご設置
+	bool bad_ladder_put = false;//劣化はしごの有無
+	bool ins_bad_ladder_done = false;//劣化はしご設置終了フラグ（今のところは、これがないとはしごが全部表示されない）
+
 	//障害物関係フラグ
 	bool break_flag = false;//障害物破壊フラグ
 	bool break_point = false;//障害物破壊判定

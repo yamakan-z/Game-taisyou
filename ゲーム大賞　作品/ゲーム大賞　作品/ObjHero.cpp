@@ -117,6 +117,32 @@ void CObjHero::Action()
 	}
 
 
+	//設置(劣化はしご）
+	if (Input::GetVKey('A') == true && ((UserData*)Save::GetData())->bad_ladder_flag == true)
+	{
+		((UserData*)Save::GetData())->ins_bad_ladder = true;//はしご設置のフラグ
+
+		//設置後、劣化はしごアイテム＆アイテム総数-1
+		if (((UserData*)Save::GetData())->ins_bad_ladder_done == true)
+		{
+
+			//アイテムの設置音を鳴らす
+			Audio::Start(1);
+
+			((UserData*)Save::GetData())->item -= 1;
+			((UserData*)Save::GetData())->bad_ladder -= 1;
+
+			((UserData*)Save::GetData())->ins_bad_ladder_done = false;
+			
+	
+		}
+	}
+	else
+	{
+		((UserData*)Save::GetData())->ins_bad_ladder = false;
+	}
+
+
 	//はしごがある状態だと上へ移動
 	if (((UserData*)Save::GetData())->up_flag == true&&Input::GetVKey(VK_UP) == true)
 	{
