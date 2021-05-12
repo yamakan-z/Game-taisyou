@@ -90,6 +90,11 @@ struct UserData
 	bool break_point = false;//障害物破壊判定
 	bool break_done = false;//障害物破壊終了フラグ（今のところは、これがないと一つのアイテムが2つ使用されるため）
 
+	//障害物関係フラグ(劣化つるはし用）
+	bool break_bad_flag = false;//障害物破壊フラグ(劣化つるはし用）
+	bool break_bad_point = false;//障害物破壊判定(劣化つるはし用）
+	bool break_bad_done = false;//障害物破壊終了フラグ（今のところは、これがないと一つのアイテムが2つ使用されるため）(劣化つるはし用）
+
 	//アイテム数
 	float item = 0;  //アイテム所持数
 	float board_item = 0;//板アイテム所持数
