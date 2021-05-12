@@ -162,6 +162,7 @@
     <ClCompile Include="ObjHero.cpp" />
     <ClCompile Include="ObjInventory.cpp" />
     <ClCompile Include="ObjPick.cpp" />
+    <ClCompile Include="ObjStageClear.cpp" />
     <ClCompile Include="ObjTitle.cpp" />
     <ClCompile Include="ObjTitleBackground.cpp" />
     <ClCompile Include="SceneGameClear.cpp" />
@@ -170,6 +171,7 @@
     <ClCompile Include="item.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="SceneStageClear.cpp" />
     <ClCompile Include="SceneTitle.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -196,6 +198,7 @@
     <ClInclude Include="ObjHero.h" />
     <ClInclude Include="ObjInventory.h" />
     <ClInclude Include="ObjPick.h" />
+    <ClInclude Include="ObjStageClear.h" />
     <ClInclude Include="ObjTitle.h" />
     <ClInclude Include="ObjTitleBackground.h" />
     <ClInclude Include="SceneGameOver.h">
@@ -206,6 +209,7 @@
     <ClInclude Include="item.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
     </ClInclude>
+    <ClInclude Include="SceneStageClear.h" />
     <ClInclude Include="SceneTitle.h" />
   </ItemGroup>
   <ItemGroup>

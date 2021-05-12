@@ -46,6 +46,9 @@
     <Filter Include="ソース ファイル\GameClear">
       <UniqueIdentifier>{0d3c4198-180d-4258-92f5-fe4acd200f34}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\StageClear">
+      <UniqueIdentifier>{1ecd1a61-e7b6-4ea9-b22b-eb4c6487a600}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameL\Audio.cpp">
@@ -120,9 +123,6 @@
     <ClCompile Include="LadderItem.cpp">
       <Filter>ソース ファイル\アイテム処理\はしご</Filter>
     </ClCompile>
-    <ClCompile Include="ObjLadder.cpp">
-      <Filter>ソース ファイル\アイテム処理\はしご</Filter>
-    </ClCompile>
     <ClCompile Include="BoardItem.cpp">
       <Filter>ソース ファイル\アイテム処理\板</Filter>
     </ClCompile>
@@ -140,6 +140,12 @@
     </ClCompile>
     <ClCompile Include="ObjgameClearBackground.cpp">
       <Filter>ソース ファイル\GameClear</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneStageClear.cpp">
+      <Filter>ソース ファイル\StageClear</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjStageClear.cpp">
+      <Filter>ソース ファイル\StageClear</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -232,6 +238,12 @@
     </ClInclude>
     <ClInclude Include="ObjgameClearBackground.h">
       <Filter>ソース ファイル\GameClear</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneStageClear.h">
+      <Filter>ソース ファイル\StageClear</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjStageClear.h">
+      <Filter>ソース ファイル\StageClear</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

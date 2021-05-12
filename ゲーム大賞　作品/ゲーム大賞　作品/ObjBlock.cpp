@@ -295,7 +295,7 @@ void CObjBlock::Action()
 
 
 							//ブロックに触れたらシーン移動
-							Scene::SetScene(new CSceneGameClear());
+							Scene::SetScene(new CSceneStageClear());
 						}
 						if (r > 135 && r < 225)
 						{

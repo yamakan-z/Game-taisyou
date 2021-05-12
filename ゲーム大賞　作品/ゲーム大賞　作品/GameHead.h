@@ -15,11 +15,11 @@ enum OBJ_NAME
 	OBJ_GAME_OVER,
 	OBJ_LADDER,
 	OBJ_BOARD,
-	OBJ_ROCK,
 	OBJ_INVENTORY,
 	OBJ_TITLE_BACKGROUND,
 	OBJ_GAME_OVER_BACKGROUND,
 	OBJ_GAME_CLEAR_BACKGROUND,
+	OBJ_STAGE_CLEAR,
 
 	//はしごアイテム
 	OBJ_LADDER_ITEM,
@@ -142,6 +142,7 @@ struct UserData
 #include"ObjTitle.h"
 #include"ObjGameClear.h"
 #include"ObjGameOver.h"
+#include"ObjStageClear.h"
 
 
 
@@ -152,6 +153,7 @@ struct UserData
 #include"SceneTitle.h"
 #include"SceneGameOver.h"
 #include"SceneGameClear.h"
+#include"SceneStageClear.h"
 //-----------------------------------------------
 
 //シーンスタートクラス---------------------------
