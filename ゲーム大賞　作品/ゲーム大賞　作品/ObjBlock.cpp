@@ -1383,13 +1383,13 @@ void CObjBlock::Draw()
 			if (m_map[i][j] == 10)
 			{
 
-				float c2[4] = { 1.0f,1.0f,0.0f,1.0f };
+				float c2[4] = { 1.0f,1.0f,1.0f,1.0f };
 
 				//切り取り位置の設定
 				src.m_top = 0.0f;
 				src.m_left = 0.0f;
-				src.m_right = 64.0f;
-				src.m_bottom = 64.0f;
+				src.m_right = 314.0f;
+				src.m_bottom = 250.0f;
 
 
 				//表示位置の設定
@@ -1399,7 +1399,7 @@ void CObjBlock::Draw()
 				dst.m_bottom = dst.m_top + 64.0;
 
 				//描画
-				Draw::Draw(1, &src, &dst, c2, 0.0f);
+				Draw::Draw(18, &src, &dst, c2, 0.0f);
 			}
 
 			//障害物判定ブロック
