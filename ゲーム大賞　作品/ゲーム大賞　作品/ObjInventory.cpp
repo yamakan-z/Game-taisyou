@@ -63,14 +63,14 @@ void CObjInventory::Draw()
 
 	if (((UserData*)Save::GetData())->break_point == true){
 		swprintf_s(str, L"breakpoint");
-		Font::StrDraw(str, 10, 230, 20, c);
+		Font::StrDraw(str, 10, 450, 20, c);
 	}
 	swprintf_s(str, L"X=%.0f,Y=%.0f", (hero->GetX()-block->GetScroll())/64,hero->GetY()/64);
 	Font::StrDraw(str, 10, 120, 20, c);
 
 	if (((UserData*)Save::GetData())->break_flag == true) {
 		swprintf_s(str, L"breakflag");
-		Font::StrDraw(str, 10, 250, 20, c);
+		Font::StrDraw(str, 10, 470, 20, c);
 	}
 
 	swprintf_s(str, L"1キー　変換・つるはし→板");
@@ -106,11 +106,7 @@ void CObjInventory::Draw()
 	swprintf_s(str, L"変換済みアイテム数:%.0f", ((UserData*)Save::GetData())->converted_item);
 	Font::StrDraw(str, 10, 420, 20, d);
 
-	if (((UserData*)Save::GetData())->bad_ladder_put == true)
-	{
-		swprintf_s(str, L"true");
-		Font::StrDraw(str, 10, 450, 20, c);
-	}
+	
 
 
 	//インベントリ

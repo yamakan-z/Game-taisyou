@@ -29,6 +29,7 @@ void CObjGameOver::Init()
 	((UserData*)Save::GetData())->board_item = 0;
 
 	//変換済アイテム
+	((UserData*)Save::GetData())->converted_item = 0;//変換済みアイテムの総数
 	((UserData*)Save::GetData())->converted_board = 0;//変換済み板アイテム
 	((UserData*)Save::GetData())->converted_ladder = 0;//変換済みはしごアイテム
 	((UserData*)Save::GetData())->converted_pick = 0;//変換済みつるはしアイテム

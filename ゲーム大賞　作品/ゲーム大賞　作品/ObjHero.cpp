@@ -244,17 +244,23 @@ void CObjHero::Action()
        if (((UserData*)Save::GetData())->break_done == true)
 	      {
 		   //ブロック破壊音を鳴らす
-		   Audio::Start(2);
+		  // Audio::Start(2);
 
 		   //アイテム使用時、変換済みアイテムを優先して使用する
 		   if (((UserData*)Save::GetData())->converted_pick >=1 )
 		   {
+			   //ブロック破壊音を鳴らす
+			   Audio::Start(2);
+
 			   ((UserData*)Save::GetData())->converted_pick -= 1;
 			   ((UserData*)Save::GetData())->converted_item -= 1;
 			   ((UserData*)Save::GetData())->item -= 1;
 		   }
 		   else
 		   {
+			   //ブロック破壊音を鳴らす
+			   Audio::Start(2);
+
 			   ((UserData*)Save::GetData())->item -= 1;
 			   ((UserData*)Save::GetData())->pick_item -= 1;
 		   }
