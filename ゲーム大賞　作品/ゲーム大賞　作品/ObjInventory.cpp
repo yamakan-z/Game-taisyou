@@ -614,6 +614,29 @@ void CObjInventory::Draw()
 		//描画
 		Draw::Draw(8, &src, &dst, c, 0.0f);
 	}
+
+
+	//空白欄(赤)バツ印
+
+	if (((UserData*)Save::GetData())->conversion_num == 0)
+	{
+		//切り取り位置の設定
+		src.m_top = 0.0f;
+		src.m_left = 0.0f;
+		src.m_right = 64.0f;
+		src.m_bottom = 64.0f;
+
+
+		//表示位置の設定
+		dst.m_top = 10.0;
+		dst.m_left = 400.0;
+		dst.m_right = dst.m_right = dst.m_left + 80.0;
+		dst.m_bottom = dst.m_top + 80.0;
+
+		//描画
+		Draw::Draw(20, &src, &dst, c, 0.0f);
+	}
+
 }
 
 
