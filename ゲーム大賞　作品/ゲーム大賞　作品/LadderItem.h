@@ -17,9 +17,13 @@ public:
 	void SetScroll(float s) { m_scroll = s; }
 	float GetScroll() { return m_scroll; }
 
-private:
-	int m_mapR[10][100];//マップ情報（板）
+	void posset(float x, float y) {
+		m_px = x;//マップ情報を受け取る
+		m_py = y;
+	}
 
+private:
+	
 	float m_scroll;//左右スクロール用
 
 	float m_px;//位置

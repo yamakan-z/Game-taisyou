@@ -46,6 +46,9 @@
     <Filter Include="ソース ファイル\GameClear">
       <UniqueIdentifier>{0d3c4198-180d-4258-92f5-fe4acd200f34}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\StageClear">
+      <UniqueIdentifier>{1ecd1a61-e7b6-4ea9-b22b-eb4c6487a600}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameL\Audio.cpp">
@@ -90,9 +93,6 @@
     <ClCompile Include="item.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="turuhasi.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="SceneGameOver.cpp">
       <Filter>ソース ファイル\GameOver</Filter>
     </ClCompile>
@@ -114,31 +114,16 @@
     <ClCompile Include="SceneTitle.cpp">
       <Filter>ソース ファイル\タイトル</Filter>
     </ClCompile>
-    <ClCompile Include="ObjRock.cpp">
-      <Filter>ソース ファイル\アイテム処理</Filter>
-    </ClCompile>
     <ClCompile Include="ObjInventory.cpp">
       <Filter>ソース ファイル\インベントリ</Filter>
     </ClCompile>
     <ClCompile Include="ObjPick.cpp">
       <Filter>ソース ファイル\アイテム処理\つるはし</Filter>
     </ClCompile>
-    <ClCompile Include="ObjLadder.cpp">
-      <Filter>ソース ファイル\アイテム処理\はしご</Filter>
-    </ClCompile>
     <ClCompile Include="LadderItem.cpp">
       <Filter>ソース ファイル\アイテム処理\はしご</Filter>
     </ClCompile>
-    <ClCompile Include="LadderItem2.cpp">
-      <Filter>ソース ファイル\アイテム処理\はしご</Filter>
-    </ClCompile>
-    <ClCompile Include="ObjLadder.cpp">
-      <Filter>ソース ファイル\アイテム処理\はしご</Filter>
-    </ClCompile>
     <ClCompile Include="BoardItem.cpp">
-      <Filter>ソース ファイル\アイテム処理\板</Filter>
-    </ClCompile>
-    <ClCompile Include="ObjBoard.cpp">
       <Filter>ソース ファイル\アイテム処理\板</Filter>
     </ClCompile>
     <ClCompile Include="ObjGameClear.cpp">
@@ -155,6 +140,12 @@
     </ClCompile>
     <ClCompile Include="ObjgameClearBackground.cpp">
       <Filter>ソース ファイル\GameClear</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneStageClear.cpp">
+      <Filter>ソース ファイル\StageClear</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjStageClear.cpp">
+      <Filter>ソース ファイル\StageClear</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -200,9 +191,6 @@
     <ClInclude Include="item.h">
       <Filter>ソース ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="turuhasi.h">
-      <Filter>ソース ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="ObjGameOver.h">
       <Filter>ソース ファイル\GameOver</Filter>
     </ClInclude>
@@ -221,31 +209,19 @@
     <ClInclude Include="SceneTitle.h">
       <Filter>ソース ファイル\タイトル</Filter>
     </ClInclude>
-    <ClInclude Include="ObjRock.h">
-      <Filter>ソース ファイル\アイテム処理</Filter>
-    </ClInclude>
     <ClInclude Include="ObjInventory.h">
       <Filter>ソース ファイル\インベントリ</Filter>
     </ClInclude>
     <ClInclude Include="ObjPick.h">
       <Filter>ソース ファイル\アイテム処理\つるはし</Filter>
     </ClInclude>
-    <ClInclude Include="ObjLadder.h">
-      <Filter>ソース ファイル\アイテム処理\はしご</Filter>
-    </ClInclude>
     <ClInclude Include="LadderItem.h">
-      <Filter>ソース ファイル\アイテム処理\はしご</Filter>
-    </ClInclude>
-    <ClInclude Include="LadderItem2.h">
       <Filter>ソース ファイル\アイテム処理\はしご</Filter>
     </ClInclude>
     <ClInclude Include="SceneGameOver.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="BoardItem.h">
-      <Filter>ソース ファイル\アイテム処理\板</Filter>
-    </ClInclude>
-    <ClInclude Include="ObjBoard.h">
       <Filter>ソース ファイル\アイテム処理\板</Filter>
     </ClInclude>
     <ClInclude Include="ObjGameClear.h">
@@ -262,6 +238,12 @@
     </ClInclude>
     <ClInclude Include="ObjgameClearBackground.h">
       <Filter>ソース ファイル\GameClear</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneStageClear.h">
+      <Filter>ソース ファイル\StageClear</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjStageClear.h">
+      <Filter>ソース ファイル\StageClear</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

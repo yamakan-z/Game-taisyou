@@ -14,22 +14,48 @@ using namespace GameL;
 void CObjGameClear::Init()
 {
 	m_key_flag = false;//キーフラグ
+
 	//フラグを破棄
-	((UserData*)Save::GetData())->ladder_item = 0;
+	//アイテム関係フラグ破棄
 	((UserData*)Save::GetData())->item = 0;
+	((UserData*)Save::GetData())->ladder_item = 0;
 	((UserData*)Save::GetData())->pick_item = 0;
+	((UserData*)Save::GetData())->board_item = 0;
+
+	//変換済アイテム
+	((UserData*)Save::GetData())->converted_item = 0;//変換済みアイテムの総数
+	((UserData*)Save::GetData())->converted_board = 0;//変換済み板アイテム
+	((UserData*)Save::GetData())->converted_ladder = 0;//変換済みはしごアイテム
+	((UserData*)Save::GetData())->converted_pick = 0;//変換済みつるはしアイテム
+
+	//劣化アイテム
+	((UserData*)Save::GetData())->bad_board = 0;//劣化板アイテム
+	((UserData*)Save::GetData())->bad_ladder = 0;//劣化はしごアイテム
+	((UserData*)Save::GetData())->bad_pick = 0;//劣化つるはしアイテム
+
+
+	//ギミック関係フラグ破棄
+	//板関係のフラグ破棄
 	((UserData*)Save::GetData())->ins_flag = false;
+	//障害物関係のフラグ破棄
 	((UserData*)Save::GetData())->break_flag = false;
+	//はしご関係のフラグ破棄
+	((UserData*)Save::GetData())->ins_ladder = false;
+	((UserData*)Save::GetData())->ladder = false;
 
-	//インベントリ関係のフラグ破棄
-	((UserData*)Save::GetData())->I_board1 = false;
-	((UserData*)Save::GetData())->I_board2 = false;
 
-	((UserData*)Save::GetData())->I_ladder1 = false;
-	((UserData*)Save::GetData())->I_ladder2 = false;
+	//劣化ギミック関係のフラグ破棄
+	//はしご関係のフラグ破棄
+	((UserData*)Save::GetData())->ins_bad_ladder = false;
+	((UserData*)Save::GetData())->bad_ladder_put = false;
+	//板関係のフラグ破棄
+	((UserData*)Save::GetData())->ins_bad_flag = false;
+	//障害物関係のフラグ破棄
+	((UserData*)Save::GetData())->break_bad_flag = false;
 
-	((UserData*)Save::GetData())->I_pick1 = false;
-	((UserData*)Save::GetData())->I_pick2 = false;
+
+	//変換回数を初期値に戻す
+	((UserData*)Save::GetData())->conversion_num = 5;
 }
 //アクション
 void CObjGameClear::Action()

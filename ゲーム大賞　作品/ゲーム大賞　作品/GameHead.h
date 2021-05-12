@@ -15,17 +15,18 @@ enum OBJ_NAME
 	OBJ_GAME_OVER,
 	OBJ_LADDER,
 	OBJ_BOARD,
-	OBJ_ROCK,
 	OBJ_INVENTORY,
 	OBJ_TITLE_BACKGROUND,
 	OBJ_GAME_OVER_BACKGROUND,
 	OBJ_GAME_CLEAR_BACKGROUND,
+	OBJ_STAGE_CLEAR,
 
 	//はしごアイテム
 	OBJ_LADDER_ITEM,
-	OBJ_LADDER_ITEM2,
+
 	//つるはし
 	OBJ_PICK,
+
 	OBJ_BOARD_ITEM,
 };
 //------------------------------------------------
@@ -55,41 +56,64 @@ enum HIT_ELEMENTS
 struct UserData
 {
 	int mSeveData;	//サンプルセーブデータ
+
+	//主人公関係のフラグ
 	bool up_flag = false;  //はしごがある時、上に上がるフラグ
+	bool low_up_flag = false;//はしごがある時、上に上がるフラグ（劣化アイテム用）
 	bool move_flag = true; //上移動時、左右移動を制限するフラグ
-	float item = 0;  //アイテム所持数
+	
 
 	//板関係フラグ
 	bool ins_flag = false; //設置フラグ（板）
 	bool ins_place = false;//設置場所管理(板）
-	float board_item = 0;//板アイテム所持フラグ
 	bool ins_done = false;//板設置終了フラグ（今のところは、これがないと一つのアイテムが2つ使用されるため）
+
+	//劣化板関係フラグ
+	bool ins_bad_flag = false; //劣化板設置フラグ
+	bool ins_bad_place = false;//劣化板設置場所管理
+	bool ins_bad_done = false;//劣化板設置終了フラグ（今のところは、これがないと一つのアイテムが2つ使用されるため）
 
 	//はしご関係フラグ
 	bool ins_ladder = false;//はしご設置
 	bool ladder_flag = false;//はしごの設置場所を判定
 	bool ladder = false;//はしごの有無
-	float ladder_item = 0;//はしごアイテム所持フラグ
 	bool ins_ladder_done = false;//はしご設置終了フラグ（今のところは、これがないとはしごが全部表示されない）
+
+	//はしご関係フラグ（劣化）
+	bool bad_ladder_flag = false;//劣化はしごの設置場所を判定
+	bool ins_bad_ladder = false;//劣化はしご設置
+	bool bad_ladder_put = false;//劣化はしごの有無
+	bool ins_bad_ladder_done = false;//劣化はしご設置終了フラグ（今のところは、これがないとはしごが全部表示されない）
 
 	//障害物関係フラグ
 	bool break_flag = false;//障害物破壊フラグ
 	bool break_point = false;//障害物破壊判定
+	bool break_done = false;//障害物破壊終了フラグ（今のところは、これがないと一つのアイテムが2つ使用されるため）
+
+	//障害物関係フラグ(劣化つるはし用）
+	bool break_bad_flag = false;//障害物破壊フラグ(劣化つるはし用）
+	bool break_bad_point = false;//障害物破壊判定(劣化つるはし用）
+	bool break_bad_done = false;//障害物破壊終了フラグ（今のところは、これがないと一つのアイテムが2つ使用されるため）(劣化つるはし用）
+
+	//アイテム数
+	float item = 0;  //アイテム所持数
+	float board_item = 0;//板アイテム所持数
+	float ladder_item = 0;//はしごアイテム所持数
 	float pick_item = 0;//つるはし所持数
-	bool break_done = false;//板設置終了フラグ（今のところは、これがないと一つのアイテムが2つ使用されるため）
 
-	//インベントリ関係
-	bool I_ladder = false;//1つ目の取ったアイテムがはしごの時インベントリに表示
-	bool I_board = false;//1つ目の取ったアイテムが板の時インベントリに表示
-	bool I_pick = false;//1つ目の取ったアイテムがつるはしの時インベントリに表示
+	//変換済アイテム
+	float converted_item = 0;//変換済みアイテムの総数
+	float converted_board = 0;//変換済み板アイテム
+	float converted_ladder = 0;//変換済みはしごアイテム
+	float converted_pick = 0;//変換済みつるはしアイテム
 
-	bool I_ladder1 = false;//2つ目の取ったアイテムがはしごの時インベントリに表示
-	bool I_board1 = false;//2つ目の取ったアイテムが板の時インベントリに表示
-	bool I_pick1 = false;//2つ目の取ったアイテムがつるはしの時インベントリに表示
+	//劣化アイテム
+	float bad_board = 0;//劣化板アイテム
+	float bad_ladder = 0;//劣化はしごアイテム
+	float bad_pick = 0;//劣化つるはしアイテム
 
-	bool I_ladder2 = false;//3つ目の取ったアイテムがはしごの時インベントリに表示
-	bool I_board2 = false;//3つ目の取ったアイテムが板の時インベントリに表示
-	bool I_pick2 = false;//3つ目の取ったアイテムがつるはしの時インベントリに表示
+	//のこり変換回数
+	int conversion_num = 5;
 };
 //------------------------------------------------
 
@@ -107,9 +131,7 @@ struct UserData
 //ゲームシーンオブジェクトヘッダ------------------
 #include"ObjHero.h"
 #include"ObjBlock.h"
-#include"ObjLadder.h"
-#include"ObjBoard.h"
-#include"ObjRock.h"
+#include"ObjPick.h"
 #include"LadderItem.h"
 #include"BoardItem.h"
 #include"ObjTitleBackground.h"
@@ -120,12 +142,9 @@ struct UserData
 #include"ObjTitle.h"
 #include"ObjGameClear.h"
 #include"ObjGameOver.h"
-//つるはし
-#include"ObjPick.h"
+#include"ObjStageClear.h"
 
-//はしごアイテム
-#include"LadderItem.h"
-#include"LadderItem2.h"
+
 
 //------------------------------------------------
 
@@ -134,6 +153,7 @@ struct UserData
 #include"SceneTitle.h"
 #include"SceneGameOver.h"
 #include"SceneGameClear.h"
+#include"SceneStageClear.h"
 //-----------------------------------------------
 
 //シーンスタートクラス---------------------------
