@@ -15,11 +15,11 @@ enum OBJ_NAME
 	OBJ_GAME_OVER,
 	OBJ_LADDER,
 	OBJ_BOARD,
-	OBJ_ROCK,
 	OBJ_INVENTORY,
 	OBJ_TITLE_BACKGROUND,
 	OBJ_GAME_OVER_BACKGROUND,
 	OBJ_GAME_CLEAR_BACKGROUND,
+	OBJ_STAGE_CLEAR,
 
 	//はしごアイテム
 	OBJ_LADDER_ITEM,
@@ -131,8 +131,7 @@ struct UserData
 //ゲームシーンオブジェクトヘッダ------------------
 #include"ObjHero.h"
 #include"ObjBlock.h"
-#include"ObjLadder.h"
-#include"ObjBoard.h"
+#include"ObjPick.h"
 #include"LadderItem.h"
 #include"BoardItem.h"
 #include"ObjTitleBackground.h"
@@ -143,11 +142,9 @@ struct UserData
 #include"ObjTitle.h"
 #include"ObjGameClear.h"
 #include"ObjGameOver.h"
-//つるはし
-#include"ObjPick.h"
+#include"ObjStageClear.h"
 
-//はしごアイテム
-#include"LadderItem.h"
+
 
 //------------------------------------------------
 
@@ -156,6 +153,7 @@ struct UserData
 #include"SceneTitle.h"
 #include"SceneGameOver.h"
 #include"SceneGameClear.h"
+#include"SceneStageClear.h"
 //-----------------------------------------------
 
 //シーンスタートクラス---------------------------

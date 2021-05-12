@@ -4,14 +4,14 @@
 #include"GameL\SceneObjManager.h"
 
 #include"GameHead.h"
-#include"ObjGameClear.h"
+#include"ObjStageClear.h"
 #include "GameL/UserData.h"
 
 //使用するネームスペース
 using namespace GameL;
 
 //イニシャライズ
-void CObjGameClear::Init()
+void CObjStageClear::Init()
 {
 	m_key_flag = false;//キーフラグ
 
@@ -58,7 +58,7 @@ void CObjGameClear::Init()
 	((UserData*)Save::GetData())->conversion_num = 5;
 }
 //アクション
-void CObjGameClear::Action()
+void CObjStageClear::Action()
 {
 	//エンターキーを押してシーン：ゲームTitleに移行する
 	if (Input::GetVKey(VK_RETURN) == true)
@@ -74,7 +74,7 @@ void CObjGameClear::Action()
 	}
 }
 //ドロー
-void CObjGameClear::Draw()
+void CObjStageClear::Draw()
 {
 	float c[4] = { 0.0f,0.0f,1.0f,1.0f };
 
