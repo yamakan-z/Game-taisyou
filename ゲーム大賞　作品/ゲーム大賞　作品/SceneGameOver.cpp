@@ -40,7 +40,7 @@ void CSceneGameOver::InitScene()
 
 	//ボリュームを1.0に戻す
 	float v = Audio::VolumeMaster(0);
-	v = Audio::VolumeMaster((1.0 - v));
+	v = Audio::VolumeMaster((0.1 - v));
 
 	//音楽スタート
 	Audio::Start(0);
@@ -59,9 +59,8 @@ void CSceneGameOver::InitScene()
 	//音楽情報の読み込み
 	Audio::LoadAudio(0, L"GameOver(仮).wav", SOUND_TYPE::BACK_MUSIC);
 
-	//ボリュームを1.0に戻す
-    v = Audio::VolumeMaster(0);
-	v = Audio::VolumeMaster((1.0 - v));
+	v = Audio::VolumeMaster(0);
+	v = Audio::VolumeMaster(1.0 - v);
 
 	//音楽スタート
 	Audio::Start(0);
