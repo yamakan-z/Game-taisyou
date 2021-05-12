@@ -90,9 +90,6 @@
     <ClCompile Include="item.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="turuhasi.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="SceneGameOver.cpp">
       <Filter>ソース ファイル\GameOver</Filter>
     </ClCompile>
@@ -120,9 +117,6 @@
     <ClCompile Include="ObjPick.cpp">
       <Filter>ソース ファイル\アイテム処理\つるはし</Filter>
     </ClCompile>
-    <ClCompile Include="ObjLadder.cpp">
-      <Filter>ソース ファイル\アイテム処理\はしご</Filter>
-    </ClCompile>
     <ClCompile Include="LadderItem.cpp">
       <Filter>ソース ファイル\アイテム処理\はしご</Filter>
     </ClCompile>
@@ -130,9 +124,6 @@
       <Filter>ソース ファイル\アイテム処理\はしご</Filter>
     </ClCompile>
     <ClCompile Include="BoardItem.cpp">
-      <Filter>ソース ファイル\アイテム処理\板</Filter>
-    </ClCompile>
-    <ClCompile Include="ObjBoard.cpp">
       <Filter>ソース ファイル\アイテム処理\板</Filter>
     </ClCompile>
     <ClCompile Include="ObjGameClear.cpp">
@@ -194,9 +185,6 @@
     <ClInclude Include="item.h">
       <Filter>ソース ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="turuhasi.h">
-      <Filter>ソース ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="ObjGameOver.h">
       <Filter>ソース ファイル\GameOver</Filter>
     </ClInclude>
@@ -221,9 +209,6 @@
     <ClInclude Include="ObjPick.h">
       <Filter>ソース ファイル\アイテム処理\つるはし</Filter>
     </ClInclude>
-    <ClInclude Include="ObjLadder.h">
-      <Filter>ソース ファイル\アイテム処理\はしご</Filter>
-    </ClInclude>
     <ClInclude Include="LadderItem.h">
       <Filter>ソース ファイル\アイテム処理\はしご</Filter>
     </ClInclude>
@@ -231,9 +216,6 @@
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="BoardItem.h">
-      <Filter>ソース ファイル\アイテム処理\板</Filter>
-    </ClInclude>
-    <ClInclude Include="ObjBoard.h">
       <Filter>ソース ファイル\アイテム処理\板</Filter>
     </ClInclude>
     <ClInclude Include="ObjGameClear.h">

@@ -88,14 +88,6 @@ void CSceneMain::InitScene()
 	CObjBlock* objb = new CObjBlock();
 	Objs::InsertObj(objb, OBJ_BLOCK, 9);
 
-	//ladderオブジェクト作成
-	CObjLadder* objl = new CObjLadder();
-	Objs::InsertObj(objl, OBJ_LADDER, 10);
-
-	//boardオブジェクト作成
-	CObjBoard* objbo = new CObjBoard();
-	Objs::InsertObj(objbo, OBJ_BOARD, 10);
-
 	//インベントリ作成
 	CObjInventory* objin = new CObjInventory();
 	Objs::InsertObj(objin, OBJ_INVENTORY, 10);

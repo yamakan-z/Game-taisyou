@@ -131,8 +131,7 @@ struct UserData
 //ゲームシーンオブジェクトヘッダ------------------
 #include"ObjHero.h"
 #include"ObjBlock.h"
-#include"ObjLadder.h"
-#include"ObjBoard.h"
+#include"ObjPick.h"
 #include"LadderItem.h"
 #include"BoardItem.h"
 #include"ObjTitleBackground.h"
@@ -143,11 +142,8 @@ struct UserData
 #include"ObjTitle.h"
 #include"ObjGameClear.h"
 #include"ObjGameOver.h"
-//つるはし
-#include"ObjPick.h"
 
-//はしごアイテム
-#include"LadderItem.h"
+
 
 //------------------------------------------------
 
