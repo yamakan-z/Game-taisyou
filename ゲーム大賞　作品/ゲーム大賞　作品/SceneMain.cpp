@@ -54,6 +54,7 @@ void CSceneMain::InitScene()
 	Draw::LoadImageW(L"空白欄(黄).png", 18, TEX_SIZE_1024);
 	Draw::LoadImageW(L"空白欄(赤).png", 19, TEX_SIZE_1024);
 	Draw::LoadImageW(L"空白欄(赤)バツ印.png", 20, TEX_SIZE_1024);
+	Draw::LoadImageW(L"インベントリ(劣化).png", 21, TEX_SIZE_512);
 
 	//音楽読み込み
 	Audio::LoadAudio(0, L"GameMain(仮).wav", BACK_MUSIC);
