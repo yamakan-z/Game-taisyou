@@ -272,6 +272,54 @@ void CObjHero::Action()
 		((UserData*)Save::GetData())->break_flag = false;
 	}
 
+	//障害物破壊(劣化つるはし）
+	if (Input::GetVKey('D') == true && ((UserData*)Save::GetData())->break_bad_point == true)
+	{
+
+		((UserData*)Save::GetData())->break_bad_flag = true;
+
+		//設置後、はしごアイテム＆アイテム総数-1
+		if (((UserData*)Save::GetData())->break_bad_done == true)
+		{
+			//ブロック破壊音を鳴らす
+		   // Audio::Start(2);
+
+			//アイテム使用時、劣化→変換済み→未変換の順で使用が優先される
+			if (((UserData*)Save::GetData())->bad_pick >= 1)
+			{
+				//ブロック破壊音を鳴らす
+				Audio::Start(2);
+
+				((UserData*)Save::GetData())->bad_pick -= 1;
+				((UserData*)Save::GetData())->item -= 1;
+			}
+			else if (((UserData*)Save::GetData())->converted_pick >= 1)
+			{
+				//ブロック破壊音を鳴らす
+				Audio::Start(2);
+
+				((UserData*)Save::GetData())->converted_pick -= 1;
+				((UserData*)Save::GetData())->converted_item -= 1;
+				((UserData*)Save::GetData())->item -= 1;
+			}
+			else if (((UserData*)Save::GetData())->pick_item >= 1)
+			{
+				//ブロック破壊音を鳴らす
+				Audio::Start(2);
+
+				((UserData*)Save::GetData())->item -= 1;
+				((UserData*)Save::GetData())->pick_item -= 1;
+			}
+
+
+			((UserData*)Save::GetData())->break_bad_done = false;
+		}
+	}
+	else
+	{
+		((UserData*)Save::GetData())->break_bad_flag = false;
+	}
+
 
 
 	//アイテムの変換

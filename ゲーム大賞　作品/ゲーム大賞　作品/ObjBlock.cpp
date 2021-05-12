@@ -959,20 +959,51 @@ void CObjBlock::Action()
 				//--------------áŠQ•¨ˆ—(—ò‰»‚Â‚é‚Í‚µ—pj--------------
 
 				//—ò‰»‚Â‚é‚Í‚µA’Êí‚Â‚é‚Í‚µ‚Ü‚½‚ÍA•ÏŠ·Ï‚Ý‚Â‚é‚Í‚µ‚ÅáŠQ•¨‚ð”j‰ó
-				/*if (hero->GetBT() == 18 && ((UserData*)Save::GetData())->bad_pick > 0||
+				if (hero->GetBT() == 18 && ((UserData*)Save::GetData())->bad_pick > 0||
 					hero->GetBT() == 18 && ((UserData*)Save::GetData())->pick_item > 0 ||
 					hero->GetBT() == 18 && ((UserData*)Save::GetData())->converted_pick > 0)
 				{
 					if ((hx + (-m_scroll) + 64.0f > x) && (hx + (-m_scroll) < x + 64.0f))
 					{
-						((UserData*)Save::GetData())->break_point = true;
+						((UserData*)Save::GetData())->break_bad_point = true;
 					}
 
 				}
 				else
 				{
-					((UserData*)Save::GetData())->break_point = false;
-				}*/
+					((UserData*)Save::GetData())->break_bad_point = false;
+				}
+
+
+				if (((UserData*)Save::GetData())->break_bad_flag == true)//áŠQ•¨‚Ìˆê‚Â‘O‚ÌƒuƒƒbƒN(áŠQ•¨”»’èƒuƒƒbƒNj‚É”½‰ž
+				{
+
+					if (m_map[i][j] == 10)//áŠQ•¨
+					{
+						if ((hx + (-m_scroll) + 64.0f + 40 > x) &&
+							(hx + (-m_scroll) < x + 64.0f) &&
+							(hy + 64.0f > y) &&
+							(hy < y + 64.0f))
+						{
+							for (int f = 0;; f++)
+							{
+								if (m_map[i - f][j] == 10)
+								{
+									m_map[i - f][j] = 98;//áŠQ•¨”j‰ó
+								}
+								else
+								{
+									((UserData*)Save::GetData())->break_bad_done = true;
+
+									break;
+								}
+							}
+
+						}
+
+					}
+
+				}
 
 				//-------------------------------------------------------
 				
