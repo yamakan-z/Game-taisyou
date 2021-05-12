@@ -167,7 +167,7 @@ void CObjHero::Action()
 
 	}
 	
-	//設置(板）
+	//板設置
 	if (Input::GetVKey('S') == true&& ((UserData*)Save::GetData())->ins_place==true)
 	{
 		
@@ -203,7 +203,37 @@ void CObjHero::Action()
 		((UserData*)Save::GetData())->ins_flag = false;
 	}
 	
-	
+
+	//劣化板設置
+	if (Input::GetVKey('S') == true && ((UserData*)Save::GetData())->ins_bad_place == true)
+	{
+
+
+		((UserData*)Save::GetData())->ins_bad_flag = true;
+
+
+		//設置後、劣化板アイテム＆アイテム総数-1
+		if (((UserData*)Save::GetData())->ins_bad_done == true)
+		{
+			//アイテムの設置音を鳴らす
+			Audio::Start(1);
+
+			((UserData*)Save::GetData())->item -= 1;
+			((UserData*)Save::GetData())->bad_board -= 1;
+				
+			
+
+			((UserData*)Save::GetData())->ins_bad_done = false;
+		}
+
+	}
+	else
+	{
+		((UserData*)Save::GetData())->ins_bad_flag = false;
+	}
+
+
+
 	//障害物破壊
 	if (Input::GetVKey('D') == true&& ((UserData*)Save::GetData())->break_point==true)
 	{

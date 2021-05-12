@@ -51,7 +51,7 @@ void CBoardItem::Action()
 		Hits::DeleteHitBox(this);	//アイテムが所有するHitBoxを削除する
 
 		//アイテム取得
-		Audio::Start(4);
+		//Audio::Start(4);
 
 		((UserData*)Save::GetData())->item += 1;
 		((UserData*)Save::GetData())->board_item += 1;

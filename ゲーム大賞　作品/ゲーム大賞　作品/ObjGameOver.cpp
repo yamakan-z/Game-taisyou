@@ -52,6 +52,8 @@ void CObjGameOver::Init()
 	//‚Í‚µ‚²ŠÖŒW‚Ìƒtƒ‰ƒO”jŠü
 	((UserData*)Save::GetData())->ins_bad_ladder = false;
 	((UserData*)Save::GetData())->bad_ladder_put = false;
+	//”ÂŠÖŒW‚Ìƒtƒ‰ƒO”jŠü
+	((UserData*)Save::GetData())->ins_bad_flag = false;
 
 	
 	//•ÏŠ·‰ñ”‚ğ‰Šú’l‚É–ß‚·

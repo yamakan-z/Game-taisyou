@@ -68,6 +68,11 @@ struct UserData
 	bool ins_place = false;//設置場所管理(板）
 	bool ins_done = false;//板設置終了フラグ（今のところは、これがないと一つのアイテムが2つ使用されるため）
 
+	//劣化板関係フラグ
+	bool ins_bad_flag = false; //劣化板設置フラグ
+	bool ins_bad_place = false;//劣化板設置場所管理
+	bool ins_bad_done = false;//劣化板設置終了フラグ（今のところは、これがないと一つのアイテムが2つ使用されるため）
+
 	//はしご関係フラグ
 	bool ins_ladder = false;//はしご設置
 	bool ladder_flag = false;//はしごの設置場所を判定
@@ -83,7 +88,7 @@ struct UserData
 	//障害物関係フラグ
 	bool break_flag = false;//障害物破壊フラグ
 	bool break_point = false;//障害物破壊判定
-	bool break_done = false;//板設置終了フラグ（今のところは、これがないと一つのアイテムが2つ使用されるため）
+	bool break_done = false;//障害物破壊終了フラグ（今のところは、これがないと一つのアイテムが2つ使用されるため）
 
 	//アイテム数
 	float item = 0;  //アイテム所持数
@@ -101,19 +106,6 @@ struct UserData
 	float bad_board = 0;//劣化板アイテム
 	float bad_ladder = 0;//劣化はしごアイテム
 	float bad_pick = 0;//劣化つるはしアイテム
-
-	//インベントリ関係
-	//bool I_ladder = false;//1つ目の取ったアイテムがはしごの時インベントリに表示
-	//bool I_board = false;//1つ目の取ったアイテムが板の時インベントリに表示
-	//bool I_pick = false;//1つ目の取ったアイテムがつるはしの時インベントリに表示
-
-	//bool I_ladder1 = false;//2つ目の取ったアイテムがはしごの時インベントリに表示
-	//bool I_board1 = false;//2つ目の取ったアイテムが板の時インベントリに表示
-	//bool I_pick1 = false;//2つ目の取ったアイテムがつるはしの時インベントリに表示
-
-	//bool I_ladder2 = false;//3つ目の取ったアイテムがはしごの時インベントリに表示
-	//bool I_board2 = false;//3つ目の取ったアイテムが板の時インベントリに表示
-	//bool I_pick2 = false;//3つ目の取ったアイテムがつるはしの時インベントリに表示
 
 	//のこり変換回数
 	int conversion_num = 5;

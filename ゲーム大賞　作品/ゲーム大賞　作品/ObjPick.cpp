@@ -52,7 +52,7 @@ void CObjPick::Action()
 		Hits::DeleteHitBox(this);	//つるはしが所有するHitBoxを削除する
 
 		//アイテム取得
-		Audio::Start(4);
+		//Audio::Start(4);
 
 		((UserData*)Save::GetData())->item += 1;
 		((UserData*)Save::GetData())->pick_item += 1;
