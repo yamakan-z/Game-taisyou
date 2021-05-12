@@ -166,7 +166,6 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="ObjPick.cpp" />
-    <ClCompile Include="ObjRock.cpp" />
     <ClCompile Include="ObjTitle.cpp" />
     <ClCompile Include="ObjTitleBackground.cpp" />
     <ClCompile Include="SceneGameClear.cpp" />
@@ -208,7 +207,6 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
     </ClInclude>
     <ClInclude Include="ObjPick.h" />
-    <ClInclude Include="ObjRock.h" />
     <ClInclude Include="ObjTitle.h" />
     <ClInclude Include="ObjTitleBackground.h" />
     <ClInclude Include="SceneGameOver.h">

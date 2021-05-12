@@ -39,6 +39,10 @@ void CSceneMain::InitScene()
 	Draw::LoadImageW(L"はしごアイテム.png", 5, TEX_SIZE_512);
 	Draw::LoadImageW(L"インベントリｍ２.png", 6, TEX_SIZE_512);
 	Draw::LoadImageW(L"つるはし.png", 7, TEX_SIZE_512);
+	Draw::LoadImageW(L"ポール.png", 14, TEX_SIZE_1024);
+	Draw::LoadImageW(L"旗.png", 15, TEX_SIZE_1024);
+	Draw::LoadImageW(L"空白欄.png", 16, TEX_SIZE_1024);
+	Draw::LoadImageW(L"劣化はしご.png", 17, TEX_SIZE_512);
 	//アイテム数番号
 	Draw::LoadImageW(L"0.png", 8, TEX_SIZE_512);
 	Draw::LoadImageW(L"1.png", 9, TEX_SIZE_512);
@@ -65,10 +69,14 @@ void CSceneMain::InitScene()
 	Audio::LoadAudio(4, L"SEItemGet.wav", EFFECT);
 
 	//ボリュームを1.5増やす
-	float v = Audio::VolumeMaster(1.5);
+	float v = Audio::VolumeMaster(1.0);
+
+	//ボリュームを1.0に戻す
+	v = Audio::VolumeMaster(0.0);
+	v = Audio::VolumeMaster((1.0 - v));
 
 	//音楽スタート
-	Audio::Start(0);
+	//Audio::Start(0);
 
 	if (((UserData*)Save::GetData())->item <= 0)//アイテムが0を下回る時、0にする
 	{
@@ -95,10 +103,6 @@ void CSceneMain::InitScene()
 	CObjBoard* objbo = new CObjBoard();
 	Objs::InsertObj(objbo, OBJ_BOARD, 10);
 
-	//rockオブジェクト作成
-	CObjRock* objr = new CObjRock();
-	Objs::InsertObj(objr, OBJ_BOARD, 10);
-
 	//インベントリ作成
 	CObjInventory* objin = new CObjInventory();
 	Objs::InsertObj(objin, OBJ_INVENTORY, 10);
@@ -124,8 +128,6 @@ void CSceneMain::InitScene()
     v = Audio::VolumeMaster(0.0);
 	v = Audio::VolumeMaster((0.1 - v));
 
-	//音楽スタート
-	Audio::Start(0);
 }
 
 //実行中メソッド
