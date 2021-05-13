@@ -45,6 +45,10 @@ private:
 
 	float m_ani_max_time;//アニメーション最大動作
 
+	bool operation_keyflag;//操作方法表示用のキーフラグ
+
+	bool delete_operation;//操作方法非表示用のキーフラグ
+
 
 	//blockとの衝突状態確認用
 	bool m_hit_up;
