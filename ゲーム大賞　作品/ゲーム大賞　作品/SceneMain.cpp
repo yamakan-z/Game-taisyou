@@ -43,6 +43,8 @@ void CSceneMain::InitScene()
 	Draw::LoadImageW(L"旗.png", 15, TEX_SIZE_1024);
 	Draw::LoadImageW(L"空白欄.png", 16, TEX_SIZE_1024);
 	Draw::LoadImageW(L"劣化はしご.png", 17, TEX_SIZE_512);
+	Draw::LoadImageW(L"障害物.png", 18, TEX_SIZE_512);
+	Draw::LoadImageW(L"説明画面（仮）.png", 19, TEX_SIZE_512);
 	//アイテム数番号
 	Draw::LoadImageW(L"0.png", 8, TEX_SIZE_512);
 	Draw::LoadImageW(L"1.png", 9, TEX_SIZE_512);
