@@ -37,8 +37,8 @@ void CObjHero::Init()
 	 //操作方法表示用のキーフラグ
 	 operation_keyflag = false;
 
-	 //操作方法非表示用のキーフラグ
-	 delete_operation = false;
+	 //リトライ用のキーフラグ
+	 retry_keyflag = false;
 
 	 //当たり判定用HitBoxを作成
 	 Hits::SetHitBox(this, m_px, m_py, 64, 64, ELEMENT_PLAYER, OBJ_HERO, 1);
@@ -47,6 +47,53 @@ void CObjHero::Init()
 	 conversionL = true;
 	 conversionB = true;
 	 conversionP = true;
+
+
+
+	 //フラグの初期化---------------------------------
+	  
+	//アイテム関係フラグ初期化
+	 ((UserData*)Save::GetData())->item = 0;
+	 ((UserData*)Save::GetData())->ladder_item = 0;
+	 ((UserData*)Save::GetData())->pick_item = 0;
+	 ((UserData*)Save::GetData())->board_item = 0;
+
+	 //変換済アイテム
+	 ((UserData*)Save::GetData())->converted_item = 0;//変換済みアイテムの総数
+	 ((UserData*)Save::GetData())->converted_board = 0;//変換済み板アイテム
+	 ((UserData*)Save::GetData())->converted_ladder = 0;//変換済みはしごアイテム
+	 ((UserData*)Save::GetData())->converted_pick = 0;//変換済みつるはしアイテム
+
+	 //劣化アイテム
+	 ((UserData*)Save::GetData())->bad_board = 0;//劣化板アイテム
+	 ((UserData*)Save::GetData())->bad_ladder = 0;//劣化はしごアイテム
+	 ((UserData*)Save::GetData())->bad_pick = 0;//劣化つるはしアイテム
+
+
+	 //ギミック関係フラグ初期化
+	 //板関係のフラグ初期化
+	 ((UserData*)Save::GetData())->ins_flag = false;
+	 //障害物関係のフラグ初期化
+	 ((UserData*)Save::GetData())->break_flag = false;
+	 //はしご関係のフラグ初期化
+	 ((UserData*)Save::GetData())->ins_ladder = false;
+	 ((UserData*)Save::GetData())->ladder = false;
+
+
+	 //劣化ギミック関係のフラグ破棄
+	 //はしご関係のフラグ初期化
+	 ((UserData*)Save::GetData())->ins_bad_ladder = false;
+	 ((UserData*)Save::GetData())->bad_ladder_put = false;
+	 //板関係のフラグ初期化
+	 ((UserData*)Save::GetData())->ins_bad_flag = false;
+	 //障害物関係のフラグ初期化
+	 ((UserData*)Save::GetData())->break_bad_flag = false;
+
+
+	 //変換回数を初期値に戻す
+	 ((UserData*)Save::GetData())->conversion_num = 5;
+
+	 //------------------------------------------
 
 }
 
@@ -330,14 +377,20 @@ void CObjHero::Action()
 	if (Input::GetVKey('W') == true)
 	{
 		operation_keyflag = true;
-		
+		retry_keyflag = true;//説明画面表示時のみリトライ可能
 	}
 	else if (Input::GetVKey('E') == true&& operation_keyflag == true)
 	{
 		operation_keyflag = false;
+		retry_keyflag = false;
 	}
 
 
+	//リトライ
+	if (Input::GetVKey(VK_SPACE) == true&& retry_keyflag == true)
+	{
+		Scene::SetScene(new CSceneMain());
+	}
 
 
 	//アイテムの変換
