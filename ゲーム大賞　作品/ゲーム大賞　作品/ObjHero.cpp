@@ -119,14 +119,14 @@ void CObjHero::Action()
 		//主人公の移動音を鳴らす
 		//Audio::Start(3);
 
-		m_vx = +5.0f;
+		m_vx = +6.5f;
 		m_posture = 1.0f;
 		m_ani_time += 1;                 //「m_ani_time += 1;」描画切り替え　
 	}
 
 	else if (Input::GetVKey(VK_LEFT) == true&& ((UserData*)Save::GetData())->move_flag == true)
 	{
-		m_vx = -5.0f;
+		m_vx = -6.5f;
 		m_posture = 0.0f;
 		m_ani_time += 1;
 	}
