@@ -163,6 +163,7 @@
     <ClCompile Include="ObjInventory.cpp" />
     <ClCompile Include="ObjPick.cpp" />
     <ClCompile Include="ObjStageClear.cpp" />
+    <ClCompile Include="ObjStageClearBackground.cpp" />
     <ClCompile Include="ObjTitle.cpp" />
     <ClCompile Include="ObjTitleBackground.cpp" />
     <ClCompile Include="SceneGameClear.cpp" />
@@ -211,6 +212,7 @@
     </ClInclude>
     <ClInclude Include="SceneStageClear.h" />
     <ClInclude Include="SceneTitle.h" />
+    <ClInclude Include="ObjStageClearBackground.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="SceneGameOver.h" />

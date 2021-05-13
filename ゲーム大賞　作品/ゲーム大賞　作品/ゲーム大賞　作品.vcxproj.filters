@@ -147,6 +147,9 @@
     <ClCompile Include="ObjStageClear.cpp">
       <Filter>ソース ファイル\StageClear</Filter>
     </ClCompile>
+    <ClCompile Include="ObjStageClearBackground.cpp">
+      <Filter>ソース ファイル\StageClear</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameL\Audio.h">
@@ -243,6 +246,9 @@
       <Filter>ソース ファイル\StageClear</Filter>
     </ClInclude>
     <ClInclude Include="ObjStageClear.h">
+      <Filter>ソース ファイル\StageClear</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjStageClearBackground.h">
       <Filter>ソース ファイル\StageClear</Filter>
     </ClInclude>
   </ItemGroup>
