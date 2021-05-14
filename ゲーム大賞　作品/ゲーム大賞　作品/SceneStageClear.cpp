@@ -48,11 +48,11 @@ void CSceneStageClear::InitScene()
 	Objs::InsertObj(obj, OBJ_STAGE_CLEAR, 10);
 
 	//画像読み込み
-	Draw::LoadImageW(L"ゲームクリア.png", 1, TEX_SIZE_1024);
+	Draw::LoadImageW(L"ステージクリア.png", 1, TEX_SIZE_1024);
 
 	////オブジェクト作成
-	//CObjgameClearBackground* back = new CObjgameClearBackground();
-	//Objs::InsertObj(back, OBJ_GAME_CLEAR_BACKGROUND, 1);
+	CObjgameClearBackground* back = new CObjgameClearBackground();
+	Objs::InsertObj(back, OBJ_GAME_CLEAR_BACKGROUND, 1);
 
 	//音楽情報の読み込み
 	Audio::LoadAudio(0, L"StageClear(仮).wav", SOUND_TYPE::BACK_MUSIC);
