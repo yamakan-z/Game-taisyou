@@ -68,8 +68,9 @@ void CSceneMain::InitScene()
 	v = Audio::VolumeMaster(0.0);
 	v = Audio::VolumeMaster((1.0 - v));
 
+
 	//音楽スタート
-	//Audio::Start(0);
+	Audio::Start(0);
 
 	if (((UserData*)Save::GetData())->item <= 0)//アイテムが0を下回る時、0にする
 	{
@@ -113,6 +114,8 @@ void CSceneMain::InitScene()
     v = Audio::VolumeMaster(0.0);
 	v = Audio::VolumeMaster((0.1 - v));
 
+	//音楽スタート
+	Audio::Start(0);
 }
 
 //実行中メソッド

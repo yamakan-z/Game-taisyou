@@ -55,11 +55,11 @@ void CSceneStageClear::InitScene()
 	//Objs::InsertObj(back, OBJ_GAME_CLEAR_BACKGROUND, 1);
 
 	//音楽情報の読み込み
-	Audio::LoadAudio(0, L"GameClear(仮).wav", SOUND_TYPE::BACK_MUSIC);
+	Audio::LoadAudio(0, L"StageClear(仮).wav", SOUND_TYPE::BACK_MUSIC);
 
 	//ボリュームを1.0に戻す
 	v = Audio::VolumeMaster(0);
-	v = Audio::VolumeMaster((1.0 - v));
+	v = Audio::VolumeMaster((0.1 - v));
 
 	//音楽スタート
 	Audio::Start(0);

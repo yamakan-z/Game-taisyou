@@ -39,7 +39,7 @@ void CSceneTitle::InitScene()
 
 	//バックミュージックスタート
 	float v = Audio::VolumeMaster(0);
-	v = Audio::VolumeMaster((0.1));
+	v = Audio::VolumeMaster((1.0));
 
 	//音楽スタート
 	Audio::Start(0);
