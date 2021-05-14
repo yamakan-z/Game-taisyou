@@ -31,7 +31,7 @@ CSceneStageClear::~CSceneStageClear()
 void CSceneStageClear::InitScene()
 {
 	//出力させる文字のグラフィックを作成
-	Font::SetStrTex(L"Return_to_title:ENTER_KEY");
+	Font::SetStrTex(L"Next Stage:ENTER_KEY");
 
 	//音楽情報の読み込み
 	Audio::LoadAudio(0, L"GameClear(仮).wav", BACK_MUSIC);
