@@ -34,6 +34,12 @@ void CObjHero::Init()
 	 //踏んでいるブロックの種類を確認
 	 m_block_type = 0;
 
+	 //操作方法表示用のキーフラグ
+	 operation_keyflag = false;
+
+	 //リトライ用のキーフラグ
+	 retry_keyflag = false;
+
 	 //当たり判定用HitBoxを作成
 	 Hits::SetHitBox(this, m_px, m_py, 64, 64, ELEMENT_PLAYER, OBJ_HERO, 1);
 
@@ -41,6 +47,53 @@ void CObjHero::Init()
 	 conversionL = true;
 	 conversionB = true;
 	 conversionP = true;
+
+
+
+	 //フラグの初期化---------------------------------
+	  
+	//アイテム関係フラグ初期化
+	 ((UserData*)Save::GetData())->item = 0;
+	 ((UserData*)Save::GetData())->ladder_item = 0;
+	 ((UserData*)Save::GetData())->pick_item = 0;
+	 ((UserData*)Save::GetData())->board_item = 0;
+
+	 //変換済アイテム
+	 ((UserData*)Save::GetData())->converted_item = 0;//変換済みアイテムの総数
+	 ((UserData*)Save::GetData())->converted_board = 0;//変換済み板アイテム
+	 ((UserData*)Save::GetData())->converted_ladder = 0;//変換済みはしごアイテム
+	 ((UserData*)Save::GetData())->converted_pick = 0;//変換済みつるはしアイテム
+
+	 //劣化アイテム
+	 ((UserData*)Save::GetData())->bad_board = 0;//劣化板アイテム
+	 ((UserData*)Save::GetData())->bad_ladder = 0;//劣化はしごアイテム
+	 ((UserData*)Save::GetData())->bad_pick = 0;//劣化つるはしアイテム
+
+
+	 //ギミック関係フラグ初期化
+	 //板関係のフラグ初期化
+	 ((UserData*)Save::GetData())->ins_flag = false;
+	 //障害物関係のフラグ初期化
+	 ((UserData*)Save::GetData())->break_flag = false;
+	 //はしご関係のフラグ初期化
+	 ((UserData*)Save::GetData())->ins_ladder = false;
+	 ((UserData*)Save::GetData())->ladder = false;
+
+
+	 //劣化ギミック関係のフラグ破棄
+	 //はしご関係のフラグ初期化
+	 ((UserData*)Save::GetData())->ins_bad_ladder = false;
+	 ((UserData*)Save::GetData())->bad_ladder_put = false;
+	 //板関係のフラグ初期化
+	 ((UserData*)Save::GetData())->ins_bad_flag = false;
+	 //障害物関係のフラグ初期化
+	 ((UserData*)Save::GetData())->break_bad_flag = false;
+
+
+	 //変換回数を初期値に戻す
+	 ((UserData*)Save::GetData())->conversion_num = 5;
+
+	 //------------------------------------------
 
 }
 
@@ -65,14 +118,14 @@ void CObjHero::Action()
 	{
 
 
-		m_vx = +5.0f;
+		m_vx = +6.5f;
 		m_posture = 1.0f;
 		m_ani_time += 1;                 //「m_ani_time += 1;」描画切り替え　
 	}
 
 	else if (Input::GetVKey(VK_LEFT) == true&& ((UserData*)Save::GetData())->move_flag == true)
 	{
-		m_vx = -5.0f;
+		m_vx = -6.5f;
 		m_posture = 0.0f;
 		m_ani_time += 1;
 	}
@@ -319,6 +372,24 @@ void CObjHero::Action()
 		((UserData*)Save::GetData())->break_bad_flag = false;
 	}
 
+	//説明画面表示
+	if (Input::GetVKey('W') == true)
+	{
+		operation_keyflag = true;
+		retry_keyflag = true;//説明画面表示時のみリトライ可能
+	}
+	else if (Input::GetVKey('E') == true&& operation_keyflag == true)
+	{
+		operation_keyflag = false;
+		retry_keyflag = false;
+	}
+
+
+	//リトライ
+	if (Input::GetVKey(VK_SPACE) == true&& retry_keyflag == true)
+	{
+		Scene::SetScene(new CSceneMain());
+	}
 
 
 	//アイテムの変換
@@ -482,24 +553,28 @@ void CObjHero::Draw()
 	//描画
 	Draw::Draw(0, &src, &dst, c, 0.0f);
 
+
 	//説明画面（仮）
-	//if (Input::GetVKey('W') == true)
-	//{
-	//	//切り取り位置の設定
-	//	src.m_top = 0.0f;
-	//	src.m_left = 0.0f;
-	//	src.m_right = 64.0f;
-	//	src.m_bottom = 64.0f;
+	if (operation_keyflag == true)
+	{
+		//切り取り位置の設定
+		src.m_top = 0.0f;
+		src.m_left = 0.0f;
+		src.m_right = 512.0f;
+		src.m_bottom = 512.0f;
 
 
-	//	//表示位置の設定
-	//	dst.m_top = 200.0;
-	//	dst.m_left = 400.0;
-	//	dst.m_right = dst.m_right = dst.m_left + 80.0;
-	//	dst.m_bottom = dst.m_top + 80.0;
+		//表示位置の設定
+		dst.m_top = 100.0;
+		dst.m_left = 160.0;
+		dst.m_right = dst.m_right = dst.m_left + 400.0;
+		dst.m_bottom = dst.m_top + 400.0;
 
-	//	//描画
-	//	Draw::Draw(16, &src, &dst, c, 0.0f);
+		//描画
+		Draw::Draw(19, &src, &dst, c, 0.0f);
+	}
+		
 
-	//}
+	
+	
 }

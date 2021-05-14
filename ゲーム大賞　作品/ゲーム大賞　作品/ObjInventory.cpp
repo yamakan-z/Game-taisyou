@@ -73,14 +73,8 @@ void CObjInventory::Draw()
 		Font::StrDraw(str, 10, 470, 20, c);
 	}
 
-	swprintf_s(str, L"1キー　変換・つるはし→板");
+	swprintf_s(str, L"Wキー　操作説明");
 	Font::StrDraw(str, 10, 170, 20, c);
-
-	swprintf_s(str, L"2キー　変換・板→はしご");
-	Font::StrDraw(str, 10, 190, 20, c);
-
-	swprintf_s(str, L"3キー　変換・はしご→つるはし");
-	Font::StrDraw(str, 10, 210, 20, c);
 
 	swprintf_s(str, L"残り変換回数:%d", ((UserData*)Save::GetData())->conversion_num);
 	Font::StrDraw(str, 10, 90, 20, d);
