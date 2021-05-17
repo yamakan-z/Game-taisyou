@@ -55,7 +55,14 @@ void CObjBlock::Init()
 	//--------------------------------------- 
 	
 	//90番　ゴール（旗）
-	//91番　ゴール（ポール）  
+	//91番　ゴール（ポール）
+	//19番  はしご看板
+	//20番  つるはし看板
+	//21番  鉄板看板
+	//22番  劣化はしご看板
+	//23番  劣化つるはし看板
+	//24番  劣化鉄板看板
+	//25番  看板棒
 	
 	
 	   
@@ -1701,6 +1708,174 @@ void CObjBlock::Draw()
 				//描画
 				Draw::Draw(1, &src, &dst, c2, 0.0f);
 			}
+
+			//はしご看板
+			if (m_map[i][j] == 19)
+			{
+
+				//描画カラー情報
+				float c2[4] = { 1.0f,1.0f,1.0f,1.0f };
+
+				//切り取り位置の設定
+				src.m_top = 0.0f;
+				src.m_left = 0.0f;
+				src.m_right = 64.0f;
+				src.m_bottom = 64.0f;
+
+
+				//表示位置の設定
+				dst.m_top = i * 64.0f;
+				dst.m_left = j * 64.0f + +m_scroll;
+				dst.m_right = dst.m_left + 64.0;
+				dst.m_bottom = dst.m_top + 64.0;
+
+				//描画
+				Draw::Draw(25, &src, &dst, c2, 0.0f);
+			}
+
+			//つるはし
+			if (m_map[i][j] == 20)
+			{
+
+				//描画カラー情報
+				float c2[4] = { 1.0f,1.0f,1.0f,1.0f };
+
+				//切り取り位置の設定
+				src.m_top = 0.0f;
+				src.m_left = 0.0f;
+				src.m_right = 64.0f;
+				src.m_bottom = 64.0f;
+
+
+				//表示位置の設定
+				dst.m_top = i * 64.0f;
+				dst.m_left = j * 64.0f + +m_scroll;
+				dst.m_right = dst.m_left + 64.0;
+				dst.m_bottom = dst.m_top + 64.0;
+
+				//描画
+				Draw::Draw(26, &src, &dst, c2, 0.0f);
+			}
+
+			//鉄板看板
+			if (m_map[i][j] == 21)
+			{
+
+				//描画カラー情報
+				float c2[4] = { 1.0f,1.0f,1.0f,1.0f };
+
+				//切り取り位置の設定
+				src.m_top = 0.0f;
+				src.m_left = 0.0f;
+				src.m_right = 64.0f;
+				src.m_bottom = 64.0f;
+
+
+				//表示位置の設定
+				dst.m_top = i * 64.0f;
+				dst.m_left = j * 64.0f + +m_scroll;
+				dst.m_right = dst.m_left + 64.0;
+				dst.m_bottom = dst.m_top + 64.0;
+
+				//描画
+				Draw::Draw(27, &src, &dst, c2, 0.0f);
+			}
+
+			//劣化はしご看板
+			if (m_map[i][j] == 22)
+			{
+
+				//描画カラー情報
+				float c2[4] = { 1.0f,1.0f,1.0f,1.0f };
+
+				//切り取り位置の設定
+				src.m_top = 0.0f;
+				src.m_left = 0.0f;
+				src.m_right = 64.0f;
+				src.m_bottom = 64.0f;
+
+
+				//表示位置の設定
+				dst.m_top = i * 64.0f;
+				dst.m_left = j * 64.0f + +m_scroll;
+				dst.m_right = dst.m_left + 64.0;
+				dst.m_bottom = dst.m_top + 64.0;
+
+				//描画
+				Draw::Draw(28, &src, &dst, c2, 0.0f);
+			}
+
+			//劣化つるはし看板
+			if (m_map[i][j] == 23)
+			{
+
+				//描画カラー情報
+				float c2[4] = { 1.0f,1.0f,1.0f,1.0f };
+
+				//切り取り位置の設定
+				src.m_top = 0.0f;
+				src.m_left = 0.0f;
+				src.m_right = 64.0f;
+				src.m_bottom = 64.0f;
+
+
+				//表示位置の設定
+				dst.m_top = i * 64.0f;
+				dst.m_left = j * 64.0f + +m_scroll;
+				dst.m_right = dst.m_left + 64.0;
+				dst.m_bottom = dst.m_top + 64.0;
+
+				//描画
+				Draw::Draw(29, &src, &dst, c2, 0.0f);
+			}
+
+			//劣化鉄板看板
+			if (m_map[i][j] == 24)
+			{
+
+				//描画カラー情報
+				float c2[4] = { 1.0f,1.0f,1.0f,1.0f };
+
+				//切り取り位置の設定
+				src.m_top = 0.0f;
+				src.m_left = 0.0f;
+				src.m_right = 64.0f;
+				src.m_bottom = 64.0f;
+
+
+				//表示位置の設定
+				dst.m_top = i * 64.0f;
+				dst.m_left = j * 64.0f + +m_scroll;
+				dst.m_right = dst.m_left + 64.0;
+				dst.m_bottom = dst.m_top + 64.0;
+
+				//描画
+				Draw::Draw(30, &src, &dst, c2, 0.0f);
+			}
+
+			////看板棒
+			//if (m_map[i][j] == 25)
+			//{
+
+			//	//描画カラー情報
+			//	float c2[4] = { 1.0f,1.0f,1.0f,1.0f };
+
+			//	//切り取り位置の設定
+			//	src.m_top = 0.0f;
+			//	src.m_left = 0.0f;
+			//	src.m_right = 64.0f;
+			//	src.m_bottom = 64.0f;
+
+
+			//	//表示位置の設定
+			//	dst.m_top = i * 64.0f;
+			//	dst.m_left = j * 64.0f + +m_scroll;
+			//	dst.m_right = dst.m_left + 64.0;
+			//	dst.m_bottom = dst.m_top + 64.0;
+
+			//	//描画
+			//	Draw::Draw(31, &src, &dst, c2, 0.0f);
+			//}
 		}
 	}
 }

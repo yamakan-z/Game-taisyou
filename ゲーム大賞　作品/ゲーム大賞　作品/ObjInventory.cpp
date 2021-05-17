@@ -136,7 +136,7 @@ void CObjInventory::Draw()
 	dst.m_bottom = dst.m_top + 200.0;
 
 	//描画
-	Draw::Draw(21, &src, &dst, c, 0.0f);
+	Draw::Draw(24, &src, &dst, c, 0.0f);
 
 	//空白欄(緑)
 	
@@ -156,7 +156,7 @@ void CObjInventory::Draw()
 			dst.m_bottom = dst.m_top + 80.0;
 
 			//描画
-			Draw::Draw(17, &src, &dst, c, 0.0f);
+			Draw::Draw(20, &src, &dst, c, 0.0f);
 		}
 
 
@@ -178,7 +178,7 @@ void CObjInventory::Draw()
 			dst.m_bottom = dst.m_top + 80.0;
 
 			//描画
-			Draw::Draw(18, &src, &dst, c, 0.0f);
+			Draw::Draw(21, &src, &dst, c, 0.0f);
 		}
 
 
@@ -200,7 +200,7 @@ void CObjInventory::Draw()
 			dst.m_bottom = dst.m_top + 80.0;
 
 			//描画
-			Draw::Draw(19, &src, &dst, c, 0.0f);
+			Draw::Draw(22, &src, &dst, c, 0.0f);
 		}
 
 	//残り変換回数
@@ -538,217 +538,217 @@ void CObjInventory::Draw()
 		Draw::Draw(13, &src, &dst, c, 0.0f);
 	}
 
-	////アイテム数(劣化)
+	//アイテム数(劣化)
 
-	////はしご(劣化)
+	//はしご(劣化)
 
-	//if (((UserData*)Save::GetData())->ladder_item == 0)
-	//{
-	//	//切り取り位置の設定
-	//	src.m_top = 0.0f;
-	//	src.m_left = 0.0f;
-	//	src.m_right = 184.0f;
-	//	src.m_bottom = 184.0f;
+	if (((UserData*)Save::GetData())->ladder_item == 0)
+	{
+		//切り取り位置の設定
+		src.m_top = 0.0f;
+		src.m_left = 0.0f;
+		src.m_right = 184.0f;
+		src.m_bottom = 184.0f;
 
-	//	//表示位置の設定
-	//	dst.m_top = 17.0f;
-	//	dst.m_left = 300.0f;
-	//	dst.m_right = dst.m_left + 64.0;
-	//	dst.m_bottom = dst.m_top + 64.0;
+		//表示位置の設定
+		dst.m_top = 17.0f;
+		dst.m_left = 300.0f;
+		dst.m_right = dst.m_left + 64.0;
+		dst.m_bottom = dst.m_top + 64.0;
 
-	//	//描画
-	//	Draw::Draw(8, &src, &dst, c, 0.0f);
-	//}
-	//if (((UserData*)Save::GetData())->ladder_item == 1)
-	//{
-	//	//切り取り位置の設定
-	//	src.m_top = 0.0f;
-	//	src.m_left = 0.0f;
-	//	src.m_right = 184.0f;
-	//	src.m_bottom = 184.0f;
+		//描画
+		Draw::Draw(8, &src, &dst, c, 0.0f);
+	}
+	if (((UserData*)Save::GetData())->ladder_item == 1)
+	{
+		//切り取り位置の設定
+		src.m_top = 0.0f;
+		src.m_left = 0.0f;
+		src.m_right = 184.0f;
+		src.m_bottom = 184.0f;
 
-	//	//表示位置の設定
-	//	dst.m_top = 17.0f;
-	//	dst.m_left = 300.0f;
-	//	dst.m_right = dst.m_left + 64.0;
-	//	dst.m_bottom = dst.m_top + 64.0;
+		//表示位置の設定
+		dst.m_top = 17.0f;
+		dst.m_left = 300.0f;
+		dst.m_right = dst.m_left + 64.0;
+		dst.m_bottom = dst.m_top + 64.0;
 
-	//	//描画
-	//	Draw::Draw(9, &src, &dst, c, 0.0f);
-	//}
-	//if (((UserData*)Save::GetData())->ladder_item == 2)
-	//{
-	//	//切り取り位置の設定
-	//	src.m_top = 0.0f;
-	//	src.m_left = 0.0f;
-	//	src.m_right = 184.0f;
-	//	src.m_bottom = 184.0f;
+		//描画
+		Draw::Draw(9, &src, &dst, c, 0.0f);
+	}
+	if (((UserData*)Save::GetData())->ladder_item == 2)
+	{
+		//切り取り位置の設定
+		src.m_top = 0.0f;
+		src.m_left = 0.0f;
+		src.m_right = 184.0f;
+		src.m_bottom = 184.0f;
 
-	//	//表示位置の設定
-	//	dst.m_top = 17.0f;
-	//	dst.m_left = 300.0f;
-	//	dst.m_right = dst.m_left + 64.0;
-	//	dst.m_bottom = dst.m_top + 64.0;
+		//表示位置の設定
+		dst.m_top = 17.0f;
+		dst.m_left = 300.0f;
+		dst.m_right = dst.m_left + 64.0;
+		dst.m_bottom = dst.m_top + 64.0;
 
-	//	//描画
-	//	Draw::Draw(10, &src, &dst, c, 0.0f);
-	//}
-	//if (((UserData*)Save::GetData())->ladder_item == 3)
-	//{
-	//	//切り取り位置の設定
-	//	src.m_top = 0.0f;
-	//	src.m_left = 0.0f;
-	//	src.m_right = 184.0f;
-	//	src.m_bottom = 184.0f;
+		//描画
+		Draw::Draw(10, &src, &dst, c, 0.0f);
+	}
+	if (((UserData*)Save::GetData())->ladder_item == 3)
+	{
+		//切り取り位置の設定
+		src.m_top = 0.0f;
+		src.m_left = 0.0f;
+		src.m_right = 184.0f;
+		src.m_bottom = 184.0f;
 
-	//	//表示位置の設定
-	//	dst.m_top = 17.0f;
-	//	dst.m_left = 300.0f;
-	//	dst.m_right = dst.m_left + 64.0;
-	//	dst.m_bottom = dst.m_top + 64.0;
+		//表示位置の設定
+		dst.m_top = 17.0f;
+		dst.m_left = 300.0f;
+		dst.m_right = dst.m_left + 64.0;
+		dst.m_bottom = dst.m_top + 64.0;
 
-	//	//描画
-	//	Draw::Draw(11, &src, &dst, c, 0.0f);
-	//}
-	//if (((UserData*)Save::GetData())->ladder_item == 4)
-	//{
-	//	//切り取り位置の設定
-	//	src.m_top = 0.0f;
-	//	src.m_left = 0.0f;
-	//	src.m_right = 184.0f;
-	//	src.m_bottom = 184.0f;
+		//描画
+		Draw::Draw(11, &src, &dst, c, 0.0f);
+	}
+	if (((UserData*)Save::GetData())->ladder_item == 4)
+	{
+		//切り取り位置の設定
+		src.m_top = 0.0f;
+		src.m_left = 0.0f;
+		src.m_right = 184.0f;
+		src.m_bottom = 184.0f;
 
-	//	//表示位置の設定
-	//	dst.m_top = 17.0f;
-	//	dst.m_left = 300.0f;
-	//	dst.m_right = dst.m_left + 64.0;
-	//	dst.m_bottom = dst.m_top + 64.0;
+		//表示位置の設定
+		dst.m_top = 17.0f;
+		dst.m_left = 300.0f;
+		dst.m_right = dst.m_left + 64.0;
+		dst.m_bottom = dst.m_top + 64.0;
 
-	//	//描画
-	//	Draw::Draw(12, &src, &dst, c, 0.0f);
-	//}
-	//if (((UserData*)Save::GetData())->ladder_item == 5)
-	//{
-	//	//切り取り位置の設定
-	//	src.m_top = 0.0f;
-	//	src.m_left = 0.0f;
-	//	src.m_right = 184.0f;
-	//	src.m_bottom = 184.0f;
+		//描画
+		Draw::Draw(12, &src, &dst, c, 0.0f);
+	}
+	if (((UserData*)Save::GetData())->ladder_item == 5)
+	{
+		//切り取り位置の設定
+		src.m_top = 0.0f;
+		src.m_left = 0.0f;
+		src.m_right = 184.0f;
+		src.m_bottom = 184.0f;
 
-	//	//表示位置の設定
-	//	dst.m_top = 17.0f;
-	//	dst.m_left = 300.0f;
-	//	dst.m_right = dst.m_left + 64.0;
-	//	dst.m_bottom = dst.m_top + 64.0;
+		//表示位置の設定
+		dst.m_top = 17.0f;
+		dst.m_left = 300.0f;
+		dst.m_right = dst.m_left + 64.0;
+		dst.m_bottom = dst.m_top + 64.0;
 
-	//	//描画
-	//	Draw::Draw(13, &src, &dst, c, 0.0f);
-	//}
+		//描画
+		Draw::Draw(13, &src, &dst, c, 0.0f);
+	}
 
 	//つるはし(劣化)
 
-//if (((UserData*)Save::GetData())->pick_item == 0)
-//{
-//	//切り取り位置の設定
-//	src.m_top = 0.0f;
-//	src.m_left = 0.0f;
-//	src.m_right = 184.0f;
-//	src.m_bottom = 184.0f;
-//
-//	//表示位置の設定
-//	dst.m_top = 17.0f;
-//	dst.m_left = 200.0f;
-//	dst.m_right = dst.m_left + 64.0;
-//	dst.m_bottom = dst.m_top + 64.0;
-//
-//	//描画
-//	Draw::Draw(8, &src, &dst, c, 0.0f);
-//}
-//if (((UserData*)Save::GetData())->pick_item == 1)
-//{
-//	//切り取り位置の設定
-//	src.m_top = 0.0f;
-//	src.m_left = 0.0f;
-//	src.m_right = 184.0f;
-//	src.m_bottom = 184.0f;
-//
-//	//表示位置の設定
-//	dst.m_top = 17.0f;
-//	dst.m_left = 200.0f;
-//	dst.m_right = dst.m_left + 64.0;
-//	dst.m_bottom = dst.m_top + 64.0;
-//
-//	//描画
-//	Draw::Draw(9, &src, &dst, c, 0.0f);
-//}
-//if (((UserData*)Save::GetData())->pick_item == 2)
-//{
-//	//切り取り位置の設定
-//	src.m_top = 0.0f;
-//	src.m_left = 0.0f;
-//	src.m_right = 184.0f;
-//	src.m_bottom = 184.0f;
-//
-//	//表示位置の設定
-//	dst.m_top = 17.0f;
-//	dst.m_left = 200.0f;
-//	dst.m_right = dst.m_left + 64.0;
-//	dst.m_bottom = dst.m_top + 64.0;
-//
-//	//描画
-//	Draw::Draw(10, &src, &dst, c, 0.0f);
-//}
-//if (((UserData*)Save::GetData())->pick_item == 3)
-//{
-//	//切り取り位置の設定
-//	src.m_top = 0.0f;
-//	src.m_left = 0.0f;
-//	src.m_right = 184.0f;
-//	src.m_bottom = 184.0f;
-//
-//	//表示位置の設定
-//	dst.m_top = 17.0f;
-//	dst.m_left = 200.0f;
-//	dst.m_right = dst.m_left + 64.0;
-//	dst.m_bottom = dst.m_top + 64.0;
-//
-//	//描画
-//	Draw::Draw(11, &src, &dst, c, 0.0f);
-//}
-//if (((UserData*)Save::GetData())->pick_item == 4)
-//{
-//	//切り取り位置の設定
-//	src.m_top = 0.0f;
-//	src.m_left = 0.0f;
-//	src.m_right = 184.0f;
-//	src.m_bottom = 184.0f;
-//
-//	//表示位置の設定
-//	dst.m_top = 17.0f;
-//	dst.m_left = 200.0f;
-//	dst.m_right = dst.m_left + 64.0;
-//	dst.m_bottom = dst.m_top + 64.0;
-//
-//	//描画
-//	Draw::Draw(12, &src, &dst, c, 0.0f);
-//}
-//if (((UserData*)Save::GetData())->pick_item == 5)
-//{
-//	//切り取り位置の設定
-//	src.m_top = 0.0f;
-//	src.m_left = 0.0f;
-//	src.m_right = 184.0f;
-//	src.m_bottom = 184.0f;
-//
-//	//表示位置の設定
-//	dst.m_top = 17.0f;
-//	dst.m_left = 200.0f;
-//	dst.m_right = dst.m_left + 64.0;
-//	dst.m_bottom = dst.m_top + 64.0;
-//
-//	//描画
-//	Draw::Draw(13, &src, &dst, c, 0.0f);
-//}
+if (((UserData*)Save::GetData())->pick_item == 0)
+{
+	//切り取り位置の設定
+	src.m_top = 0.0f;
+	src.m_left = 0.0f;
+	src.m_right = 184.0f;
+	src.m_bottom = 184.0f;
+
+	//表示位置の設定
+	dst.m_top = 17.0f;
+	dst.m_left = 200.0f;
+	dst.m_right = dst.m_left + 64.0;
+	dst.m_bottom = dst.m_top + 64.0;
+
+	//描画
+	Draw::Draw(8, &src, &dst, c, 0.0f);
+}
+if (((UserData*)Save::GetData())->pick_item == 1)
+{
+	//切り取り位置の設定
+	src.m_top = 0.0f;
+	src.m_left = 0.0f;
+	src.m_right = 184.0f;
+	src.m_bottom = 184.0f;
+
+	//表示位置の設定
+	dst.m_top = 17.0f;
+	dst.m_left = 200.0f;
+	dst.m_right = dst.m_left + 64.0;
+	dst.m_bottom = dst.m_top + 64.0;
+
+	//描画
+	Draw::Draw(9, &src, &dst, c, 0.0f);
+}
+if (((UserData*)Save::GetData())->pick_item == 2)
+{
+	//切り取り位置の設定
+	src.m_top = 0.0f;
+	src.m_left = 0.0f;
+	src.m_right = 184.0f;
+	src.m_bottom = 184.0f;
+
+	//表示位置の設定
+	dst.m_top = 17.0f;
+	dst.m_left = 200.0f;
+	dst.m_right = dst.m_left + 64.0;
+	dst.m_bottom = dst.m_top + 64.0;
+
+	//描画
+	Draw::Draw(10, &src, &dst, c, 0.0f);
+}
+if (((UserData*)Save::GetData())->pick_item == 3)
+{
+	//切り取り位置の設定
+	src.m_top = 0.0f;
+	src.m_left = 0.0f;
+	src.m_right = 184.0f;
+	src.m_bottom = 184.0f;
+
+	//表示位置の設定
+	dst.m_top = 17.0f;
+	dst.m_left = 200.0f;
+	dst.m_right = dst.m_left + 64.0;
+	dst.m_bottom = dst.m_top + 64.0;
+
+	//描画
+	Draw::Draw(11, &src, &dst, c, 0.0f);
+}
+if (((UserData*)Save::GetData())->pick_item == 4)
+{
+	//切り取り位置の設定
+	src.m_top = 0.0f;
+	src.m_left = 0.0f;
+	src.m_right = 184.0f;
+	src.m_bottom = 184.0f;
+
+	//表示位置の設定
+	dst.m_top = 17.0f;
+	dst.m_left = 200.0f;
+	dst.m_right = dst.m_left + 64.0;
+	dst.m_bottom = dst.m_top + 64.0;
+
+	//描画
+	Draw::Draw(12, &src, &dst, c, 0.0f);
+}
+if (((UserData*)Save::GetData())->pick_item == 5)
+{
+	//切り取り位置の設定
+	src.m_top = 0.0f;
+	src.m_left = 0.0f;
+	src.m_right = 184.0f;
+	src.m_bottom = 184.0f;
+
+	//表示位置の設定
+	dst.m_top = 17.0f;
+	dst.m_left = 200.0f;
+	dst.m_right = dst.m_left + 64.0;
+	dst.m_bottom = dst.m_top + 64.0;
+
+	//描画
+	Draw::Draw(13, &src, &dst, c, 0.0f);
+}
 
      //板(劣化)
 
@@ -762,7 +762,7 @@ if (((UserData*)Save::GetData())->board_item == 0)
 
 	//表示位置の設定
 	dst.m_top = 17.0f;
-	dst.m_left = 300.0f;
+	dst.m_left = 395.0f;
 	dst.m_right = dst.m_left + 64.0;
 	dst.m_bottom = dst.m_top + 64.0;
 
@@ -779,7 +779,7 @@ if (((UserData*)Save::GetData())->board_item == 1)
 
 	//表示位置の設定
 	dst.m_top = 17.0f;
-	dst.m_left = 300.0f;
+	dst.m_left = 395.0f;
 	dst.m_right = dst.m_left + 64.0;
 	dst.m_bottom = dst.m_top + 64.0;
 
@@ -796,7 +796,7 @@ if (((UserData*)Save::GetData())->board_item == 2)
 
 	//表示位置の設定
 	dst.m_top = 17.0f;
-	dst.m_left = 300.0f;
+	dst.m_left = 395.0f;
 	dst.m_right = dst.m_left + 64.0;
 	dst.m_bottom = dst.m_top + 64.0;
 
@@ -813,7 +813,7 @@ if (((UserData*)Save::GetData())->board_item == 3)
 
 	//表示位置の設定
 	dst.m_top = 17.0f;
-	dst.m_left = 300.0f;
+	dst.m_left = 395.0f;
 	dst.m_right = dst.m_left + 64.0;
 	dst.m_bottom = dst.m_top + 64.0;
 
@@ -830,7 +830,7 @@ if (((UserData*)Save::GetData())->board_item == 4)
 
 	//表示位置の設定
 	dst.m_top = 17.0f;
-	dst.m_left = 300.0f;
+	dst.m_left = 395.0f;
 	dst.m_right = dst.m_left + 64.0;
 	dst.m_bottom = dst.m_top + 64.0;
 
@@ -847,7 +847,7 @@ if (((UserData*)Save::GetData())->board_item == 5)
 
 	//表示位置の設定
 	dst.m_top = 17.0f;
-	dst.m_left = 300.0f;
+	dst.m_left = 395.0f;
 	dst.m_right = dst.m_left + 64.0;
 	dst.m_bottom = dst.m_top + 64.0;
 
@@ -981,7 +981,7 @@ if (((UserData*)Save::GetData())->board_item == 5)
 		dst.m_bottom = dst.m_top + 80.0;
 
 		//描画
-		Draw::Draw(20, &src, &dst, c, 0.0f);
+		Draw::Draw(23, &src, &dst, c, 0.0f);
 	}
 
 }
