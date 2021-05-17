@@ -551,7 +551,7 @@ void CObjInventory::Draw()
 
 	//はしご(劣化)
 
-	if (((UserData*)Save::GetData())->ladder_item == 0)
+	if (((UserData*)Save::GetData())->bad_ladder == 0)
 	{
 		//切り取り位置の設定
 		src.m_top = 0.0f;
@@ -568,7 +568,7 @@ void CObjInventory::Draw()
 		//描画
 		Draw::Draw(8, &src, &dst, c, 0.0f);
 	}
-	if (((UserData*)Save::GetData())->ladder_item == 1)
+	if (((UserData*)Save::GetData())->bad_ladder == 1)
 	{
 		//切り取り位置の設定
 		src.m_top = 0.0f;
@@ -585,7 +585,7 @@ void CObjInventory::Draw()
 		//描画
 		Draw::Draw(9, &src, &dst, c, 0.0f);
 	}
-	if (((UserData*)Save::GetData())->ladder_item == 2)
+	if (((UserData*)Save::GetData())->bad_ladder == 2)
 	{
 		//切り取り位置の設定
 		src.m_top = 0.0f;
@@ -602,7 +602,7 @@ void CObjInventory::Draw()
 		//描画
 		Draw::Draw(10, &src, &dst, c, 0.0f);
 	}
-	if (((UserData*)Save::GetData())->ladder_item == 3)
+	if (((UserData*)Save::GetData())->bad_ladder == 3)
 	{
 		//切り取り位置の設定
 		src.m_top = 0.0f;
@@ -619,7 +619,7 @@ void CObjInventory::Draw()
 		//描画
 		Draw::Draw(11, &src, &dst, c, 0.0f);
 	}
-	if (((UserData*)Save::GetData())->ladder_item == 4)
+	if (((UserData*)Save::GetData())->bad_ladder == 4)
 	{
 		//切り取り位置の設定
 		src.m_top = 0.0f;
@@ -636,7 +636,7 @@ void CObjInventory::Draw()
 		//描画
 		Draw::Draw(12, &src, &dst, c, 0.0f);
 	}
-	if (((UserData*)Save::GetData())->ladder_item == 5)
+	if (((UserData*)Save::GetData())->bad_ladder == 5)
 	{
 		//切り取り位置の設定
 		src.m_top = 0.0f;
@@ -656,7 +656,7 @@ void CObjInventory::Draw()
 
 	//つるはし(劣化)
 
-if (((UserData*)Save::GetData())->pick_item == 0)
+if (((UserData*)Save::GetData())->bad_pick == 0)
 {
 	//切り取り位置の設定
 	src.m_top = 0.0f;
@@ -673,7 +673,7 @@ if (((UserData*)Save::GetData())->pick_item == 0)
 	//描画
 	Draw::Draw(8, &src, &dst, c, 0.0f);
 }
-if (((UserData*)Save::GetData())->pick_item == 1)
+if (((UserData*)Save::GetData())->bad_pick == 1)
 {
 	//切り取り位置の設定
 	src.m_top = 0.0f;
@@ -690,7 +690,7 @@ if (((UserData*)Save::GetData())->pick_item == 1)
 	//描画
 	Draw::Draw(9, &src, &dst, c, 0.0f);
 }
-if (((UserData*)Save::GetData())->pick_item == 2)
+if (((UserData*)Save::GetData())->bad_pick == 2)
 {
 	//切り取り位置の設定
 	src.m_top = 0.0f;
@@ -707,7 +707,7 @@ if (((UserData*)Save::GetData())->pick_item == 2)
 	//描画
 	Draw::Draw(10, &src, &dst, c, 0.0f);
 }
-if (((UserData*)Save::GetData())->pick_item == 3)
+if (((UserData*)Save::GetData())->bad_pick == 3)
 {
 	//切り取り位置の設定
 	src.m_top = 0.0f;
@@ -724,7 +724,7 @@ if (((UserData*)Save::GetData())->pick_item == 3)
 	//描画
 	Draw::Draw(11, &src, &dst, c, 0.0f);
 }
-if (((UserData*)Save::GetData())->pick_item == 4)
+if (((UserData*)Save::GetData())->bad_pick == 4)
 {
 	//切り取り位置の設定
 	src.m_top = 0.0f;
@@ -741,7 +741,7 @@ if (((UserData*)Save::GetData())->pick_item == 4)
 	//描画
 	Draw::Draw(12, &src, &dst, c, 0.0f);
 }
-if (((UserData*)Save::GetData())->pick_item == 5)
+if (((UserData*)Save::GetData())->bad_pick == 5)
 {
 	//切り取り位置の設定
 	src.m_top = 0.0f;
@@ -761,7 +761,7 @@ if (((UserData*)Save::GetData())->pick_item == 5)
 
      //板(劣化)
 
-if (((UserData*)Save::GetData())->board_item == 0)
+if (((UserData*)Save::GetData())->bad_board == 0)
 {
 	//切り取り位置の設定
 	src.m_top = 0.0f;
@@ -778,7 +778,7 @@ if (((UserData*)Save::GetData())->board_item == 0)
 	//描画
 	Draw::Draw(8, &src, &dst, c, 0.0f);
 }
-if (((UserData*)Save::GetData())->board_item == 1)
+if (((UserData*)Save::GetData())->bad_board == 1)
 {
 	//切り取り位置の設定
 	src.m_top = 0.0f;
@@ -795,7 +795,7 @@ if (((UserData*)Save::GetData())->board_item == 1)
 	//描画
 	Draw::Draw(9, &src, &dst, c, 0.0f);
 }
-if (((UserData*)Save::GetData())->board_item == 2)
+if (((UserData*)Save::GetData())->bad_board == 2)
 {
 	//切り取り位置の設定
 	src.m_top = 0.0f;
@@ -812,7 +812,7 @@ if (((UserData*)Save::GetData())->board_item == 2)
 	//描画
 	Draw::Draw(10, &src, &dst, c, 0.0f);
 }
-if (((UserData*)Save::GetData())->board_item == 3)
+if (((UserData*)Save::GetData())->bad_board == 3)
 {
 	//切り取り位置の設定
 	src.m_top = 0.0f;
@@ -829,7 +829,7 @@ if (((UserData*)Save::GetData())->board_item == 3)
 	//描画
 	Draw::Draw(11, &src, &dst, c, 0.0f);
 }
-if (((UserData*)Save::GetData())->board_item == 4)
+if (((UserData*)Save::GetData())->bad_board == 4)
 {
 	//切り取り位置の設定
 	src.m_top = 0.0f;
@@ -846,7 +846,7 @@ if (((UserData*)Save::GetData())->board_item == 4)
 	//描画
 	Draw::Draw(12, &src, &dst, c, 0.0f);
 }
-if (((UserData*)Save::GetData())->board_item == 5)
+if (((UserData*)Save::GetData())->bad_board == 5)
 {
 	//切り取り位置の設定
 	src.m_top = 0.0f;
