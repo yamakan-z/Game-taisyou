@@ -65,6 +65,7 @@ void CSceneMain::InitScene()
 	Draw::LoadImageW(L"劣化つるはし看板.png", 29, TEX_SIZE_512);
 	Draw::LoadImageW(L"劣化鉄板看板.png", 30, TEX_SIZE_512);
 	Draw::LoadImageW(L"看板棒.png", 31, TEX_SIZE_512);
+	Draw::LoadImageW(L"ブロック劣化.png", 32, TEX_SIZE_512);
 
 	//音楽読み込み
 	Audio::LoadAudio(0, L"GameMain(仮).wav", BACK_MUSIC);
