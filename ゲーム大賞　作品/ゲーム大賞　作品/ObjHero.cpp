@@ -135,6 +135,17 @@ void CObjHero::Action()
 		m_ani_time = 0;
 	}
 
+	if (m_ani_time > m_ani_max_time)
+	{
+		m_ani_frame += 1;
+		m_ani_time = 0;
+	}
+
+	if (m_ani_frame == 4)
+	{
+		m_ani_frame = 1;
+	}
+
 
 	//İ’u(‚Í‚µ‚²j
 	if (Input::GetVKey('A') == true && ((UserData*)Save::GetData())->ladder_flag == true)

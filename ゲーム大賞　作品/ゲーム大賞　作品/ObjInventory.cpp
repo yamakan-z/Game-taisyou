@@ -100,7 +100,16 @@ void CObjInventory::Draw()
 	swprintf_s(str, L"変換済みアイテム数:%.0f", ((UserData*)Save::GetData())->converted_item);
 	Font::StrDraw(str, 10, 420, 20, d);
 
-	
+	if (((UserData*)Save::GetData())->ins_place == true)
+	{
+		swprintf_s(str, L"true");
+		Font::StrDraw(str, 10, 490, 20, d);
+	}
+	if (((UserData*)Save::GetData())->ins_flag == true)
+	{
+		swprintf_s(str, L"true5");
+		Font::StrDraw(str, 10, 520, 20, d);
+	}
 
 
 	//インベントリ
