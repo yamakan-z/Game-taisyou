@@ -12,23 +12,23 @@
 using namespace GameL;
 
 //使用ヘッダー
-#include"SceneGameClear.h"
+#include"SceneStageClear.h"
 #include"GameHead.h"
 
 //コンストラクタ
-CSceneGameClear::CSceneGameClear()
+CSceneStageClear::CSceneStageClear()
 {
 
 }
 
 //デストラクタ
-CSceneGameClear::~CSceneGameClear()
+CSceneStageClear::~CSceneStageClear()
 {
 
 }
 
 //初期化メソッド
-void CSceneGameClear::InitScene()
+void CSceneStageClear::InitScene()
 {
 	//出力させる文字のグラフィックを作成
 	Font::SetStrTex(L"Return_to_title:ENTER_KEY");
@@ -38,34 +38,36 @@ void CSceneGameClear::InitScene()
 
 	//ボリュームを1.0に戻す
 	float v = Audio::VolumeMaster(0);
-	v = Audio::VolumeMaster(0.1 - v);
+	v = Audio::VolumeMaster(1.0 - v);
 
 	//音楽スタート
 	Audio::Start(0);
 
 	//ゲームクリアオブジェクト作成
-	CObjGameClear* obj = new CObjGameClear();
-	Objs::InsertObj(obj, OBJ_GAME_CLEAR, 10);
+	CObjStageClear* obj = new CObjStageClear();
+	Objs::InsertObj(obj, OBJ_STAGE_CLEAR, 10);
 
 	//画像読み込み
 	Draw::LoadImageW(L"ゲームクリア.png", 1, TEX_SIZE_1024);
 
-	//オブジェクト作成
-	CObjgameClearBackground* back = new CObjgameClearBackground();
-	Objs::InsertObj(back, OBJ_GAME_CLEAR_BACKGROUND, 1);
+	////オブジェクト作成
+	//CObjgameClearBackground* back = new CObjgameClearBackground();
+	//Objs::InsertObj(back, OBJ_GAME_CLEAR_BACKGROUND, 1);
 
 	//音楽情報の読み込み
 	Audio::LoadAudio(0, L"GameClear(仮).wav", SOUND_TYPE::BACK_MUSIC);
 
+	//ボリュームを1.0に戻す
 	v = Audio::VolumeMaster(0);
-	v = Audio::VolumeMaster(0.1 - v);
+	v = Audio::VolumeMaster((1.0 - v));
 
 	//音楽スタート
 	Audio::Start(0);
+
 }
 
 //実行中メソッド
-void CSceneGameClear::Scene()
+void CSceneStageClear::Scene()
 {
 
 }

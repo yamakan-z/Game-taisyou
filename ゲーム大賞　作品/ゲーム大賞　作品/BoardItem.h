@@ -23,7 +23,6 @@ public:
 	}
 
 private:
-	int m_mapR[10][100];//マップ情報（板）
 
 	float m_scroll;//左右スクロール用
 

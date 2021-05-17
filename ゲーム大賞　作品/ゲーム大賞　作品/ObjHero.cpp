@@ -34,6 +34,12 @@ void CObjHero::Init()
 	 //踏んでいるブロックの種類を確認
 	 m_block_type = 0;
 
+	 //操作方法表示用のキーフラグ
+	 operation_keyflag = false;
+
+	 //リトライ用のキーフラグ
+	 retry_keyflag = false;
+
 	 //当たり判定用HitBoxを作成
 	 Hits::SetHitBox(this, m_px, m_py, 64, 64, ELEMENT_PLAYER, OBJ_HERO, 1);
 
@@ -41,6 +47,53 @@ void CObjHero::Init()
 	 conversionL = true;
 	 conversionB = true;
 	 conversionP = true;
+
+
+
+	 //フラグの初期化---------------------------------
+	  
+	//アイテム関係フラグ初期化
+	 ((UserData*)Save::GetData())->item = 0;
+	 ((UserData*)Save::GetData())->ladder_item = 0;
+	 ((UserData*)Save::GetData())->pick_item = 0;
+	 ((UserData*)Save::GetData())->board_item = 0;
+
+	 //変換済アイテム
+	 ((UserData*)Save::GetData())->converted_item = 0;//変換済みアイテムの総数
+	 ((UserData*)Save::GetData())->converted_board = 0;//変換済み板アイテム
+	 ((UserData*)Save::GetData())->converted_ladder = 0;//変換済みはしごアイテム
+	 ((UserData*)Save::GetData())->converted_pick = 0;//変換済みつるはしアイテム
+
+	 //劣化アイテム
+	 ((UserData*)Save::GetData())->bad_board = 0;//劣化板アイテム
+	 ((UserData*)Save::GetData())->bad_ladder = 0;//劣化はしごアイテム
+	 ((UserData*)Save::GetData())->bad_pick = 0;//劣化つるはしアイテム
+
+
+	 //ギミック関係フラグ初期化
+	 //板関係のフラグ初期化
+	 ((UserData*)Save::GetData())->ins_flag = false;
+	 //障害物関係のフラグ初期化
+	 ((UserData*)Save::GetData())->break_flag = false;
+	 //はしご関係のフラグ初期化
+	 ((UserData*)Save::GetData())->ins_ladder = false;
+	 ((UserData*)Save::GetData())->ladder = false;
+
+
+	 //劣化ギミック関係のフラグ破棄
+	 //はしご関係のフラグ初期化
+	 ((UserData*)Save::GetData())->ins_bad_ladder = false;
+	 ((UserData*)Save::GetData())->bad_ladder_put = false;
+	 //板関係のフラグ初期化
+	 ((UserData*)Save::GetData())->ins_bad_flag = false;
+	 //障害物関係のフラグ初期化
+	 ((UserData*)Save::GetData())->break_bad_flag = false;
+
+
+	 //変換回数を初期値に戻す
+	 ((UserData*)Save::GetData())->conversion_num = 5;
+
+	 //------------------------------------------
 
 }
 
@@ -65,14 +118,14 @@ void CObjHero::Action()
 	{
 
 
-		m_vx = +5.0f;
+		m_vx = +6.5f;
 		m_posture = 1.0f;
 		m_ani_time += 1;                 //「m_ani_time += 1;」描画切り替え　
 	}
 
 	else if (Input::GetVKey(VK_LEFT) == true&& ((UserData*)Save::GetData())->move_flag == true)
 	{
-		m_vx = -5.0f;
+		m_vx = -6.5f;
 		m_posture = 0.0f;
 		m_ani_time += 1;
 	}
@@ -91,14 +144,54 @@ void CObjHero::Action()
 		//設置後、はしごアイテム＆アイテム総数-1
 		if (((UserData*)Save::GetData())->ins_ladder_done == true)
 		{
-			((UserData*)Save::GetData())->item -= 1;
-			((UserData*)Save::GetData())->ladder_item -= 1;
+
+			//アイテムの設置音を鳴らす
+			Audio::Start(1);
+
+			//アイテム使用時、変換済みアイテムを優先して使用する
+			if (((UserData*)Save::GetData())->converted_ladder >= 1)
+			{
+				((UserData*)Save::GetData())->item -= 1;
+				((UserData*)Save::GetData())->converted_item -= 1;
+				((UserData*)Save::GetData())->converted_ladder -= 1;
+			}
+			else
+			{
+				((UserData*)Save::GetData())->item -= 1;
+				((UserData*)Save::GetData())->ladder_item -= 1;
+			}
 			((UserData*)Save::GetData())->ins_ladder_done = false;
 		}
 	}
 	else
 	{
 		((UserData*)Save::GetData())->ins_ladder = false;
+	}
+
+
+	//設置(劣化はしご）
+	if (Input::GetVKey('A') == true && ((UserData*)Save::GetData())->bad_ladder_flag == true)
+	{
+		((UserData*)Save::GetData())->ins_bad_ladder = true;//はしご設置のフラグ
+
+		//設置後、劣化はしごアイテム＆アイテム総数-1
+		if (((UserData*)Save::GetData())->ins_bad_ladder_done == true)
+		{
+
+			//アイテムの設置音を鳴らす
+			Audio::Start(1);
+
+			((UserData*)Save::GetData())->item -= 1;
+			((UserData*)Save::GetData())->bad_ladder -= 1;
+
+			((UserData*)Save::GetData())->ins_bad_ladder_done = false;
+			
+	
+		}
+	}
+	else
+	{
+		((UserData*)Save::GetData())->ins_bad_ladder = false;
 	}
 
 
@@ -109,13 +202,25 @@ void CObjHero::Action()
 		{*/
 			//上移動時は左右移動を受け付けない
 			((UserData*)Save::GetData())->move_flag = false;
-			m_vy = -15.0f;
+			m_vy = -20.0f;
 		/*}*/
 		
 	}
+
+	//はしごがある状態だと上へ移動（劣化はしご用）
+	if (((UserData*)Save::GetData())->low_up_flag == true && Input::GetVKey(VK_UP) == true)
+	{
+		/*if (m_hit_down==true)
+		{*/
+		//上移動時は左右移動を受け付けない
+		((UserData*)Save::GetData())->move_flag = false;
+		m_vy = -15.0f;
+		/*}*/
+
+	}
 	
-	//設置(板）
-	if (Input::GetVKey('X') == true&& ((UserData*)Save::GetData())->ins_place==true)
+	//板設置
+	if (Input::GetVKey('S') == true&& ((UserData*)Save::GetData())->ins_place==true)
 	{
 		
 
@@ -128,8 +233,19 @@ void CObjHero::Action()
 			//アイテムの設置音を鳴らす
 			Audio::Start(1);
 
-		   ((UserData*)Save::GetData())->item -= 1;
-		   ((UserData*)Save::GetData())->board_item -= 1;
+			//アイテム使用時、変換済みアイテムを優先して使用する
+			if (((UserData*)Save::GetData())->converted_board >= 1)
+			{
+				((UserData*)Save::GetData())->item -= 1;
+				((UserData*)Save::GetData())->converted_item -= 1;
+				((UserData*)Save::GetData())->converted_board -= 1;
+			}
+			else
+			{
+				((UserData*)Save::GetData())->item -= 1;
+				((UserData*)Save::GetData())->board_item -= 1;
+			}
+		   
 		   ((UserData*)Save::GetData())->ins_done = false;
 	    }
 
@@ -139,25 +255,39 @@ void CObjHero::Action()
 		((UserData*)Save::GetData())->ins_flag = false;
 	}
 	
-	//設置(はしご）
-	if (Input::GetVKey('A') == true&&((UserData*)Save::GetData())->ladder_flag==true)
-	{	
-		((UserData*)Save::GetData())->ins_ladder = true;//はしご設置のフラグ
 
-		//設置後、はしごアイテム＆アイテム総数-1
-	    if (((UserData*)Save::GetData())->ins_ladder_done == true)
-	     {
+	//劣化板設置
+	if (Input::GetVKey('S') == true && ((UserData*)Save::GetData())->ins_bad_place == true)
+	{
+
+
+		((UserData*)Save::GetData())->ins_bad_flag = true;
+
+
+		//設置後、劣化板アイテム＆アイテム総数-1
+		if (((UserData*)Save::GetData())->ins_bad_done == true)
+		{
 			//アイテムの設置音を鳴らす
 			Audio::Start(1);
 
-		     ((UserData*)Save::GetData())->item -= 1;
-		     ((UserData*)Save::GetData())->ladder_item -= 1;
-		     ((UserData*)Save::GetData())->ins_ladder_done = false;
-	     }
+			((UserData*)Save::GetData())->item -= 1;
+			((UserData*)Save::GetData())->bad_board -= 1;
+				
+			
+
+			((UserData*)Save::GetData())->ins_bad_done = false;
+		}
+
+	}
+	else
+	{
+		((UserData*)Save::GetData())->ins_bad_flag = false;
 	}
 
+
+
 	//障害物破壊
-	if (Input::GetVKey('W') == true&& ((UserData*)Save::GetData())->break_point==true)
+	if (Input::GetVKey('D') == true&& ((UserData*)Save::GetData())->break_point==true)
 	{
 
 		((UserData*)Save::GetData())->break_flag = true;
@@ -166,10 +296,26 @@ void CObjHero::Action()
        if (((UserData*)Save::GetData())->break_done == true)
 	      {
 		   //ブロック破壊音を鳴らす
-		   Audio::Start(2);
+		  // Audio::Start(2);
 
-		     ((UserData*)Save::GetData())->item -= 1;
-		     ((UserData*)Save::GetData())->pick_item -= 1;
+		   //アイテム使用時、変換済みアイテムを優先して使用する
+		   if (((UserData*)Save::GetData())->converted_pick >=1 )
+		   {
+			   //ブロック破壊音を鳴らす
+			   Audio::Start(2);
+
+			   ((UserData*)Save::GetData())->converted_pick -= 1;
+			   ((UserData*)Save::GetData())->converted_item -= 1;
+			   ((UserData*)Save::GetData())->item -= 1;
+		   }
+		   else
+		   {
+			   //ブロック破壊音を鳴らす
+			   Audio::Start(2);
+
+			   ((UserData*)Save::GetData())->item -= 1;
+			   ((UserData*)Save::GetData())->pick_item -= 1;
+		   }
 		     ((UserData*)Save::GetData())->break_done = false;
 	      }
 	}
@@ -178,52 +324,187 @@ void CObjHero::Action()
 		((UserData*)Save::GetData())->break_flag = false;
 	}
 
+	//障害物破壊(劣化つるはし）
+	if (Input::GetVKey('D') == true && ((UserData*)Save::GetData())->break_bad_point == true)
+	{
+
+		((UserData*)Save::GetData())->break_bad_flag = true;
+
+		//設置後、はしごアイテム＆アイテム総数-1
+		if (((UserData*)Save::GetData())->break_bad_done == true)
+		{
+			//ブロック破壊音を鳴らす
+		   // Audio::Start(2);
+
+			//アイテム使用時、劣化→変換済み→未変換の順で使用が優先される
+			if (((UserData*)Save::GetData())->bad_pick >= 1)
+			{
+				//ブロック破壊音を鳴らす
+				Audio::Start(2);
+
+				((UserData*)Save::GetData())->bad_pick -= 1;
+				((UserData*)Save::GetData())->item -= 1;
+			}
+			else if (((UserData*)Save::GetData())->converted_pick >= 1)
+			{
+				//ブロック破壊音を鳴らす
+				Audio::Start(2);
+
+				((UserData*)Save::GetData())->converted_pick -= 1;
+				((UserData*)Save::GetData())->converted_item -= 1;
+				((UserData*)Save::GetData())->item -= 1;
+			}
+			else if (((UserData*)Save::GetData())->pick_item >= 1)
+			{
+				//ブロック破壊音を鳴らす
+				Audio::Start(2);
+
+				((UserData*)Save::GetData())->item -= 1;
+				((UserData*)Save::GetData())->pick_item -= 1;
+			}
+
+
+			((UserData*)Save::GetData())->break_bad_done = false;
+		}
+	}
+	else
+	{
+		((UserData*)Save::GetData())->break_bad_flag = false;
+	}
+
+	//説明画面表示
+	if (Input::GetVKey('W') == true)
+	{
+		operation_keyflag = true;
+		retry_keyflag = true;//説明画面表示時のみリトライ可能
+	}
+	else if (Input::GetVKey('E') == true&& operation_keyflag == true)
+	{
+		operation_keyflag = false;
+		retry_keyflag = false;
+	}
+
+
+	//リトライ
+	if (Input::GetVKey(VK_SPACE) == true&& retry_keyflag == true)
+	{
+		Scene::SetScene(new CSceneMain());
+	}
 
 
 	//アイテムの変換
 	//現在の変換　つるはし→板→はしご→つるはし...
 	if (((UserData*)Save::GetData())->item > 0&& ((UserData*)Save::GetData())->conversion_num > 0)
 	{
-		//変換　つるはし→板
-		if (Input::GetVKey('1') == true && ((UserData*)Save::GetData())->pick_item > 0&& conversionB == true)
+		//変換済みアイテム→劣化アイテムの変換
+		//変換済みアイテムを優先して変換させる
+		if (((UserData*)Save::GetData())->converted_item > 0)
 		{
-			((UserData*)Save::GetData())->pick_item -= 1;
-			((UserData*)Save::GetData())->board_item += 1;
-			((UserData*)Save::GetData())->conversion_num -= 1;
-			conversionB = false;
-		}
-		else if(Input::GetVKey('1')==false&& conversionB == false)
-		{
-			conversionB = true;
+			//変換　変換済みつるはし→劣化板
+			if (Input::GetVKey(VK_F1) == true && ((UserData*)Save::GetData())->converted_pick > 0 && conversionB == true)
+			{
+
+				((UserData*)Save::GetData())->converted_pick -= 1;
+				((UserData*)Save::GetData())->bad_board += 1;
+				
+				((UserData*)Save::GetData())->converted_item -= 1;
+
+				((UserData*)Save::GetData())->conversion_num -= 1;
+				conversionB = false;
+			}
+			else if (Input::GetVKey(VK_F1) == false && conversionB == false)
+			{
+				conversionB = true;
+			}
+
+			//変換　変換済み板→劣化はしご
+			if (Input::GetVKey(VK_F2) == true && ((UserData*)Save::GetData())->converted_board > 0 && conversionL == true)
+			{
+				((UserData*)Save::GetData())->converted_board -= 1;
+				((UserData*)Save::GetData())->bad_ladder += 1;
+
+				((UserData*)Save::GetData())->converted_item -= 1;
+
+				((UserData*)Save::GetData())->conversion_num -= 1;
+				conversionL = false;
+			}
+			else if (Input::GetVKey(VK_F2) == false && conversionL == false)
+			{
+				conversionL = true;
+			}
+
+			//変換　変換済みはしご→劣化つるはし
+			if (Input::GetVKey(VK_F3) == true && ((UserData*)Save::GetData())->converted_ladder > 0 && conversionP == true)
+			{
+				((UserData*)Save::GetData())->converted_ladder -= 1;
+				((UserData*)Save::GetData())->bad_pick += 1;
+
+				((UserData*)Save::GetData())->converted_item -= 1;
+
+
+				((UserData*)Save::GetData())->conversion_num -= 1;
+				conversionP = false;
+			}
+			else if (Input::GetVKey(VK_F3) == false && conversionP == false)
+			{
+				conversionP = true;
+			}
 		}
 
-		//変換　板→はしご
-		if (Input::GetVKey('2') == true && ((UserData*)Save::GetData())->board_item > 0 && conversionL == true)
+		//未変換アイテム→変換済みアイテム
+		else
 		{
-			((UserData*)Save::GetData())->board_item -= 1;
-			((UserData*)Save::GetData())->ladder_item += 1;
-			((UserData*)Save::GetData())->conversion_num -= 1;
-			conversionL = false;
-		}
-		else if (Input::GetVKey('2') == false && conversionL == false)
-		{
-			conversionL = true;
-		}
+			//変換　つるはし→変換済み板
+			if (Input::GetVKey(VK_F1) == true && ((UserData*)Save::GetData())->pick_item > 0 && conversionB == true)
+			{
 
-		//変換　はしご→つるはし
-		if (Input::GetVKey('3') == true && ((UserData*)Save::GetData())->ladder_item > 0 && conversionP == true)
-		{
-			((UserData*)Save::GetData())->ladder_item -= 1;
-			((UserData*)Save::GetData())->pick_item += 1;
-			((UserData*)Save::GetData())->conversion_num -= 1;
-			conversionP = false;
-		}
-		else if (Input::GetVKey('3') == false && conversionP == false)
-		{
-			conversionP = true;
-		}
+				((UserData*)Save::GetData())->pick_item -= 1;
+				((UserData*)Save::GetData())->converted_board += 1;
+				//((UserData*)Save::GetData())->board_item += 1;
+				((UserData*)Save::GetData())->converted_item += 1;
 
 
+				((UserData*)Save::GetData())->conversion_num -= 1;
+				conversionB = false;
+			}
+			else if (Input::GetVKey(VK_F1) == false && conversionB == false)
+			{
+				conversionB = true;
+			}
+
+			//変換　板→変換済みはしご
+			if (Input::GetVKey(VK_F2) == true && ((UserData*)Save::GetData())->board_item > 0 && conversionL == true)
+			{
+				((UserData*)Save::GetData())->board_item -= 1;
+				//((UserData*)Save::GetData())->ladder_item += 1;
+				((UserData*)Save::GetData())->converted_ladder += 1;
+
+				((UserData*)Save::GetData())->converted_item += 1;
+				((UserData*)Save::GetData())->conversion_num -= 1;
+				conversionL = false;
+			}
+			else if (Input::GetVKey(VK_F2) == false && conversionL == false)
+			{
+				conversionL = true;
+			}
+
+			//変換　はしご→変換済みつるはし
+			if (Input::GetVKey(VK_F3) == true && ((UserData*)Save::GetData())->ladder_item > 0 && conversionP == true)
+			{
+				((UserData*)Save::GetData())->ladder_item -= 1;
+				//((UserData*)Save::GetData())->pick_item += 1;
+				((UserData*)Save::GetData())->converted_pick += 1;
+
+				((UserData*)Save::GetData())->converted_item += 1;
+				((UserData*)Save::GetData())->conversion_num -= 1;
+				conversionP = false;
+			}
+			else if (Input::GetVKey(VK_F3) == false && conversionP == false)
+			{
+				conversionP = true;
+			}
+		}
+		
 	}
 
 	//摩擦
@@ -271,4 +552,29 @@ void CObjHero::Draw()
 
 	//描画
 	Draw::Draw(0, &src, &dst, c, 0.0f);
+
+
+	//説明画面（仮）
+	if (operation_keyflag == true)
+	{
+		//切り取り位置の設定
+		src.m_top = 0.0f;
+		src.m_left = 0.0f;
+		src.m_right = 512.0f;
+		src.m_bottom = 512.0f;
+
+
+		//表示位置の設定
+		dst.m_top = 100.0;
+		dst.m_left = 160.0;
+		dst.m_right = dst.m_right = dst.m_left + 400.0;
+		dst.m_bottom = dst.m_top + 400.0;
+
+		//描画
+		Draw::Draw(19, &src, &dst, c, 0.0f);
+	}
+		
+
+	
+	
 }
