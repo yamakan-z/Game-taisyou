@@ -45,14 +45,6 @@ void CSceneMain::InitScene()
 	Draw::LoadImageW(L"劣化はしご.png", 17, TEX_SIZE_512);
 	Draw::LoadImageW(L"障害物.png", 18, TEX_SIZE_512);
 	Draw::LoadImageW(L"説明画面（仮）.png", 19, TEX_SIZE_512);
-	//アイテム数番号
-	Draw::LoadImageW(L"0.png", 8, TEX_SIZE_512);
-	Draw::LoadImageW(L"1.png", 9, TEX_SIZE_512);
-	Draw::LoadImageW(L"2.png", 10, TEX_SIZE_512);
-	Draw::LoadImageW(L"3.png", 11, TEX_SIZE_512);
-	Draw::LoadImageW(L"4.png", 12, TEX_SIZE_512);
-	Draw::LoadImageW(L"5.png", 13, TEX_SIZE_512);
-
 	Draw::LoadImageW(L"空白欄(緑).png", 20, TEX_SIZE_1024);
 	Draw::LoadImageW(L"空白欄(黄).png", 21, TEX_SIZE_1024);
 	Draw::LoadImageW(L"空白欄(赤).png", 22, TEX_SIZE_1024);
@@ -65,6 +57,22 @@ void CSceneMain::InitScene()
 	Draw::LoadImageW(L"劣化つるはし看板.png", 29, TEX_SIZE_512);
 	Draw::LoadImageW(L"劣化鉄板看板.png", 30, TEX_SIZE_512);
 	Draw::LoadImageW(L"看板棒.png", 31, TEX_SIZE_512);
+	Draw::LoadImageW(L"劣化はしごインベントリ.png", 32, TEX_SIZE_512);
+	Draw::LoadImageW(L"劣化板インベントリ.png", 33, TEX_SIZE_512);
+	Draw::LoadImageW(L"劣化つるはしインベントリ.png", 34, TEX_SIZE_512);
+	Draw::LoadImageW(L"はしごインベントリ.png", 35, TEX_SIZE_512);
+	Draw::LoadImageW(L"板インベントリ.png", 36, TEX_SIZE_512);
+	Draw::LoadImageW(L"つるはしインベントリ.png", 37, TEX_SIZE_512);
+
+	//アイテム数番号
+	Draw::LoadImageW(L"0.png", 8, TEX_SIZE_512);
+	Draw::LoadImageW(L"1.png", 9, TEX_SIZE_512);
+	Draw::LoadImageW(L"2.png", 10, TEX_SIZE_512);
+	Draw::LoadImageW(L"3.png", 11, TEX_SIZE_512);
+	Draw::LoadImageW(L"4.png", 12, TEX_SIZE_512);
+	Draw::LoadImageW(L"5.png", 13, TEX_SIZE_512);
+
+	
 
 	//音楽読み込み
 	Audio::LoadAudio(0, L"GameMain(仮).wav", BACK_MUSIC);
