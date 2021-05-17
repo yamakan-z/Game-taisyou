@@ -118,14 +118,14 @@ void CObjHero::Action()
 	{
 
 
-		m_vx = +6.5f;
+		m_vx = +5.0f;
 		m_posture = 1.0f;
 		m_ani_time += 1;                 //um_ani_time += 1;v•`‰æØ‚è‘Ö‚¦@
 	}
 
 	else if (Input::GetVKey(VK_LEFT) == true&& ((UserData*)Save::GetData())->move_flag == true)
 	{
-		m_vx = -6.5f;
+		m_vx = -5.0f;
 		m_posture = 0.0f;
 		m_ani_time += 1;
 	}
