@@ -1103,7 +1103,7 @@ void CObjBlock::Action()
 				//-------------はしご処理（劣化）---------------
 				 
 				//はしごを設置する場所を判定するブロック
-				if (hero->GetBT() == 14)
+				if (hero->GetBT() == 26)
 				{
 					if ((hx + (-m_scroll) + 64.0f > x) && (hx + (-m_scroll) < x + 64.0f) && (hy + 64.0f > y) && (hy < y + 64.0f))
 					{
@@ -1114,7 +1114,7 @@ void CObjBlock::Action()
 							//((UserData*)Save::GetData())->up_flag = true;//はしごがある時のみ上移動
 
 							//上移動を許可するためにブロックを書き換える
-							if (m_map[i][j] == 14)
+							if (m_map[i][j] == 26)
 							{
 								m_map[i][j] = 81;//上移動可能ブロックに書き換え
 							}
