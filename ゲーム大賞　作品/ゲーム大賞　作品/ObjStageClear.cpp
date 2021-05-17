@@ -78,5 +78,5 @@ void CObjStageClear::Draw()
 {
 	float c[4] = { -1.0f,-1.0f,1.0f,4.0f };
 
-	Font::StrDraw(L"Return_to_title:ENTER_KEY", 225, 340, 32, c);
+	//Font::StrDraw(L"Next_Stage:ENTER_KEY", 225, 340, 32, c);
 }
