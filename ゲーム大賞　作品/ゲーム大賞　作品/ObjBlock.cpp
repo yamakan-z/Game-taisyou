@@ -21,6 +21,9 @@ void CObjBlock::Init()
 	m_px = GetScroll();//位置
     m_py = GetScroll();
 
+	p = 0;
+	q = 0;
+
 	//ブロック情報
 	//使用ブロック番号　1～17、80～81、90～91、97～99　
 	//01番　ブロック
@@ -226,7 +229,7 @@ void CObjBlock::Action()
 							//右
 							hero->SetRight(true);//主人公の左の部分が衝突している
 							hero->SetX(x + 64.0f + (m_scroll));//ブロックの位置+主人公の幅
-							hero->SetVY(-hero->GetVX() * 0.1f);//-VX*反発係数
+							hero->SetVX(-hero->GetVX() * 0.1f);//-VX*反発係数
 						}
 						if (r > 45 && r < 135)
 						{
@@ -246,6 +249,12 @@ void CObjBlock::Action()
 						if (r > 225 && r < 315)
 						{
 							//下
+							hero->SetUp(true);//主人公の上の部分が衝突している
+							hero->SetY(y + 64);//ブロックの位置+主人公の幅
+							if (hero->GetVY() < 0)
+							{
+								hero->SetVY(0.0f);
+							}
 						}
 
 					}
@@ -284,7 +293,7 @@ void CObjBlock::Action()
 							//右
 							hero->SetRight(true);//主人公の左の部分が衝突している
 							hero->SetX(x + 64.0f + (m_scroll));//ブロックの位置+主人公の幅
-							hero->SetVY(-hero->GetVX() * 0.1f);//-VX*反発係数
+							hero->SetVX(-hero->GetVX() * 0.1f);//-VX*反発係数
 						}
 						if (r > 45 && r < 135)
 						{
@@ -347,7 +356,7 @@ void CObjBlock::Action()
 						//右
 						hero->SetRight(true);//主人公の左の部分が衝突している
 						hero->SetX(x + 64.0f + (m_scroll));//ブロックの位置+主人公の幅
-						hero->SetVY(-hero->GetVX() * 0.1f);//-VX*反発係数
+						hero->SetVX(-hero->GetVX() * 0.1f);//-VX*反発係数
 					}
 					if (r > 45 && r < 135)
 					{
@@ -405,7 +414,7 @@ void CObjBlock::Action()
 						//右
 						hero->SetRight(true);//主人公の左の部分が衝突している
 						hero->SetX(x + 64.0f + (m_scroll));//ブロックの位置+主人公の幅
-						hero->SetVY(-hero->GetVX() * 0.1f);//-VX*反発係数
+						hero->SetVX(-hero->GetVX() * 0.1f);//-VX*反発係数
 					}
 					if (r > 45 && r < 135)
 					{
@@ -510,7 +519,7 @@ void CObjBlock::Action()
 							//右
 							hero->SetRight(true);//主人公の左の部分が衝突している
 							hero->SetX(x + 64.0f + (m_scroll));//ブロックの位置+主人公の幅
-							hero->SetVY(-hero->GetVX() * 0.1f);//-VX*反発係数
+							hero->SetVX(-hero->GetVX() * 0.1f);//-VX*反発係数
 						}
 						if (r > 45 && r < 135)
 						{
@@ -566,7 +575,7 @@ void CObjBlock::Action()
 							//右
 							hero->SetRight(true);//主人公の左の部分が衝突している
 							hero->SetX(x + 64.0f + (m_scroll));//ブロックの位置+主人公の幅
-							hero->SetVY(-hero->GetVX() * 0.1f);//-VX*反発係数
+							hero->SetVX(-hero->GetVX() * 0.1f);//-VX*反発係数
 						}
 						if (r > 45 && r < 135)
 						{
@@ -1117,7 +1126,7 @@ void CObjBlock::Action()
 				}
 				else if (hero->GetBT() != 14)
 				{
-					if ((hx + (-m_scroll) + 64.0f > x) && (hx + (-m_scroll) < x + 64.0f))
+					if ((hx + (-m_scroll) + 64.0f > x) && (hx + (-m_scroll) < x + 64.0f) && (hy + 64.0f > y) && (hy < y + 64.0f))
 					{
 						((UserData*)Save::GetData())->low_up_flag = false;
 						((UserData*)Save::GetData())->bad_ladder_flag = false;
@@ -1178,15 +1187,17 @@ void CObjBlock::Action()
 				//板設置場所にプレイヤーがいると板が設置できる
 				if (hero->GetBT() == 13 && ((UserData*)Save::GetData())->board_item > 0|| hero->GetBT() == 13 && ((UserData*)Save::GetData())->converted_board > 0)
 				{
-					if ((hx + (-m_scroll) + 64.0f > x) && (hx + (-m_scroll) < x + 64.0f))
+					if ((hx + (-m_scroll) + 64.0f > x) && (hx + (-m_scroll) < x + 64.0f) && (hy + 64.0f > y) && (hy < y + 64.0f))
 					{
 						((UserData*)Save::GetData())->ins_place = true;
+						 p=i;
+						 q = j;
 					}
 
 				}
 				else if (hero->GetBT() != 13)
 				{
-					if ((hx + (-m_scroll) + 64.0f > x) && (hx + (-m_scroll) < x + 64.0f))
+					if ((hx + (-m_scroll) + 64.0f > x) && (hx + (-m_scroll) < x + 64.0f) && (hy + 64.0f > y) && (hy < y + 64.0f))
 					{
 						((UserData*)Save::GetData())->ins_place = false;
 						((UserData*)Save::GetData())->ins_flag = false;
@@ -1197,18 +1208,27 @@ void CObjBlock::Action()
 				{
 					if (m_map[i][j] == 99)//板設置用の穴
 					{
-						if ((hx + (-m_scroll) + 64.0f > x) && (hx + (-m_scroll) < x + 64.0f))
-						{
-							for (int f = 0;; f++) {
-								if (m_map[i][j + f] == 99) {
-									m_map[i][j + f] = 12;//板設置
-								}else {
-									((UserData*)Save::GetData())->ins_done = true;
-									break;
+
+						/*if (hx+(-m_scroll)/64 ==x/64)
+						{*/
+							if ((hx + (-m_scroll) + 64.0f > x) && (hx + (-m_scroll) < x + 64.0f) && (hy + 64.0f > y) && (hy < y + 64.0f))
+							{
+								for (int f = 0;; f++) {
+									if (m_map[i][j + f] == 99) {
+										m_map[i][j + f] = 12;//板設置
+									}
+									else
+									{
+										((UserData*)Save::GetData())->ins_done = true;
+										break;
+									}
 								}
+
 							}
-								
-						}
+						//}
+
+
+						
 					}
 				}
 
