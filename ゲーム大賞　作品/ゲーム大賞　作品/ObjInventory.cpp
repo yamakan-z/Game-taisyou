@@ -115,52 +115,121 @@ void CObjInventory::Draw()
 	//--------インベントリ--------------
 	
 	//つるはし
-	//切り取り位置の設定
-	src.m_top = 0.0f;
-	src.m_left = 0.0f;
-	src.m_right = 256.0f;
-	src.m_bottom = 256.0f;
+	
+	//変換アイテムを所持しているときインベントリのカラーを変化
+	if ((((UserData*)Save::GetData())->converted_pick >= 1))
+	{
+		//切り取り位置の設定
+		src.m_top = 0.0f;
+		src.m_left = 0.0f;
+		src.m_right = 256.0f;
+		src.m_bottom = 256.0f;
 
-	//表示位置の設定
-	dst.m_top = 10.0;
-	dst.m_left = 480.0;
-	dst.m_right = dst.m_right = dst.m_left + 90.0;
-	dst.m_bottom = dst.m_top + 80.0;
+		//表示位置の設定
+		dst.m_top = 10.0;
+		dst.m_left = 480.0;
+		dst.m_right = dst.m_right = dst.m_left + 90.0;
+		dst.m_bottom = dst.m_top + 80.0;
 
-	//描画
-	Draw::Draw(37, &src, &dst, c, 0.0f);
+		//描画
+		Draw::Draw(40, &src, &dst, c, 0.0f);
+	}
+	else
+	{
+		//切り取り位置の設定
+		src.m_top = 0.0f;
+		src.m_left = 0.0f;
+		src.m_right = 256.0f;
+		src.m_bottom = 256.0f;
+
+		//表示位置の設定
+		dst.m_top = 10.0;
+		dst.m_left = 480.0;
+		dst.m_right = dst.m_right = dst.m_left + 90.0;
+		dst.m_bottom = dst.m_top + 80.0;
+
+		//描画
+		Draw::Draw(37, &src, &dst, c, 0.0f);
+	}
 
 	//はしご
-	//切り取り位置の設定
-	src.m_top = 0.0f;
-	src.m_left = 0.0f;
-	src.m_right = 256.0f;
-	src.m_bottom = 256.0f;
+	
+	//変換アイテムを所持しているときインベントリのカラーを変化
+	if ((((UserData*)Save::GetData())->converted_ladder >= 1))
+	{
+		//切り取り位置の設定
+		src.m_top = 0.0f;
+		src.m_left = 0.0f;
+		src.m_right = 256.0f;
+		src.m_bottom = 256.0f;
 
-	//表示位置の設定
-	dst.m_top = 10.0;
-	dst.m_left = 580.0;
-	dst.m_right = dst.m_right = dst.m_left + 90.0;
-	dst.m_bottom = dst.m_top + 80.0;
+		//表示位置の設定
+		dst.m_top = 10.0;
+		dst.m_left = 580.0;
+		dst.m_right = dst.m_right = dst.m_left + 90.0;
+		dst.m_bottom = dst.m_top + 80.0;
 
-	//描画
-	Draw::Draw(35, &src, &dst, c, 0.0f);
+		//描画
+		Draw::Draw(38, &src, &dst, c, 0.0f);
+	}
+	else
+	{
+		//切り取り位置の設定
+		src.m_top = 0.0f;
+		src.m_left = 0.0f;
+		src.m_right = 256.0f;
+		src.m_bottom = 256.0f;
 
+		//表示位置の設定
+		dst.m_top = 10.0;
+		dst.m_left = 580.0;
+		dst.m_right = dst.m_right = dst.m_left + 90.0;
+		dst.m_bottom = dst.m_top + 80.0;
+
+		//描画
+		Draw::Draw(35, &src, &dst, c, 0.0f);
+	}
+	
 	//板
-	//切り取り位置の設定
-	src.m_top = 0.0f;
-	src.m_left = 0.0f;
-	src.m_right = 256.0f;
-	src.m_bottom = 256.0f;
 
-	//表示位置の設定
-	dst.m_top = 10.0;
-	dst.m_left = 680.0;
-	dst.m_right = dst.m_right = dst.m_left + 90.0;
-	dst.m_bottom = dst.m_top + 80.0;
+	//変換アイテムを所持しているときインベントリのカラーを変化
+	if ((((UserData*)Save::GetData())->converted_board >= 1))
+	{
+	   
+	   //切り取り位置の設定
+		src.m_top = 0.0f;
+		src.m_left = 0.0f;
+		src.m_right = 256.0f;
+		src.m_bottom = 256.0f;
 
-	//描画
-	Draw::Draw(36, &src, &dst, c, 0.0f);
+		//表示位置の設定
+		dst.m_top = 10.0;
+		dst.m_left = 680.0;
+		dst.m_right = dst.m_right = dst.m_left + 90.0;
+		dst.m_bottom = dst.m_top + 80.0;
+
+		//描画
+		Draw::Draw(39, &src, &dst, c, 0.0f);
+	}
+	else
+	{
+	    //板
+	    //切り取り位置の設定
+		src.m_top = 0.0f;
+		src.m_left = 0.0f;
+		src.m_right = 256.0f;
+		src.m_bottom = 256.0f;
+
+		//表示位置の設定
+		dst.m_top = 10.0;
+		dst.m_left = 680.0;
+		dst.m_right = dst.m_right = dst.m_left + 90.0;
+		dst.m_bottom = dst.m_top + 80.0;
+
+		//描画
+		Draw::Draw(36, &src, &dst, c, 0.0f);
+	}
+
 
 	//-------インベントリ(劣化)---------
 

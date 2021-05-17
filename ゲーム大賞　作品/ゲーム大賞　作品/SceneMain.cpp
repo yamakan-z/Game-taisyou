@@ -63,6 +63,9 @@ void CSceneMain::InitScene()
 	Draw::LoadImageW(L"はしごインベントリ.png", 35, TEX_SIZE_512);
 	Draw::LoadImageW(L"板インベントリ.png", 36, TEX_SIZE_512);
 	Draw::LoadImageW(L"つるはしインベントリ.png", 37, TEX_SIZE_512);
+	Draw::LoadImageW(L"変換はしごインベントリ.png", 38, TEX_SIZE_512);
+	Draw::LoadImageW(L"変換板インベントリ.png", 39, TEX_SIZE_512);
+	Draw::LoadImageW(L"変換つるはしインベントリ.png", 40, TEX_SIZE_512);
 
 	//アイテム数番号
 	Draw::LoadImageW(L"0.png", 8, TEX_SIZE_512);
