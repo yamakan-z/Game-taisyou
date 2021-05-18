@@ -8,6 +8,7 @@ enum OBJ_NAME
 	//OBJ_○○と表記
 	OBJ_HERO,
 	OBJ_BLOCK,
+	OBJ_BLOCK2,
 	OBJ_ITEM,
 	OBJ_TURUHASI,
 	OBJ_TITLE,
@@ -113,7 +114,7 @@ struct UserData
 	float bad_pick = 0;//劣化つるはしアイテム
 
 	//のこり変換回数
-	int conversion_num = 5;
+	int conversion_num = 9;
 };
 //------------------------------------------------
 
@@ -131,6 +132,7 @@ struct UserData
 //ゲームシーンオブジェクトヘッダ------------------
 #include"ObjHero.h"
 #include"ObjBlock.h"
+#include"ObjBlock2.h"
 #include"ObjPick.h"
 #include"LadderItem.h"
 #include"BoardItem.h"
@@ -150,6 +152,7 @@ struct UserData
 
 //ゲームシーンクラスヘッダ------------------------
 #include"SceneMain.h"
+#include"SceneStage2.h"
 #include"SceneTitle.h"
 #include"SceneGameOver.h"
 #include"SceneGameClear.h"
