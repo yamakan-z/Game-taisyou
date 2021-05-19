@@ -125,6 +125,27 @@ void CObjInventory::Draw()
 	}
 
 
+
+	//操作説明表示
+
+	//切り取り位置の設定
+	src.m_top = 0.0f;
+	src.m_left = 0.0f;
+	src.m_right = 256.0f;
+	src.m_bottom = 128.0f;
+
+
+	//表示位置の設定
+	dst.m_top = 100.0;
+	dst.m_left = 600.0;
+	dst.m_right = dst.m_right = dst.m_left + 200.0;
+	dst.m_bottom = dst.m_top + 100.0;
+
+	//描画
+	Draw::Draw(46, &src, &dst, c, 0.0f);
+
+
+
 	//--------インベントリ--------------
 	
 	//つるはし
