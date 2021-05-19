@@ -22,14 +22,8 @@
     <Filter Include="ソース ファイル\主人公処理">
       <UniqueIdentifier>{e84861fd-0044-4112-bea7-a5fc38114e75}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\ブロック処理">
-      <UniqueIdentifier>{e32c0ca3-f08e-4ee3-af15-269359353221}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ソース ファイル\タイトル">
       <UniqueIdentifier>{1b7f8120-9738-4dae-ba36-651b3cbcb402}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ソース ファイル\シーンメイン">
-      <UniqueIdentifier>{eaac5bc8-3c66-4fc5-b356-8fcefd619f90}</UniqueIdentifier>
     </Filter>
     <Filter Include="ソース ファイル\インベントリ">
       <UniqueIdentifier>{f62cc9f5-f0c9-45b6-914e-6d137bc7445d}</UniqueIdentifier>
@@ -49,8 +43,17 @@
     <Filter Include="ソース ファイル\StageClear">
       <UniqueIdentifier>{1ecd1a61-e7b6-4ea9-b22b-eb4c6487a600}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\ステージ2">
+    <Filter Include="ソース ファイル\ステージ">
       <UniqueIdentifier>{c5946fea-73de-4a5c-acc5-653aadb7e600}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\ステージ\チュートリアルステージ">
+      <UniqueIdentifier>{0392f898-725a-44e7-9112-36f1c0840dc0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\ステージ\ステージ2">
+      <UniqueIdentifier>{953bda31-7bdb-42e1-807e-da700171b656}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\ステージ\ステージ1">
+      <UniqueIdentifier>{e32c0ca3-f08e-4ee3-af15-269359353221}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -106,13 +109,10 @@
       <Filter>ソース ファイル\主人公処理</Filter>
     </ClCompile>
     <ClCompile Include="ObjBlock.cpp">
-      <Filter>ソース ファイル\ブロック処理</Filter>
+      <Filter>ソース ファイル\ステージ\ステージ1</Filter>
     </ClCompile>
     <ClCompile Include="ObjTitle.cpp">
       <Filter>ソース ファイル\タイトル</Filter>
-    </ClCompile>
-    <ClCompile Include="SceneMain.cpp">
-      <Filter>ソース ファイル\シーンメイン</Filter>
     </ClCompile>
     <ClCompile Include="SceneTitle.cpp">
       <Filter>ソース ファイル\タイトル</Filter>
@@ -150,11 +150,20 @@
     <ClCompile Include="ObjStageClear.cpp">
       <Filter>ソース ファイル\StageClear</Filter>
     </ClCompile>
+    <ClCompile Include="SceneMainT.cpp">
+      <Filter>ソース ファイル\ステージ\チュートリアルステージ</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjBlockT.cpp">
+      <Filter>ソース ファイル\ステージ\チュートリアルステージ</Filter>
+    </ClCompile>
     <ClCompile Include="ObjBlock2.cpp">
-      <Filter>ソース ファイル\ステージ2</Filter>
+      <Filter>ソース ファイル\ステージ\ステージ2</Filter>
     </ClCompile>
     <ClCompile Include="SceneMain2.cpp">
-      <Filter>ソース ファイル\ステージ2</Filter>
+      <Filter>ソース ファイル\ステージ\ステージ2</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneMain.cpp">
+      <Filter>ソース ファイル\ステージ\ステージ1</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -207,13 +216,10 @@
       <Filter>ソース ファイル\主人公処理</Filter>
     </ClInclude>
     <ClInclude Include="ObjBlock.h">
-      <Filter>ソース ファイル\ブロック処理</Filter>
+      <Filter>ソース ファイル\ステージ\ステージ1</Filter>
     </ClInclude>
     <ClInclude Include="ObjTitle.h">
       <Filter>ソース ファイル\タイトル</Filter>
-    </ClInclude>
-    <ClInclude Include="SceneMain.h">
-      <Filter>ソース ファイル\シーンメイン</Filter>
     </ClInclude>
     <ClInclude Include="SceneTitle.h">
       <Filter>ソース ファイル\タイトル</Filter>
@@ -254,11 +260,20 @@
     <ClInclude Include="ObjStageClear.h">
       <Filter>ソース ファイル\StageClear</Filter>
     </ClInclude>
+    <ClInclude Include="SceneMainT.h">
+      <Filter>ソース ファイル\ステージ\チュートリアルステージ</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjBlockT.h">
+      <Filter>ソース ファイル\ステージ\チュートリアルステージ</Filter>
+    </ClInclude>
     <ClInclude Include="ObjBlock2.h">
-      <Filter>ソース ファイル\ステージ2</Filter>
+      <Filter>ソース ファイル\ステージ\ステージ2</Filter>
     </ClInclude>
     <ClInclude Include="SceneMain2.h">
-      <Filter>ソース ファイル\ステージ2</Filter>
+      <Filter>ソース ファイル\ステージ\ステージ2</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneMain.h">
+      <Filter>ソース ファイル\ステージ\ステージ1</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

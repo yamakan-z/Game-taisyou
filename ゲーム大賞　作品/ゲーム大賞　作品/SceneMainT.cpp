@@ -12,23 +12,23 @@
 using namespace GameL;
 
 //使用ヘッダー
-#include"SceneMain2.h"
+#include"SceneMainT.h"
 #include"GameHead.h"
 
 //コンストラクタ
-CSceneMain2::CSceneMain2()
+CSceneMainT::CSceneMainT()
 {
-	((UserData*)Save::GetData())->stage2 = true;
+	((UserData*)Save::GetData())->stageT = true;
 }
 
 //デストラクタ
-CSceneMain2::~CSceneMain2()
+CSceneMainT::~CSceneMainT()
 {
 
 }
 
 //初期化メソッド
-void CSceneMain2::InitScene()
+void CSceneMainT::InitScene()
 {
 	//グラフィック読み込み
 	Draw::LoadImageW(L"Hero_ani.png", 0, TEX_SIZE_512);
@@ -113,13 +113,12 @@ void CSceneMain2::InitScene()
 	Objs::InsertObj(obj, OBJ_HERO, 10);
 
 	//blockオブジェクト作成
-	CObjBlock2* objb2 = new CObjBlock2();
-	Objs::InsertObj(objb2, OBJ_BLOCK2, 9);
+	CObjBlockT* objbT = new CObjBlockT();
+	Objs::InsertObj(objbT, OBJ_BLOCKT, 9);
 
 	//インベントリ作成
 	CObjInventory* objin = new CObjInventory();
 	Objs::InsertObj(objin, OBJ_INVENTORY, 10);
-
 
 	//音楽情報の読み込み
 	Audio::LoadAudio(0, L"GameMain(仮).wav", SOUND_TYPE::BACK_MUSIC);
@@ -133,7 +132,7 @@ void CSceneMain2::InitScene()
 }
 
 //実行中メソッド
-void CSceneMain2::Scene()
+void CSceneMainT::Scene()
 {
 
 }

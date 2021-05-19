@@ -5,6 +5,7 @@
 
 #include"GameHead.h"
 #include"ObjTitle.h"
+#include "GameL/UserData.h"
 
 //使用するネームスペース
 using namespace GameL;
@@ -13,7 +14,9 @@ using namespace GameL;
 void CObjTitle::Init()
 {
 	m_key_flag = false;
+	((UserData*)Save::GetData())->stageT = false;
 }
+
 
 //アクション
 void CObjTitle::Action()
@@ -31,6 +34,21 @@ void CObjTitle::Action()
 	{
 		m_key_flag = true;
 	}
+
+	//スペースキーを押してシーン：チュートリアルステージに移行する
+	if (Input::GetVKey(VK_SPACE) == true)
+	{
+		if (m_key_flag == true)
+		{
+			Scene::SetScene(new CSceneMainT());
+			m_key_flag = false;
+		}
+	}
+	else
+	{
+		m_key_flag = true;
+	}
+
 }
 //ドロー
 void CObjTitle::Draw()
