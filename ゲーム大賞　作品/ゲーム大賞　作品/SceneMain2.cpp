@@ -12,23 +12,23 @@
 using namespace GameL;
 
 //使用ヘッダー
-#include"SceneMain.h"
+#include"SceneMain2.h"
 #include"GameHead.h"
 
 //コンストラクタ
-CSceneMain::CSceneMain()
+CSceneMain2::CSceneMain2()
 {
-	((UserData*)Save::GetData())->stage1 = true;
+	((UserData*)Save::GetData())->stage2 = true;
 }
 
 //デストラクタ
-CSceneMain::~CSceneMain()
+CSceneMain2::~CSceneMain2()
 {
 
 }
 
 //初期化メソッド
-void CSceneMain::InitScene()
+void CSceneMain2::InitScene()
 {
 	//グラフィック読み込み
 	Draw::LoadImageW(L"Hero_ani.png", 0, TEX_SIZE_512);
@@ -67,7 +67,7 @@ void CSceneMain::InitScene()
 	Draw::LoadImageW(L"変換板インベントリ.png", 39, TEX_SIZE_512);
 	Draw::LoadImageW(L"変換つるはしインベントリ.png", 40, TEX_SIZE_512);
 	Draw::LoadImageW(L"ブロック劣化.png", 41, TEX_SIZE_512);
-	
+
 
 	//アイテム数番号
 	Draw::LoadImageW(L"0.png", 8, TEX_SIZE_512);
@@ -75,22 +75,18 @@ void CSceneMain::InitScene()
 	Draw::LoadImageW(L"2.png", 10, TEX_SIZE_512);
 	Draw::LoadImageW(L"3.png", 11, TEX_SIZE_512);
 	Draw::LoadImageW(L"4.png", 12, TEX_SIZE_512);
-	Draw::LoadImageW(L"5.png", 13, TEX_SIZE_512);	
+	Draw::LoadImageW(L"5.png", 13, TEX_SIZE_512);
 	Draw::LoadImageW(L"6.png", 42, TEX_SIZE_512);
 	Draw::LoadImageW(L"7.png", 43, TEX_SIZE_512);
 	Draw::LoadImageW(L"8.png", 44, TEX_SIZE_512);
 	Draw::LoadImageW(L"9.png", 45, TEX_SIZE_512);
-
-	
-
-	
 
 	//音楽読み込み
 	Audio::LoadAudio(0, L"GameMain(仮).wav", BACK_MUSIC);
 
 	Audio::LoadAudio(1, L"アイテム設置音.wav", EFFECT);
 	Audio::LoadAudio(2, L"ブロックを破壊する音.wav", EFFECT);
-	Audio::LoadAudio(3, L"主人公の移動音.wav",EFFECT);
+	Audio::LoadAudio(3, L"主人公の移動音.wav", EFFECT);
 	Audio::LoadAudio(4, L"SEItemGet.wav", EFFECT);
 
 	//ボリュームを1.5増やす
@@ -117,8 +113,8 @@ void CSceneMain::InitScene()
 	Objs::InsertObj(obj, OBJ_HERO, 10);
 
 	//blockオブジェクト作成
-	CObjBlock* objb = new CObjBlock();
-	Objs::InsertObj(objb, OBJ_BLOCK, 9);
+	CObjBlock2* objb2 = new CObjBlock2();
+	Objs::InsertObj(objb2, OBJ_BLOCK2, 9);
 
 	//インベントリ作成
 	CObjInventory* objin = new CObjInventory();
@@ -142,13 +138,13 @@ void CSceneMain::InitScene()
 	Audio::LoadAudio(3, L"ブロックを破壊する音.wav", SOUND_TYPE::EFFECT);
 
 	//ボリュームを1.0に戻す
-    v = Audio::VolumeMaster(0.0);
+	v = Audio::VolumeMaster(0.0);
 	v = Audio::VolumeMaster((0.1 - v));
 
 }
 
 //実行中メソッド
-void CSceneMain::Scene()
+void CSceneMain2::Scene()
 {
 
 }
