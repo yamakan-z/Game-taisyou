@@ -1209,7 +1209,7 @@ void CObjBlock::Action()
 					if (m_map[i][j] == 99)//”ÂÝ’u—p‚ÌŒŠ
 					{
 
-						if ((hx+(-m_scroll))/64 +32>=(x/64))
+						if ((hx+(-m_scroll))/64 !=(x/64))
 						{
 							if ((hx + (-m_scroll) + 64.0f > x) && (hx + (-m_scroll) < x + 64.0f) && (hy + 64.0f > y) && (hy < y + 64.0f))
 							{
