@@ -94,8 +94,8 @@ void CBoardItem::Draw()
 		//切り取り位置の設定
 		src.m_top = 0.0f;
 		src.m_left = 0.0f;
-		src.m_right = 64.0f;
-		src.m_bottom = 64.0f;
+		src.m_right = 184.0f;
+		src.m_bottom = 184.0f;
 
 		//表示位置の設定
 		dst.m_top = m_py;
@@ -106,7 +106,7 @@ void CBoardItem::Draw()
 		//描画
 		Draw::Draw(4, &src, &dst, c, 0.0f);
 	}
-	//ステージ1
+	//ステージ2
 	else if (((UserData*)Save::GetData())->stage2 == true)
 	{
 		//ブロック情報を持ってくる
@@ -115,8 +115,8 @@ void CBoardItem::Draw()
 		//切り取り位置の設定
 		src.m_top = 0.0f;
 		src.m_left = 0.0f;
-		src.m_right = 64.0f;
-		src.m_bottom = 64.0f;
+		src.m_right = 184.0f;
+		src.m_bottom = 184.0f;
 
 		//表示位置の設定
 		dst.m_top = m_py;
