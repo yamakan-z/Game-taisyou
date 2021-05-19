@@ -116,9 +116,9 @@ struct UserData
 	float bad_pick = 0;//劣化つるはしアイテム
 
 	//のこり変換回数
-	int conversion_num = 9;
+	int conversion_num = 5;
 
-	//ステージブロック情報
+	//ステージブロック変更
 	bool stage1 = false;//ステージ1
 	bool stage2 = false;//ステージ2
 };

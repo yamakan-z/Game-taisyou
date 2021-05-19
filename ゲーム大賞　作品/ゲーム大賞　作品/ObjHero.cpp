@@ -89,9 +89,19 @@ void CObjHero::Init()
 	 //障害物関係のフラグ初期化
 	 ((UserData*)Save::GetData())->break_bad_flag = false;
 
-
-	 //変換回数を初期値に戻す
-	 ((UserData*)Save::GetData())->conversion_num = 5;
+	 //ステージ毎によって変換可能回数変更
+	 if (((UserData*)Save::GetData())->stage1 == true)
+	 {
+		 //変換回数を初期値に戻す
+		 ((UserData*)Save::GetData())->conversion_num = 5;
+	 }
+	 //ステージ毎によって変換可能回数変更
+	 if (((UserData*)Save::GetData())->stage2 == true)
+	 {
+		 //変換回数を初期値に戻す
+		 ((UserData*)Save::GetData())->conversion_num = 7;
+	 }
+	 
 
 	 //------------------------------------------
 
