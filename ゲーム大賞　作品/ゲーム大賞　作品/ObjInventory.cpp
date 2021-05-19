@@ -1017,7 +1017,7 @@ if (((UserData*)Save::GetData())->conversion_num == 9)
 	dst.m_bottom = dst.m_top + 64.0;
 
 	//•`‰æ
-	Draw::Draw(36, &src, &dst, c, 0.0f);
+	Draw::Draw(45, &src, &dst, c, 0.0f);
 }
 if (((UserData*)Save::GetData())->conversion_num == 8)
 {
@@ -1034,7 +1034,7 @@ if (((UserData*)Save::GetData())->conversion_num == 8)
 	dst.m_bottom = dst.m_top + 64.0;
 
 	//•`‰æ
-	Draw::Draw(35, &src, &dst, c, 0.0f);
+	Draw::Draw(44, &src, &dst, c, 0.0f);
 }
 if (((UserData*)Save::GetData())->conversion_num == 7)
 {
@@ -1051,7 +1051,7 @@ if (((UserData*)Save::GetData())->conversion_num == 7)
 	dst.m_bottom = dst.m_top + 64.0;
 
 	//•`‰æ
-	Draw::Draw(34, &src, &dst, c, 0.0f);
+	Draw::Draw(43, &src, &dst, c, 0.0f);
 }
 if (((UserData*)Save::GetData())->conversion_num == 6)
 {
@@ -1068,7 +1068,7 @@ if (((UserData*)Save::GetData())->conversion_num == 6)
 	dst.m_bottom = dst.m_top + 64.0;
 
 	//•`‰æ
-	Draw::Draw(33, &src, &dst, c, 0.0f);
+	Draw::Draw(42, &src, &dst, c, 0.0f);
 }
 	if (((UserData*)Save::GetData())->conversion_num == 5)
 	{

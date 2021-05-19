@@ -45,18 +45,6 @@ void CSceneMain::InitScene()
 	Draw::LoadImageW(L"劣化はしご.png", 17, TEX_SIZE_512);
 	Draw::LoadImageW(L"障害物.png", 18, TEX_SIZE_512);
 	Draw::LoadImageW(L"説明画面（仮）.png", 19, TEX_SIZE_512);
-	//アイテム数番号
-	Draw::LoadImageW(L"0.png", 8, TEX_SIZE_512);
-	Draw::LoadImageW(L"1.png", 9, TEX_SIZE_512);
-	Draw::LoadImageW(L"2.png", 10, TEX_SIZE_512);
-	Draw::LoadImageW(L"3.png", 11, TEX_SIZE_512);
-	Draw::LoadImageW(L"4.png", 12, TEX_SIZE_512);
-	Draw::LoadImageW(L"5.png", 13, TEX_SIZE_512);
-	Draw::LoadImageW(L"6.png", 33, TEX_SIZE_512);
-	Draw::LoadImageW(L"7.png", 34, TEX_SIZE_512);
-	Draw::LoadImageW(L"8.png", 35, TEX_SIZE_512);
-	Draw::LoadImageW(L"9.png", 36, TEX_SIZE_512);
-
 	Draw::LoadImageW(L"空白欄(緑).png", 20, TEX_SIZE_1024);
 	Draw::LoadImageW(L"空白欄(黄).png", 21, TEX_SIZE_1024);
 	Draw::LoadImageW(L"空白欄(赤).png", 22, TEX_SIZE_1024);
@@ -78,6 +66,8 @@ void CSceneMain::InitScene()
 	Draw::LoadImageW(L"変換はしごインベントリ.png", 38, TEX_SIZE_512);
 	Draw::LoadImageW(L"変換板インベントリ.png", 39, TEX_SIZE_512);
 	Draw::LoadImageW(L"変換つるはしインベントリ.png", 40, TEX_SIZE_512);
+	Draw::LoadImageW(L"ブロック劣化.png", 41, TEX_SIZE_512);
+	
 
 	//アイテム数番号
 	Draw::LoadImageW(L"0.png", 8, TEX_SIZE_512);
@@ -85,7 +75,13 @@ void CSceneMain::InitScene()
 	Draw::LoadImageW(L"2.png", 10, TEX_SIZE_512);
 	Draw::LoadImageW(L"3.png", 11, TEX_SIZE_512);
 	Draw::LoadImageW(L"4.png", 12, TEX_SIZE_512);
-	Draw::LoadImageW(L"5.png", 13, TEX_SIZE_512);
+	Draw::LoadImageW(L"5.png", 13, TEX_SIZE_512);	
+	Draw::LoadImageW(L"6.png", 42, TEX_SIZE_512);
+	Draw::LoadImageW(L"7.png", 43, TEX_SIZE_512);
+	Draw::LoadImageW(L"8.png", 44, TEX_SIZE_512);
+	Draw::LoadImageW(L"9.png", 45, TEX_SIZE_512);
+
+	
 
 	
 

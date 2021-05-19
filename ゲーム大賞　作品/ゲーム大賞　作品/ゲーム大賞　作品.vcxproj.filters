@@ -49,6 +49,9 @@
     <Filter Include="ソース ファイル\StageClear">
       <UniqueIdentifier>{1ecd1a61-e7b6-4ea9-b22b-eb4c6487a600}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\ステージ2">
+      <UniqueIdentifier>{c5946fea-73de-4a5c-acc5-653aadb7e600}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameL\Audio.cpp">
@@ -148,10 +151,10 @@
       <Filter>ソース ファイル\StageClear</Filter>
     </ClCompile>
     <ClCompile Include="ObjBlock2.cpp">
-      <Filter>ソース ファイル</Filter>
+      <Filter>ソース ファイル\ステージ2</Filter>
     </ClCompile>
     <ClCompile Include="SceneMain2.cpp">
-      <Filter>ソース ファイル</Filter>
+      <Filter>ソース ファイル\ステージ2</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -252,10 +255,10 @@
       <Filter>ソース ファイル\StageClear</Filter>
     </ClInclude>
     <ClInclude Include="ObjBlock2.h">
-      <Filter>ソース ファイル</Filter>
+      <Filter>ソース ファイル\ステージ2</Filter>
     </ClInclude>
     <ClInclude Include="SceneMain2.h">
-      <Filter>ソース ファイル</Filter>
+      <Filter>ソース ファイル\ステージ2</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

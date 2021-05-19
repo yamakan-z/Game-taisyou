@@ -1919,7 +1919,7 @@ void CObjBlock::Draw()
 				dst.m_bottom = dst.m_top + 64.0;
 
 				//•`‰æ
-				Draw::Draw(32, &src, &dst, c2, 0.0f);
+				Draw::Draw(41, &src, &dst, c2, 0.0f);
 			}
 		}
 	}
