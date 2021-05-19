@@ -36,6 +36,10 @@ void CObjInventory::Action()
 //ドロー
 void CObjInventory::Draw()
 {
+
+	//フラグ確認用
+	wchar_t str[256];
+
 	//描画カラー情報
 	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
 	float d[4] = { 1.0f,0.0f,1.0f,1.0f };
@@ -43,14 +47,24 @@ void CObjInventory::Draw()
 	RECT_F src;//描画元切り取り位置
 	RECT_F dst;//描画先表示位置
 
-	//ブロック情報を持ってくる
-	CObjBlock* block = (CObjBlock*)Objs::GetObj(OBJ_BLOCK);
+	//主人公情報を持ってくる
 	CObjHero* hero = (CObjHero*)Objs::GetObj(OBJ_HERO);
 
-	//フラグ確認用
-	wchar_t str[256];
-	//swprintf_s(str, L"アイテム数:%.0f", ((UserData*)Save::GetData())->item);
-	//Font::StrDraw(str, 10, 10, 20, d);
+	if (((UserData*)Save::GetData())->stage1 == true)
+	{
+		//ブロック情報を持ってくる
+		CObjBlock* block = (CObjBlock*)Objs::GetObj(OBJ_BLOCK);
+
+		swprintf_s(str, L"X=%.0f,Y=%.0f", (hero->GetX() - block->GetScroll()) / 64, hero->GetY() / 64);
+		Font::StrDraw(str, 10, 120, 20, c);
+	}
+
+	
+	
+
+	
+	swprintf_s(str, L"アイテム数:%.0f", ((UserData*)Save::GetData())->item);
+	Font::StrDraw(str, 10, 10, 20, d);
 
 	//swprintf_s(str, L"はしごアイテム数:%.0f", ((UserData*)Save::GetData())->ladder_item);
 	//Font::StrDraw(str, 10, 30, 20, d);
@@ -65,8 +79,7 @@ void CObjInventory::Draw()
 		swprintf_s(str, L"breakpoint");
 		Font::StrDraw(str, 10, 450, 20, c);
 	}
-	swprintf_s(str, L"X=%.0f,Y=%.0f", (hero->GetX()-block->GetScroll())/64,hero->GetY()/64);
-	Font::StrDraw(str, 10, 120, 20, c);
+	
 
 	if (((UserData*)Save::GetData())->break_flag == true) {
 		swprintf_s(str, L"breakflag");
@@ -288,7 +301,7 @@ void CObjInventory::Draw()
 
 	//空白欄(緑)
 	
-		if (((UserData*)Save::GetData())->conversion_num ==5 || ((UserData*)Save::GetData())->conversion_num==4 || ((UserData*)Save::GetData())->conversion_num==3)
+		if (((UserData*)Save::GetData())->conversion_num ==9 || ((UserData*)Save::GetData())->conversion_num==8 || ((UserData*)Save::GetData())->conversion_num==7 || ((UserData*)Save::GetData())->conversion_num == 6 || ((UserData*)Save::GetData())->conversion_num == 5)
 		{
 			//切り取り位置の設定
 			src.m_top = 0.0f;
@@ -310,7 +323,7 @@ void CObjInventory::Draw()
 
 		//空白欄(黄)
 
-		if (((UserData*)Save::GetData())->conversion_num == 2 || ((UserData*)Save::GetData())->conversion_num == 1)
+		if (((UserData*)Save::GetData())->conversion_num == 4 || ((UserData*)Save::GetData())->conversion_num == 3 || ((UserData*)Save::GetData())->conversion_num == 2 || ((UserData*)Save::GetData())->conversion_num == 1)
 		{
 			//切り取り位置の設定
 			src.m_top = 0.0f;
@@ -988,11 +1001,75 @@ if (((UserData*)Save::GetData())->bad_board == 5)
 	//描画
 	Draw::Draw(13, &src, &dst, c, 0.0f);
 }
+	//残り変換回数
+if (((UserData*)Save::GetData())->conversion_num == 9)
+{
+	//切り取り位置の設定
+	src.m_top = 0.0f;
+	src.m_left = 0.0f;
+	src.m_right = 184.0f;
+	src.m_bottom = 184.0f;
 
-//-------------------------------------------
- 
- 
-	//------------残り変換回数------------------
+	//表示位置の設定
+	dst.m_top = 17.0f;
+	dst.m_left = 88.0f;
+	dst.m_right = dst.m_left + 64.0;
+	dst.m_bottom = dst.m_top + 64.0;
+
+	//描画
+	Draw::Draw(36, &src, &dst, c, 0.0f);
+}
+if (((UserData*)Save::GetData())->conversion_num == 8)
+{
+	//切り取り位置の設定
+	src.m_top = 0.0f;
+	src.m_left = 0.0f;
+	src.m_right = 184.0f;
+	src.m_bottom = 184.0f;
+
+	//表示位置の設定
+	dst.m_top = 17.0f;
+	dst.m_left = 88.0f;
+	dst.m_right = dst.m_left + 64.0;
+	dst.m_bottom = dst.m_top + 64.0;
+
+	//描画
+	Draw::Draw(35, &src, &dst, c, 0.0f);
+}
+if (((UserData*)Save::GetData())->conversion_num == 7)
+{
+	//切り取り位置の設定
+	src.m_top = 0.0f;
+	src.m_left = 0.0f;
+	src.m_right = 184.0f;
+	src.m_bottom = 184.0f;
+
+	//表示位置の設定
+	dst.m_top = 17.0f;
+	dst.m_left = 88.0f;
+	dst.m_right = dst.m_left + 64.0;
+	dst.m_bottom = dst.m_top + 64.0;
+
+	//描画
+	Draw::Draw(34, &src, &dst, c, 0.0f);
+}
+if (((UserData*)Save::GetData())->conversion_num == 6)
+{
+	//切り取り位置の設定
+	src.m_top = 0.0f;
+	src.m_left = 0.0f;
+	src.m_right = 184.0f;
+	src.m_bottom = 184.0f;
+
+	//表示位置の設定
+	dst.m_top = 17.0f;
+	dst.m_left = 88.0f;
+	dst.m_right = dst.m_left + 64.0;
+	dst.m_bottom = dst.m_top + 64.0;
+
+	//描画
+	Draw::Draw(33, &src, &dst, c, 0.0f);
+}
 	if (((UserData*)Save::GetData())->conversion_num == 5)
 	{
 		//切り取り位置の設定
