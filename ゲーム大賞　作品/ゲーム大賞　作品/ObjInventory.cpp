@@ -36,6 +36,10 @@ void CObjInventory::Action()
 //ドロー
 void CObjInventory::Draw()
 {
+
+	//フラグ確認用
+	wchar_t str[256];
+
 	//描画カラー情報
 	float c[4] = { 1.0f,1.0f,1.0f,1.0f };
 	float d[4] = { 1.0f,0.0f,1.0f,1.0f };
@@ -43,12 +47,22 @@ void CObjInventory::Draw()
 	RECT_F src;//描画元切り取り位置
 	RECT_F dst;//描画先表示位置
 
-	//ブロック情報を持ってくる
-	CObjBlock* block = (CObjBlock*)Objs::GetObj(OBJ_BLOCK);
+	//主人公情報を持ってくる
 	CObjHero* hero = (CObjHero*)Objs::GetObj(OBJ_HERO);
 
-	//フラグ確認用
-	wchar_t str[256];
+	if (((UserData*)Save::GetData())->stage1 == true)
+	{
+		//ブロック情報を持ってくる
+		CObjBlock* block = (CObjBlock*)Objs::GetObj(OBJ_BLOCK);
+
+		swprintf_s(str, L"X=%.0f,Y=%.0f", (hero->GetX() - block->GetScroll()) / 64, hero->GetY() / 64);
+		Font::StrDraw(str, 10, 120, 20, c);
+	}
+
+	
+	
+
+	
 	swprintf_s(str, L"アイテム数:%.0f", ((UserData*)Save::GetData())->item);
 	Font::StrDraw(str, 10, 10, 20, d);
 
@@ -65,8 +79,7 @@ void CObjInventory::Draw()
 		swprintf_s(str, L"breakpoint");
 		Font::StrDraw(str, 10, 450, 20, c);
 	}
-	swprintf_s(str, L"X=%.0f,Y=%.0f", (hero->GetX()-block->GetScroll())/64,hero->GetY()/64);
-	Font::StrDraw(str, 10, 120, 20, c);
+	
 
 	if (((UserData*)Save::GetData())->break_flag == true) {
 		swprintf_s(str, L"breakflag");

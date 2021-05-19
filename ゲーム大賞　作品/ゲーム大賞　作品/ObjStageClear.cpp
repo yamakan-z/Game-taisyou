@@ -15,6 +15,19 @@ void CObjStageClear::Init()
 {
 	m_key_flag = false;//キーフラグ
 
+
+	//ステージブロック変更
+	//ステージ１→ステージ2
+	if (((UserData*)Save::GetData())->stage1 == true)
+	{
+		((UserData*)Save::GetData())->stage1 = false;
+		((UserData*)Save::GetData())->stage2 = true;
+	}
+
+
+
+
+
 	//フラグを破棄
 	//アイテム関係フラグ破棄
 	((UserData*)Save::GetData())->item = 0;
@@ -56,6 +69,8 @@ void CObjStageClear::Init()
 
 	//変換回数を初期値に戻す
 	((UserData*)Save::GetData())->conversion_num = 5;
+
+
 }
 //アクション
 void CObjStageClear::Action()

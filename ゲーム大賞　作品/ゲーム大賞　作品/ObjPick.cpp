@@ -33,17 +33,34 @@ void CObjPick::Init()
 void CObjPick::Action()
 {
 
+	//HitBoxの位置の変更
+	CHitBox* hit = Hits::GetHitBox(this);
+
 	if (((UserData*)Save::GetData())->pick_item < 0)//はしごアイテムが0を下回る時、0にする
 	{
 		((UserData*)Save::GetData())->pick_item = 0;
 	}
 
-	//ブロック情報を持ってくる
-	CObjBlock* block = (CObjBlock*)Objs::GetObj(OBJ_BLOCK);
 
-	//HitBoxの位置の変更
-	CHitBox* hit = Hits::GetHitBox(this);
-	hit->SetPos(m_px + block->GetScroll(), m_py);
+	//ステージ毎に持ってくるブロック情報を変える
+	//ステージ1
+	if (((UserData*)Save::GetData())->stage1 == true)
+	{
+		//ブロック情報を持ってくる
+		CObjBlock* block = (CObjBlock*)Objs::GetObj(OBJ_BLOCK);
+
+		hit->SetPos(m_px + block->GetScroll(), m_py);
+	}
+	//ステージ2
+	else if (((UserData*)Save::GetData())->stage2 == true)
+	{
+		//ブロック情報を持ってくる
+		CObjBlock2* block2 = (CObjBlock2*)Objs::GetObj(OBJ_BLOCK2);
+
+		hit->SetPos(m_px + block2->GetScroll(), m_py);
+	}
+
+	
 
 	//主人公オブジェクトと接触したらつるはしを削除
 	if (hit->CheckElementHit(ELEMENT_PLAYER) == true)
@@ -70,21 +87,47 @@ void CObjPick::Draw()
 	RECT_F src; //描画元切り取り位置
 	RECT_F dst; //描画先表示位置
 
-	//ブロック情報を持ってくる
-	CObjBlock* block = (CObjBlock*)Objs::GetObj(OBJ_BLOCK);
+	//ステージ毎の描画
+	//ステージ1
+	if (((UserData*)Save::GetData())->stage1 == true)
+	{
+		//ブロック情報を持ってくる
+		CObjBlock* block = (CObjBlock*)Objs::GetObj(OBJ_BLOCK);
 
-	//切り取り位置の設定
-	src.m_top = 0.0f;
-	src.m_left = 0.0f;
-	src.m_right = 184.0f;
-	src.m_bottom = 184.0f;
+		//切り取り位置の設定
+		src.m_top = 0.0f;
+		src.m_left = 0.0f;
+		src.m_right = 184.0f;
+		src.m_bottom = 184.0f;
 
-	//表示位置の設定
-	dst.m_top = m_py;
-	dst.m_left = m_px + block->GetScroll();
-	dst.m_right = dst.m_left + 64.0;
-	dst.m_bottom = dst.m_top + 64.0;
+		//表示位置の設定
+		dst.m_top = m_py;
+		dst.m_left = m_px + block->GetScroll();
+		dst.m_right = dst.m_left + 64.0;
+		dst.m_bottom = dst.m_top + 64.0;
 
-	//描画
-	Draw::Draw(7, &src, &dst, c, 0.0f);
+		//描画
+		Draw::Draw(7, &src, &dst, c, 0.0f);
+	}
+	//ステージ2
+	else if (((UserData*)Save::GetData())->stage2 == true)
+	{
+		//ブロック情報を持ってくる
+		CObjBlock2* block2 = (CObjBlock2*)Objs::GetObj(OBJ_BLOCK2);
+
+		//切り取り位置の設定
+		src.m_top = 0.0f;
+		src.m_left = 0.0f;
+		src.m_right = 184.0f;
+		src.m_bottom = 184.0f;
+
+		//表示位置の設定
+		dst.m_top = m_py;
+		dst.m_left = m_px + block2->GetScroll();
+		dst.m_right = dst.m_left + 64.0;
+		dst.m_bottom = dst.m_top + 64.0;
+
+		//描画
+		Draw::Draw(7, &src, &dst, c, 0.0f);
+	}
 }

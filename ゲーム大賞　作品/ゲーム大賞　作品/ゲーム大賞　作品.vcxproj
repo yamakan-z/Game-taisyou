@@ -172,7 +172,7 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="ObjBlock2.cpp" />
-    <ClCompile Include="SceneStage2.cpp" />
+    <ClCompile Include="SceneMain2.cpp" />
     <ClCompile Include="SceneStageClear.cpp" />
     <ClCompile Include="SceneTitle.cpp" />
   </ItemGroup>
@@ -212,7 +212,7 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
     </ClInclude>
     <ClInclude Include="ObjBlock2.h" />
-    <ClInclude Include="SceneStage2.h" />
+    <ClInclude Include="SceneMain2.h" />
     <ClInclude Include="SceneStageClear.h" />
     <ClInclude Include="SceneTitle.h" />
   </ItemGroup>

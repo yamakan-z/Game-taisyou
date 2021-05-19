@@ -7,8 +7,6 @@ enum OBJ_NAME
 	//ゲームで使うオブジェクトの名前
 	//OBJ_○○と表記
 	OBJ_HERO,
-	OBJ_BLOCK,
-	OBJ_BLOCK2,
 	OBJ_ITEM,
 	OBJ_TURUHASI,
 	OBJ_TITLE,
@@ -21,6 +19,10 @@ enum OBJ_NAME
 	OBJ_GAME_OVER_BACKGROUND,
 	OBJ_GAME_CLEAR_BACKGROUND,
 	OBJ_STAGE_CLEAR,
+
+	//ブロック
+	OBJ_BLOCK,
+	OBJ_BLOCK2,
 
 	//はしごアイテム
 	OBJ_LADDER_ITEM,
@@ -115,6 +117,10 @@ struct UserData
 
 	//のこり変換回数
 	int conversion_num = 9;
+
+	//ステージブロック情報
+	bool stage1 = false;//ステージ1
+	bool stage2 = false;//ステージ2
 };
 //------------------------------------------------
 
@@ -152,7 +158,7 @@ struct UserData
 
 //ゲームシーンクラスヘッダ------------------------
 #include"SceneMain.h"
-#include"SceneStage2.h"
+#include"SceneMain2.h"
 #include"SceneTitle.h"
 #include"SceneGameOver.h"
 #include"SceneGameClear.h"
@@ -161,5 +167,5 @@ struct UserData
 
 //シーンスタートクラス---------------------------
 //ゲーム開始時のシーンクラス登録
-#define SET_GAME_START  CSceneTitle
+#define SET_GAME_START  CSceneMain2
 //-----------------------------------------------

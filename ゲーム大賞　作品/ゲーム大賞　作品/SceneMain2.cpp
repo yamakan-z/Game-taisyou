@@ -12,23 +12,23 @@
 using namespace GameL;
 
 //使用ヘッダー
-#include"SceneStage2.h"
+#include"SceneMain2.h"
 #include"GameHead.h"
 
 //コンストラクタ
-CSceneStage2::CSceneStage2()
+CSceneMain2::CSceneMain2()
 {
-
+	((UserData*)Save::GetData())->stage2 = true;
 }
 
 //デストラクタ
-CSceneStage2::~CSceneStage2()
+CSceneMain2::~CSceneMain2()
 {
 
 }
 
 //初期化メソッド
-void CSceneStage2::InitScene()
+void CSceneMain2::InitScene()
 {
 	//グラフィック読み込み
 	Draw::LoadImageW(L"Hero_ani.png", 0, TEX_SIZE_512);
@@ -103,8 +103,8 @@ void CSceneStage2::InitScene()
 	Objs::InsertObj(obj, OBJ_HERO, 10);
 
 	//blockオブジェクト作成
-	CObjBlock* objb = new CObjBlock();
-	Objs::InsertObj(objb, OBJ_BLOCK, 9);
+	CObjBlock2* objb2 = new CObjBlock2();
+	Objs::InsertObj(objb2, OBJ_BLOCK2, 9);
 
 	//インベントリ作成
 	CObjInventory* objin = new CObjInventory();
@@ -134,7 +134,7 @@ void CSceneStage2::InitScene()
 }
 
 //実行中メソッド
-void CSceneStage2::Scene()
+void CSceneMain2::Scene()
 {
 
 }
