@@ -68,6 +68,8 @@ void CSceneMainT::InitScene()
 	Draw::LoadImageW(L"変換つるはしインベントリ.png", 40, TEX_SIZE_512);
 	Draw::LoadImageW(L"ブロック劣化.png", 41, TEX_SIZE_512);
 	Draw::LoadImageW(L"操作説明（表示）.png", 46, TEX_SIZE_512);
+	Draw::LoadImageW(L"新芽.png", 47, TEX_SIZE_512);
+	Draw::LoadImageW(L"土ブロック.png", 48, TEX_SIZE_512);
 
 
 	//アイテム数番号
