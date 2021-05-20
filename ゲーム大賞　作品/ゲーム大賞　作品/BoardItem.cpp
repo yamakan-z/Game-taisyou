@@ -59,6 +59,15 @@ void CBoardItem::Action()
 
 		hit->SetPos(m_px + block2->GetScroll(), m_py);
 	}
+	//ステージ3
+	else if (((UserData*)Save::GetData())->stage3 == true)
+	{
+		//ブロック情報を持ってくる
+		CObjBlock3* block3 = (CObjBlock3*)Objs::GetObj(OBJ_BLOCK3);
+
+
+		hit->SetPos(m_px + block3->GetScroll(), m_py);
+	}
 	
 
 	//主人公オブジェクトと接触したらアイテムを削除
@@ -127,7 +136,25 @@ void CBoardItem::Draw()
 		//描画
 		Draw::Draw(4, &src, &dst, c, 0.0f);
 	}
+	//ステージ3
+	else if (((UserData*)Save::GetData())->stage3 == true)
+	{
+		//ブロック情報を持ってくる
+		CObjBlock3* block3 = (CObjBlock3*)Objs::GetObj(OBJ_BLOCK3);
 
+		//切り取り位置の設定
+		src.m_top = 0.0f;
+		src.m_left = 0.0f;
+		src.m_right = 184.0f;
+		src.m_bottom = 184.0f;
 
-	
+		//表示位置の設定
+		dst.m_top = m_py;
+		dst.m_left = m_px + block3->GetScroll();
+		dst.m_right = dst.m_left + 64.0;
+		dst.m_bottom = dst.m_top + 64.0;
+
+		//描画
+		Draw::Draw(4, &src, &dst, c, 0.0f);
+	}
 }

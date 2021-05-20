@@ -15,6 +15,8 @@ void CObjGameClear::Init()
 {
 	m_key_flag = false;//キーフラグ
 
+	((UserData*)Save::GetData())->stage3 = false;
+
 	//フラグを破棄
 	//アイテム関係フラグ破棄
 	((UserData*)Save::GetData())->item = 0;

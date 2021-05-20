@@ -156,6 +156,12 @@
     <ClCompile Include="SceneMain2.cpp">
       <Filter>ソース ファイル\ステージ2</Filter>
     </ClCompile>
+    <ClCompile Include="SceneMain3.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjBlock3.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameL\Audio.h">
@@ -259,6 +265,12 @@
     </ClInclude>
     <ClInclude Include="SceneMain2.h">
       <Filter>ソース ファイル\ステージ2</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneMain3.h">
+      <Filter>ソース ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjBlock3.h">
+      <Filter>ソース ファイル</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

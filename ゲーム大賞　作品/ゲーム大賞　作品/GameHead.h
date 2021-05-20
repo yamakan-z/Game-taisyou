@@ -23,6 +23,7 @@ enum OBJ_NAME
 	//ブロック
 	OBJ_BLOCK,
 	OBJ_BLOCK2,
+	OBJ_BLOCK3,
 
 	//はしごアイテム
 	OBJ_LADDER_ITEM,
@@ -121,6 +122,7 @@ struct UserData
 	//ステージブロック変更
 	bool stage1 = false;//ステージ1
 	bool stage2 = false;//ステージ2
+	bool stage3 = false;//ステージ3
 };
 //------------------------------------------------
 
@@ -139,6 +141,7 @@ struct UserData
 #include"ObjHero.h"
 #include"ObjBlock.h"
 #include"ObjBlock2.h"
+#include"ObjBlock3.h"
 #include"ObjPick.h"
 #include"LadderItem.h"
 #include"BoardItem.h"
@@ -159,6 +162,7 @@ struct UserData
 //ゲームシーンクラスヘッダ------------------------
 #include"SceneMain.h"
 #include"SceneMain2.h"
+#include"SceneMain3.h"
 #include"SceneTitle.h"
 #include"SceneGameOver.h"
 #include"SceneGameClear.h"
@@ -167,5 +171,5 @@ struct UserData
 
 //シーンスタートクラス---------------------------
 //ゲーム開始時のシーンクラス登録
-#define SET_GAME_START  CSceneMain2
+#define SET_GAME_START  CSceneMain3
 //-----------------------------------------------
