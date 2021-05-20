@@ -63,8 +63,8 @@ void CObjInventory::Draw()
 	
 
 	
-	swprintf_s(str, L"アイテム数:%.0f", ((UserData*)Save::GetData())->item);
-	Font::StrDraw(str, 10, 10, 20, d);
+	/*swprintf_s(str, L"アイテム数:%.0f", ((UserData*)Save::GetData())->item);
+	Font::StrDraw(str, 10, 10, 20, d);*/
 
 	//swprintf_s(str, L"はしごアイテム数:%.0f", ((UserData*)Save::GetData())->ladder_item);
 	//Font::StrDraw(str, 10, 30, 20, d);
@@ -75,7 +75,7 @@ void CObjInventory::Draw()
 	//swprintf_s(str, L"つるはし:%.0f", ((UserData*)Save::GetData())->pick_item);
 	//Font::StrDraw(str, 10, 70, 20, d);
 
-	if (((UserData*)Save::GetData())->break_point == true){
+	/*if (((UserData*)Save::GetData())->break_point == true){
 		swprintf_s(str, L"breakpoint");
 		Font::StrDraw(str, 10, 450, 20, c);
 	}
@@ -84,10 +84,10 @@ void CObjInventory::Draw()
 	if (((UserData*)Save::GetData())->break_flag == true) {
 		swprintf_s(str, L"breakflag");
 		Font::StrDraw(str, 10, 470, 20, c);
-	}
+	}*/
 
-	swprintf_s(str, L"Wキー　操作説明");
-	Font::StrDraw(str, 10, 170, 20, c);
+	/*swprintf_s(str, L"Wキー　操作説明");
+	Font::StrDraw(str, 10, 170, 20, c);*/
 
 	//swprintf_s(str, L"残り変換回数:%d", ((UserData*)Save::GetData())->conversion_num);
 	//Font::StrDraw(str, 10, 90, 20, d);
@@ -101,7 +101,7 @@ void CObjInventory::Draw()
 	//swprintf_s(str, L"変換済みつるはし:%.0f", ((UserData*)Save::GetData())->converted_pick);
 	//Font::StrDraw(str, 10, 310, 20, d);
 
-	swprintf_s(str, L"劣化はしごアイテム数:%.0f", ((UserData*)Save::GetData())->bad_ladder);
+	/*swprintf_s(str, L"劣化はしごアイテム数:%.0f", ((UserData*)Save::GetData())->bad_ladder);
 	Font::StrDraw(str, 10, 340, 20, d);
 
 	swprintf_s(str, L"劣化板アイテム数:%.0f", ((UserData*)Save::GetData())->bad_board);
@@ -111,7 +111,7 @@ void CObjInventory::Draw()
 	Font::StrDraw(str, 10, 380, 20, d);
 
 	swprintf_s(str, L"変換済みアイテム数:%.0f", ((UserData*)Save::GetData())->converted_item);
-	Font::StrDraw(str, 10, 420, 20, d);
+	Font::StrDraw(str, 10, 420, 20, d);*/
 
 	if (((UserData*)Save::GetData())->ins_place == true)
 	{
@@ -126,7 +126,7 @@ void CObjInventory::Draw()
 
 
 
-	//操作説明表示
+	//操作説明アイコン表示
 
 	//切り取り位置の設定
 	src.m_top = 0.0f;
@@ -137,8 +137,8 @@ void CObjInventory::Draw()
 
 	//表示位置の設定
 	dst.m_top = 100.0;
-	dst.m_left = 600.0;
-	dst.m_right = dst.m_right = dst.m_left + 200.0;
+	dst.m_left = 550.0;
+	dst.m_right = dst.m_right = dst.m_left + 220.0;
 	dst.m_bottom = dst.m_top + 100.0;
 
 	//描画
