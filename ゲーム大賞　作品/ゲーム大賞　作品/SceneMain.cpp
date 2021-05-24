@@ -111,6 +111,8 @@ void CSceneMain::InitScene()
 	Audio::LoadAudio(0, L"GameMain(仮).wav", SOUND_TYPE::BACK_MUSIC);
 	Audio::LoadAudio(1, L"アイテム設置音.wav", SOUND_TYPE::EFFECT);
 	Audio::LoadAudio(3, L"ブロックを破壊する音.wav", SOUND_TYPE::EFFECT);
+	Audio::LoadAudio(5, L"アイテム変換音.wav", EFFECT);
+
 
 	//ボリュームを1.0に戻す
     v = Audio::VolumeMaster(0.0);

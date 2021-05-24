@@ -394,7 +394,7 @@ void CObjHero::Action()
 
 	//アイテムの変換
 	//現在の変換　つるはし→板→はしご→つるはし...
-	if (((UserData*)Save::GetData())->item > 0&& ((UserData*)Save::GetData())->conversion_num > 0)
+	if (((UserData*)Save::GetData())->item > 0 && ((UserData*)Save::GetData())->conversion_num > 0)
 	{
 		//変換済みアイテム→劣化アイテムの変換
 		//変換済みアイテムを優先して変換させる
@@ -403,14 +403,16 @@ void CObjHero::Action()
 			//変換　変換済みつるはし→劣化板
 			if (Input::GetVKey(VK_F1) == true && ((UserData*)Save::GetData())->converted_pick > 0 && conversionB == true)
 			{
+				Audio::Start(5);
 
 				((UserData*)Save::GetData())->converted_pick -= 1;
 				((UserData*)Save::GetData())->bad_board += 1;
-				
+
 				((UserData*)Save::GetData())->converted_item -= 1;
 
 				((UserData*)Save::GetData())->conversion_num -= 1;
 				conversionB = false;
+
 			}
 			else if (Input::GetVKey(VK_F1) == false && conversionB == false)
 			{
@@ -420,6 +422,8 @@ void CObjHero::Action()
 			//変換　変換済み板→劣化はしご
 			if (Input::GetVKey(VK_F2) == true && ((UserData*)Save::GetData())->converted_board > 0 && conversionL == true)
 			{
+				Audio::Start(5);
+
 				((UserData*)Save::GetData())->converted_board -= 1;
 				((UserData*)Save::GetData())->bad_ladder += 1;
 
@@ -427,6 +431,7 @@ void CObjHero::Action()
 
 				((UserData*)Save::GetData())->conversion_num -= 1;
 				conversionL = false;
+
 			}
 			else if (Input::GetVKey(VK_F2) == false && conversionL == false)
 			{
@@ -436,6 +441,8 @@ void CObjHero::Action()
 			//変換　変換済みはしご→劣化つるはし
 			if (Input::GetVKey(VK_F3) == true && ((UserData*)Save::GetData())->converted_ladder > 0 && conversionP == true)
 			{
+				Audio::Start(5);
+
 				((UserData*)Save::GetData())->converted_ladder -= 1;
 				((UserData*)Save::GetData())->bad_pick += 1;
 
@@ -458,6 +465,8 @@ void CObjHero::Action()
 			if (Input::GetVKey(VK_F1) == true && ((UserData*)Save::GetData())->pick_item > 0 && conversionB == true)
 			{
 
+				Audio::Start(5);
+
 				((UserData*)Save::GetData())->pick_item -= 1;
 				((UserData*)Save::GetData())->converted_board += 1;
 				//((UserData*)Save::GetData())->board_item += 1;
@@ -475,6 +484,8 @@ void CObjHero::Action()
 			//変換　板→変換済みはしご
 			if (Input::GetVKey(VK_F2) == true && ((UserData*)Save::GetData())->board_item > 0 && conversionL == true)
 			{
+				Audio::Start(5);
+
 				((UserData*)Save::GetData())->board_item -= 1;
 				//((UserData*)Save::GetData())->ladder_item += 1;
 				((UserData*)Save::GetData())->converted_ladder += 1;
@@ -491,6 +502,8 @@ void CObjHero::Action()
 			//変換　はしご→変換済みつるはし
 			if (Input::GetVKey(VK_F3) == true && ((UserData*)Save::GetData())->ladder_item > 0 && conversionP == true)
 			{
+				Audio::Start(5);
+
 				((UserData*)Save::GetData())->ladder_item -= 1;
 				//((UserData*)Save::GetData())->pick_item += 1;
 				((UserData*)Save::GetData())->converted_pick += 1;
@@ -504,7 +517,7 @@ void CObjHero::Action()
 				conversionP = true;
 			}
 		}
-		
+
 	}
 
 	//摩擦
