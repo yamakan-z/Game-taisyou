@@ -86,7 +86,21 @@ void CObjGameOver::Action()
 	{
 		if (m_key_flag == true)
 		{
-			Scene::SetScene(new CSceneTitle());
+
+			if (((UserData*)Save::GetData())->stage1 == true)
+			{
+				Scene::SetScene(new CSceneMain());
+			}
+
+			else if (((UserData*)Save::GetData())->stage2 == true)
+			{
+				Scene::SetScene(new CSceneMain2());
+			}
+
+			else if (((UserData*)Save::GetData())->stage3 == true)
+			{
+				Scene::SetScene(new CSceneMain3());
+			}
 		}
 	}
 	else
