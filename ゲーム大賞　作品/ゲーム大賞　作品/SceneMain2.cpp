@@ -35,8 +35,7 @@ void CSceneMain2::InitScene()
 	Draw::LoadImageW(L"ブロック.png", 1, TEX_SIZE_512);
 	Draw::LoadImageW(L"背景2.png", 2, TEX_SIZE_1024);
 	Draw::LoadImageW(L"Ladder.png", 3, TEX_SIZE_512);
-	Draw::LoadImageW(L"板.png", 47, TEX_SIZE_512);
-	Draw::LoadImageW(L"鉄板アイテム.png", 4, TEX_SIZE_512);
+	Draw::LoadImageW(L"板.png", 4, TEX_SIZE_512);
 	Draw::LoadImageW(L"はしごアイテム.png", 5, TEX_SIZE_512);
 	Draw::LoadImageW(L"インベントリｍ２.png", 6, TEX_SIZE_512);
 	Draw::LoadImageW(L"つるはし.png", 7, TEX_SIZE_512);
@@ -57,7 +56,6 @@ void CSceneMain2::InitScene()
 	Draw::LoadImageW(L"劣化はしご看板.png", 28, TEX_SIZE_512);
 	Draw::LoadImageW(L"劣化つるはし看板.png", 29, TEX_SIZE_512);
 	Draw::LoadImageW(L"劣化鉄板看板.png", 30, TEX_SIZE_512);
-	Draw::LoadImageW(L"矢印看板.png", 46, TEX_SIZE_512);
 	Draw::LoadImageW(L"看板棒.png", 31, TEX_SIZE_512);
 	Draw::LoadImageW(L"劣化はしごインベントリ.png", 32, TEX_SIZE_512);
 	Draw::LoadImageW(L"劣化板インベントリ.png", 33, TEX_SIZE_512);
@@ -69,7 +67,11 @@ void CSceneMain2::InitScene()
 	Draw::LoadImageW(L"変換板インベントリ.png", 39, TEX_SIZE_512);
 	Draw::LoadImageW(L"変換つるはしインベントリ.png", 40, TEX_SIZE_512);
 	Draw::LoadImageW(L"ブロック劣化.png", 41, TEX_SIZE_512);
-
+	Draw::LoadImageW(L"操作説明（表示）.png", 46, TEX_SIZE_512);
+	Draw::LoadImageW(L"新芽.png", 47, TEX_SIZE_512);
+	Draw::LoadImageW(L"土ブロック.png", 48, TEX_SIZE_512);
+	Draw::LoadImageW(L"矢印看板.png", 49, TEX_SIZE_512);
+	Draw::LoadImageW(L"鉄板アイテム.png", 50, TEX_SIZE_512);
 
 	//アイテム数番号
 	Draw::LoadImageW(L"0.png", 8, TEX_SIZE_512);

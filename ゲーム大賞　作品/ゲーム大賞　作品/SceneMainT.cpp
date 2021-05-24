@@ -70,7 +70,8 @@ void CSceneMainT::InitScene()
 	Draw::LoadImageW(L"操作説明（表示）.png", 46, TEX_SIZE_512);
 	Draw::LoadImageW(L"新芽.png", 47, TEX_SIZE_512);
 	Draw::LoadImageW(L"土ブロック.png", 48, TEX_SIZE_512);
-
+	Draw::LoadImageW(L"矢印看板.png", 49, TEX_SIZE_512);
+	Draw::LoadImageW(L"鉄板アイテム.png", 50, TEX_SIZE_512);
 
 	//アイテム数番号
 	Draw::LoadImageW(L"0.png", 8, TEX_SIZE_512);

@@ -1566,7 +1566,7 @@ void CObjBlock3::Draw()
 				dst.m_bottom = dst.m_top + 10.0;
 
 				//•`‰æ
-				Draw::Draw(47, &src, &dst, c2, 0.0f);
+				Draw::Draw(4, &src, &dst, c2, 0.0f);
 			}
 
 			//”Â”»’èƒuƒƒbƒN
@@ -1896,7 +1896,7 @@ void CObjBlock3::Draw()
 				dst.m_bottom = dst.m_top + 77.0;
 
 				//•`‰æ
-				Draw::Draw(46, &src, &dst, c2, 0.0f);
+				Draw::Draw(49, &src, &dst, c2, 0.0f);
 			}
 
 			//ŠÅ”Â–_

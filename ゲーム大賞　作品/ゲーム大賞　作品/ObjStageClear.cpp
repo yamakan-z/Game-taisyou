@@ -24,6 +24,11 @@ void CObjStageClear::Init()
 		((UserData*)Save::GetData())->stage1 = false;
 		((UserData*)Save::GetData())->stage2 = true;
 	}
+	else if (((UserData*)Save::GetData())->stage2 == true)
+	{
+		((UserData*)Save::GetData())->stage2 = false;
+		((UserData*)Save::GetData())->stage3 = true;
+	}
 
 
 
