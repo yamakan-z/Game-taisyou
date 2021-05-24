@@ -24,6 +24,7 @@ void CObjStageClear::Init()
 		((UserData*)Save::GetData())->stage1 = false;
 		((UserData*)Save::GetData())->stage2 = true;
 	}
+	//ステージ2→ステージ3
 	else if (((UserData*)Save::GetData())->stage2 == true)
 	{
 		((UserData*)Save::GetData())->stage2 = false;
@@ -138,5 +139,5 @@ void CObjStageClear::Draw()
 			((UserData*)Save::GetData())->save_s_time
 		);
 	}
-	Font::StrDraw(str, 200, 100, 64, c);
+	Font::StrDraw(str, 300, 100, 64, c);
 }
