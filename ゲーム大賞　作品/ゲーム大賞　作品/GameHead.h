@@ -19,6 +19,7 @@ enum OBJ_NAME
 	OBJ_GAME_OVER_BACKGROUND,
 	OBJ_GAME_CLEAR_BACKGROUND,
 	OBJ_STAGE_CLEAR,
+	OBJ_STAGE_CLEAR_BACKGROUND,
 
 	//ÉuÉçÉbÉN
 	OBJ_BLOCK,
@@ -157,6 +158,7 @@ struct UserData
 #include"ObjTitleBackground.h"
 #include"ObjgameOverBackground.h"
 #include"ObjgameClearBackground.h"
+#include"ObjStageClearBackground.h"
 
 #include"ObjInventory.h"
 #include"ObjTitle.h"
