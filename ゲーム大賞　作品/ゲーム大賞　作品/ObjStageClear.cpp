@@ -2,6 +2,7 @@
 #include"GameL\DrawFont.h"
 #include"GameL\WinInputs.h"
 #include"GameL\SceneObjManager.h"
+#include "GameL\DrawTexture.h"
 
 #include"GameHead.h"
 #include"ObjStageClear.h"
@@ -101,6 +102,32 @@ void CObjStageClear::Action()
 void CObjStageClear::Draw()
 {
 	float c[4] = { 0.0f,0.0f,1.0f,1.0f };
+	wchar_t str[256];
 
 	Font::StrDraw(L"Return_to_title:ENTER_KEY", 225, 340, 32, c);
+
+
+	//タイムa表示
+
+	if (((UserData*)Save::GetData())->save_s_time <= 9)
+	{
+		swprintf_s
+		(
+			str,
+			L"クリアタイム　%d:0%d",
+			((UserData*)Save::GetData())->save_m_time,
+			((UserData*)Save::GetData())->save_s_time
+		);
+	}
+	else
+	{
+		swprintf_s
+		(
+			str,
+			L"クリアタイム　%d:%d",
+			((UserData*)Save::GetData())->save_m_time,
+			((UserData*)Save::GetData())->save_s_time
+		);
+	}
+	Font::StrDraw(str, 200, 100, 64, c);
 }

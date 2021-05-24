@@ -12,6 +12,13 @@
 //使用するネームスペース
 using namespace GameL;
 
+
+////コンストラクタ
+//CObjInventory::CObjInventory()
+//{
+//	
+//}
+
 // イニシャライズ
 void CObjInventory::Init()
 {
@@ -20,6 +27,12 @@ void CObjInventory::Init()
 	m_px = 500.0f;//位置
 	m_py = -50.0f;
 
+	flame = 0;//フレーム計算
+	s_time = 0;
+	m_time = 0;
+
+	((UserData*)Save::GetData())->save_s_time = 0;//セーブ用m_time初期化
+	((UserData*)Save::GetData())->save_m_time = 0;//セーブ用s_time初期化
 
 }
 
@@ -27,10 +40,56 @@ void CObjInventory::Init()
 //アクション
 void CObjInventory::Action()
 {
-	if (((UserData*)Save::GetData())->item == 1)
-	{
+	//主人公の位置を取得
+	CObjHero* hero = (CObjHero*)Objs::GetObj(OBJ_HERO);
+	float hx = hero->GetX();
+	float hy = hero->GetY();
 
+	////後方スクロールライン
+	//if (hx < 80)
+	//{
+	//	hero->SetX(80);//主人公はラインを超えないようにする
+	//	m_scroll -= hero->GetVX();//主人公が本来動くべき分の値をm_scrollに加える
+	//}
+
+	////前方スクロールライン
+	//if (hx > 300)
+	//{
+	//	hero->SetX(300);//主人公はラインを超えないようにする
+	//	m_scroll -= hero->GetVX();//主人公が本来動くべき分の値をm_scrollに加える
+	//}
+
+	////主人公の衝突状態確認フラグの初期化
+	//hero->SetUp(false);
+	//hero->SetDown(false);
+	//hero->SetLeft(false);
+	//hero->SetRight(false);
+
+	////踏んでいるブロックの種類の初期化
+	//hero->SetBT(0);
+
+	if (hero->GetBT() != 2)
+	{
+		flame++;
+		//flameが60回回ると1秒カウント
+		if (flame == 60)
+		{
+			flame = 0;
+			s_time++;
+			//s_time++の時点でセーブ用s_timeもインクリメント
+			((UserData*)Save::GetData())->save_s_time++;
+		}
+		//s_timeが60で1分です
+		if (s_time == 60)
+		{
+			s_time = 0;
+			m_time++;
+			//m_time++の時点でセーブ用m_timeもインクリメント
+			((UserData*)Save::GetData())->save_m_time++;
+			((UserData*)Save::GetData())->save_s_time = 0;
+		}
 	}
+
 }
 
 //ドロー
@@ -59,59 +118,6 @@ void CObjInventory::Draw()
 		Font::StrDraw(str, 10, 120, 20, c);
 	}
 
-	
-	
-
-	
-	/*swprintf_s(str, L"アイテム数:%.0f", ((UserData*)Save::GetData())->item);
-	Font::StrDraw(str, 10, 10, 20, d);*/
-
-	//swprintf_s(str, L"はしごアイテム数:%.0f", ((UserData*)Save::GetData())->ladder_item);
-	//Font::StrDraw(str, 10, 30, 20, d);
-
-	//swprintf_s(str, L"板アイテム数:%.0f", ((UserData*)Save::GetData())->board_item);
-	//Font::StrDraw(str, 10, 50, 20, d);
-
-	//swprintf_s(str, L"つるはし:%.0f", ((UserData*)Save::GetData())->pick_item);
-	//Font::StrDraw(str, 10, 70, 20, d);
-
-	/*if (((UserData*)Save::GetData())->break_point == true){
-		swprintf_s(str, L"breakpoint");
-		Font::StrDraw(str, 10, 450, 20, c);
-	}
-	
-
-	if (((UserData*)Save::GetData())->break_flag == true) {
-		swprintf_s(str, L"breakflag");
-		Font::StrDraw(str, 10, 470, 20, c);
-	}*/
-
-	/*swprintf_s(str, L"Wキー　操作説明");
-	Font::StrDraw(str, 10, 170, 20, c);*/
-
-	//swprintf_s(str, L"残り変換回数:%d", ((UserData*)Save::GetData())->conversion_num);
-	//Font::StrDraw(str, 10, 90, 20, d);
-
-	//swprintf_s(str, L"変換済みはしごアイテム数:%.0f", ((UserData*)Save::GetData())->converted_ladder);
-	//Font::StrDraw(str, 10, 270, 20, d);
-
-	//swprintf_s(str, L"変換済み板アイテム数:%.0f", ((UserData*)Save::GetData())->converted_board);
-	//Font::StrDraw(str, 10, 290, 20, d);
-
-	//swprintf_s(str, L"変換済みつるはし:%.0f", ((UserData*)Save::GetData())->converted_pick);
-	//Font::StrDraw(str, 10, 310, 20, d);
-
-	/*swprintf_s(str, L"劣化はしごアイテム数:%.0f", ((UserData*)Save::GetData())->bad_ladder);
-	Font::StrDraw(str, 10, 340, 20, d);
-
-	swprintf_s(str, L"劣化板アイテム数:%.0f", ((UserData*)Save::GetData())->bad_board);
-	Font::StrDraw(str, 10, 360, 20, d);
-
-	swprintf_s(str, L"劣化つるはし:%.0f", ((UserData*)Save::GetData())->bad_pick);
-	Font::StrDraw(str, 10, 380, 20, d);
-
-	swprintf_s(str, L"変換済みアイテム数:%.0f", ((UserData*)Save::GetData())->converted_item);
-	Font::StrDraw(str, 10, 420, 20, d);*/
 
 	if (((UserData*)Save::GetData())->ins_place == true)
 	{
@@ -124,6 +130,8 @@ void CObjInventory::Draw()
 		Font::StrDraw(str, 10, 520, 20, d);
 	}
 
+	swprintf_s(str, L"タイム　%02d:%02d", m_time, s_time);
+	Font::StrDraw(str, 10, 200, 20, c);
 
 
 	//操作説明アイコン表示

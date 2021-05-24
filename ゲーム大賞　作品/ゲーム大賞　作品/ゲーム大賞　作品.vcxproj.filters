@@ -165,6 +165,9 @@
     <ClCompile Include="SceneMain.cpp">
       <Filter>ソース ファイル\ステージ\ステージ1</Filter>
     </ClCompile>
+    <ClCompile Include="ObjTime.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameL\Audio.h">
@@ -274,6 +277,9 @@
     </ClInclude>
     <ClInclude Include="SceneMain.h">
       <Filter>ソース ファイル\ステージ\ステージ1</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjTime.h">
+      <Filter>ソース ファイル</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -25,12 +25,17 @@ enum OBJ_NAME
 	OBJ_BLOCK2,
 	OBJ_BLOCKT,
 
+
+	//時間
+	OBJ_TIME,
+
 	//はしごアイテム
 	OBJ_LADDER_ITEM,
 
 	//つるはし
 	OBJ_PICK,
 
+	//板アイテム
 	OBJ_BOARD_ITEM,
 };
 //------------------------------------------------
@@ -119,6 +124,10 @@ struct UserData
 	//のこり変換回数
 	int conversion_num = 5;
 
+	//時間保存変数
+	int save_s_time;		//s_timeセーブ用変数
+	int save_m_time;		//m_timeセーブ用変数
+
 	//ステージブロック変更
 	bool stageT = false;//チュートリアルステージ
 	bool stage1 = false;//ステージ1
@@ -154,6 +163,7 @@ struct UserData
 #include"ObjGameClear.h"
 #include"ObjGameOver.h"
 #include"ObjStageClear.h"
+#include"ObjTime.h"
 
 
 

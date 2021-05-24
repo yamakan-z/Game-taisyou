@@ -1033,22 +1033,27 @@ void CObjBlock::Action()
 					if (m_map[i][j] == 97)//はしご設置用の空間
 					{
 
-						if ((hx + (-m_scroll) + 64.0f > x) && (hx + (-m_scroll) < x + 64.0f)&& (hy + 64.0f > y) && (hy < y + 64.0f))
+						if ((x / 64) - 1 <= ((hx + (-m_scroll)) / 64) && ((hx + (-m_scroll)) / 64) <= (x / 64) + 1 && (y / 64) - 1 <= (hy / 64) && (hy / 64) <= (y / 64) + 1)
 						{
-							for (int f = 0;; f++) {
-								if (m_map[i - f][j] == 97) {
-									m_map[i - f][j] = 8;//はしご設置
-								}else {
-									((UserData*)Save::GetData())->ladder = true;//上移動の許可
+							if ((hx + (-m_scroll) + 64.0f > x) && (hx + (-m_scroll) < x + 64.0f) && (hy + 64.0f > y) && (hy < y + 64.0))
+							{
+								for (int f = 0;; f++) {
+									if (m_map[i - f][j] == 97) {
+										m_map[i - f][j] = 8;//はしご設置
+									}
+									else {
+										((UserData*)Save::GetData())->ladder = true;//上移動の許可
 
-									((UserData*)Save::GetData())->ins_ladder_done = true;//はしごアイテムを1つ消費させるため
+										((UserData*)Save::GetData())->ins_ladder_done = true;//はしごアイテムを1つ消費させるため
 
-									((UserData*)Save::GetData())->ladder_flag = false;//ここではしごの設置場所を判定
+										((UserData*)Save::GetData())->ladder_flag = false;//ここではしごの設置場所を判定
 
-									break;
+										break;
+									}
 								}
+
+
 							}
-						
 
 						}
 					}
@@ -1142,24 +1147,28 @@ void CObjBlock::Action()
 					if (m_map[i][j] == 97)//はしご設置用の空間
 					{
 
-						if ((hx + (-m_scroll) + 64.0f > x) && (hx + (-m_scroll) < x + 64.0f) && (hy + 64.0f > y) && (hy < y + 64.0f))
+						if ((x / 64) - 1 <= ((hx + (-m_scroll)) / 64) && ((hx + (-m_scroll)) / 64) <= (x / 64) + 1 && (y / 64) - 1 <= (hy / 64) && (hy / 64) <= (y / 64) + 1)
 						{
-							for (int f = 0;; f++) {
-								if (m_map[i - f][j] == 97) {
-									m_map[i - f][j] = 15;//はしご設置
+
+							if ((hx + (-m_scroll) + 64.0f > x) && (hx + (-m_scroll) < x + 64.0f) && (hy + 64.0f > y) && (hy < y + 64.0f))
+							{
+								for (int f = 0;; f++) {
+									if (m_map[i - f][j] == 97) {
+										m_map[i - f][j] = 15;//はしご設置
+									}
+									else {
+										((UserData*)Save::GetData())->bad_ladder_put = true;//上移動の許可
+
+										((UserData*)Save::GetData())->ins_bad_ladder_done = true;//はしごアイテムを1つ消費させるため
+
+										((UserData*)Save::GetData())->bad_ladder_flag = false;//ここではしごの設置場所を判定
+
+										break;
+									}
 								}
-								else {
-									((UserData*)Save::GetData())->bad_ladder_put = true;//上移動の許可
 
-									((UserData*)Save::GetData())->ins_bad_ladder_done = true;//はしごアイテムを1つ消費させるため
 
-									((UserData*)Save::GetData())->bad_ladder_flag = false;//ここではしごの設置場所を判定
-
-									break;
-								}
 							}
-
-
 						}
 					}
 
@@ -1210,7 +1219,7 @@ void CObjBlock::Action()
 					if (m_map[i][j] == 99)//板設置用の穴
 					{
 
-						if ((hx+(-m_scroll))/64+32 > (x/64))
+						if ((x/64)-1<=((hx+(-m_scroll))/64)&& ((hx + (-m_scroll)) / 64)<=(x/64)+1 && (y/64)-1<=(hy/64)&& (hy / 64)<=(y/64)+1)
 						{
 							if ((hx + (-m_scroll) + 64.0f > x) && (hx + (-m_scroll) < x + 64.0f) && (hy + 64.0f > y) && (hy < y + 64.0f))
 							{
@@ -1258,20 +1267,24 @@ void CObjBlock::Action()
 
 				if (((UserData*)Save::GetData())->ins_bad_flag == true)//劣化板設置ブロックにいると反応する
 				{
-					if (m_map[i][j] == 99)//板設置用の穴
+					if ((x / 64) - 1 <= ((hx + (-m_scroll)) / 64) && ((hx + (-m_scroll)) / 64) <= (x / 64) + 1 && (y / 64) - 1 <= (hy / 64) && (hy / 64) <= (y / 64) + 1)
 					{
-						if ((hx + (-m_scroll) + 64.0f > x) && (hx + (-m_scroll) < x + 64.0f))
-						{
-							for (int f = 0;; f++) {
-								if (m_map[i][j + f] == 99) {
-									m_map[i][j + f] = 16;//板設置
-								}
-								else {
-									((UserData*)Save::GetData())->ins_bad_done = true;
-									break;
-								}
-							}
 
+						if (m_map[i][j] == 99)//板設置用の穴
+						{
+							if ((hx + (-m_scroll) + 64.0f > x) && (hx + (-m_scroll) < x + 64.0f))
+							{
+								for (int f = 0;; f++) {
+									if (m_map[i][j + f] == 99) {
+										m_map[i][j + f] = 16;//板設置
+									}
+									else {
+										((UserData*)Save::GetData())->ins_bad_done = true;
+										break;
+									}
+								}
+
+							}
 						}
 					}
 				}

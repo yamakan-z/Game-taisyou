@@ -164,6 +164,7 @@
     <ClCompile Include="ObjInventory.cpp" />
     <ClCompile Include="ObjPick.cpp" />
     <ClCompile Include="ObjStageClear.cpp" />
+    <ClCompile Include="ObjTime.cpp" />
     <ClCompile Include="ObjTitle.cpp" />
     <ClCompile Include="ObjTitleBackground.cpp" />
     <ClCompile Include="SceneGameClear.cpp" />
@@ -204,6 +205,7 @@
     <ClInclude Include="ObjInventory.h" />
     <ClInclude Include="ObjPick.h" />
     <ClInclude Include="ObjStageClear.h" />
+    <ClInclude Include="ObjTime.h" />
     <ClInclude Include="ObjTitle.h" />
     <ClInclude Include="ObjTitleBackground.h" />
     <ClInclude Include="SceneGameOver.h">

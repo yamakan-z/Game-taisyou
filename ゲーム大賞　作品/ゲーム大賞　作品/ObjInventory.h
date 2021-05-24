@@ -26,5 +26,9 @@ private:
 	float m_px;//位置
 	float m_py;
 
+	int flame;//フレーム計算用
+	int s_time;
+	int m_time;
+
 	
 };

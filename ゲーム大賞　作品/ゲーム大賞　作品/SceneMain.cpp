@@ -7,6 +7,8 @@
 #include"GameL\DrawTexture.h"
 #include "GameL/UserData.h"
 #include"GameL\Audio.h"
+#include"GameL\DrawFont.h"
+
 
 //使用するネームスペース
 using namespace GameL;
@@ -125,18 +127,6 @@ void CSceneMain::InitScene()
 	//インベントリ作成
 	CObjInventory* objin = new CObjInventory();
 	Objs::InsertObj(objin, OBJ_INVENTORY, 10);
-
-	//はしごアイテム作成
-//	CLadderItem* objli = new CLadderItem();
-//	Objs::InsertObj(objli, OBJ_LADDER_ITEM, 10);
-
-	////つるはし作成
-	//CObjPick* objp = new CObjPick();
-	//Objs::InsertObj(objp, OBJ_PICK, 10);
-
-	////boardアイテムオブジェクト作成
-	//CBoardItem* objbi = new CBoardItem();
-	//Objs::InsertObj(objbi, OBJ_BOARD_ITEM, 10);
 
 	//音楽情報の読み込み
 	Audio::LoadAudio(0, L"GameMain(仮).wav", SOUND_TYPE::BACK_MUSIC);
