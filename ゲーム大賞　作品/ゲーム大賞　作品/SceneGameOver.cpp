@@ -40,7 +40,7 @@ void CSceneGameOver::InitScene()
 
 	//ボリュームを1.0に戻す
 	float v = Audio::VolumeMaster(0);
-	v = Audio::VolumeMaster((0.1 - v));
+	v = Audio::VolumeMaster((1.0 - v));
 
 	//音楽スタート
 	Audio::Start(0);
@@ -50,7 +50,7 @@ void CSceneGameOver::InitScene()
 	Objs::InsertObj(obj, OBJ_GAME_OVER, 10);
 	
 	//画像読み込み
-	Draw::LoadImageW(L"ゲームオーバー1.png", 10, TEX_SIZE_1024);
+	Draw::LoadImageW(L"ゲームオーバー3.png", 10, TEX_SIZE_1024);
 
 	//オブジェクト作成
 	CObjgameOverBackground* back = new CObjgameOverBackground();
@@ -60,7 +60,7 @@ void CSceneGameOver::InitScene()
 	Audio::LoadAudio(0, L"GameOver(仮).wav", SOUND_TYPE::BACK_MUSIC);
 
 	v = Audio::VolumeMaster(0);
-	v = Audio::VolumeMaster(1.0 - v);
+	v = Audio::VolumeMaster(0.15 - v);
 
 	//音楽スタート
 	Audio::Start(0);

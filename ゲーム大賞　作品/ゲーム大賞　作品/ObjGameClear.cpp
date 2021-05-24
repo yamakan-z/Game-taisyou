@@ -80,5 +80,5 @@ void CObjGameClear::Draw()
 {
 	float c[4] = { 0.0f,0.0f,1.0f,1.0f };
 
-	Font::StrDraw(L"Return_to_title:ENTER_KEY", 225, 340, 32, c);
+	Font::StrDraw(L"Return_to_title:ENTER_KEY", 200, 340, 32, c);
 }
