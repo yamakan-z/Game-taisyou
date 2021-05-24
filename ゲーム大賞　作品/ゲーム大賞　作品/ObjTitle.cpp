@@ -14,6 +14,9 @@ using namespace GameL;
 void CObjTitle::Init()
 {
 	m_key_flag = false;
+
+	((UserData*)Save::GetData())->stage2 = false;
+	((UserData*)Save::GetData())->stage3 = false;
 	((UserData*)Save::GetData())->stageT = false;
 }
 

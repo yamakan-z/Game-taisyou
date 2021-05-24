@@ -101,7 +101,12 @@ void CObjHero::Init()
 		 //変換回数を初期値に戻す
 		 ((UserData*)Save::GetData())->conversion_num = 7;
 	 }
-	 
+	 //ステージ毎によって変換可能回数変更
+	 if (((UserData*)Save::GetData())->stage3 == true)
+	 {
+		 //変換回数を初期値に戻す
+		 ((UserData*)Save::GetData())->conversion_num = 9;
+	 }
 
 	 //------------------------------------------
 

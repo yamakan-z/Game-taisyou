@@ -44,13 +44,16 @@ void CLadderItem::Action()
 
 		hit->SetPos(m_px + block2->GetScroll(), m_py);
 	}
-	else if (((UserData*)Save::GetData())->stageT == true)
+	//ステージ3
+	else if (((UserData*)Save::GetData())->stage3 == true)
 	{
 		//ブロック情報を持ってくる
-		CObjBlockT* blockT = (CObjBlockT*)Objs::GetObj(OBJ_BLOCKT);
+		CObjBlock3* block3 = (CObjBlock3*)Objs::GetObj(OBJ_BLOCK3);
 
-		hit->SetPos(m_px + blockT->GetScroll(), m_py);
+
+		hit->SetPos(m_px + block3->GetScroll(), m_py);
 	}
+	
 
 	//主人公オブジェクトと接触したらはしごを削除
 	if (hit->CheckElementHit(ELEMENT_PLAYER) == true)
@@ -122,11 +125,11 @@ void CLadderItem::Draw()
 		//描画
 		Draw::Draw(5, &src, &dst, c, 0.0f);
 	}
-	//ステージ2
-	if (((UserData*)Save::GetData())->stageT == true)
+	//ステージ3
+	else if (((UserData*)Save::GetData())->stage3 == true)
 	{
 		//ブロック情報を持ってくる
-		CObjBlockT* blockT = (CObjBlockT*)Objs::GetObj(OBJ_BLOCKT);
+		CObjBlock3* block3 = (CObjBlock3*)Objs::GetObj(OBJ_BLOCK3);
 
 		//切り取り位置の設定
 		src.m_top = 0.0f;
@@ -136,7 +139,7 @@ void CLadderItem::Draw()
 
 		//表示位置の設定
 		dst.m_top = m_py;
-		dst.m_left = m_px + blockT->GetScroll();
+		dst.m_left = m_px + block3->GetScroll();
 		dst.m_right = dst.m_left + 64.0;
 		dst.m_bottom = dst.m_top + 64.0;
 
