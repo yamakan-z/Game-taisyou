@@ -19,9 +19,6 @@
     <Filter Include="ソース ファイル\アイテム処理">
       <UniqueIdentifier>{fbae52f5-de41-414b-9d85-de73fb922b44}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\主人公処理">
-      <UniqueIdentifier>{e84861fd-0044-4112-bea7-a5fc38114e75}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ソース ファイル\タイトル">
       <UniqueIdentifier>{1b7f8120-9738-4dae-ba36-651b3cbcb402}</UniqueIdentifier>
     </Filter>
@@ -54,6 +51,9 @@
     </Filter>
     <Filter Include="ソース ファイル\ステージ\ステージ1">
       <UniqueIdentifier>{e32c0ca3-f08e-4ee3-af15-269359353221}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\タイトル\主人公処理">
+      <UniqueIdentifier>{e84861fd-0044-4112-bea7-a5fc38114e75}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -106,7 +106,7 @@
       <Filter>ソース ファイル\GameOver</Filter>
     </ClCompile>
     <ClCompile Include="ObjHero.cpp">
-      <Filter>ソース ファイル\主人公処理</Filter>
+      <Filter>ソース ファイル\タイトル\主人公処理</Filter>
     </ClCompile>
     <ClCompile Include="ObjBlock.cpp">
       <Filter>ソース ファイル\ステージ\ステージ1</Filter>
@@ -225,7 +225,7 @@
       <Filter>ソース ファイル\GameOver</Filter>
     </ClInclude>
     <ClInclude Include="ObjHero.h">
-      <Filter>ソース ファイル\主人公処理</Filter>
+      <Filter>ソース ファイル\タイトル\主人公処理</Filter>
     </ClInclude>
     <ClInclude Include="ObjBlock.h">
       <Filter>ソース ファイル\ステージ\ステージ1</Filter>

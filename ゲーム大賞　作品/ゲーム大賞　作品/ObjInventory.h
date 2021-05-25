@@ -30,5 +30,9 @@ private:
 	int s_time;
 	int m_time;
 
+	bool T_flag;//チュートリアル表示フラグ（一枚目）
+	bool T_flag2;//チュートリアル（二枚目）
+	bool T_flag3;//チュートリアル（三枚目）
+
 	
 };

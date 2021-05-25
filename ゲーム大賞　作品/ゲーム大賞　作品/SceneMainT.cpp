@@ -73,6 +73,10 @@ void CSceneMainT::InitScene()
 	Draw::LoadImageW(L"矢印看板.png", 49, TEX_SIZE_512);
 	Draw::LoadImageW(L"鉄板アイテム.png", 50, TEX_SIZE_512);
 
+	//説明画像------------------------------.
+	/*Draw::LoadImageW(L"鉄板アイテム.png", 50, TEX_SIZE_512);
+	Draw::LoadImageW(L"鉄板アイテム.png", 50, TEX_SIZE_512);
+	Draw::LoadImageW(L"鉄板アイテム.png", 50, TEX_SIZE_512);*/
 	//アイテム数番号
 	Draw::LoadImageW(L"0.png", 8, TEX_SIZE_512);
 	Draw::LoadImageW(L"1.png", 9, TEX_SIZE_512);

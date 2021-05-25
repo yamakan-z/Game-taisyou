@@ -31,6 +31,10 @@ void CObjInventory::Init()
 	s_time = 0;
 	m_time = 0;
 
+	T_flag = false;
+	T_flag2 = false;
+	T_flag3 = false;
+
 	((UserData*)Save::GetData())->save_s_time = 0;//セーブ用m_time初期化
 	((UserData*)Save::GetData())->save_m_time = 0;//セーブ用s_time初期化
 
@@ -45,29 +49,7 @@ void CObjInventory::Action()
 	float hx = hero->GetX();
 	float hy = hero->GetY();
 
-	////後方スクロールライン
-	//if (hx < 80)
-	//{
-	//	hero->SetX(80);//主人公はラインを超えないようにする
-	//	m_scroll -= hero->GetVX();//主人公が本来動くべき分の値をm_scrollに加える
-	//}
-
-	////前方スクロールライン
-	//if (hx > 300)
-	//{
-	//	hero->SetX(300);//主人公はラインを超えないようにする
-	//	m_scroll -= hero->GetVX();//主人公が本来動くべき分の値をm_scrollに加える
-	//}
-
-	////主人公の衝突状態確認フラグの初期化
-	//hero->SetUp(false);
-	//hero->SetDown(false);
-	//hero->SetLeft(false);
-	//hero->SetRight(false);
-
-	////踏んでいるブロックの種類の初期化
-	//hero->SetBT(0);
-
+	
 	if (hero->GetBT() != 2)
 	{
 		flame++;
@@ -90,6 +72,32 @@ void CObjInventory::Action()
 		}
 	}
 
+	if (hero->GetBT() == 50)
+	{
+		T_flag = true;
+	}
+	else
+	{
+		T_flag = false;
+	}
+
+	if (hero->GetBT() == 51)
+	{
+		T_flag2 = true;
+	}
+	else
+	{
+		T_flag2 = false;
+	}
+
+	if (hero->GetBT() == 52)
+	{
+		T_flag3 = true;
+	}
+	else
+	{
+		T_flag3 = false;
+	}
 }
 
 //ドロー
@@ -393,8 +401,65 @@ void CObjInventory::Draw()
 			Draw::Draw(22, &src, &dst, c, 0.0f);
 		}
 
+		//---------------チュートリアル（仮）--------------------
+		if (T_flag == true)
+		{
+			//切り取り位置の設定
+			src.m_top = 0.0f;
+			src.m_left = 0.0f;
+			src.m_right = 64.0f;
+			src.m_bottom = 64.0f;
+
+
+			//表示位置の設定
+			dst.m_top = 250.0;
+			dst.m_left = 40.0;
+			dst.m_right = dst.m_right = dst.m_left + 80.0;
+			dst.m_bottom = dst.m_top + 80.0;
+
+			//描画
+			Draw::Draw(22, &src, &dst, c, 0.0f);
+		}
+
+		if (T_flag2 == true)
+		{
+			//切り取り位置の設定
+			src.m_top = 0.0f;
+			src.m_left = 0.0f;
+			src.m_right = 64.0f;
+			src.m_bottom = 64.0f;
+
+
+			//表示位置の設定
+			dst.m_top = 250.0;
+			dst.m_left = 40.0;
+			dst.m_right = dst.m_right = dst.m_left + 80.0;
+			dst.m_bottom = dst.m_top + 80.0;
+
+			//描画
+			Draw::Draw(20, &src, &dst, c, 0.0f);
+		}
+
+		if (T_flag3 == true)
+		{
+			//切り取り位置の設定
+			src.m_top = 0.0f;
+			src.m_left = 0.0f;
+			src.m_right = 64.0f;
+			src.m_bottom = 64.0f;
+
+
+			//表示位置の設定
+			dst.m_top = 250.0;
+			dst.m_left = 40.0;
+			dst.m_right = dst.m_right = dst.m_left + 80.0;
+			dst.m_bottom = dst.m_top + 80.0;
+
+			//描画
+			Draw::Draw(21, &src, &dst, c, 0.0f);
+		}
 	
-	////アイテム数////
+	////アイテム数////--------------------------------------------------------------
 
 	//はしご//
 
