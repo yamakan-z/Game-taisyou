@@ -1194,26 +1194,6 @@ void CObjBlock::Action()
 
 				//------------板処理-----------------
 
-				//板設置場所にプレイヤーがいると板が設置できる
-				if (hero->GetBT() == 13 && ((UserData*)Save::GetData())->board_item > 0|| hero->GetBT() == 13 && ((UserData*)Save::GetData())->converted_board > 0)
-				{
-					if ((hx + (-m_scroll) + 64.0f > x) && (hx + (-m_scroll) < x + 64.0f) && (hy + 64.0f > y) && (hy < y + 64.0f))
-					{
-						((UserData*)Save::GetData())->ins_place = true;
-						p = hy;
-					}
-
-				}
-				else if (hero->GetBT() != 13)//i 8  j 18のとき板置きフラグ初期化バグ
-				{
-					if ((hx + (-m_scroll) + 64.0f > x) && (hx + (-m_scroll) < x + 64.0f) && (hy + 64.0f > y) && (hy < y + 64.0f))
-					{
-						((UserData*)Save::GetData())->ins_place = false;
-						((UserData*)Save::GetData())->ins_flag = false;
-					}
-				}
-				
-
 				if (((UserData*)Save::GetData())->ins_flag == true)//設置場所一つ前のブロックに反応
 				{
 					if (m_map[i][j] == 99)//板設置用の穴
@@ -1245,6 +1225,28 @@ void CObjBlock::Action()
 
 					}
 				}
+
+
+
+				//板設置場所にプレイヤーがいると板が設置できる
+				if (hero->GetBT() == 13 && ((UserData*)Save::GetData())->board_item > 0|| hero->GetBT() == 13 && ((UserData*)Save::GetData())->converted_board > 0)
+				{
+					if ((hx + (-m_scroll) + 64.0f > x) && (hx + (-m_scroll) < x + 64.0f) && (hy + 64.0f > y) && (hy < y + 64.0f))
+					{
+						((UserData*)Save::GetData())->ins_place = true;
+						p = hy;
+					}
+
+				}
+				else if (hero->GetBT() != 13)
+				{
+					if ((hx + (-m_scroll) + 64.0f > x) && (hx + (-m_scroll) < x + 64.0f) && (hy + 64.0f > y) && (hy < y + 64.0f))
+					{
+						((UserData*)Save::GetData())->ins_place = false;
+						((UserData*)Save::GetData())->ins_flag = false;
+					}
+				}
+				
 
 				//------------------------------------------
 
