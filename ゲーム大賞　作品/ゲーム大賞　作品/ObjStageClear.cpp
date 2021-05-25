@@ -24,6 +24,12 @@ void CObjStageClear::Init()
 		((UserData*)Save::GetData())->stage1 = false;
 		((UserData*)Save::GetData())->stage2 = true;
 	}
+	//ステージ2→ステージ3
+	else if (((UserData*)Save::GetData())->stage2 == true)
+	{
+		((UserData*)Save::GetData())->stage2 = false;
+		((UserData*)Save::GetData())->stage3 = true;
+	}
 
 
 
@@ -90,7 +96,16 @@ void CObjStageClear::Action()
 	{
 		if (m_key_flag == true)
 		{
-			Scene::SetScene(new CSceneTitle());
+			if (((UserData*)Save::GetData())->stage2 == true)
+			{
+				Scene::SetScene(new CSceneMain2());
+			}
+
+			if (((UserData*)Save::GetData())->stage3 == true)
+			{
+				Scene::SetScene(new CSceneMain3());
+			}
+			
 		}
 	}
 	else
@@ -101,11 +116,10 @@ void CObjStageClear::Action()
 //ドロー
 void CObjStageClear::Draw()
 {
-	float c[4] = { 0.0f,0.0f,1.0f,1.0f };
+	float c[4] = { 1.0f,0.85f,0.0f,01.0f };
 	wchar_t str[256];
 
-	Font::StrDraw(L"Return_to_title:ENTER_KEY", 225, 340, 32, c);
-
+	Font::StrDraw(L"ステージクリア", 200, 30, 64, c);
 
 	//タイムa表示
 
@@ -129,5 +143,5 @@ void CObjStageClear::Draw()
 			((UserData*)Save::GetData())->save_s_time
 		);
 	}
-	Font::StrDraw(str, 200, 100, 64, c);
+	Font::StrDraw(str, 120, 100, 64, c);
 }

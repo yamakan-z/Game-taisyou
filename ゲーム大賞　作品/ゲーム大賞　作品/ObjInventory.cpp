@@ -119,12 +119,12 @@ void CObjInventory::Draw()
 	}
 
 
-	if (((UserData*)Save::GetData())->ins_place == true)
+	if (((UserData*)Save::GetData())->ins_bad_place == true)
 	{
 		swprintf_s(str, L"true");
 		Font::StrDraw(str, 10, 490, 20, d);
 	}
-	if (((UserData*)Save::GetData())->ins_flag == true)
+	if (((UserData*)Save::GetData())->ins_bad_flag == true)
 	{
 		swprintf_s(str, L"true5");
 		Font::StrDraw(str, 10, 520, 20, d);
@@ -1041,7 +1041,7 @@ if (((UserData*)Save::GetData())->conversion_num == 9)
 
 	//表示位置の設定
 	dst.m_top = 17.0f;
-	dst.m_left = 88.0f;
+	dst.m_left = 48.0f;
 	dst.m_right = dst.m_left + 64.0;
 	dst.m_bottom = dst.m_top + 64.0;
 
@@ -1058,7 +1058,7 @@ if (((UserData*)Save::GetData())->conversion_num == 8)
 
 	//表示位置の設定
 	dst.m_top = 17.0f;
-	dst.m_left = 88.0f;
+	dst.m_left = 48.0f;
 	dst.m_right = dst.m_left + 64.0;
 	dst.m_bottom = dst.m_top + 64.0;
 
@@ -1075,7 +1075,7 @@ if (((UserData*)Save::GetData())->conversion_num == 7)
 
 	//表示位置の設定
 	dst.m_top = 17.0f;
-	dst.m_left = 88.0f;
+	dst.m_left = 48.0f;
 	dst.m_right = dst.m_left + 64.0;
 	dst.m_bottom = dst.m_top + 64.0;
 
@@ -1092,7 +1092,7 @@ if (((UserData*)Save::GetData())->conversion_num == 6)
 
 	//表示位置の設定
 	dst.m_top = 17.0f;
-	dst.m_left = 88.0f;
+	dst.m_left = 48.0f;
 	dst.m_right = dst.m_left + 64.0;
 	dst.m_bottom = dst.m_top + 64.0;
 

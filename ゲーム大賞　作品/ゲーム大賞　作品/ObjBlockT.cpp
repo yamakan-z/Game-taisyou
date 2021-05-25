@@ -1419,8 +1419,8 @@ void CObjBlockT::Draw()
 				//Ø‚èæ‚èˆÊ’u‚Ìİ’è
 				src.m_top = 0.0f;
 				src.m_left = 0.0f;
-				src.m_right = 314.0f;
-				src.m_bottom = 250.0f;
+				src.m_right = 512.0f;
+				src.m_bottom = 512.0f;
 
 
 				//•\¦ˆÊ’u‚Ìİ’è

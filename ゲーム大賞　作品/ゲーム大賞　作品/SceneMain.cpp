@@ -33,7 +33,7 @@ CSceneMain::~CSceneMain()
 void CSceneMain::InitScene()
 {
 	//グラフィック読み込み
-	Draw::LoadImageW(L"Hero_ani.png", 0, TEX_SIZE_512);
+	Draw::LoadImageW(L"aniani.png", 0, TEX_SIZE_512);
 	Draw::LoadImageW(L"ブロック.png", 1, TEX_SIZE_512);
 	Draw::LoadImageW(L"背景2.png", 2, TEX_SIZE_1024);
 	Draw::LoadImageW(L"Ladder.png", 3, TEX_SIZE_512);
@@ -72,6 +72,8 @@ void CSceneMain::InitScene()
 	Draw::LoadImageW(L"操作説明（表示）.png", 46, TEX_SIZE_512);
 	Draw::LoadImageW(L"新芽.png", 47, TEX_SIZE_512);
 	Draw::LoadImageW(L"土ブロック.png", 48, TEX_SIZE_512);
+	Draw::LoadImageW(L"矢印看板.png", 49, TEX_SIZE_512);
+	Draw::LoadImageW(L"鉄板アイテム.png", 50, TEX_SIZE_512);
 
 	//アイテム数番号
 	Draw::LoadImageW(L"0.png", 8, TEX_SIZE_512);
@@ -97,11 +99,31 @@ void CSceneMain::InitScene()
 
 	Audio::LoadAudio(1, L"アイテム設置音.wav", EFFECT);
 	Audio::LoadAudio(2, L"ブロックを破壊する音.wav", EFFECT);
-	Audio::LoadAudio(3, L"主人公の移動音.wav",EFFECT);
+	Audio::LoadAudio(3, L"ブロックを破壊する音.wav", SOUND_TYPE::EFFECT);
 	Audio::LoadAudio(4, L"SEItemGet.wav", EFFECT);
+	Audio::LoadAudio(5, L"アイテム変換音.wav", EFFECT);
+	
+	
+	
 
 	//ボリュームを1.5増やす
 	float v = Audio::VolumeMaster(1.0);
+
+	////ボリュームを1.0に戻す
+	v = Audio::VolumeMaster(0.0);
+	v = Audio::VolumeMaster((1.0 - v));
+
+
+	////音楽スタート
+	Audio::Start(0);
+
+
+	//音楽情報の読み込み
+	Audio::LoadAudio(0, L"GameMain(仮).wav", SOUND_TYPE::BACK_MUSIC);
+	Audio::LoadAudio(1, L"アイテム設置音.wav", SOUND_TYPE::EFFECT);
+	Audio::LoadAudio(3, L"ブロックを破壊する音.wav", SOUND_TYPE::EFFECT);
+	Audio::LoadAudio(5, L"アイテム変換音.wav", EFFECT);
+
 
 	//ボリュームを1.0に戻す
 	v = Audio::VolumeMaster(0.0);
@@ -136,6 +158,8 @@ void CSceneMain::InitScene()
 
 	\
 
+	//音楽スタート
+	Audio::Start(0);
 }
 
 //実行中メソッド

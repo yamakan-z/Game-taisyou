@@ -168,6 +168,15 @@
     <ClCompile Include="ObjTime.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="SceneMain3.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjBlock3.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjStageClearBackground.cpp">
+      <Filter>ソース ファイル\StageClear</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameL\Audio.h">
@@ -280,6 +289,15 @@
     </ClInclude>
     <ClInclude Include="ObjTime.h">
       <Filter>ソース ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneMain3.h">
+      <Filter>ソース ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjBlock3.h">
+      <Filter>ソース ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjStageClearBackground.h">
+      <Filter>ソース ファイル\StageClear</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

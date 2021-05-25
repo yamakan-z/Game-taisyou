@@ -38,7 +38,7 @@ void CSceneGameClear::InitScene()
 
 	//ボリュームを1.0に戻す
 	float v = Audio::VolumeMaster(0);
-	v = Audio::VolumeMaster(0.1 - v);
+	v = Audio::VolumeMaster(1.0 - v);
 
 	//音楽スタート
 	Audio::Start(0);
@@ -48,7 +48,7 @@ void CSceneGameClear::InitScene()
 	Objs::InsertObj(obj, OBJ_GAME_CLEAR, 10);
 
 	//画像読み込み
-	Draw::LoadImageW(L"ゲームクリア.png", 1, TEX_SIZE_1024);
+	Draw::LoadImageW(L"ゲームクリア2.png", 1, TEX_SIZE_1024);
 
 	//オブジェクト作成
 	CObjgameClearBackground* back = new CObjgameClearBackground();
@@ -58,7 +58,7 @@ void CSceneGameClear::InitScene()
 	Audio::LoadAudio(0, L"GameClear(仮).wav", SOUND_TYPE::BACK_MUSIC);
 
 	v = Audio::VolumeMaster(0);
-	v = Audio::VolumeMaster(0.1 - v);
+	v = Audio::VolumeMaster(0.2 - v);
 
 	//音楽スタート
 	Audio::Start(0);

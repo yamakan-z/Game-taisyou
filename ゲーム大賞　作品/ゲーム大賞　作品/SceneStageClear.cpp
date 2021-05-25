@@ -31,7 +31,7 @@ CSceneStageClear::~CSceneStageClear()
 void CSceneStageClear::InitScene()
 {
 	//出力させる文字のグラフィックを作成
-	Font::SetStrTex(L"Return_to_title:ENTER_KEY");
+	Font::SetStrTex(L"Next Stage:ENTER_KEY");
 
 	//音楽情報の読み込み
 	Audio::LoadAudio(0, L"GameClear(仮).wav", BACK_MUSIC);
@@ -48,18 +48,18 @@ void CSceneStageClear::InitScene()
 	Objs::InsertObj(obj, OBJ_STAGE_CLEAR, 10);
 
 	//画像読み込み
-	Draw::LoadImageW(L"ゲームクリア.png", 1, TEX_SIZE_1024);
+	Draw::LoadImageW(L"ステージクリア.png", 1, TEX_SIZE_1024);
 
 	////オブジェクト作成
-	//CObjgameClearBackground* back = new CObjgameClearBackground();
-	//Objs::InsertObj(back, OBJ_GAME_CLEAR_BACKGROUND, 1);
+	CObjgameClearBackground* back = new CObjgameClearBackground();
+	Objs::InsertObj(back, OBJ_GAME_CLEAR_BACKGROUND, 1);
 
 	//音楽情報の読み込み
-	Audio::LoadAudio(0, L"GameClear(仮).wav", SOUND_TYPE::BACK_MUSIC);
+	Audio::LoadAudio(0, L"StageClear(仮).wav", SOUND_TYPE::BACK_MUSIC);
 
 	//ボリュームを1.0に戻す
 	v = Audio::VolumeMaster(0);
-	v = Audio::VolumeMaster((1.0 - v));
+	v = Audio::VolumeMaster((0.2 - v));
 
 	//音楽スタート
 	Audio::Start(0);

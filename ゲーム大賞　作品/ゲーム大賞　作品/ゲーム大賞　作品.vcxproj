@@ -155,6 +155,7 @@
     <ClCompile Include="GameL\WinInputs.cpp" />
     <ClCompile Include="LadderItem.cpp" />
     <ClCompile Include="ObjBlock.cpp" />
+    <ClCompile Include="ObjBlock3.cpp" />
     <ClCompile Include="ObjBlockT.cpp" />
     <ClCompile Include="ObjGameClear.cpp" />
     <ClCompile Include="ObjgameClearBackground.cpp" />
@@ -164,6 +165,7 @@
     <ClCompile Include="ObjInventory.cpp" />
     <ClCompile Include="ObjPick.cpp" />
     <ClCompile Include="ObjStageClear.cpp" />
+    <ClCompile Include="ObjStageClearBackground.cpp" />
     <ClCompile Include="ObjTime.cpp" />
     <ClCompile Include="ObjTitle.cpp" />
     <ClCompile Include="ObjTitleBackground.cpp" />
@@ -175,6 +177,7 @@
     </ClCompile>
     <ClCompile Include="ObjBlock2.cpp" />
     <ClCompile Include="SceneMain2.cpp" />
+    <ClCompile Include="SceneMain3.cpp" />
     <ClCompile Include="SceneMainT.cpp" />
     <ClCompile Include="SceneStageClear.cpp" />
     <ClCompile Include="SceneTitle.cpp" />
@@ -196,6 +199,7 @@
     <ClInclude Include="LadderItem.h" />
     <ClInclude Include="main.h" />
     <ClInclude Include="ObjBlock.h" />
+    <ClInclude Include="ObjBlock3.h" />
     <ClInclude Include="ObjBlockT.h" />
     <ClInclude Include="ObjGameClear.h" />
     <ClInclude Include="ObjgameClearBackground.h" />
@@ -218,9 +222,11 @@
     </ClInclude>
     <ClInclude Include="ObjBlock2.h" />
     <ClInclude Include="SceneMain2.h" />
+    <ClInclude Include="SceneMain3.h" />
     <ClInclude Include="SceneMainT.h" />
     <ClInclude Include="SceneStageClear.h" />
     <ClInclude Include="SceneTitle.h" />
+    <ClInclude Include="ObjStageClearBackground.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="SceneGameOver.h" />

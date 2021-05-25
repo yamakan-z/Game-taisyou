@@ -71,6 +71,12 @@ void CObjGameOver::Init()
 		//変換回数を初期値に戻す
 		((UserData*)Save::GetData())->conversion_num = 7;
 	}
+	//ステージ毎によって変換可能回数変更
+	if (((UserData*)Save::GetData())->stage3 == true)
+	{
+		//変換回数を初期値に戻す
+		((UserData*)Save::GetData())->conversion_num = 9;
+	}
 }
 //アクション
 void CObjGameOver::Action()
@@ -80,7 +86,21 @@ void CObjGameOver::Action()
 	{
 		if (m_key_flag == true)
 		{
-			Scene::SetScene(new CSceneTitle());
+
+			if (((UserData*)Save::GetData())->stage1 == true)
+			{
+				Scene::SetScene(new CSceneMain());
+			}
+
+			else if (((UserData*)Save::GetData())->stage2 == true)
+			{
+				Scene::SetScene(new CSceneMain2());
+			}
+
+			else if (((UserData*)Save::GetData())->stage3 == true)
+			{
+				Scene::SetScene(new CSceneMain3());
+			}
 		}
 	}
 	else

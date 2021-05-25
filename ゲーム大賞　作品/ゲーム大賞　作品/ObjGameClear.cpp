@@ -15,6 +15,8 @@ void CObjGameClear::Init()
 {
 	m_key_flag = false;//キーフラグ
 
+	((UserData*)Save::GetData())->stage3 = false;
+
 	//フラグを破棄
 	//アイテム関係フラグ破棄
 	((UserData*)Save::GetData())->item = 0;
@@ -78,5 +80,5 @@ void CObjGameClear::Draw()
 {
 	float c[4] = { 0.0f,0.0f,1.0f,1.0f };
 
-	Font::StrDraw(L"Return_to_title:ENTER_KEY", 225, 340, 32, c);
+	Font::StrDraw(L"Return_to_title:ENTER_KEY", 200, 340, 32, c);
 }
