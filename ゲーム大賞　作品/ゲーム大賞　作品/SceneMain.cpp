@@ -86,7 +86,10 @@ void CSceneMain::InitScene()
 	Draw::LoadImageW(L"9.png", 45, TEX_SIZE_512);
 
 	
-
+	//音楽情報の読み込み
+	Audio::LoadAudio(0, L"GameMain(仮).wav", SOUND_TYPE::BACK_MUSIC);
+	Audio::LoadAudio(1, L"アイテム設置音.wav", SOUND_TYPE::EFFECT);
+	Audio::LoadAudio(3, L"ブロックを破壊する音.wav", SOUND_TYPE::EFFECT);
 	
 
 	//音楽読み込み
@@ -104,8 +107,9 @@ void CSceneMain::InitScene()
 	v = Audio::VolumeMaster(0.0);
 	v = Audio::VolumeMaster((1.0 - v));
 
+
 	//音楽スタート
-	//Audio::Start(0);
+	Audio::Start(0);
 
 	if (((UserData*)Save::GetData())->item <= 0)//アイテムが0を下回る時、0にする
 	{
@@ -128,14 +132,9 @@ void CSceneMain::InitScene()
 	CObjInventory* objin = new CObjInventory();
 	Objs::InsertObj(objin, OBJ_INVENTORY, 10);
 
-	//音楽情報の読み込み
-	Audio::LoadAudio(0, L"GameMain(仮).wav", SOUND_TYPE::BACK_MUSIC);
-	Audio::LoadAudio(1, L"アイテム設置音.wav", SOUND_TYPE::EFFECT);
-	Audio::LoadAudio(3, L"ブロックを破壊する音.wav", SOUND_TYPE::EFFECT);
+	
 
-	//ボリュームを1.0に戻す
-    v = Audio::VolumeMaster(0.0);
-	v = Audio::VolumeMaster((0.1 - v));
+	\
 
 }
 

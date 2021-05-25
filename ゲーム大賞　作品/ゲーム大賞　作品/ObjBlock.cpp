@@ -1200,8 +1200,7 @@ void CObjBlock::Action()
 					if ((hx + (-m_scroll) + 64.0f > x) && (hx + (-m_scroll) < x + 64.0f) && (hy + 64.0f > y) && (hy < y + 64.0f))
 					{
 						((UserData*)Save::GetData())->ins_place = true;
-						 p=i;
-						 q = j;
+						p = hy;
 					}
 
 				}
@@ -1219,7 +1218,7 @@ void CObjBlock::Action()
 					if (m_map[i][j] == 99)//î¬ê›íuópÇÃåä
 					{
 
-						if ((x/64)-1<=((hx+(-m_scroll))/64)&& ((hx + (-m_scroll)) / 64)<=(x/64)+1 && (y/64)-1<=(hy/64)&& (hy / 64)<=(y/64)+1)
+						if ((x/64)-1<=((hx+(-m_scroll))/64)&& ((hx + (-m_scroll)) / 64)<=(x/64)+1 && (p/64)==(y/64))
 						{
 							if ((hx + (-m_scroll) + 64.0f > x) && (hx + (-m_scroll) < x + 64.0f) && (hy + 64.0f > y) && (hy < y + 64.0f))
 							{
