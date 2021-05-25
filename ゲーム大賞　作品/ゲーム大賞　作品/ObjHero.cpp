@@ -420,6 +420,10 @@ void CObjHero::Action()
 	{
 		Scene::SetScene(new CSceneMain2());
 	}
+	else if (Input::GetVKey(VK_SPACE) == true && retry_keyflag == true && ((UserData*)Save::GetData())->stage3)
+	{
+		Scene::SetScene(new CSceneMain3());
+	}
 	else if (Input::GetVKey(VK_SPACE) == true && retry_keyflag == true && ((UserData*)Save::GetData())->stageT)
 	{
 		Scene::SetScene(new CSceneMainT());

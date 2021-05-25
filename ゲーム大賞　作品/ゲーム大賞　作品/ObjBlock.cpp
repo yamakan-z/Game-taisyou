@@ -1447,7 +1447,7 @@ void CObjBlock::Draw()
 			if (m_map[i][j] == 11)
 			{
 
-				float c2[4] = { 0.0f,0.0f,1.0f,1.0f };
+				float c2[4] = { 1.0f,1.0f,1.0f,1.0f };
 
 				//切り取り位置の設定
 				src.m_top = 0.0f;
@@ -1470,7 +1470,7 @@ void CObjBlock::Draw()
 			{
 
 				//描画カラー情報
-				float c2[4] = { 0.0f,1.0f,1.0f,1.0f };
+				float c2[4] = { 1.0f,1.0f,1.0f,1.0f };
 
 				//切り取り位置の設定
 				src.m_top = 0.0f;
@@ -1493,7 +1493,7 @@ void CObjBlock::Draw()
 			if (m_map[i][j] == 7)
 			{
 				//描画カラー情報
-				float c2[4] = { 1.0f,0.0f,1.0f,1.0f };
+				float c2[4] = { 1.0f,1.0f,1.0f,1.0f };
 
 				//切り取り位置の設定
 				src.m_top = 0.0f;
@@ -1585,7 +1585,7 @@ void CObjBlock::Draw()
 			if (m_map[i][j] == 13)
 			{
 
-				float c2[4] = { 0.0f,1.0f,0.0f,1.0f };
+				float c2[4] = { 1.0f,1.0f,1.0f,1.0f };
 
 				//切り取り位置の設定
 				src.m_top = 0.0f;
@@ -1631,13 +1631,13 @@ void CObjBlock::Draw()
 			if (m_map[i][j] == 16)
 			{
 
-				float c2[4] = { 1.0f,0.0f,1.0f,1.0f };
+				float c2[4] = { 1.0f,1.0f,1.0f,1.0f };
 
 				//切り取り位置の設定
 				src.m_top = 0.0f;
 				src.m_left = 0.0f;
-				src.m_right = 64.0f;
-				src.m_bottom = 64.0f;
+				src.m_right = 230.0f;
+				src.m_bottom = 40.0f;
 
 
 				//表示位置の設定
@@ -1647,14 +1647,14 @@ void CObjBlock::Draw()
 				dst.m_bottom = dst.m_top + 10.0;
 
 				//描画
-				Draw::Draw(4, &src, &dst, c2, 0.0f);
+				Draw::Draw(51, &src, &dst, c2, 0.0f);
 			}
 
 			//劣化板判定ブロック
 			if (m_map[i][j] == 17)
 			{
 
-				float c2[4] = { 0.0f,1.0f,1.0f,1.0f };
+				float c2[4] = { 1.0f,1.0f,1.0f,1.0f };
 
 				//切り取り位置の設定
 				src.m_top = 0.0f;
@@ -1677,7 +1677,7 @@ void CObjBlock::Draw()
 			if (m_map[i][j] == 18)
 			{
 
-				float c2[4] = { 0.0f,0.0f,0.0f,1.0f };
+				float c2[4] = { 1.0f,1.0f,1.0f,1.0f };
 
 				//切り取り位置の設定
 				src.m_top = 0.0f;
