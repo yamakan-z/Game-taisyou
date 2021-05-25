@@ -100,6 +100,11 @@ void CObjStageClear::Action()
 			{
 				Scene::SetScene(new CSceneMain2());
 			}
+
+			if (((UserData*)Save::GetData())->stage3 == true)
+			{
+				Scene::SetScene(new CSceneMain3());
+			}
 			
 		}
 	}

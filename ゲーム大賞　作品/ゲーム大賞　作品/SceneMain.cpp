@@ -33,7 +33,7 @@ CSceneMain::~CSceneMain()
 void CSceneMain::InitScene()
 {
 	//グラフィック読み込み
-	Draw::LoadImageW(L"Hero_ani.png", 0, TEX_SIZE_512);
+	Draw::LoadImageW(L"aniani.png", 0, TEX_SIZE_512);
 	Draw::LoadImageW(L"ブロック.png", 1, TEX_SIZE_512);
 	Draw::LoadImageW(L"背景2.png", 2, TEX_SIZE_1024);
 	Draw::LoadImageW(L"Ladder.png", 3, TEX_SIZE_512);
@@ -96,8 +96,12 @@ void CSceneMain::InitScene()
 
 	Audio::LoadAudio(1, L"アイテム設置音.wav", EFFECT);
 	Audio::LoadAudio(2, L"ブロックを破壊する音.wav", EFFECT);
-	Audio::LoadAudio(3, L"主人公の移動音.wav",EFFECT);
+	Audio::LoadAudio(3, L"ブロックを破壊する音.wav", SOUND_TYPE::EFFECT);
 	Audio::LoadAudio(4, L"SEItemGet.wav", EFFECT);
+	Audio::LoadAudio(5, L"アイテム変換音.wav", EFFECT);
+	
+	
+	
 
 	//ボリュームを1.5増やす
 	float v = Audio::VolumeMaster(1.0);
@@ -147,6 +151,14 @@ void CSceneMain::InitScene()
 	Objs::InsertObj(objin, OBJ_INVENTORY, 10);
 
 	
+
+
+	//ボリュームを1.0に戻す
+    v = Audio::VolumeMaster(0.0);
+	v = Audio::VolumeMaster((0.15 - v));
+
+	//音楽スタート
+	Audio::Start(0);
 }
 
 //実行中メソッド
