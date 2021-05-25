@@ -131,7 +131,7 @@ void CSceneMainT::InitScene()
 
 	//ƒ{ƒŠƒ…[ƒ€‚ğ1.0‚É–ß‚·
 	v = Audio::VolumeMaster(0.0);
-	v = Audio::VolumeMaster((0.1 - v));
+	v = Audio::VolumeMaster((0.2 - v));
 
 }
 
