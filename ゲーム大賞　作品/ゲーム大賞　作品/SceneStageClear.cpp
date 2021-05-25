@@ -59,7 +59,7 @@ void CSceneStageClear::InitScene()
 
 	//ボリュームを1.0に戻す
 	v = Audio::VolumeMaster(0);
-	v = Audio::VolumeMaster((0.15 - v));
+	v = Audio::VolumeMaster((0.2 - v));
 
 	//音楽スタート
 	Audio::Start(0);

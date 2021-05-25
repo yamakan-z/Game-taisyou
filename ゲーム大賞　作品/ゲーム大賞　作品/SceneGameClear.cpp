@@ -58,7 +58,7 @@ void CSceneGameClear::InitScene()
 	Audio::LoadAudio(0, L"GameClear(仮).wav", SOUND_TYPE::BACK_MUSIC);
 
 	v = Audio::VolumeMaster(0);
-	v = Audio::VolumeMaster(0.15 - v);
+	v = Audio::VolumeMaster(0.2 - v);
 
 	//音楽スタート
 	Audio::Start(0);
