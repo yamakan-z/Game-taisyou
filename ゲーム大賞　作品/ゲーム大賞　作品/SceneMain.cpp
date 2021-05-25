@@ -33,7 +33,7 @@ CSceneMain::~CSceneMain()
 void CSceneMain::InitScene()
 {
 	//グラフィック読み込み
-	Draw::LoadImageW(L"Hero_ani.png", 0, TEX_SIZE_512);
+	Draw::LoadImageW(L"aniani.png", 0, TEX_SIZE_512);
 	Draw::LoadImageW(L"ブロック.png", 1, TEX_SIZE_512);
 	Draw::LoadImageW(L"背景2.png", 2, TEX_SIZE_1024);
 	Draw::LoadImageW(L"Ladder.png", 3, TEX_SIZE_512);
