@@ -87,7 +87,7 @@ void CSceneMainT::InitScene()
 	Draw::LoadImageW(L"9.png", 45, TEX_SIZE_512);
 
 	//音楽読み込み
-	Audio::LoadAudio(0, L"GameMain(仮).wav", SOUND_TYPE::BACK_MUSIC);
+	Audio::LoadAudio(0, L"チュートリアルステージ.wav", SOUND_TYPE::BACK_MUSIC);
 
 	Audio::LoadAudio(1, L"アイテム設置音.wav", SOUND_TYPE::EFFECT);
 	Audio::LoadAudio(2, L"ブロックを破壊する音.wav", SOUND_TYPE::EFFECT);
