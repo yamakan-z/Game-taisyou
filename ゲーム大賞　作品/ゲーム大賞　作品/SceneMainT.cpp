@@ -86,23 +86,20 @@ void CSceneMainT::InitScene()
 	Draw::LoadImageW(L"9.png", 45, TEX_SIZE_512);
 
 	//音楽読み込み
-	Audio::LoadAudio(0, L"GameMain(仮).wav", BACK_MUSIC);
+	Audio::LoadAudio(0, L"GameMain(仮).wav", SOUND_TYPE::BACK_MUSIC);
 
-	Audio::LoadAudio(1, L"アイテム設置音.wav", EFFECT);
-	Audio::LoadAudio(2, L"ブロックを破壊する音.wav", EFFECT);
+	Audio::LoadAudio(1, L"アイテム設置音.wav", SOUND_TYPE::EFFECT);
+	Audio::LoadAudio(2, L"ブロックを破壊する音.wav", SOUND_TYPE::EFFECT);
 	Audio::LoadAudio(3, L"ブロックを破壊する音.wav", SOUND_TYPE::EFFECT);
-	Audio::LoadAudio(4, L"SEItemGet.wav", EFFECT);
-	Audio::LoadAudio(5, L"アイテム変換音.wav", EFFECT);
+	Audio::LoadAudio(4, L"SEItemGet.wav", SOUND_TYPE::EFFECT);
+	Audio::LoadAudio(5, L"アイテム変換音.wav", SOUND_TYPE::EFFECT);
+	Audio::LoadAudio(6, L"アイテム取得.wav", SOUND_TYPE::EFFECT);
 
 	//ボリュームを1.5増やす
-	float v = Audio::VolumeMaster(1.0);
-
-	//ボリュームを1.0に戻す
-	v = Audio::VolumeMaster(0.0);
-	v = Audio::VolumeMaster((1.0 - v));
+	float v = Audio::VolumeMaster(0.0f);
 
 	//音楽スタート
-	//Audio::Start(0);
+	Audio::Start(0);
 
 	if (((UserData*)Save::GetData())->item <= 0)//アイテムが0を下回る時、0にする
 	{
@@ -124,10 +121,6 @@ void CSceneMainT::InitScene()
 	//インベントリ作成
 	CObjInventory* objin = new CObjInventory();
 	Objs::InsertObj(objin, OBJ_INVENTORY, 10);
-
-	//ボリュームを1.0に戻す
-	v = Audio::VolumeMaster(0.0);
-	v = Audio::VolumeMaster((0.15 - v));
 
 }
 
