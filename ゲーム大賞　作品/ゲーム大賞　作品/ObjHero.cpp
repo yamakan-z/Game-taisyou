@@ -73,17 +73,20 @@ void CObjHero::Init()
 	 //ギミック関係フラグ初期化
 	 //板関係のフラグ初期化
 	 ((UserData*)Save::GetData())->ins_flag = false;
+	 ((UserData*)Save::GetData())->ins_place = false;
 	 //障害物関係のフラグ初期化
 	 ((UserData*)Save::GetData())->break_flag = false;
 	 //はしご関係のフラグ初期化
 	 ((UserData*)Save::GetData())->ins_ladder = false;
 	 ((UserData*)Save::GetData())->ladder = false;
+	 ((UserData*)Save::GetData())->up_flag = false;
 
 
 	 //劣化ギミック関係のフラグ破棄
 	 //はしご関係のフラグ初期化
 	 ((UserData*)Save::GetData())->ins_bad_ladder = false;
 	 ((UserData*)Save::GetData())->bad_ladder_put = false;
+	 ((UserData*)Save::GetData())->low_up_flag = false;
 	 //板関係のフラグ初期化
 	 ((UserData*)Save::GetData())->ins_bad_flag = false;
 	 //障害物関係のフラグ初期化

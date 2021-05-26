@@ -195,7 +195,7 @@ void CObjBlock::Action()
 			{
 				//要素番号を座標に変更
 				float x = j * 64.0f;
-				float y = i * 64.0;
+				float y = i * 64.0f;
 
 				//-----------当たり判定の設定--------------------
 
@@ -1033,7 +1033,7 @@ void CObjBlock::Action()
 					if (m_map[i][j] == 97)//はしご設置用の空間
 					{
 
-						if ((x / 64) - 1 <= ((hx + (-m_scroll)) / 64) && ((hx + (-m_scroll)) / 64) <= (x / 64) + 1 && (y / 64) - 1 <= (hy / 64) && (hy / 64) <= (y / 64) + 1)
+						if ((x / 64) - 1 <= ((hx + (-m_scroll)) / 64) && ((hx + (-m_scroll)) / 64) <= (x / 64) + 1 )
 						{
 							if ((hx + (-m_scroll) + 64.0f > x) && (hx + (-m_scroll) < x + 64.0f) && (hy + 64.0f > y) && (hy < y + 64.0))
 							{
@@ -1087,8 +1087,8 @@ void CObjBlock::Action()
 				{
 					if ((hx + (-m_scroll) + 64.0f > x) && (hx + (-m_scroll) < x + 64.0f))
 					{
-						((UserData*)Save::GetData())->up_flag = false;
-						((UserData*)Save::GetData())->ladder_flag = false;
+						/*((UserData*)Save::GetData())->up_flag = false;
+						((UserData*)Save::GetData())->ladder_flag = false;*/
 						//((UserData*)Save::GetData())->ins_ladder = false;
 					}
 
@@ -1100,6 +1100,13 @@ void CObjBlock::Action()
 					if ((hx + (-m_scroll) + 64.0f > x) && (hx + (-m_scroll) < x + 64.0f))
 					{
 						((UserData*)Save::GetData())->up_flag = true;//はしごがある時のみ上移動
+					}
+				}
+				else
+				{
+					if ((hx + (-m_scroll) + 64.0f > x) && (hx + (-m_scroll) < x + 64.0f))
+					{
+						((UserData*)Save::GetData())->up_flag = false;//はしごがある時のみ上移動
 					}
 				}
 				
@@ -1116,8 +1123,6 @@ void CObjBlock::Action()
 
 						if (((UserData*)Save::GetData())->bad_ladder_put == true)
 						{
-							//((UserData*)Save::GetData())->up_flag = true;//はしごがある時のみ上移動
-
 							//上移動を許可するためにブロックを書き換える
 							if (m_map[i][j] == 14)
 							{
@@ -1147,7 +1152,7 @@ void CObjBlock::Action()
 					if (m_map[i][j] == 97)//はしご設置用の空間
 					{
 
-						if ((x / 64) - 1 <= ((hx + (-m_scroll)) / 64) && ((hx + (-m_scroll)) / 64) <= (x / 64) + 1 && (y / 64) - 1 <= (hy / 64) && (hy / 64) <= (y / 64) + 1)
+						if ((x / 64) - 1 <= ((hx + (-m_scroll)) / 64) && ((hx + (-m_scroll)) / 64) <= (x / 64) + 1)
 						{
 
 							if ((hx + (-m_scroll) + 64.0f > x) && (hx + (-m_scroll) < x + 64.0f) && (hy + 64.0f > y) && (hy < y + 64.0f))
