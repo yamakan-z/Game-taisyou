@@ -38,12 +38,12 @@ void CSceneTitle::InitScene()
 	Audio::LoadAudio(0, L"GameTitle(仮).wav", SOUND_TYPE::BACK_MUSIC);
 
 	//バックミュージックスタート
-	float v = Audio::VolumeMaster(0);
-	v = Audio::VolumeMaster((1.0));
-
+	float v = Audio::VolumeMaster(0.0f);
+	
 	//音楽スタート
 	Audio::Start(0);
 
+	
 	//タイトルオブジェクト作成
 	CObjTitle* obj = new CObjTitle();//タイトルオブジェクト作成
 	Objs::InsertObj(obj, OBJ_TITLE, 10);//主人公オブジェクト登録
@@ -55,14 +55,7 @@ void CSceneTitle::InitScene()
 	CObjTitleBackground* back = new CObjTitleBackground();
 	Objs::InsertObj(back, OBJ_TITLE_BACKGROUND, 1);
 	
-	//音楽情報の読み込み
-	Audio::LoadAudio(0, L"GameTitle(仮).wav", SOUND_TYPE::BACK_MUSIC);
-
-	v = Audio::VolumeMaster(0);
-	v = Audio::VolumeMaster(0.2	- v);
-
-	//音楽スタート
-	Audio::Start(0);
+	
 	
 }
 

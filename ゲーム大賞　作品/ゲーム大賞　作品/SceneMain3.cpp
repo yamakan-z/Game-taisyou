@@ -98,11 +98,7 @@ void CSceneMain3::InitScene()
 	Audio::LoadAudio(5, L"アイテム変換音.wav", EFFECT);
 
 	//ボリュームを1.5増やす
-	float v = Audio::VolumeMaster(1.0);
-
-	////ボリュームを1.0に戻す
-	v = Audio::VolumeMaster(0.0);
-	v = Audio::VolumeMaster((1.0 - v));
+	float v = Audio::VolumeMaster(0.0);
 
 	//音楽スタート
 	Audio::Start(0);
@@ -127,25 +123,6 @@ void CSceneMain3::InitScene()
 	//インベントリ作成
 	CObjInventory* objin = new CObjInventory();
 	Objs::InsertObj(objin, OBJ_INVENTORY, 10);
-
-	//はしごアイテム作成
-//	CLadderItem* objli = new CLadderItem();
-//	Objs::InsertObj(objli, OBJ_LADDER_ITEM, 10);
-
-	////つるはし作成
-	//CObjPick* objp = new CObjPick();
-	//Objs::InsertObj(objp, OBJ_PICK, 10);
-
-	////boardアイテムオブジェクト作成
-	//CBoardItem* objbi = new CBoardItem();
-	//Objs::InsertObj(objbi, OBJ_BOARD_ITEM, 10);
-
-	//ボリュームを1.0に戻す
-	v = Audio::VolumeMaster(0.0);
-	v = Audio::VolumeMaster((1.0 - v));
-
-	//音楽スタート
-	Audio::Start(0);
 
 }
 

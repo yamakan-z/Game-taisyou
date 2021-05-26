@@ -36,12 +36,11 @@ void CSceneGameOver::InitScene()
 	Font::SetStrTex(L"NEXT_CHALLENGE:ENTER_KEY");
 
 	//音楽読み込み
-	Audio::LoadAudio(0, L"GameOver(仮).wav", BACK_MUSIC);
+	Audio::LoadAudio(0, L"GameOver(仮).wav", SOUND_TYPE::BACK_MUSIC);
 
 	//ボリュームを1.0に戻す
-	float v = Audio::VolumeMaster(0);
-	v = Audio::VolumeMaster((1.0 - v));
-
+	float v = Audio::VolumeMaster(0.0f);
+	
 	//音楽スタート
 	Audio::Start(0);
 
@@ -56,14 +55,7 @@ void CSceneGameOver::InitScene()
 	CObjgameOverBackground* back = new CObjgameOverBackground();
 	Objs::InsertObj(back, OBJ_GAME_OVER_BACKGROUND, 10);
 
-	//音楽情報の読み込み
-	Audio::LoadAudio(0, L"GameOver(仮).wav", SOUND_TYPE::BACK_MUSIC);
-
-	v = Audio::VolumeMaster(0);
-	v = Audio::VolumeMaster(0.2 - v);
-
-	//音楽スタート
-	Audio::Start(0);
+	
 }
 
 //実行中メソッド
