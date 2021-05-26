@@ -71,7 +71,7 @@ void CLadderItem::Action()
 		Hits::DeleteHitBox(this);	//100円が所有するHitBoxを削除する
 	
 		//アイテム取得
-		//Audio::Start(4);
+		Audio::Start(6);
 
 		((UserData*)Save::GetData())->item += 1;
 		((UserData*)Save::GetData())->ladder_item += 1;

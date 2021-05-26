@@ -96,18 +96,7 @@ void CSceneMain::InitScene()
 	Audio::LoadAudio(3, L"ブロックを破壊する音.wav", SOUND_TYPE::EFFECT);
 	Audio::LoadAudio(4, L"SEItemGet.wav", SOUND_TYPE::EFFECT);
 	Audio::LoadAudio(5, L"アイテム変換音.wav", SOUND_TYPE::EFFECT);
-	
-
-	//音楽読み込み
-	/*Audio::LoadAudio(0, L"GameMain(仮).wav", BACK_MUSIC);
-
-	Audio::LoadAudio(1, L"アイテム設置音.wav", EFFECT);
-	Audio::LoadAudio(2, L"ブロックを破壊する音.wav", EFFECT);
-	Audio::LoadAudio(3, L"ブロックを破壊する音.wav", SOUND_TYPE::EFFECT);
-	
-	Audio::LoadAudio(5, L"アイテム変換音.wav", EFFECT);*/
-	
-	
+	Audio::LoadAudio(6, L"アイテム取得.wav", SOUND_TYPE::EFFECT);
 	
 
 	//ボリュームを1.5増やす
