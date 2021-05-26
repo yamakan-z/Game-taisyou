@@ -96,6 +96,8 @@ void CObjInventory::Draw()
 		Font::StrDraw(str, 10, 120, 20, c);
 	}
 
+	swprintf_s(str, L"%d", ((UserData*)Save::GetData())->board_item);
+	Font::StrDraw(str, 10, 180, 20, c);
 
 	if (((UserData*)Save::GetData())->ins_place == true)
 	{

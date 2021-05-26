@@ -1222,7 +1222,7 @@ void CObjBlock::Action()
 					{
 
 						//if ((x / 64) - 1 <= ((hx + (-m_scroll)) / 64) && ((hx + (-m_scroll)) / 64) <= (x / 64) + 1)
-						int blockx = (int)((32 + hx + m_scroll) / 64);
+						int blockx = (int)((32 + hx + (-m_scroll)) / 64);
 						int blocky = (int)((32 + hy) / 64);
 						if(m_map[blocky+1][blockx]==13)
 						{
@@ -1240,9 +1240,9 @@ void CObjBlock::Action()
 							//	}
 							//}
 
-							for (int f = 0;; f++) {
-								if (m_map[blocky + 1][blockx + f] == 99) {
-									m_map[blocky + 1][blockx + f] == 12;
+							for (int f = 1;; f++) {
+								if (m_map[blocky+1][blockx + f] == 99){
+									m_map[blocky+1][blockx + f] == 12;
 								}else {
 									((UserData*)Save::GetData())->ins_done = true;
 									break;
