@@ -109,29 +109,29 @@ void CObjInventory::Draw()
 	//主人公情報を持ってくる
 	CObjHero* hero = (CObjHero*)Objs::GetObj(OBJ_HERO);
 
-	if (((UserData*)Save::GetData())->stage1 == true)
-	{
-		//ブロック情報を持ってくる
-		CObjBlock* block = (CObjBlock*)Objs::GetObj(OBJ_BLOCK);
+	//if (((UserData*)Save::GetData())->stage1 == true)
+	//{
+	//	//ブロック情報を持ってくる
+	//	CObjBlock* block = (CObjBlock*)Objs::GetObj(OBJ_BLOCK);
 
-		swprintf_s(str, L"X=%.0f,Y=%.0f", (hero->GetX() - block->GetScroll()) / 64, hero->GetY() / 64);
-		Font::StrDraw(str, 10, 120, 20, c);
-	}
+	//	swprintf_s(str, L"X=%.0f,Y=%.0f", (hero->GetX() - block->GetScroll()) / 64, hero->GetY() / 64);
+	//	Font::StrDraw(str, 10, 120, 20, c);
+	//}
 
 
-	if (((UserData*)Save::GetData())->ins_place == true)
-	{
-		swprintf_s(str, L"true");
-		Font::StrDraw(str, 10, 490, 20, d);
-	}
-	if (((UserData*)Save::GetData())->ins_flag == true)
-	{
-		swprintf_s(str, L"true5");
-		Font::StrDraw(str, 10, 520, 20, d);
-	}
+	//if (((UserData*)Save::GetData())->ins_place == true)
+	//{
+	//	swprintf_s(str, L"true");
+	//	Font::StrDraw(str, 10, 490, 20, d);
+	//}
+	//if (((UserData*)Save::GetData())->ins_flag == true)
+	//{
+	//	swprintf_s(str, L"true5");
+	//	Font::StrDraw(str, 10, 520, 20, d);
+	//}
 
-	swprintf_s(str, L"タイム　%02d:%02d", m_time, s_time);
-	Font::StrDraw(str, 10, 200, 20, c);
+	//swprintf_s(str, L"タイム　%02d:%02d", m_time, s_time);
+	//Font::StrDraw(str, 10, 200, 20, c);
 
 
 	//操作説明アイコン表示
