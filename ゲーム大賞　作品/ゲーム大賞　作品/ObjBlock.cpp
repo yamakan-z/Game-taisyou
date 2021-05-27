@@ -1085,8 +1085,8 @@ void CObjBlock::Action()
 				{
 					if ((hx + (-m_scroll) + 64.0f > x) && (hx + (-m_scroll) < x + 64.0f))
 					{
-						/*((UserData*)Save::GetData())->up_flag = false;
-						((UserData*)Save::GetData())->ladder_flag = false;*/
+						//((UserData*)Save::GetData())->up_flag = false;
+						//((UserData*)Save::GetData())->ladder_flag = false;
 						//((UserData*)Save::GetData())->ins_ladder = false;
 					}
 
@@ -1098,6 +1098,7 @@ void CObjBlock::Action()
 					if ((hx + (-m_scroll) + 64.0f > x) && (hx + (-m_scroll) < x + 64.0f))
 					{
 						((UserData*)Save::GetData())->up_flag = true;//‚Í‚µ‚²‚ª‚ ‚éŽž‚Ì‚ÝãˆÚ“®
+						((UserData*)Save::GetData())->ladder_flag = false;
 					}
 				}
 				else
