@@ -1222,7 +1222,7 @@ void CObjBlock::Action()
 					{
 
 						//if ((x / 64) - 1 <= ((hx + (-m_scroll)) / 64) && ((hx + (-m_scroll)) / 64) <= (x / 64) + 1)
-						int blockx = (int)((32 + hx + (-m_scroll)) / 64);
+						int blockx = (int)((32 + hx + (-m_scroll)) / 64);//Ž®È—ª
 						int blocky = (int)((32 + hy) / 64);
 						if(m_map[blocky+1][blockx]==13)
 						{
