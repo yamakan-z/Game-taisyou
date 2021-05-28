@@ -108,9 +108,6 @@
     <ClCompile Include="ObjHero.cpp">
       <Filter>ソース ファイル\主人公処理</Filter>
     </ClCompile>
-    <ClCompile Include="ObjBlock.cpp">
-      <Filter>ソース ファイル\ステージ\ステージ1</Filter>
-    </ClCompile>
     <ClCompile Include="ObjTitle.cpp">
       <Filter>ソース ファイル\タイトル</Filter>
     </ClCompile>
@@ -176,6 +173,9 @@
     </ClCompile>
     <ClCompile Include="ObjStageClearBackground.cpp">
       <Filter>ソース ファイル\StageClear</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjBlock.cpp">
+      <Filter>ソース ファイル\ステージ\ステージ1</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

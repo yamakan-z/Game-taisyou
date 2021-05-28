@@ -45,29 +45,7 @@ void CObjInventory::Action()
 	float hx = hero->GetX();
 	float hy = hero->GetY();
 
-	////後方スクロールライン
-	//if (hx < 80)
-	//{
-	//	hero->SetX(80);//主人公はラインを超えないようにする
-	//	m_scroll -= hero->GetVX();//主人公が本来動くべき分の値をm_scrollに加える
-	//}
-
-	////前方スクロールライン
-	//if (hx > 300)
-	//{
-	//	hero->SetX(300);//主人公はラインを超えないようにする
-	//	m_scroll -= hero->GetVX();//主人公が本来動くべき分の値をm_scrollに加える
-	//}
-
-	////主人公の衝突状態確認フラグの初期化
-	//hero->SetUp(false);
-	//hero->SetDown(false);
-	//hero->SetLeft(false);
-	//hero->SetRight(false);
-
-	////踏んでいるブロックの種類の初期化
-	//hero->SetBT(0);
-
+	//タイマー
 	if (hero->GetBT() != 2)
 	{
 		flame++;
@@ -118,20 +96,37 @@ void CObjInventory::Draw()
 	//	Font::StrDraw(str, 10, 120, 20, c);
 	//}
 
+	swprintf_s(str, L"板%.0f", ((UserData*)Save::GetData())->board_item);
+	Font::StrDraw(str, 10, 220, 20, c);
 
-	//if (((UserData*)Save::GetData())->ins_place == true)
-	//{
-	//	swprintf_s(str, L"true");
-	//	Font::StrDraw(str, 10, 490, 20, d);
-	//}
-	//if (((UserData*)Save::GetData())->ins_flag == true)
-	//{
-	//	swprintf_s(str, L"true5");
-	//	Font::StrDraw(str, 10, 520, 20, d);
-	//}
+	swprintf_s(str, L"変換板%.0f", ((UserData*)Save::GetData())->converted_board);
+	Font::StrDraw(str, 10, 240, 20, c);
 
-	//swprintf_s(str, L"タイム　%02d:%02d", m_time, s_time);
-	//Font::StrDraw(str, 10, 200, 20, c);
+	if (((UserData*)Save::GetData())->ins_place == true)
+	{
+		swprintf_s(str, L"ins_place");
+		Font::StrDraw(str, 10, 490, 20, d);
+	}
+	if (((UserData*)Save::GetData())->ins_flag == true)
+	{
+		swprintf_s(str, L"ins_flag");
+		Font::StrDraw(str, 10, 520, 20, d);
+	}
+
+	if (((UserData*)Save::GetData())->ladder_flag == true)
+	{
+		swprintf_s(str, L"ladder_flag");
+		Font::StrDraw(str, 10, 540, 20, d);
+	}
+
+	if (((UserData*)Save::GetData())->up_flag == true)
+	{
+		swprintf_s(str, L"up_flag");
+		Font::StrDraw(str, 10, 560, 20, d);
+	}
+
+	swprintf_s(str, L"タイム　%02d:%02d", m_time, s_time);
+	Font::StrDraw(str, 10, 200, 20, c);
 
 
 	//操作説明アイコン表示

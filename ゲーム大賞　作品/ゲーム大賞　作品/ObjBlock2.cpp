@@ -1435,7 +1435,7 @@ void CObjBlock2::Draw()
 			if (m_map[i][j] == 11)
 			{
 
-				float c2[4] = { 1.0f,1.0f,1.0f,1.0f };
+				float c2[4] = { 0.0f,1.0f,0.0f,1.0f };
 
 				//切り取り位置の設定
 				src.m_top = 0.0f;
@@ -1458,7 +1458,7 @@ void CObjBlock2::Draw()
 			{
 
 				//描画カラー情報
-				float c2[4] = { 1.0f,1.0f,1.0f,1.0f };
+				float c2[4] = { 0.0f,1.0f,0.0f,1.0f };
 
 				//切り取り位置の設定
 				src.m_top = 0.0f;
@@ -1556,7 +1556,7 @@ void CObjBlock2::Draw()
 				src.m_top = 0.0f;
 				src.m_left = 0.0f;
 				src.m_right = 230.0f;
-				src.m_bottom = 42.0f;
+				src.m_bottom = 40.0f;
 
 
 				//表示位置の設定
@@ -1573,7 +1573,7 @@ void CObjBlock2::Draw()
 			if (m_map[i][j] == 13)
 			{
 
-				float c2[4] = { 1.0f,1.0f,1.0f,1.0f };
+				float c2[4] = { 0.0f,1.0f,0.0f,1.0f };
 
 				//切り取り位置の設定
 				src.m_top = 0.0f;

@@ -73,7 +73,7 @@ void CObjHero::Init()
 	 //ギミック関係フラグ初期化
 	 //板関係のフラグ初期化
 	 ((UserData*)Save::GetData())->ins_flag = false;
-	 ((UserData*)Save::GetData())->ins_place = false;
+	 //((UserData*)Save::GetData())->ins_place = false;
 	 //障害物関係のフラグ初期化
 	 ((UserData*)Save::GetData())->break_flag = false;
 	 //はしご関係のフラグ初期化
