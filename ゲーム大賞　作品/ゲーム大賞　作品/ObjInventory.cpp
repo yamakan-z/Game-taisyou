@@ -87,14 +87,14 @@ void CObjInventory::Draw()
 	//主人公情報を持ってくる
 	CObjHero* hero = (CObjHero*)Objs::GetObj(OBJ_HERO);
 
-	if (((UserData*)Save::GetData())->stage1 == true)
-	{
-		//ブロック情報を持ってくる
-		CObjBlock* block = (CObjBlock*)Objs::GetObj(OBJ_BLOCK);
+	//if (((UserData*)Save::GetData())->stage1 == true)
+	//{
+	//	//ブロック情報を持ってくる
+	//	CObjBlock* block = (CObjBlock*)Objs::GetObj(OBJ_BLOCK);
 
-		swprintf_s(str, L"X=%.0f,Y=%.0f", (hero->GetX() - block->GetScroll()) / 64, hero->GetY() / 64);
-		Font::StrDraw(str, 10, 120, 20, c);
-	}
+	//	swprintf_s(str, L"X=%.0f,Y=%.0f", (hero->GetX() - block->GetScroll()) / 64, hero->GetY() / 64);
+	//	Font::StrDraw(str, 10, 120, 20, c);
+	//}
 
 	swprintf_s(str, L"板%.0f", ((UserData*)Save::GetData())->board_item);
 	Font::StrDraw(str, 10, 220, 20, c);

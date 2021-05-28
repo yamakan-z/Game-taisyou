@@ -34,7 +34,7 @@ void CSceneStageClear::InitScene()
 	Font::SetStrTex(L"Next Stage:ENTER_KEY");
 
 	//‰¹Šyî•ñ‚Ì“Ç‚İ‚İ
-	Audio::LoadAudio(0, L"GameClear(‰¼).wav", SOUND_TYPE::BACK_MUSIC);
+	Audio::LoadAudio(0, L"StageClear(‰¼).wav", SOUND_TYPE::BACK_MUSIC);
 
 	//ƒ{ƒŠƒ…[ƒ€‚ğ1.0‚É–ß‚·
 	float v = Audio::VolumeMaster(0.0f);
