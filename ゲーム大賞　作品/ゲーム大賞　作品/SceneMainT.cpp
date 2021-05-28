@@ -74,9 +74,12 @@ void CSceneMainT::InitScene()
 	Draw::LoadImageW(L"鉄板アイテム.png", 50, TEX_SIZE_512);
 
 	//説明画像------------------------------.
-	/*Draw::LoadImageW(L"鉄板アイテム.png", 50, TEX_SIZE_512);
-	Draw::LoadImageW(L"鉄板アイテム.png", 50, TEX_SIZE_512);
-	Draw::LoadImageW(L"鉄板アイテム.png", 50, TEX_SIZE_512);*/
+	Draw::LoadImageW(L"説明1.png", 51, TEX_SIZE_1024);
+	Draw::LoadImageW(L"説明2.png", 52, TEX_SIZE_1024);
+	Draw::LoadImageW(L"説明終了.png", 53, TEX_SIZE_1024);
+	Draw::LoadImageW(L"説明開始.png", 54, TEX_SIZE_1024);
+
+
 	//アイテム数番号
 	Draw::LoadImageW(L"0.png", 8, TEX_SIZE_512);
 	Draw::LoadImageW(L"1.png", 9, TEX_SIZE_512);
@@ -127,7 +130,7 @@ void CSceneMainT::InitScene()
 
 	//インベントリ作成
 	CObjInventory* objin = new CObjInventory();
-	Objs::InsertObj(objin, OBJ_INVENTORY, 10);
+	Objs::InsertObj(objin, OBJ_INVENTORY,11);
 
 	//ボリュームを1.0に戻す
 	v = Audio::VolumeMaster(0.0);

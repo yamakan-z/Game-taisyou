@@ -33,6 +33,6 @@ private:
 	bool T_flag;//チュートリアル表示フラグ（一枚目）
 	bool T_flag2;//チュートリアル（二枚目）
 	bool T_flag3;//チュートリアル（三枚目）
-
+	bool T_flag4;//チュートリアル（四枚目）
 	
 };
