@@ -1069,6 +1069,8 @@ void CObjBlock::Action()
 
 						if (((UserData*)Save::GetData())->ladder == true)
 						{
+							//((UserData*)Save::GetData())->up_flag = true;//はしごがある時のみ上移動
+
 							//上移動を許可するためにブロックを書き換える
 							if (m_map[i][j] == 6)
 							{
@@ -1085,8 +1087,8 @@ void CObjBlock::Action()
 				{
 					if ((hx + (-m_scroll) + 64.0f > x) && (hx + (-m_scroll) < x + 64.0f))
 					{
-						//((UserData*)Save::GetData())->up_flag = false;
-						//((UserData*)Save::GetData())->ladder_flag = false;
+						/*((UserData*)Save::GetData())->up_flag = false;
+						((UserData*)Save::GetData())->ladder_flag = false;*/
 						//((UserData*)Save::GetData())->ins_ladder = false;
 					}
 
@@ -1098,7 +1100,6 @@ void CObjBlock::Action()
 					if ((hx + (-m_scroll) + 64.0f > x) && (hx + (-m_scroll) < x + 64.0f))
 					{
 						((UserData*)Save::GetData())->up_flag = true;//はしごがある時のみ上移動
-						((UserData*)Save::GetData())->ladder_flag = false;
 					}
 				}
 				else
@@ -1204,6 +1205,7 @@ void CObjBlock::Action()
 					if ((hx + (-m_scroll) + 64.0f > x) && (hx + (-m_scroll) < x + 64.0f) && (hy + 64.0f > y) && (hy < y + 64.0f))
 					{
 						((UserData*)Save::GetData())->ins_place = true;
+						p = hy;
 					}
 
 				}
@@ -1222,33 +1224,25 @@ void CObjBlock::Action()
 					if (m_map[i][j] == 99)//板設置用の穴
 					{
 
-						//if ((x / 64) - 1 <= ((hx + (-m_scroll)) / 64) && ((hx + (-m_scroll)) / 64) <= (x / 64) + 1)
-						int blockx = (int)((32 + hx + (-m_scroll)) / 64);//式省略
-						int blocky = (int)((32 + hy) / 64);
-						if(m_map[blocky+1][blockx]==13)
+
+						if ((x / 64) - 1 <= ((hx + (-m_scroll)) / 64) && ((hx + (-m_scroll)) / 64) <= (x / 64) + 1)
 						{
-							//if ((hx + (-m_scroll) + 64.0f > x) || (hx + (-m_scroll) < x + 64.0f)&&(hy + 64.0f > y) || (hy < y + 64.0f))
-							//{
-							//	for (int f = 0;; f++) {
-							//		if (m_map[i][j + f] == 99) {
-							//			m_map[i][j + f] = 12;//板設置
-							//		}
-							//		else
-							//		{
-							//			((UserData*)Save::GetData())->ins_done = true;
-							//			break;
-							//		}
-							//	}
-							//}
-
-							for (int f = 1;; f++) {
-								if (m_map[blocky+1][blockx + f] == 99){
-									m_map[blocky + 1][blockx + f] = 12;
-
-								}else {
-									((UserData*)Save::GetData())->ins_done = true;
-									break;
+							if ((hx + (-m_scroll) + 64.0f > x) || (hx + (-m_scroll) < x + 64.0f))
+							{
+								if ((hy + 64.0f > y) || (hy < y + 64.0f))
+								{
+									for (int f = 0;; f++) {
+										if (m_map[i][j + f] == 99) {
+											m_map[i][j + f] = 12;//板設置
+										}
+										else
+										{
+											((UserData*)Save::GetData())->ins_done = true;
+											break;
+										}
+									}
 								}
+
 							}
 						}
 
@@ -1582,8 +1576,8 @@ void CObjBlock::Draw()
 				//切り取り位置の設定
 				src.m_top = 0.0f;
 				src.m_left = 0.0f;
-				src.m_right = 230.0f;
-				src.m_bottom = 40.0f;
+				src.m_right = 64.0f;
+				src.m_bottom = 64.0f;
 
 
 				//表示位置の設定
@@ -1651,8 +1645,8 @@ void CObjBlock::Draw()
 				//切り取り位置の設定
 				src.m_top = 0.0f;
 				src.m_left = 0.0f;
-				src.m_right = 230.0f;
-				src.m_bottom = 40.0f;
+				src.m_right = 64.0f;
+				src.m_bottom = 64.0f;
 
 
 				//表示位置の設定
