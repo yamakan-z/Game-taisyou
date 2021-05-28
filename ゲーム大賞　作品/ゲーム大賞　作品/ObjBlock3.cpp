@@ -1251,19 +1251,17 @@ void CObjBlock3::Action()
 
 
 				//------------板処理-----------------
-
-				//板設置場所にプレイヤーがいると板が設置できる
+                //板設置場所にプレイヤーがいると板が設置できる
 				if (hero->GetBT() == 13 && ((UserData*)Save::GetData())->board_item > 0 || hero->GetBT() == 13 && ((UserData*)Save::GetData())->converted_board > 0)
 				{
 					if ((hx + (-m_scroll) + 64.0f > x) && (hx + (-m_scroll) < x + 64.0f) && (hy + 64.0f > y) && (hy < y + 64.0f))
 					{
 						((UserData*)Save::GetData())->ins_place = true;
-						p = i;
-						q = j;
+						p = hy;
 					}
 
 				}
-				else if (hero->GetBT() != 13)
+				else if (hero->GetBT() != 13)//i 8  j 18のとき板置きフラグ初期化バグ
 				{
 					if ((hx + (-m_scroll) + 64.0f > x) && (hx + (-m_scroll) < x + 64.0f) && (hy + 64.0f > y) && (hy < y + 64.0f))
 					{
@@ -1272,18 +1270,21 @@ void CObjBlock3::Action()
 					}
 				}
 
+
 				if (((UserData*)Save::GetData())->ins_flag == true)//設置場所一つ前のブロックに反応
 				{
 					if (m_map[i][j] == 99)//板設置用の穴
 					{
+						int blockx = (int)((32 + hx + (-m_scroll)) / 64);
+						int blocky = (int)((32 + hy) / 64);
 
-						/*if (hx+(-m_scroll)/64 ==x/64)
-						{*/
-						if ((hx + (-m_scroll) + 64.0f > x) && (hx + (-m_scroll) < x + 64.0f) && (hy + 64.0f > y) && (hy < y + 64.0f))
+						if (m_map[blocky + 1][blockx] == 13)
 						{
-							for (int f = 0;; f++) {
-								if (m_map[i][j + f] == 99) {
-									m_map[i][j + f] = 12;//板設置
+							for (int f = 1;; f++)
+							{
+								if (m_map[blocky + 1][blockx + f] == 99)
+								{
+									m_map[blocky + 1][blockx + f] = 12;
 								}
 								else
 								{
@@ -1291,9 +1292,7 @@ void CObjBlock3::Action()
 									break;
 								}
 							}
-
 						}
-						//}
 
 
 
@@ -1327,18 +1326,33 @@ void CObjBlock3::Action()
 				{
 					if (m_map[i][j] == 99)//板設置用の穴
 					{
-						if ((hx + (-m_scroll) + 64.0f > x) && (hx + (-m_scroll) < x + 64.0f))
-						{
-							for (int f = 0;; f++) {
-								if (m_map[i][j + f] == 99) {
-									m_map[i][j + f] = 16;//板設置
-								}
-								else {
-									((UserData*)Save::GetData())->ins_bad_done = true;
-									break;
-								}
-							}
 
+						if (((UserData*)Save::GetData())->ins_bad_flag == true)//設置場所一つ前のブロックに反応
+						{
+							if (m_map[i][j] == 99)//板設置用の穴
+							{
+								int blockx = (int)((32 + hx + (-m_scroll)) / 64);
+								int blocky = (int)((32 + hy) / 64);
+
+
+								if (m_map[blocky + 1][blockx] == 17)
+								{
+									for (int f = 1;; f++)
+									{
+										if (m_map[blocky + 1][blockx + f] == 99)
+										{
+											m_map[blocky + 1][blockx + f] = 16;
+										}
+										else
+										{
+											((UserData*)Save::GetData())->ins_bad_done = true;
+											break;
+										}
+									}
+								}
+
+
+							}
 						}
 					}
 				}
