@@ -64,4 +64,6 @@ private:
 	bool conversionB;//”Â—p
 	bool conversionP;//‚Â‚é‚Í‚µ—p
 
+	bool key_flagB;
+
 };

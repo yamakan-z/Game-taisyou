@@ -48,6 +48,8 @@ void CObjHero::Init()
 	 conversionB = true;
 	 conversionP = true;
 
+	 key_flagB = false;
+
 
 
 	 //フラグの初期化---------------------------------
@@ -73,7 +75,7 @@ void CObjHero::Init()
 	 //ギミック関係フラグ初期化
 	 //板関係のフラグ初期化
 	 ((UserData*)Save::GetData())->ins_flag = false;
-	 ((UserData*)Save::GetData())->ins_place = false;
+	 //((UserData*)Save::GetData())->ins_place = false;
 	 //障害物関係のフラグ初期化
 	 ((UserData*)Save::GetData())->break_flag = false;
 	 //はしご関係のフラグ初期化
@@ -249,7 +251,7 @@ void CObjHero::Action()
 	}
 	
 	//板設置
-	if (Input::GetVKey('S') == true&& ((UserData*)Save::GetData())->ins_place==true)
+	if (Input::GetVKey('S') == true&& ((UserData*)Save::GetData())->ins_place==true&&key_flagB==true)
 	{
 		
 
@@ -282,6 +284,7 @@ void CObjHero::Action()
 	else
 	{
 		((UserData*)Save::GetData())->ins_flag = false;
+		key_flagB = true;
 	}
 	
 
