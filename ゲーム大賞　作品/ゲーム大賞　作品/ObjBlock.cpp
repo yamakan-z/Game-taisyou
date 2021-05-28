@@ -1243,7 +1243,8 @@ void CObjBlock::Action()
 
 							for (int f = 1;; f++) {
 								if (m_map[blocky+1][blockx + f] == 99){
-									m_map[blocky+1][blockx + f] == 12;
+									m_map[blocky + 1][blockx + f] = 12;
+
 								}else {
 									((UserData*)Save::GetData())->ins_done = true;
 									break;
