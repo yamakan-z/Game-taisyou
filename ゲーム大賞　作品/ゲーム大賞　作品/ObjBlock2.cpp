@@ -1365,10 +1365,12 @@ void CObjBlock2::Action()
 
 				if (((UserData*)Save::GetData())->ins_bad_flag == true)//劣化板設置ブロックにいると反応する
 				{
-					if ((x / 64) - 1 <= ((hx + (-m_scroll)) / 64) && ((hx + (-m_scroll)) / 64) <= (x / 64) + 1 && (y / 64) - 1 <= (hy / 64) && (hy / 64) <= (y / 64) + 1)
+					if (m_map[i][j] == 99)//板設置用の穴
 					{
+						int blockx = (int)((32 + hx + (-m_scroll)) / 64);
+						int blocky = (int)((32 + hy) / 64);
 
-						if (m_map[i][j] == 99)//板設置用の穴
+						if (m_map[blocky + 1][blockx] == 17)
 						{
 							if ((hx + (-m_scroll) + 64.0f > x) && (hx + (-m_scroll) < x + 64.0f))
 							{
