@@ -8,6 +8,7 @@
 #include"ObjBlock3.h"
 #include "GameL/UserData.h"
 #include "GameL\HitBoxManager.h"
+#include "GameL\Audio.h"
 
 //使用するネームスペース
 using namespace GameL;
@@ -1006,7 +1007,6 @@ void CObjBlock3::Action()
 				}
 
 
-
 				if (((UserData*)Save::GetData())->break_flag == true)//障害物の一つ前のブロック(障害物判定ブロック）に反応
 				{
 
@@ -1025,7 +1025,28 @@ void CObjBlock3::Action()
 								}
 								else
 								{
-									((UserData*)Save::GetData())->break_done = true;
+
+									//ブロック破壊音を鳴らす
+									Audio::Start(2);
+
+									//アイテム使用時、変換済みアイテムを優先して使用する
+									if (((UserData*)Save::GetData())->converted_pick >= 1)
+									{
+										//ブロック破壊音を鳴らす
+										Audio::Start(2);
+
+										((UserData*)Save::GetData())->converted_pick -= 1;
+										((UserData*)Save::GetData())->converted_item -= 1;
+										((UserData*)Save::GetData())->item -= 1;
+									}
+									else
+									{
+										//ブロック破壊音を鳴らす
+										Audio::Start(2);
+
+										((UserData*)Save::GetData())->item -= 1;
+										((UserData*)Save::GetData())->pick_item -= 1;
+									}
 
 									break;
 								}
@@ -1076,7 +1097,35 @@ void CObjBlock3::Action()
 								}
 								else
 								{
-									((UserData*)Save::GetData())->break_bad_done = true;
+									//ブロック破壊音を鳴らす
+									Audio::Start(2);
+
+									//アイテム使用時、劣化→変換済み→未変換の順で使用が優先される
+									if (((UserData*)Save::GetData())->bad_pick >= 1)
+									{
+										//ブロック破壊音を鳴らす
+										Audio::Start(2);
+
+										((UserData*)Save::GetData())->bad_pick -= 1;
+										((UserData*)Save::GetData())->item -= 1;
+									}
+									else if (((UserData*)Save::GetData())->converted_pick >= 1)
+									{
+										//ブロック破壊音を鳴らす
+										Audio::Start(2);
+
+										((UserData*)Save::GetData())->converted_pick -= 1;
+										((UserData*)Save::GetData())->converted_item -= 1;
+										((UserData*)Save::GetData())->item -= 1;
+									}
+									else if (((UserData*)Save::GetData())->pick_item >= 1)
+									{
+										//ブロック破壊音を鳴らす
+										Audio::Start(2);
+
+										((UserData*)Save::GetData())->item -= 1;
+										((UserData*)Save::GetData())->pick_item -= 1;
+									}
 
 									break;
 								}
@@ -1085,7 +1134,6 @@ void CObjBlock3::Action()
 						}
 
 					}
-
 				}
 
 				//-------------------------------------------------------
@@ -1099,23 +1147,43 @@ void CObjBlock3::Action()
 					if (m_map[i][j] == 97)//はしご設置用の空間
 					{
 
-						if ((hx + (-m_scroll) + 64.0f > x) && (hx + (-m_scroll) < x + 64.0f) && (hy + 64.0f > y) && (hy < y + 64.0f))
+						if ((x / 64) - 1 <= ((hx + (-m_scroll)) / 64) && ((hx + (-m_scroll)) / 64) <= (x / 64) + 1)
 						{
-							for (int f = 0;; f++) {
-								if (m_map[i - f][j] == 97) {
-									m_map[i - f][j] = 8;//はしご設置
+							if ((hx + (-m_scroll) + 64.0f > x) && (hx + (-m_scroll) < x + 64.0f) && (hy + 64.0f > y) && (hy < y + 64.0))
+							{
+								for (int f = 0;; f++) {
+									if (m_map[i - f][j] == 97) {
+										m_map[i - f][j] = 8;//はしご設置
+									}
+									else {
+
+										//アイテムの設置音を鳴らす
+										Audio::Start(1);
+
+										//アイテム使用時、変換済みアイテムを優先して使用する
+										if (((UserData*)Save::GetData())->converted_ladder >= 1)
+										{
+											((UserData*)Save::GetData())->item -= 1;
+											((UserData*)Save::GetData())->converted_item -= 1;
+											((UserData*)Save::GetData())->converted_ladder -= 1;
+										}
+										else
+										{
+											((UserData*)Save::GetData())->item -= 1;
+											((UserData*)Save::GetData())->ladder_item -= 1;
+										}
+
+
+										((UserData*)Save::GetData())->ladder = true;//上移動の許可
+
+										((UserData*)Save::GetData())->ladder_flag = false;//ここではしごの設置場所を判定
+
+										break;
+									}
 								}
-								else {
-									((UserData*)Save::GetData())->ladder = true;//上移動の許可
 
-									((UserData*)Save::GetData())->ins_ladder_done = true;//はしごアイテムを1つ消費させるため
 
-									((UserData*)Save::GetData())->ladder_flag = false;//ここではしごの設置場所を判定
-
-									break;
-								}
 							}
-
 
 						}
 					}
@@ -1131,8 +1199,6 @@ void CObjBlock3::Action()
 
 						if (((UserData*)Save::GetData())->ladder == true)
 						{
-							//((UserData*)Save::GetData())->up_flag = true;//はしごがある時のみ上移動
-
 							//上移動を許可するためにブロックを書き換える
 							if (m_map[i][j] == 6)
 							{
@@ -1149,8 +1215,8 @@ void CObjBlock3::Action()
 				{
 					if ((hx + (-m_scroll) + 64.0f > x) && (hx + (-m_scroll) < x + 64.0f))
 					{
-						((UserData*)Save::GetData())->up_flag = false;
-						((UserData*)Save::GetData())->ladder_flag = false;
+						//((UserData*)Save::GetData())->up_flag = false;
+						//((UserData*)Save::GetData())->ladder_flag = false;
 						//((UserData*)Save::GetData())->ins_ladder = false;
 					}
 
@@ -1162,6 +1228,14 @@ void CObjBlock3::Action()
 					if ((hx + (-m_scroll) + 64.0f > x) && (hx + (-m_scroll) < x + 64.0f))
 					{
 						((UserData*)Save::GetData())->up_flag = true;//はしごがある時のみ上移動
+						((UserData*)Save::GetData())->ladder_flag = false;
+					}
+				}
+				else
+				{
+					if ((hx + (-m_scroll) + 64.0f > x) && (hx + (-m_scroll) < x + 64.0f))
+					{
+						((UserData*)Save::GetData())->up_flag = false;//はしごがある時のみ上移動
 					}
 				}
 
@@ -1209,24 +1283,37 @@ void CObjBlock3::Action()
 					if (m_map[i][j] == 97)//はしご設置用の空間
 					{
 
-						if ((hx + (-m_scroll) + 64.0f > x) && (hx + (-m_scroll) < x + 64.0f) && (hy + 64.0f > y) && (hy < y + 64.0f))
+						if ((x / 64) - 1 <= ((hx + (-m_scroll)) / 64) && ((hx + (-m_scroll)) / 64) <= (x / 64) + 1)
 						{
-							for (int f = 0;; f++) {
-								if (m_map[i - f][j] == 97) {
-									m_map[i - f][j] = 15;//はしご設置
+
+							if ((hx + (-m_scroll) + 64.0f > x) && (hx + (-m_scroll) < x + 64.0f) && (hy + 64.0f > y) && (hy < y + 64.0f))
+							{
+								for (int f = 0;; f++) {
+									if (m_map[i - f][j] == 97) {
+										m_map[i - f][j] = 15;//はしご設置
+									}
+									else
+									{
+
+										//アイテムの設置音を鳴らす
+										Audio::Start(1);
+
+										((UserData*)Save::GetData())->item -= 1;
+										((UserData*)Save::GetData())->bad_ladder -= 1;
+
+										((UserData*)Save::GetData())->ins_bad_ladder_done = false;
+
+										((UserData*)Save::GetData())->bad_ladder_put = true;//上移動の許可
+
+
+										((UserData*)Save::GetData())->bad_ladder_flag = false;//ここではしごの設置場所を判定
+
+										break;
+									}
 								}
-								else {
-									((UserData*)Save::GetData())->bad_ladder_put = true;//上移動の許可
 
-									((UserData*)Save::GetData())->ins_bad_ladder_done = true;//はしごアイテムを1つ消費させるため
 
-									((UserData*)Save::GetData())->bad_ladder_flag = false;//ここではしごの設置場所を判定
-
-									break;
-								}
 							}
-
-
 						}
 					}
 
@@ -1275,20 +1362,37 @@ void CObjBlock3::Action()
 				{
 					if (m_map[i][j] == 99)//板設置用の穴
 					{
-						int blockx = (int)((32 + hx + (-m_scroll)) / 64);
-						int blocky = (int)((32 + hy) / 64);
 
+						//if ((x / 64) - 1 <= ((hx + (-m_scroll)) / 64) && ((hx + (-m_scroll)) / 64) <= (x / 64) + 1)
+						int blockx = (int)((32 + hx + (-m_scroll)) / 64);//式省略
+						int blocky = (int)((32 + hy) / 64);
 						if (m_map[blocky + 1][blockx] == 13)
 						{
-							for (int f = 1;; f++)
-							{
+
+
+							for (int f = 1;; f++) {
 								if (m_map[blocky + 1][blockx + f] == 99)
 								{
 									m_map[blocky + 1][blockx + f] = 12;
+
 								}
 								else
 								{
-									((UserData*)Save::GetData())->ins_done = true;
+									//アイテムの設置音を鳴らす
+									Audio::Start(1);
+
+									//アイテム使用時、変換済みアイテムを優先して使用する
+									if (((UserData*)Save::GetData())->converted_board >= 1)
+									{
+										((UserData*)Save::GetData())->item -= 1;
+										((UserData*)Save::GetData())->converted_item -= 1;
+										((UserData*)Save::GetData())->converted_board -= 1;
+									}
+									else
+									{
+										((UserData*)Save::GetData())->item -= 1;
+										((UserData*)Save::GetData())->board_item -= 1;
+									}
 									break;
 								}
 							}
@@ -1324,33 +1428,28 @@ void CObjBlock3::Action()
 
 				if (((UserData*)Save::GetData())->ins_bad_flag == true)//劣化板設置ブロックにいると反応する
 				{
-					if (m_map[i][j] == 99)//板設置用の穴
+					if ((x / 64) - 1 <= ((hx + (-m_scroll)) / 64) && ((hx + (-m_scroll)) / 64) <= (x / 64) + 1 && (y / 64) - 1 <= (hy / 64) && (hy / 64) <= (y / 64) + 1)
 					{
 
-						if (((UserData*)Save::GetData())->ins_bad_flag == true)//設置場所一つ前のブロックに反応
+						if (m_map[i][j] == 99)//板設置用の穴
 						{
-							if (m_map[i][j] == 99)//板設置用の穴
+							if ((hx + (-m_scroll) + 64.0f > x) && (hx + (-m_scroll) < x + 64.0f))
 							{
-								int blockx = (int)((32 + hx + (-m_scroll)) / 64);
-								int blocky = (int)((32 + hy) / 64);
-
-
-								if (m_map[blocky + 1][blockx] == 17)
-								{
-									for (int f = 1;; f++)
+								for (int f = 0;; f++) {
+									if (m_map[i][j + f] == 99) {
+										m_map[i][j + f] = 16;//板設置
+									}
+									else
 									{
-										if (m_map[blocky + 1][blockx + f] == 99)
-										{
-											m_map[blocky + 1][blockx + f] = 16;
-										}
-										else
-										{
-											((UserData*)Save::GetData())->ins_bad_done = true;
-											break;
-										}
+										//アイテムの設置音を鳴らす
+										Audio::Start(1);
+
+										((UserData*)Save::GetData())->item -= 1;
+										((UserData*)Save::GetData())->bad_board -= 1;
+
+										break;
 									}
 								}
-
 
 							}
 						}
