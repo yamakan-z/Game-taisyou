@@ -251,34 +251,14 @@ void CObjHero::Action()
 	}
 	
 	//板設置
-	if (Input::GetVKey('S') == true&& ((UserData*)Save::GetData())->ins_place==true&&key_flagB==true)
+	if (Input::GetVKey('S') == true&& ((UserData*)Save::GetData())->ins_place==true)
 	{
-		
+		if (key_flagB == true)
+		{
+			((UserData*)Save::GetData())->ins_flag = true;
+			key_flagB = false;
 
-		((UserData*)Save::GetData())->ins_flag = true;
-
-
-		//設置後、板アイテム＆アイテム総数-1
-	    if (((UserData*)Save::GetData())->ins_done == true)
-	    {
-			//アイテムの設置音を鳴らす
-			Audio::Start(1);
-
-			//アイテム使用時、変換済みアイテムを優先して使用する
-			if (((UserData*)Save::GetData())->converted_board >= 1)
-			{
-				((UserData*)Save::GetData())->item -= 1;
-				((UserData*)Save::GetData())->converted_item -= 1;
-				((UserData*)Save::GetData())->converted_board -= 1;
-			}
-			else
-			{
-				((UserData*)Save::GetData())->item -= 1;
-				((UserData*)Save::GetData())->board_item -= 1;
-			}
-		   
-		   ((UserData*)Save::GetData())->ins_done = false;
-	    }
+		}
 
 	}
 	else

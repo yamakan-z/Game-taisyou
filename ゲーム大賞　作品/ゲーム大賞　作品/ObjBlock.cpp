@@ -8,6 +8,7 @@
 #include"ObjBlock.h"
 #include "GameL/UserData.h"
 #include "GameL\HitBoxManager.h"
+#include"GameL\Audio.h"
 
 //使用するネームスペース
 using namespace GameL;
@@ -1227,19 +1228,7 @@ void CObjBlock::Action()
 						int blocky = (int)((32 + hy) / 64);
 						if(m_map[blocky+1][blockx]==13)
 						{
-							//if ((hx + (-m_scroll) + 64.0f > x) || (hx + (-m_scroll) < x + 64.0f)&&(hy + 64.0f > y) || (hy < y + 64.0f))
-							//{
-							//	for (int f = 0;; f++) {
-							//		if (m_map[i][j + f] == 99) {
-							//			m_map[i][j + f] = 12;//板設置
-							//		}
-							//		else
-							//		{
-							//			((UserData*)Save::GetData())->ins_done = true;
-							//			break;
-							//		}
-							//	}
-							//}
+							
 
 							for (int f = 1;; f++) {
 								if (m_map[blocky + 1][blockx + f] == 99)
@@ -1248,7 +1237,21 @@ void CObjBlock::Action()
 
 								}else 
 								{
-									((UserData*)Save::GetData())->ins_done = true;
+									//アイテムの設置音を鳴らす
+									Audio::Start(1);
+
+									//アイテム使用時、変換済みアイテムを優先して使用する
+									if (((UserData*)Save::GetData())->converted_board >= 1)
+									{
+										((UserData*)Save::GetData())->item -= 1;
+										((UserData*)Save::GetData())->converted_item -= 1;
+										((UserData*)Save::GetData())->converted_board -= 1;
+									}
+									else
+									{
+										((UserData*)Save::GetData())->item -= 1;
+										((UserData*)Save::GetData())->board_item -= 1;
+									}
 									break;
 								}
 							}
