@@ -64,6 +64,14 @@ private:
 	bool conversionB;//板用
 	bool conversionP;//つるはし用
 
-	bool key_flagB;
+	//キーを長押ししたときに処理を通さない
+	bool key_flagB;//板設置のキーフラグ
+	bool key_flagP;//障害物破壊のキーフラグ
+	bool key_flagL;//はしご設置のキーフラグ
+	//劣化アイテム用
+	bool key_flagBB;//劣化板設置のキーフラグ
+	bool key_flagBP;//障害物破壊のキーフラグ（劣化つるはし）
+	bool key_flagBL;//劣化はしご設置のキーフラグ
+
 
 };

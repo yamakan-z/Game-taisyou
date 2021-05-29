@@ -960,8 +960,29 @@ void CObjBlock::Action()
 								}
 								else
 								{
-									((UserData*)Save::GetData())->break_done = true;
 
+									//ブロック破壊音を鳴らす
+									Audio::Start(2);
+
+									//アイテム使用時、変換済みアイテムを優先して使用する
+									if (((UserData*)Save::GetData())->converted_pick >= 1)
+									{
+										//ブロック破壊音を鳴らす
+										Audio::Start(2);
+
+										((UserData*)Save::GetData())->converted_pick -= 1;
+										((UserData*)Save::GetData())->converted_item -= 1;
+										((UserData*)Save::GetData())->item -= 1;
+									}
+									else
+									{
+										//ブロック破壊音を鳴らす
+										Audio::Start(2);
+
+										((UserData*)Save::GetData())->item -= 1;
+										((UserData*)Save::GetData())->pick_item -= 1;
+									}
+									
 									break;
 								}
 							}
@@ -1011,7 +1032,35 @@ void CObjBlock::Action()
 								}
 								else
 								{
-									((UserData*)Save::GetData())->break_bad_done = true;
+									//ブロック破壊音を鳴らす
+									Audio::Start(2);
+
+									//アイテム使用時、劣化→変換済み→未変換の順で使用が優先される
+									if (((UserData*)Save::GetData())->bad_pick >= 1)
+									{
+										//ブロック破壊音を鳴らす
+										Audio::Start(2);
+
+										((UserData*)Save::GetData())->bad_pick -= 1;
+										((UserData*)Save::GetData())->item -= 1;
+									}
+									else if (((UserData*)Save::GetData())->converted_pick >= 1)
+									{
+										//ブロック破壊音を鳴らす
+										Audio::Start(2);
+
+										((UserData*)Save::GetData())->converted_pick -= 1;
+										((UserData*)Save::GetData())->converted_item -= 1;
+										((UserData*)Save::GetData())->item -= 1;
+									}
+									else if (((UserData*)Save::GetData())->pick_item >= 1)
+									{
+										//ブロック破壊音を鳴らす
+										Audio::Start(2);
+
+										((UserData*)Save::GetData())->item -= 1;
+										((UserData*)Save::GetData())->pick_item -= 1;
+									}
 
 									break;
 								}
@@ -1043,9 +1092,25 @@ void CObjBlock::Action()
 										m_map[i - f][j] = 8;//はしご設置
 									}
 									else {
-										((UserData*)Save::GetData())->ladder = true;//上移動の許可
 
-										((UserData*)Save::GetData())->ins_ladder_done = true;//はしごアイテムを1つ消費させるため
+										//アイテムの設置音を鳴らす
+										Audio::Start(1);
+
+										//アイテム使用時、変換済みアイテムを優先して使用する
+										if (((UserData*)Save::GetData())->converted_ladder >= 1)
+										{
+											((UserData*)Save::GetData())->item -= 1;
+											((UserData*)Save::GetData())->converted_item -= 1;
+											((UserData*)Save::GetData())->converted_ladder -= 1;
+										}
+										else
+										{
+											((UserData*)Save::GetData())->item -= 1;
+											((UserData*)Save::GetData())->ladder_item -= 1;
+										}
+
+
+										((UserData*)Save::GetData())->ladder = true;//上移動の許可
 
 										((UserData*)Save::GetData())->ladder_flag = false;//ここではしごの設置場所を判定
 
@@ -1161,10 +1226,19 @@ void CObjBlock::Action()
 									if (m_map[i - f][j] == 97) {
 										m_map[i - f][j] = 15;//はしご設置
 									}
-									else {
+									else 
+									{
+
+										//アイテムの設置音を鳴らす
+										Audio::Start(1);
+
+										((UserData*)Save::GetData())->item -= 1;
+										((UserData*)Save::GetData())->bad_ladder -= 1;
+
+										((UserData*)Save::GetData())->ins_bad_ladder_done = false;
+
 										((UserData*)Save::GetData())->bad_ladder_put = true;//上移動の許可
 
-										((UserData*)Save::GetData())->ins_bad_ladder_done = true;//はしごアイテムを1つ消費させるため
 
 										((UserData*)Save::GetData())->bad_ladder_flag = false;//ここではしごの設置場所を判定
 
@@ -1298,8 +1372,14 @@ void CObjBlock::Action()
 									if (m_map[i][j + f] == 99) {
 										m_map[i][j + f] = 16;//板設置
 									}
-									else {
-										((UserData*)Save::GetData())->ins_bad_done = true;
+									else 
+									{
+										//アイテムの設置音を鳴らす
+										Audio::Start(1);
+
+										((UserData*)Save::GetData())->item -= 1;
+										((UserData*)Save::GetData())->bad_board -= 1;
+
 										break;
 									}
 								}
