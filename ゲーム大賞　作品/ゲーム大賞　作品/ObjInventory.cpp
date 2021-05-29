@@ -96,11 +96,11 @@ void CObjInventory::Draw()
 	//	Font::StrDraw(str, 10, 120, 20, c);
 	//}
 
-	swprintf_s(str, L"”Â%.0f", ((UserData*)Save::GetData())->board_item);
-	Font::StrDraw(str, 10, 220, 20, c);
+	//swprintf_s(str, L"”Â%.0f", ((UserData*)Save::GetData())->board_item);
+	//Font::StrDraw(str, 10, 220, 20, c);
 
-	swprintf_s(str, L"•ÏŠ·”Â%.0f", ((UserData*)Save::GetData())->converted_board);
-	Font::StrDraw(str, 10, 240, 20, c);
+	//swprintf_s(str, L"•ÏŠ·”Â%.0f", ((UserData*)Save::GetData())->converted_board);
+	//Font::StrDraw(str, 10, 240, 20, c);
 
 	if (((UserData*)Save::GetData())->ins_place == true)
 	{
