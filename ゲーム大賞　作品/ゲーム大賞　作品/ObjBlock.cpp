@@ -1153,8 +1153,8 @@ void CObjBlock::Action()
 				{
 					if ((hx + (-m_scroll) + 64.0f > x) && (hx + (-m_scroll) < x + 64.0f))
 					{
-						/*((UserData*)Save::GetData())->up_flag = false;
-						((UserData*)Save::GetData())->ladder_flag = false;*/
+						//((UserData*)Save::GetData())->up_flag = false;
+						//((UserData*)Save::GetData())->ladder_flag = false;
 						//((UserData*)Save::GetData())->ins_ladder = false;
 					}
 
@@ -1166,6 +1166,7 @@ void CObjBlock::Action()
 					if ((hx + (-m_scroll) + 64.0f > x) && (hx + (-m_scroll) < x + 64.0f))
 					{
 						((UserData*)Save::GetData())->up_flag = true;//はしごがある時のみ上移動
+						((UserData*)Save::GetData())->ladder_flag = false;
 					}
 				}
 				else
@@ -1805,7 +1806,7 @@ void CObjBlock::Draw()
 			{
 
 				//描画カラー情報
-				float c2[4] = { 1.0f,1.0f,1.0f,1.0f };
+				float c2[4] = { 0.0f,1.0f,0.0f,1.0f };
 
 				//切り取り位置の設定
 				src.m_top = 0.0f;
@@ -1829,7 +1830,7 @@ void CObjBlock::Draw()
 			{
 
 				//描画カラー情報
-				float c2[4] = { 1.0f,1.0f,1.0f,1.0f };
+				float c2[4] = { 0.0f,1.0f,0.0f,1.0f };
 
 				//切り取り位置の設定
 				src.m_top = 0.0f;

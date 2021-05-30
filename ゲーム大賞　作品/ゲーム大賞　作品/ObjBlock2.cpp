@@ -1806,7 +1806,7 @@ void CObjBlock2::Draw()
 			{
 
 				//描画カラー情報
-				float c2[4] = { 1.0f,1.0f,1.0f,1.0f };
+				float c2[4] = { 0.0f,1.0f,0.0f,1.0f };
 
 				//切り取り位置の設定
 				src.m_top = 0.0f;
@@ -1830,7 +1830,7 @@ void CObjBlock2::Draw()
 			{
 
 				//描画カラー情報
-				float c2[4] = { 1.0f,1.0f,1.0f,1.0f };
+				float c2[4] = { 0.0f,1.0f,0.0f,1.0f };
 
 				//切り取り位置の設定
 				src.m_top = 0.0f;
