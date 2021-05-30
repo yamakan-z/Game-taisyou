@@ -31,6 +31,11 @@ void CObjInventory::Init()
 	s_time = 0;
 	m_time = 0;
 
+	T_flag = false;
+	T_flag2 = false;
+	T_flag3 = false;
+	T_flag4 = false;
+
 	((UserData*)Save::GetData())->save_s_time = 0;//セーブ用m_time初期化
 	((UserData*)Save::GetData())->save_m_time = 0;//セーブ用s_time初期化
 
@@ -68,6 +73,40 @@ void CObjInventory::Action()
 		}
 	}
 
+	if (hero->GetBT() == 50)
+	{
+		T_flag = true;
+	}
+	else
+	{
+		T_flag = false;
+	}
+
+	if (hero->GetBT() == 51)
+	{
+		T_flag2 = true;
+	}
+	else
+	{
+		T_flag2 = false;
+	}
+
+	if (hero->GetBT() == 52)
+	{
+		T_flag3 = true;
+	}
+	else
+	{
+		T_flag3 = false;
+	}
+	if (hero->GetBT() == 53)
+	{
+		T_flag4 = true;
+	}
+	else
+	{
+		T_flag4 = false;
+	}
 }
 
 //ドロー
@@ -83,6 +122,9 @@ void CObjInventory::Draw()
 
 	RECT_F src;//描画元切り取り位置
 	RECT_F dst;//描画先表示位置
+
+
+
 
 	//主人公情報を持ってくる
 	CObjHero* hero = (CObjHero*)Objs::GetObj(OBJ_HERO);
@@ -388,8 +430,85 @@ void CObjInventory::Draw()
 			Draw::Draw(22, &src, &dst, c, 0.0f);
 		}
 
+		//---------------チュートリアル（仮）-------------------------------------------------------------------------------
+		if (T_flag == true)
+		{
+			//切り取り位置の設定
+			src.m_top = 0.0f;
+			src.m_left = 0.0f;
+			src.m_right = 1024.0;
+			src.m_bottom = 1024.0f;
+
+
+			//表示位置の設定
+			dst.m_top = 100.0;
+			dst.m_left = 160.0;
+			dst.m_right = dst.m_right = dst.m_left + 500.0;
+			dst.m_bottom = dst.m_top + 500.0;
+
+			//描画
+			Draw::Draw(51, &src, &dst, c, 0.0f);
+		}
+
+		if (T_flag2 == true)
+		{
+			//切り取り位置の設定
+			src.m_top = 0.0f;
+			src.m_left = 0.0f;
+			src.m_right = 1024.0f;
+			src.m_bottom = 1024.0f;
+
+
+			//表示位置の設定
+			dst.m_top = 100.0;
+			dst.m_left = 160.0;
+			dst.m_right = dst.m_right = dst.m_left + 500.0;
+			dst.m_bottom = dst.m_top + 500.0;
+
+			//描画
+			Draw::Draw(52, &src, &dst, c, 0.0f);
+		}
+
+		if (T_flag3 == true)
+		{
+			//切り取り位置の設定
+			src.m_top = 0.0f;
+			src.m_left = 0.0f;
+			src.m_right = 1024.0f;
+			src.m_bottom = 1024.0f;
+
+
+			//表示位置の設定
+			dst.m_top = 100.0;
+			dst.m_left = 160.0;
+			dst.m_right = dst.m_right = dst.m_left + 500.0;
+			dst.m_bottom = dst.m_top + 500.0;
+
+			//描画
+			Draw::Draw(53, &src, &dst, c, 0.0f);
+		}
+
+		if (T_flag4 == true)
+		{
+			//切り取り位置の設定
+			src.m_top = 0.0f;
+			src.m_left = 0.0f;
+			src.m_right = 1024.0f;
+			src.m_bottom = 1024.0f;
+
+
+			//表示位置の設定
+			dst.m_top = 100.0;
+			dst.m_left = 160.0;
+			dst.m_right = dst.m_right = dst.m_left + 500.0;
+			dst.m_bottom = dst.m_top + 500.0;
+
+			//描画
+			Draw::Draw(54, &src, &dst, c, 0.0f);
+		}
+
 	
-	////アイテム数////
+	////アイテム数////--------------------------------------------------------------
 
 	//はしご//
 
