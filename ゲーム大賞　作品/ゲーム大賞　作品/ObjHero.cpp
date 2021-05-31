@@ -500,7 +500,7 @@ void CObjHero::Draw()
 
 	int AniData[4]
 	{
-		0,1,0,2,//•`‰æ‡˜
+		2,1,0,3,//•`‰æ‡˜
 	};
 
 	RECT_F src; //•`‰æŒ³Ø‚èæ‚èˆÊ’u
