@@ -1841,7 +1841,7 @@ void CObjBlock::Draw()
 			{
 
 				//•`‰æƒJƒ‰[î•ñ
-				float c2[4] = { 1.0f,1.0f,0.0f,1.0f };
+				float c2[4] = { 1.0f,1.0f,1.0f,1.0f };
 
 				//Ø‚èæ‚èˆÊ’u‚Ìİ’è
 				src.m_top = 0.0f;
