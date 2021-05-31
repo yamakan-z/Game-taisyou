@@ -73,6 +73,9 @@ void CObjStageClear::Init()
 	//障害物関係のフラグ破棄
 	((UserData*)Save::GetData())->break_bad_flag = false;
 
+	//ステージクリアSE
+	((UserData*)Save::GetData())->clear = false;
+
 	//ステージ毎によって変換可能回数変更
 	if (((UserData*)Save::GetData())->stage1 == true)
 	{

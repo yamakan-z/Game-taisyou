@@ -377,9 +377,6 @@ void CObjBlock3::Action()
 
 							}
 
-
-							//ブロックに触れたらシーン移動
-							Scene::SetScene(new CSceneGameClear());
 						}
 						if (r > 135 && r < 225)
 						{
@@ -989,6 +986,14 @@ void CObjBlock3::Action()
 				//-------------------------------------
 
 				//ギミック関係の処理
+
+				//ステージクリア
+				if (hero->GetBT() == 2)
+				{
+					//クリアSEを流す
+					((UserData*)Save::GetData())->clear = true;
+
+				}
 
 				//-------------障害物処理----------------------
 
@@ -1937,7 +1942,7 @@ void CObjBlock3::Draw()
 			{
 
 				//描画カラー情報
-				float c2[4] = { 0.0f,1.0f,0.0f,1.0f };
+				float c2[4] = { 1.0f,1.0f,0.0f,1.0f };
 
 				//切り取り位置の設定
 				src.m_top = 0.0f;

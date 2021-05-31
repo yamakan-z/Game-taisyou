@@ -138,11 +138,31 @@ void CObjHero::Action()
 		Scene::SetScene(new CSceneGameOver());
 	}
 
+	if (((UserData*)Save::GetData())->clear == true&& ((UserData*)Save::GetData())->stage1||
+		((UserData*)Save::GetData())->clear == true && ((UserData*)Save::GetData())->stage2)
+	{
+		//シーンBGMを止める
+		Audio::Stop(0);
+		//クリアSE
+		Audio::Start(8);
+		std::this_thread::sleep_for(std::chrono::seconds(3)); //開始時処理を2秒止める(落下SEを鳴らすため）
+		//ブロックに触れたらシーン移動
+		Scene::SetScene(new CSceneStageClear());
+	}
+	else if (((UserData*)Save::GetData())->clear == true && ((UserData*)Save::GetData())->stage3)
+	{
+		//シーンBGMを止める
+		Audio::Stop(0);
+		//クリアSE
+		Audio::Start(8);
+		std::this_thread::sleep_for(std::chrono::seconds(3)); //開始時処理を2秒止める(落下SEを鳴らすため）
+		//ブロックに触れたらシーン移動
+		Scene::SetScene(new CSceneGameClear());
+	}
+
 	//キーの入力方向
 	if (Input::GetVKey(VK_RIGHT) == true&& ((UserData*)Save::GetData())->move_flag == true)
 	{
-
-
 		m_vx = +5.0f;
 		m_posture = 1.0f;
 		m_ani_time += 1;                 //「m_ani_time += 1;」描画切り替え　

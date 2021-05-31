@@ -129,6 +129,9 @@ struct UserData
 	bool stage1 = false;//ステージ1
 	bool stage2 = false;//ステージ2
 	bool stage3 = false;//ステージ3
+
+	//クリア音
+	bool clear = false;
 };
 //------------------------------------------------
 

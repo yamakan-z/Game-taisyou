@@ -58,6 +58,9 @@ void CObjGameClear::Init()
 
 	//変換回数を初期値に戻す
 	((UserData*)Save::GetData())->conversion_num = 5;
+
+	//ステージクリアSE
+	((UserData*)Save::GetData())->clear = false;
 }
 //アクション
 void CObjGameClear::Action()
