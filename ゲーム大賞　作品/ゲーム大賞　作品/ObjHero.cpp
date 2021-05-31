@@ -320,11 +320,13 @@ void CObjHero::Action()
 	//説明画面表示
 	if (Input::GetVKey('W') == true)
 	{
+		Audio::Start(9);
 		operation_keyflag = true;
 		retry_keyflag = true;//説明画面表示時のみリトライ可能
 	}
 	else if (Input::GetVKey('E') == true&& operation_keyflag == true)
 	{
+		Audio::Start(10);
 		operation_keyflag = false;
 		retry_keyflag = false;
 	}

@@ -97,6 +97,8 @@ void CSceneMain2::InitScene()
 	Audio::LoadAudio(6, L"アイテム取得.wav", SOUND_TYPE::EFFECT);
 	Audio::LoadAudio(7, L"落下音.wav", SOUND_TYPE::EFFECT);
 	Audio::LoadAudio(8, L"クリアSE.wav", SOUND_TYPE::EFFECT);
+	Audio::LoadAudio(9, L"説明画面開.wav", SOUND_TYPE::EFFECT);
+	Audio::LoadAudio(10, L"説明画面止.wav", SOUND_TYPE::EFFECT);
 
 	//ボリュームを1.5増やす
 	float v = Audio::VolumeMaster(0.0);
