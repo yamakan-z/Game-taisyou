@@ -101,6 +101,10 @@ void CObjGameOver::Action()
 			{
 				Scene::SetScene(new CSceneMain3());
 			}
+			else if (((UserData*)Save::GetData())->stageT == true)
+			{
+				Scene::SetScene(new CSceneMainT());
+			}
 		}
 	}
 	else
