@@ -100,6 +100,8 @@ void CObjHero::Init()
 	 //障害物関係のフラグ初期化
 	 ((UserData*)Save::GetData())->break_bad_flag = false;
 
+	 ((UserData*)Save::GetData())->move_flag = true;
+
 	 //ステージ毎によって変換可能回数変更
 	 if (((UserData*)Save::GetData())->stage1 == true)
 	 {

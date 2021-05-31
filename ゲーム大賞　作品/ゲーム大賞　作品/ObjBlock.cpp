@@ -1175,7 +1175,7 @@ void CObjBlock::Action()
 				//ãˆÚ“®‚ð‹–‰Â‚·‚éƒuƒƒbƒN
 				if (hero -> GetBT() == 80)
 				{
-					if ((hx + (-m_scroll) + 64.0f > x) && (hx + (-m_scroll) < x + 64.0f))
+					if ((hx + (-m_scroll) + 64.0f > x) && (hx + (-m_scroll) < x + 64.0f) && (hy + 64.0f > y) && (hy < y + 64.0f))
 					{
 						((UserData*)Save::GetData())->up_flag = true;//‚Í‚µ‚²‚ª‚ ‚éŽž‚Ì‚ÝãˆÚ“®
 						((UserData*)Save::GetData())->ladder_flag = false;
