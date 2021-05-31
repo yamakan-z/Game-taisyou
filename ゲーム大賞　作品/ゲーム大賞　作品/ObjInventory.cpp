@@ -155,7 +155,7 @@ void CObjInventory::Draw()
 		Font::StrDraw(str, 10, 520, 20, d);
 	}*/
 
-	if (((UserData*)Save::GetData())->ladder_flag == true)
+	/*if (((UserData*)Save::GetData())->ladder_flag == true)
 	{
 		swprintf_s(str, L"ladder_flag");
 		Font::StrDraw(str, 10, 540, 20, d);
@@ -165,7 +165,7 @@ void CObjInventory::Draw()
 	{
 		swprintf_s(str, L"up_flag");
 		Font::StrDraw(str, 10, 560, 20, d);
-	}
+	}*/
 
 	/*swprintf_s(str, L"É^ÉCÉÄÅ@%02d:%02d", m_time, s_time);
 	Font::StrDraw(str, 10, 200, 20, c);*/
