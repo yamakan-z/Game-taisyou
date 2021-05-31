@@ -1237,8 +1237,7 @@ void CObjBlock2::Action()
 										((UserData*)Save::GetData())->item -= 1;
 										((UserData*)Save::GetData())->bad_ladder -= 1;
 
-										((UserData*)Save::GetData())->ins_bad_ladder_done = false;
-
+										
 										((UserData*)Save::GetData())->bad_ladder_put = true;//ãˆÚ“®‚Ì‹–‰Â
 
 
