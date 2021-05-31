@@ -162,6 +162,13 @@ void CObjHero::Action()
 		Scene::SetScene(new CSceneGameClear());
 	}
 
+	if (((UserData*)Save::GetData())->converted_board < 0 || ((UserData*)Save::GetData())->board_item < 0)
+	{
+		((UserData*)Save::GetData())->converted_board = 0;
+		((UserData*)Save::GetData())->board_item = 0;
+	}
+
+
 	//ƒL[‚Ì“ü—Í•ûŒü
 	if (Input::GetVKey(VK_RIGHT) == true&& ((UserData*)Save::GetData())->move_flag == true)
 	{
