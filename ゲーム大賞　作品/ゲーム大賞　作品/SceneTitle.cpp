@@ -36,6 +36,7 @@ void CSceneTitle::InitScene()
 
 	//音楽情報の読み込み
 	Audio::LoadAudio(0, L"GameTitle(仮).wav", SOUND_TYPE::BACK_MUSIC);
+	Audio::LoadAudio(1, L"決定音.wav", SOUND_TYPE::EFFECT);
 
 	//バックミュージックスタート
 	float v = Audio::VolumeMaster(0.0f);

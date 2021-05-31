@@ -6,6 +6,10 @@
 #include"GameHead.h"
 #include"ObjTitle.h"
 #include "GameL/UserData.h"
+#include "GameL\Audio.h"
+#include <thread>
+#include <chrono>
+
 
 //使用するネームスペース
 using namespace GameL;
@@ -29,6 +33,9 @@ void CObjTitle::Action()
 	{
 		if (m_key_flag == true)
 		{
+			//開始時ＳＥ
+			Audio::Start(1);
+			std::this_thread::sleep_for(std::chrono::seconds(2)); //開始時処理を2秒止める(開始SEを鳴らすため）
 			Scene::SetScene(new CSceneMain());
 			m_key_flag = false;
 		}
@@ -43,6 +50,9 @@ void CObjTitle::Action()
 	{
 		if (m_key_flag == true)
 		{
+			//開始時ＳＥ
+			Audio::Start(1);
+			std::this_thread::sleep_for(std::chrono::seconds(2)); //開始時処理を2秒止める(開始SEを鳴らすため）
 			Scene::SetScene(new CSceneMainT());
 			m_key_flag = false;
 		}
