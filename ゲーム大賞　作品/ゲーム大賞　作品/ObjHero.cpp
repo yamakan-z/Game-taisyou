@@ -100,6 +100,8 @@ void CObjHero::Init()
 	 //障害物関係のフラグ初期化
 	 ((UserData*)Save::GetData())->break_bad_flag = false;
 
+	 ((UserData*)Save::GetData())->move_flag = true;
+
 	 //ステージ毎によって変換可能回数変更
 	 if (((UserData*)Save::GetData())->stage1 == true)
 	 {
@@ -500,7 +502,7 @@ void CObjHero::Draw()
 
 	int AniData[4]
 	{
-		0,1,0,2,//描画順序
+		2,1,0,3,//描画順序
 	};
 
 	RECT_F src; //描画元切り取り位置
