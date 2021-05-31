@@ -8,6 +8,8 @@
 #include"ObjHero.h"
 #include "GameL/UserData.h"
 #include "GameL\HitBoxManager.h"
+#include <thread>
+#include <chrono>
 
 //使用するネームスペース
 using namespace GameL;
@@ -129,10 +131,9 @@ void CObjHero::Action()
 	//落下によるゲームオーバー
 	if (m_py > 1000.0f)
 	{
-		/*((UserData*)Save::GetData())->ladder_item = 0;
-		((UserData*)Save::GetData())->item = 0;
-		((UserData*)Save::GetData())->pick_item = 0;
-		((UserData*)Save::GetData())->board_item = 0;*/
+		//落下音
+		Audio::Start(7);
+		std::this_thread::sleep_for(std::chrono::seconds(2)); //開始時処理を2秒止める(落下SEを鳴らすため）
 		//場外に出たらリスタート
 		Scene::SetScene(new CSceneGameOver());
 	}

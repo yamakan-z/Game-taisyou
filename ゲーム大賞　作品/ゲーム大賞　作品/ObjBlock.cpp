@@ -9,6 +9,8 @@
 #include "GameL/UserData.h"
 #include "GameL\HitBoxManager.h"
 #include"GameL\Audio.h"
+#include <thread>
+#include <chrono>
 
 //使用するネームスペース
 using namespace GameL;
@@ -311,9 +313,15 @@ void CObjBlock::Action()
 
 							}
 
-
-							//ブロックに触れたらシーン移動
-							Scene::SetScene(new CSceneStageClear());
+							if (hero->GetBT() == 2)
+							{
+								//落下音
+								Audio::Start(7);
+								std::this_thread::sleep_for(std::chrono::seconds(2)); //開始時処理を2秒止める(落下SEを鳴らすため）
+								//ブロックに触れたらシーン移動
+								Scene::SetScene(new CSceneStageClear());
+							}
+							
 						}
 						if (r > 135 && r < 225)
 						{
@@ -1237,8 +1245,7 @@ void CObjBlock::Action()
 										((UserData*)Save::GetData())->item -= 1;
 										((UserData*)Save::GetData())->bad_ladder -= 1;
 
-										((UserData*)Save::GetData())->ins_bad_ladder_done = false;
-
+										
 										((UserData*)Save::GetData())->bad_ladder_put = true;//上移動の許可
 
 
