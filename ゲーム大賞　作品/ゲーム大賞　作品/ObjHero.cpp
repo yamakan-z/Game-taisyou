@@ -345,9 +345,18 @@ void CObjHero::Action()
 	{
 		Scene::SetScene(new CSceneMain3());
 	}
-	else if (Input::GetVKey(VK_SPACE) == true && retry_keyflag == true && ((UserData*)Save::GetData())->stageT)
+
+	if (Input::GetVKey(VK_SPACE) == true && retry_keyflag == true && ((UserData*)Save::GetData())->stageT)
 	{
-		Scene::SetScene(new CSceneTitle());
+		if (((UserData*)Save::GetData())->key_flagT == true)
+		{
+			Scene::SetScene(new CSceneTitle());
+			((UserData*)Save::GetData())->key_flagT = false;
+		}
+	}
+	else
+	{
+		((UserData*)Save::GetData())->key_flagT = true;
 	}
 
 

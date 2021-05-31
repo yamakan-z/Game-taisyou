@@ -48,18 +48,18 @@ void CObjTitle::Action()
 	//スペースキーを押してシーン：チュートリアルステージに移行する
 	if (Input::GetVKey(VK_SPACE) == true)
 	{
-		if (m_key_flag == true)
+		if (((UserData*)Save::GetData())->key_flagT == true)
 		{
 			//開始時ＳＥ
 			Audio::Start(1);
 			std::this_thread::sleep_for(std::chrono::seconds(2)); //開始時処理を2秒止める(開始SEを鳴らすため）
 			Scene::SetScene(new CSceneMainT());
-			m_key_flag = false;
+			((UserData*)Save::GetData())->key_flagT = false;
 		}
 	}
 	else
 	{
-		m_key_flag = true;
+		((UserData*)Save::GetData())->key_flagT = true;
 	}
 
 }
