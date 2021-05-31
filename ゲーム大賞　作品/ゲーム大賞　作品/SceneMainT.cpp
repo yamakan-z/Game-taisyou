@@ -44,7 +44,7 @@ void CSceneMainT::InitScene()
 	Draw::LoadImageW(L"‹ó”’—“.png", 16, TEX_SIZE_1024);
 	Draw::LoadImageW(L"—ò‰»‚Í‚µ‚².png", 17, TEX_SIZE_512);
 	Draw::LoadImageW(L"áŠQ•¨.png", 18, TEX_SIZE_512);
-	Draw::LoadImageW(L"à–¾‰æ–Êi‰¼j.png", 19, TEX_SIZE_512);
+	Draw::LoadImageW(L"à–¾‰æ–ÊT.png", 19, TEX_SIZE_512);
 	Draw::LoadImageW(L"‹ó”’—“(—Î).png", 20, TEX_SIZE_1024);
 	Draw::LoadImageW(L"‹ó”’—“(‰©).png", 21, TEX_SIZE_1024);
 	Draw::LoadImageW(L"‹ó”’—“(Ô).png", 22, TEX_SIZE_1024);

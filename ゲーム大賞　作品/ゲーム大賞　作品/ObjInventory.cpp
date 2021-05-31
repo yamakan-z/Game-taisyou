@@ -144,7 +144,7 @@ void CObjInventory::Draw()
 	//swprintf_s(str, L"変換板%.0f", ((UserData*)Save::GetData())->converted_board);
 	//Font::StrDraw(str, 10, 240, 20, c);
 
-	if (((UserData*)Save::GetData())->ins_place == true)
+	/*if (((UserData*)Save::GetData())->ins_place == true)
 	{
 		swprintf_s(str, L"ins_place");
 		Font::StrDraw(str, 10, 490, 20, d);
@@ -168,7 +168,7 @@ void CObjInventory::Draw()
 	}
 
 	swprintf_s(str, L"タイム　%02d:%02d", m_time, s_time);
-	Font::StrDraw(str, 10, 200, 20, c);
+	Font::StrDraw(str, 10, 200, 20, c);*/
 
 
 	//操作説明アイコン表示
